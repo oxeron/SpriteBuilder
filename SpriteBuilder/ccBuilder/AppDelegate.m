@@ -625,12 +625,14 @@ typedef enum
 	
 
     // Open registration window
+    /*
     BOOL alreadyRegistered = (BOOL)([[NSUserDefaults standardUserDefaults] objectForKey:kSbRegisteredEmail]);
 
     if(!alreadyRegistered && ![self openRegistration])
 	{
 		[[NSApplication sharedApplication] terminate:self];
 	}
+    */
 
     if (delayOpenFiles)
     {
