@@ -48,11 +48,6 @@
 	NSString* substitutableProjectName = @"PROJECTNAME";
     NSString* substitutableProjectIdentifier = @"PROJECTIDENTIFIER";
     NSString* parentPath = [fileName stringByDeletingLastPathComponent];
-    
-	if (engine == CCBTargetEngineSpriteKit)
-	{
-		substitutableProjectName = [NSString stringWithFormat:@"SPRITEKIT%@", substitutableProjectName];
-	}
 	
     NSString* zipFile = [[NSBundle mainBundle] pathForResource:substitutableProjectName ofType:@"zip" inDirectory:@"Generated"];
     

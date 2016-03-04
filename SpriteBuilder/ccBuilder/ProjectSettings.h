@@ -42,8 +42,7 @@ typedef enum
 
 typedef NS_ENUM(int8_t, CCBTargetEngine)
 {
-	CCBTargetEngineCocos2d = 0,
-	CCBTargetEngineSpriteKit = 1,
+	CCBTargetEngineCocos2d = 0
 };
 
 typedef NS_ENUM(int8_t, CCBProgrammingLanguage)

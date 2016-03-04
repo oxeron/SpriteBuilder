@@ -128,10 +128,7 @@
 
     [dict setObject:joints forKey:@"joints"];
 
-    if (_projectSettings.engine != CCBTargetEngineSpriteKit)
-    {
-        [dict setObject:[_sceneGraph.joints serialize] forKey:@"SequencerJoints"];
-    }
+    [dict setObject:[_sceneGraph.joints serialize] forKey:@"SequencerJoints"];
 }
 
 - (void)setExportPathAndPluginInDict:(NSMutableDictionary *)dict

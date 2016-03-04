@@ -161,9 +161,4 @@
     [_warnings addWarningWithDescription:description isFatal:fatal relatedFile:relatedFile resolution:resolution];
 }
 
-- (BOOL)exportingToSpriteKit
-{
-    return (_projectSettings.engine == CCBTargetEngineSpriteKit);
-}
-
 @end

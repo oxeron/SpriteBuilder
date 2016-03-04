@@ -604,8 +604,6 @@
 		D2E0168B18D789E800927430 /* SpriteBuilder.sdef in Resources */ = {isa = PBXBuildFile; fileRef = D2E0168618D783F800927430 /* SpriteBuilder.sdef */; };
 		D2F06F9F1A3EA6F4000283CB /* effect-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = D2F06F9E1A3EA6F4000283CB /* effect-outline.png */; };
 		D35E589E18E391DA008571EC /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35E589D18E391DA008571EC /* GLKit.framework */; };
-		DC2AF0AB18C8C38A00508967 /* SpriteKitTextureAtlasToolPath.txt in Resources */ = {isa = PBXBuildFile; fileRef = DC0A8D3E18C8C274009A619D /* SpriteKitTextureAtlasToolPath.txt */; };
-		DC68033C189169510060BE39 /* CCNode+SKNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC68031A18914E650060BE39 /* CCNode+SKNode.m */; };
 		E312972E16CC33B200A09155 /* SequencerPopoverBlock.xib in Resources */ = {isa = PBXBuildFile; fileRef = E312972D16CC33B200A09155 /* SequencerPopoverBlock.xib */; };
 		E312973316CC377700A09155 /* SequencerPopoverBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = E312973216CC377700A09155 /* SequencerPopoverBlock.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		E312973516CC677400A09155 /* SequencerPopoverSound.xib in Resources */ = {isa = PBXBuildFile; fileRef = E312973416CC677400A09155 /* SequencerPopoverSound.xib */; };
@@ -929,7 +927,6 @@
 		E525F5E78A703F1381486AA8 /* InspectorColor4.xib in Resources */ = {isa = PBXBuildFile; fileRef = E525FF599E666FBB986616AF /* InspectorColor4.xib */; };
 		E525F5F8C06CCB481FC77BEC /* MoveFileCommand_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E525FDF4D554770EFA28EE37 /* MoveFileCommand_Tests.m */; };
 		E525F622A96F0C31CACF1883 /* InspectoreController_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E525FC53AA00AC664A9E5D75 /* InspectoreController_Tests.m */; };
-		E525F62CDA640CE17C2C9B00 /* PublishSpriteKitSpriteSheetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E525F56FE00E54E100F524F1 /* PublishSpriteKitSpriteSheetOperation.m */; };
 		E525F634C2EE9B50F56B0E27 /* InspectorSeparatorSub.m in Sources */ = {isa = PBXBuildFile; fileRef = E525FF364C63BB5CD36B6E1D /* InspectorSeparatorSub.m */; };
 		E525F651194EC2A13EA30026 /* ResourceManager_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E525FCBBB1841F3115718AD0 /* ResourceManager_Tests.m */; };
 		E525F686F932F4F6640E9F29 /* InspectorTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = E525F293C77C212C2DB614E1 /* InspectorTexture.m */; };
@@ -2114,43 +2111,6 @@
 		D2E0168618D783F800927430 /* SpriteBuilder.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SpriteBuilder.sdef; sourceTree = SOURCE_ROOT; };
 		D2F06F9E1A3EA6F4000283CB /* effect-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "effect-outline.png"; path = "Resources/effect-outline.png"; sourceTree = "<group>"; };
 		D35E589D18E391DA008571EC /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		DC05E76818D0A9BD00592A1E /* CCBPluginSBButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSBButtonNode.h; sourceTree = "<group>"; };
-		DC05E76918D0A9BD00592A1E /* CCBPluginSBButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSBButtonNode.m; sourceTree = "<group>"; };
-		DC05E76A18D0A9BD00592A1E /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DC05E76B18D0A9BD00592A1E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DC05E76C18D0A9BD00592A1E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DC05E76E18D0A9BD00592A1E /* CCBPluginSBControlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSBControlNode.h; sourceTree = "<group>"; };
-		DC05E76F18D0A9BD00592A1E /* CCBPluginSBControlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSBControlNode.m; sourceTree = "<group>"; };
-		DC05E77018D0A9BD00592A1E /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DC0A8D3E18C8C274009A619D /* SpriteKitTextureAtlasToolPath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpriteKitTextureAtlasToolPath.txt; sourceTree = "<group>"; };
-		DC6802F3189145830060BE39 /* CCBPluginSKSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSKSpriteNode.h; sourceTree = "<group>"; };
-		DC6802F4189145830060BE39 /* CCBPluginSKSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSKSpriteNode.m; sourceTree = "<group>"; };
-		DC6802F5189145840060BE39 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DC6802F6189145840060BE39 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DC6802F7189145840060BE39 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DC68030A189146900060BE39 /* CCBPluginSKLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSKLabelNode.h; sourceTree = "<group>"; };
-		DC68030B189146900060BE39 /* CCBPluginSKLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSKLabelNode.m; sourceTree = "<group>"; };
-		DC68030C189146900060BE39 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DC68030D189146900060BE39 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DC68030E189146900060BE39 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DC68031918914E650060BE39 /* CCNode+SKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SKNode.h"; sourceTree = "<group>"; };
-		DC68031A18914E650060BE39 /* CCNode+SKNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SKNode.m"; sourceTree = "<group>"; };
-		DC68032E189156A60060BE39 /* CCBPluginSKColorSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSKColorSpriteNode.h; sourceTree = "<group>"; };
-		DC68032F189156A60060BE39 /* CCBPluginSKColorSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSKColorSpriteNode.m; sourceTree = "<group>"; };
-		DC680330189156A60060BE39 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DC680331189156A60060BE39 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DC680332189156A60060BE39 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DC68033A189168390060BE39 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		DCB9F15B1890607D00128D78 /* CCBPluginSKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSKNode.h; sourceTree = "<group>"; };
-		DCB9F15C1890607D00128D78 /* CCBPluginSKNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSKNode.m; sourceTree = "<group>"; };
-		DCB9F15D1890607D00128D78 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DCB9F1601890607D00128D78 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DCB9F1611890607D00128D78 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DCFB064518E32BBD00DF02A0 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
-		DCFB064618E32BBD00DF02A0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DCFB064718E32BBD00DF02A0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		DCFB064C18E32BFA00DF02A0 /* CCBPluginSKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPluginSKFile.h; sourceTree = "<group>"; };
-		DCFB064D18E32BFA00DF02A0 /* CCBPluginSKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPluginSKFile.m; sourceTree = "<group>"; };
 		E312972D16CC33B200A09155 /* SequencerPopoverBlock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SequencerPopoverBlock.xib; sourceTree = "<group>"; };
 		E312973116CC377700A09155 /* SequencerPopoverBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerPopoverBlock.h; sourceTree = "<group>"; };
 		E312973216CC377700A09155 /* SequencerPopoverBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerPopoverBlock.m; sourceTree = "<group>"; };
@@ -2620,7 +2580,6 @@
 		E525F548A11D0FDEAE37BAB5 /* InspectorBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorBlock.h; sourceTree = "<group>"; };
 		E525F555049710FF6F9C655F /* InspectorSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorSeparator.h; sourceTree = "<group>"; };
 		E525F563B38B9F934F699449 /* InspectorSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectorSeparator.m; sourceTree = "<group>"; };
-		E525F56FE00E54E100F524F1 /* PublishSpriteKitSpriteSheetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSpriteKitSpriteSheetOperation.m; sourceTree = "<group>"; };
 		E525F573A9DD324DCD2EC052 /* InspectorCustom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InspectorCustom.xib; sourceTree = "<group>"; };
 		E525F5758C653D9E894C6B68 /* InspectorCustomEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorCustomEdit.h; sourceTree = "<group>"; };
 		E525F58973387D7457A5387B /* InspectorValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectorValue.m; sourceTree = "<group>"; };
@@ -2704,7 +2663,6 @@
 		E525F935F75CEEC73F182FBD /* ImageFormatAndPropertiesHelper_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFormatAndPropertiesHelper_Tests.m; sourceTree = "<group>"; };
 		E525F93EB53CC670427E7CE7 /* InspectorInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorInteger.h; sourceTree = "<group>"; };
 		E525F9495AD93524CF0F48F9 /* PublishImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishImageOperation.h; sourceTree = "<group>"; };
-		E525F954D224CDAB615AC157 /* PublishSpriteKitSpriteSheetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSpriteKitSpriteSheetOperation.h; sourceTree = "<group>"; };
 		E525F95A18A7B31162213635 /* InspectorSeparatorSub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorSeparatorSub.h; sourceTree = "<group>"; };
 		E525F961ECB9CD7C5453D1A7 /* InspectorString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorString.h; sourceTree = "<group>"; };
 		E525F974DB16879323D48656 /* SBPasteboardTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPasteboardTypes.h; sourceTree = "<group>"; };
@@ -3714,7 +3672,6 @@
 				830F4EB019347032002B832D /* OCMock.framework */,
 				D35E589D18E391DA008571EC /* GLKit.framework */,
 				D2E0168418D783C900927430 /* AppleScriptKit.framework */,
-				DC68033A189168390060BE39 /* SpriteKit.framework */,
 				B72D1DEA186393AE0091252F /* HockeySDK.framework */,
 				B7E1EFDC185F8D3D00C9E6E0 /* WebKit.framework */,
 				80985259182C40170054BBF3 /* CoreMedia.framework */,
@@ -3833,7 +3790,6 @@
 		7789ACEB133AB6A700CEFCC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DC0A8D3E18C8C274009A619D /* SpriteKitTextureAtlasToolPath.txt */,
 				B7AC69DB17A9D9700041B8BD /* defaultTemplates.zip */,
 				E390C780170A371E003E9E92 /* Generated */,
 				E3AF6CE015F0CFAE0048DB2A /* Documentation */,
@@ -4004,8 +3960,6 @@
 				E525F9495AD93524CF0F48F9 /* PublishImageOperation.h */,
 				E525F9BF09923348CFBEFC6C /* PublishGeneratedFilesOperation.m */,
 				E525F85AE82110FF3A50E129 /* PublishGeneratedFilesOperation.h */,
-				E525F56FE00E54E100F524F1 /* PublishSpriteKitSpriteSheetOperation.m */,
-				E525F954D224CDAB615AC157 /* PublishSpriteKitSpriteSheetOperation.h */,
 				E525F1E97AEC538F15CC489E /* ZipDirectoryOperation.m */,
 				E525F8B87EB6ADFF08BE032A /* ZipDirectoryOperation.h */,
 			);
@@ -4886,112 +4840,6 @@
 			name = SpriteBuilderCommands;
 			sourceTree = "<group>";
 		};
-		DC05E76718D0A9BD00592A1E /* SBButtonNode */ = {
-			isa = PBXGroup;
-			children = (
-				DC05E76818D0A9BD00592A1E /* CCBPluginSBButtonNode.h */,
-				DC05E76918D0A9BD00592A1E /* CCBPluginSBButtonNode.m */,
-				DC05E76A18D0A9BD00592A1E /* CCBPProperties.plist */,
-				DC05E76B18D0A9BD00592A1E /* Icon.png */,
-				DC05E76C18D0A9BD00592A1E /* Icon@2x.png */,
-			);
-			path = SBButtonNode;
-			sourceTree = "<group>";
-		};
-		DC05E76D18D0A9BD00592A1E /* SBControlNode */ = {
-			isa = PBXGroup;
-			children = (
-				DC05E76E18D0A9BD00592A1E /* CCBPluginSBControlNode.h */,
-				DC05E76F18D0A9BD00592A1E /* CCBPluginSBControlNode.m */,
-				DC05E77018D0A9BD00592A1E /* CCBPProperties.plist */,
-			);
-			path = SBControlNode;
-			sourceTree = "<group>";
-		};
-		DC6802F2189145830060BE39 /* SKSpriteNode */ = {
-			isa = PBXGroup;
-			children = (
-				DC6802F3189145830060BE39 /* CCBPluginSKSpriteNode.h */,
-				DC6802F4189145830060BE39 /* CCBPluginSKSpriteNode.m */,
-				DC6802F5189145840060BE39 /* CCBPProperties.plist */,
-				DC6802F6189145840060BE39 /* Icon.png */,
-				DC6802F7189145840060BE39 /* Icon@2x.png */,
-			);
-			path = SKSpriteNode;
-			sourceTree = "<group>";
-		};
-		DC680309189146900060BE39 /* SKLabelNode */ = {
-			isa = PBXGroup;
-			children = (
-				DC68030A189146900060BE39 /* CCBPluginSKLabelNode.h */,
-				DC68030B189146900060BE39 /* CCBPluginSKLabelNode.m */,
-				DC68030C189146900060BE39 /* CCBPProperties.plist */,
-				DC68030D189146900060BE39 /* Icon.png */,
-				DC68030E189146900060BE39 /* Icon@2x.png */,
-			);
-			path = SKLabelNode;
-			sourceTree = "<group>";
-		};
-		DC68032D189156A60060BE39 /* SKSpriteNodeWithColor */ = {
-			isa = PBXGroup;
-			children = (
-				DC68032E189156A60060BE39 /* CCBPluginSKColorSpriteNode.h */,
-				DC68032F189156A60060BE39 /* CCBPluginSKColorSpriteNode.m */,
-				DC680330189156A60060BE39 /* CCBPProperties.plist */,
-				DC680331189156A60060BE39 /* Icon.png */,
-				DC680332189156A60060BE39 /* Icon@2x.png */,
-			);
-			path = SKSpriteNodeWithColor;
-			sourceTree = "<group>";
-		};
-		DCB9F1411890500E00128D78 /* SpriteKitNodes */ = {
-			isa = PBXGroup;
-			children = (
-				DCFB064218E32BBD00DF02A0 /* SKFile */,
-				DCB9F15A1890607D00128D78 /* SKNode */,
-				DC680309189146900060BE39 /* SKLabelNode */,
-				DC6802F2189145830060BE39 /* SKSpriteNode */,
-				DC68032D189156A60060BE39 /* SKSpriteNodeWithColor */,
-				DC05E76D18D0A9BD00592A1E /* SBControlNode */,
-				DC05E76718D0A9BD00592A1E /* SBButtonNode */,
-				DCB9F14B1890506E00128D78 /* compatibility categories */,
-			);
-			path = SpriteKitNodes;
-			sourceTree = "<group>";
-		};
-		DCB9F14B1890506E00128D78 /* compatibility categories */ = {
-			isa = PBXGroup;
-			children = (
-				DC68031918914E650060BE39 /* CCNode+SKNode.h */,
-				DC68031A18914E650060BE39 /* CCNode+SKNode.m */,
-			);
-			name = "compatibility categories";
-			sourceTree = "<group>";
-		};
-		DCB9F15A1890607D00128D78 /* SKNode */ = {
-			isa = PBXGroup;
-			children = (
-				DCB9F15B1890607D00128D78 /* CCBPluginSKNode.h */,
-				DCB9F15C1890607D00128D78 /* CCBPluginSKNode.m */,
-				DCB9F15D1890607D00128D78 /* CCBPProperties.plist */,
-				DCB9F1601890607D00128D78 /* Icon.png */,
-				DCB9F1611890607D00128D78 /* Icon@2x.png */,
-			);
-			path = SKNode;
-			sourceTree = "<group>";
-		};
-		DCFB064218E32BBD00DF02A0 /* SKFile */ = {
-			isa = PBXGroup;
-			children = (
-				DCFB064C18E32BFA00DF02A0 /* CCBPluginSKFile.h */,
-				DCFB064D18E32BFA00DF02A0 /* CCBPluginSKFile.m */,
-				DCFB064518E32BBD00DF02A0 /* CCBPProperties.plist */,
-				DCFB064618E32BBD00DF02A0 /* Icon.png */,
-				DCFB064718E32BBD00DF02A0 /* Icon@2x.png */,
-			);
-			path = SKFile;
-			sourceTree = "<group>";
-		};
 		E3214C3F15D3B9D0002413A7 /* Custom Properties */ = {
 			isa = PBXGroup;
 			children = (
@@ -5461,7 +5309,6 @@
 		E3B7AED114E31A7800DFD402 /* PlugIns (Nodes) */ = {
 			isa = PBXGroup;
 			children = (
-				DCB9F1411890500E00128D78 /* SpriteKitNodes */,
 				E35392461518AD0A00471721 /* Core */,
 				E35392481518AD4100471721 /* UI */,
 				B79F90E717FF335000908504 /* Physics */,
@@ -6677,7 +6524,6 @@
 				9218DF351919B04D0033851E /* joint-pivot-handle-max.png in Resources */,
 				B7DE84931937B18B0039FB72 /* signup-bg.png in Resources */,
 				9218DF291919B04D0033851E /* joint-pivot-handle-min.png in Resources */,
-				DC2AF0AB18C8C38A00508967 /* SpriteKitTextureAtlasToolPath.txt in Resources */,
 				83F3C9D71A422CA4003D8659 /* seq-btn-stop@2x.png in Resources */,
 				83F3CA231A422CD6003D8659 /* ruler-numbers.fnt in Resources */,
 				A09AB6F714E993AA009C8B91 /* fps_images.png in Resources */,
@@ -7340,7 +7186,6 @@
 				772BE594134BC2BF0009B5B9 /* CCBReaderInternalV1.m in Sources */,
 				771B2B321353818200B260BA /* NewDocWindowController.m in Sources */,
 				77156DB1137F0351005EF746 /* CCBSpriteSheetParser.m in Sources */,
-				DC68033C189169510060BE39 /* CCNode+SKNode.m in Sources */,
 				77E1992013858D78006C361B /* NSBezierPath_AMShading.m in Sources */,
 				77E1992113858D78006C361B /* NSString_AITruncation.m in Sources */,
 				77E1992213858D78006C361B /* PSMMetalTabStyle.m in Sources */,
@@ -7542,7 +7387,6 @@
 				E525FA5D4791EB730859BF2C /* ProjectSettings+Convenience.m in Sources */,
 				E525F2137095DF73409AC768 /* PublishGeneratedFilesOperation.m in Sources */,
 				E525FBB73A012AC88E99B21B /* PublishRenamedFilesLookup.m in Sources */,
-				E525F62CDA640CE17C2C9B00 /* PublishSpriteKitSpriteSheetOperation.m in Sources */,
 				5BBEC3601A011D8D00FBA08B /* InspectorTextView.m in Sources */,
 				E525FA398CC2E279B3D65D16 /* PublishingTaskStatusProgress.m in Sources */,
 				E525FCCB0F98F23FF4F4A83B /* MiscConstants.m in Sources */,

@@ -88,12 +88,6 @@
     self.srcFilePath = [srcDir stringByAppendingPathComponent:srcFileName];
     self.dstFilePath = [dstDir stringByAppendingPathComponent:dstFileName];
 
-    // Sprite Kit requires specific extensions for specific image resolutions (ie @2x, ~ipad, ..)
-    if (_projectSettings.engine == CCBTargetEngineSpriteKit)
-    {
-        self.dstFilePath = [self pathWithCocoaImageResolutionSuffix:_dstFilePath resolution:_resolution];
-    }
-
     // Create destination directory if it doesn't exist
     [fileManager createDirectoryAtPath:dstDir withIntermediateDirectories:YES attributes:NULL error:NULL];
 

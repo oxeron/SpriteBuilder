@@ -11,6 +11,4 @@
 @required
 - (void) addWarningWithDescription:(NSString*)description isFatal:(BOOL)fatal relatedFile:(NSString*) relatedFile resolution:(NSString*) resolution;
 
--(BOOL) exportingToSpriteKit;
-
 @end
