@@ -543,15 +543,7 @@ typedef enum
     // Fixed
     defaultCanvasSizes[kCCBCanvasSizeFixedLandscape] = CGSizeMake(568, 384);
     defaultCanvasSizes[kCCBCanvasSizeFixedPortrait] = CGSizeMake(384, 568);
-    
-    // Android
-    defaultCanvasSizes[kCCBCanvasSizeAndroidXSmallLandscape] = CGSizeMake(320, 240);
-    defaultCanvasSizes[kCCBCanvasSizeAndroidXSmallPortrait] = CGSizeMake(240, 320);
-    defaultCanvasSizes[kCCBCanvasSizeAndroidSmallLandscape] = CGSizeMake(480, 340);
-    defaultCanvasSizes[kCCBCanvasSizeAndroidSmallPortrait] = CGSizeMake(340, 480);
-    defaultCanvasSizes[kCCBCanvasSizeAndroidMediumLandscape] = CGSizeMake(800, 480);
-    defaultCanvasSizes[kCCBCanvasSizeAndroidMediumPortrait] = CGSizeMake(480, 800);
-    
+        
     [window setDelegate:self];
 
     [self setupTabBar];
@@ -2778,8 +2770,7 @@ typedef enum
 
 - (void)checkForDirtyDocumentAndPublishAsync:(BOOL)async
 {
-    if (!projectSettings.publishEnabledAndroid
-        && !projectSettings.publishEnabledIOS)
+    if (!projectSettings.publishEnabledIOS)
     {
         if(async)
             [self modalDialogTitle:@"Published Failed" message:@"There are no configured publish target platforms. Please check your Publish Settings."];

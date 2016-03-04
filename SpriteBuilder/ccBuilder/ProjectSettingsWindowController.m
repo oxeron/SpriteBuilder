@@ -170,15 +170,6 @@ typedef void (^DirectorySetterBlock)(NSString *directoryPath);
     }];
 }
 
-- (IBAction)selectPublishDirectoryAndroid:(id)sender
-{
-    [self selectPublishCurrentPath:_projectSettings.publishDirectoryAndroid
-                    dirSetterBlock:^(NSString *directoryPath)
-    {
-        _projectSettings.publishDirectoryAndroid = directoryPath;
-    }];
-}
-
 - (IBAction)selectPackagePublishingCustomDirectory:(id)sender;
 {
     SettingsListEntry *listEntry = _settingsList[(NSUInteger) _tableView.selectedRow];

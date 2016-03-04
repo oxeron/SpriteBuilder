@@ -37,7 +37,6 @@
     {
         case kCCBPublisherOSTypeHTML5: return @"HTML5";
         case kCCBPublisherOSTypeIOS: return @"iOS";
-        case kCCBPublisherOSTypeAndroid: return @"Android";
         case kCCBPublisherOSTypeNone: return @"General";
         default: return @"undefined";
     }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreviewAudioViewController">
@@ -88,71 +87,6 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="WSV-t9-T4o"/>
                 </imageView>
-                <customView id="me8-aj-G9u" userLabel="Android Settings Container">
-                    <rect key="frame" x="0.0" y="0.0" width="250" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                    <subviews>
-                        <textField verticalHuggingPriority="750" id="djy-gD-GfS" customClass="CCBTextFieldLabel">
-                            <rect key="frame" x="2" y="4" width="39" height="11"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Android" id="3tg-BG-gxO">
-                                <font key="font" metaFont="miniSystem"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <textField verticalHuggingPriority="750" id="LfX-FU-kGB" customClass="CCBTextFieldLabel">
-                            <rect key="frame" x="120" y="4" width="38" height="11"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quality" id="XTu-GK-MOd">
-                                <font key="font" metaFont="miniSystem"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <popUpButton verticalHuggingPriority="750" id="Mih-Kr-ryd">
-                            <rect key="frame" x="159" y="2" width="88" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="e7q-6O-Pav">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="miniSystem"/>
-                                <menu key="menu" title="OtherViews" id="vzN-xQ-U3S">
-                                    <items>
-                                        <menuItem title="Default" id="eje-xH-2G3"/>
-                                        <menuItem title="8 - Best" tag="8" id="hOh-lC-ICg"/>
-                                        <menuItem title="7" tag="7" id="saY-Mi-P0a"/>
-                                        <menuItem title="6" tag="6" id="JB7-XX-4kr"/>
-                                        <menuItem title="5" tag="5" id="lRT-4N-PDE"/>
-                                        <menuItem title="4" tag="4" id="xs1-kn-EVm"/>
-                                        <menuItem title="3" tag="3" id="taA-f2-tT5"/>
-                                        <menuItem title="2" tag="2" id="hoY-nI-l2o"/>
-                                        <menuItem title="1 - Smallest" tag="1" id="oDK-f3-QZx"/>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                            <connections>
-                                <binding destination="-2" name="selectedTag" keyPath="format_android_sound_quality" id="t2g-kD-4ud"/>
-                                <binding destination="-2" name="enabled" keyPath="format_android_sound_quality_enabled" id="5l6-Xw-eyk"/>
-                            </connections>
-                        </popUpButton>
-                        <popUpButton verticalHuggingPriority="750" id="KK6-Jm-AAq">
-                            <rect key="frame" x="41" y="2" width="73" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="eVj-NO-u4u">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="miniSystem"/>
-                                <menu key="menu" title="OtherViews" id="R86-nh-XEB">
-                                    <items>
-                                        <menuItem title="OGG" id="Dxt-L0-we4"/>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                            <connections>
-                                <binding destination="-2" name="selectedTag" keyPath="format_android_sound" id="dzH-O4-s7M"/>
-                            </connections>
-                        </popUpButton>
-                    </subviews>
-                </customView>
                 <customView id="f5s-HI-Z5F">
                     <rect key="frame" x="5" y="44" width="240" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

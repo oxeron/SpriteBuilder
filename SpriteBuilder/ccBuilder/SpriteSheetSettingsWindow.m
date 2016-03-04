@@ -34,11 +34,8 @@
 @synthesize textureFileFormat;
 @synthesize compress;
 @synthesize dither;
-@synthesize textureFileFormatAndroid;
-@synthesize ditherAndroid;
 @synthesize textureFileFormatHTML5;
 @synthesize iOSEnabled;
-@synthesize androidEnabled;
 @synthesize HTML5Enabled;
 @synthesize ditherHTML5;
 
@@ -54,7 +51,6 @@
 {
     [super windowDidLoad];
     [self updateIOSSettings:nil];
-    [self updateAndroidSettings:nil];
     [self updateHTML5Settings:nil];
 }
 
@@ -68,14 +64,6 @@
     [iosDither setEnabled:ditherEnabled];
     if(!ditherEnabled){
         [iosDither setState:NSOffState];
-    }
-}
-
-- (IBAction)updateAndroidSettings:(NSPopUpButton *)sender {
-    BOOL ditherEnabled = [self isDitherable:textureFileFormatAndroid] && androidEnabled;
-    [androidDither setEnabled:ditherEnabled];
-    if(!ditherEnabled){
-        [androidDither setState:NSOffState];
     }
 }
 

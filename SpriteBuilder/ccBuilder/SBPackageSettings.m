@@ -45,7 +45,6 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
         self.publishSettingsForOsType = [NSMutableDictionary dictionary];
 
         _publishSettingsForOsType[[self osTypeToString:kCCBPublisherOSTypeIOS]] = [[PublishOSSettings alloc] init];
-        _publishSettingsForOsType[[self osTypeToString:kCCBPublisherOSTypeAndroid]] = [[PublishOSSettings alloc] init];
     }
 
     return self;
@@ -57,9 +56,6 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
     {
         case kCCBPublisherOSTypeIOS :
             return @"ios";
-
-        case kCCBPublisherOSTypeAndroid :
-            return @"android";
 
         default :
             return nil;

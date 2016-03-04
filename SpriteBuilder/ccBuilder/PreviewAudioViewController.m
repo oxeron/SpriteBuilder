@@ -53,10 +53,6 @@
         weakSelf.format_ios_sound = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_IOS_SOUND] intValue];
         weakSelf.format_ios_sound_quality = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_IOS_SOUND_QUALITY] intValue];
         weakSelf.format_ios_sound_quality_enabled = weakSelf.format_ios_sound != 0;
-
-        weakSelf.format_android_sound = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_ANDROID_SOUND] intValue];
-        weakSelf.format_android_sound_quality = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_ANDROID_SOUND_QUALITY] intValue];
-        weakSelf.format_android_sound_quality_enabled = YES;
     }];
 }
 
@@ -76,24 +72,10 @@
     self.format_ios_sound_quality_enabled = format_ios_sound != 0;
 }
 
-- (void)setFormat_android_sound:(int)format_android_sound
-{
-    _format_android_sound = format_android_sound;
-    [self setValue:@(format_android_sound) withName:RESOURCE_PROPERTY_ANDROID_SOUND isAudio:YES];
-
-    self.format_android_sound_quality_enabled = YES;
-}
-
 - (void)setFormat_ios_sound_quality:(int)format_ios_sound_quality
 {
     _format_ios_sound_quality = format_ios_sound_quality;
     [self setValue:@(format_ios_sound_quality) withName:RESOURCE_PROPERTY_IOS_SOUND_QUALITY isAudio:YES];
-}
-
-- (void)setFormat_android_sound_quality:(int)format_android_sound_quality
-{
-    _format_android_sound_quality = format_android_sound_quality;
-    [self setValue:@(format_android_sound_quality) withName:RESOURCE_PROPERTY_ANDROID_SOUND_QUALITY isAudio:YES];
 }
 
 @end

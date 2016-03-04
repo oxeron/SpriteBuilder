@@ -27,7 +27,6 @@ typedef enum
 {
     SBOpenPathTypeProject = 0,
     SBOpenPathTypePublishIOS,
-    SBOpenPathTypePublishAndroid,
     SBOpenPathTypePublishPackage
 } SBOpenPathType;
 
@@ -75,7 +74,6 @@ typedef enum
 
     [self addMenuItemsToOpenPathsMenuWithTitle:@"Project Folder" representedObject:@{KEY_TYPE : @(SBOpenPathTypeProject)}];
     [self addMenuItemsToOpenPathsMenuWithTitle:@"iOS Publish Folder" representedObject:@{KEY_TYPE : @(SBOpenPathTypePublishIOS)}];
-    [self addMenuItemsToOpenPathsMenuWithTitle:@"Android Publish Folder" representedObject:@{KEY_TYPE : @(SBOpenPathTypePublishAndroid)}];
     [self addSeparator];
     [self updateMenuItemsForPackages];
 
@@ -225,9 +223,6 @@ typedef enum
 
         case SBOpenPathTypePublishIOS:
             return [_projectSettings.projectPathDir stringByAppendingPathComponent:_projectSettings.publishDirectory];
-
-        case SBOpenPathTypePublishAndroid:
-            return [_projectSettings.projectPathDir stringByAppendingPathComponent:_projectSettings.publishDirectoryAndroid];
 
         case SBOpenPathTypePublishPackage:
         {

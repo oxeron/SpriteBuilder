@@ -45,23 +45,6 @@
     [predefinedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
     
-    // Android
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXSmall]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXSmallLandscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXSmallPortrait]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidSmall]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidSmallLandscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidSmallPortrait]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidMedium]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidMediumLandscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidMediumPortrait]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidLarge]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidLargeLandscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidLargePortrait]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXLarge]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXLargeLandscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingAndroidXLargePortrait]];
-    
     // HTML 5
     [predefinedResolutions addObject:[ResolutionSetting settingHTML5]];
     [predefinedResolutions addObject:[ResolutionSetting settingHTML5Landscape]];

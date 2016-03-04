@@ -59,23 +59,6 @@
 + (ResolutionSetting*) settingIPadLandscape;
 + (ResolutionSetting*) settingIPadPortrait;
 
-// Android resolutions
-+ (ResolutionSetting*) settingAndroidXSmall;
-+ (ResolutionSetting*) settingAndroidXSmallLandscape;
-+ (ResolutionSetting*) settingAndroidXSmallPortrait;
-+ (ResolutionSetting*) settingAndroidSmall;
-+ (ResolutionSetting*) settingAndroidSmallLandscape;
-+ (ResolutionSetting*) settingAndroidSmallPortrait;
-+ (ResolutionSetting*) settingAndroidMedium;
-+ (ResolutionSetting*) settingAndroidMediumLandscape;
-+ (ResolutionSetting*) settingAndroidMediumPortrait;
-+ (ResolutionSetting*) settingAndroidLarge;
-+ (ResolutionSetting*) settingAndroidLargeLandscape;
-+ (ResolutionSetting*) settingAndroidLargePortrait;
-+ (ResolutionSetting*) settingAndroidXLarge;
-+ (ResolutionSetting*) settingAndroidXLargeLandscape;
-+ (ResolutionSetting*) settingAndroidXLargePortrait;
-
 // HTML 5
 + (ResolutionSetting*) settingHTML5;
 + (ResolutionSetting*) settingHTML5Landscape;

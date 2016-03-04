@@ -59,8 +59,6 @@
     for (SBPackageSettings *packageSetting in _packageSettings)
     {
         [self addPublishingTargetsForPackageSetting:packageSetting osType:kCCBPublisherOSTypeIOS];
-
-        [self addPublishingTargetsForPackageSetting:packageSetting osType:kCCBPublisherOSTypeAndroid];
     }
 }
 
@@ -142,8 +140,6 @@
     {
         case
             kCCBPublisherOSTypeIOS : return @"iOS";
-        case
-            kCCBPublisherOSTypeAndroid : return @"Android";
         default:
             return @"";
     }
@@ -154,11 +150,6 @@
     if (_projectSettings.publishEnabledIOS)
     {
         [self addMainProjectPublishingTargetToPublisherForOSType:kCCBPublisherOSTypeIOS];
-    }
-
-    if (_projectSettings.publishEnabledAndroid)
-    {
-        [self addMainProjectPublishingTargetToPublisherForOSType:kCCBPublisherOSTypeAndroid];
     }
 }
 

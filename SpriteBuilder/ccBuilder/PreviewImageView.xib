@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreviewImageViewController">
@@ -406,70 +405,6 @@
                         </binding>
                     </connections>
                 </textField>
-                <customView id="3xn-4k-m7S" userLabel="Android Settings Container">
-                    <rect key="frame" x="0.0" y="73" width="250" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button id="jxR-P0-sal">
-                            <rect key="frame" x="181" y="1" width="66" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="check" title="Compress" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" enabled="NO" state="on" inset="2" id="Vm4-GW-I00">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="miniSystem"/>
-                            </buttonCell>
-                            <connections>
-                                <binding destination="-2" name="value" keyPath="format_android_compress" id="Gru-b9-uGb"/>
-                                <binding destination="-2" name="enabled" keyPath="format_android_compress_enabled" id="P4v-p3-Req"/>
-                            </connections>
-                        </button>
-                        <textField verticalHuggingPriority="750" id="D3s-L6-0hn" customClass="CCBTextFieldLabel">
-                            <rect key="frame" x="2" y="4" width="39" height="11"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Android" id="UfD-Bg-gmh">
-                                <font key="font" metaFont="miniSystem"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <popUpButton verticalHuggingPriority="750" id="f1L-4l-WSb">
-                            <rect key="frame" x="41" y="2" width="94" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Du7-Nn-be3">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="miniSystem"/>
-                                <menu key="menu" title="OtherViews" id="SH4-FK-yds">
-                                    <items>
-                                        <menuItem title="PNG" id="Pvn-qF-pEm"/>
-                                        <menuItem title="PNG 8-bit" tag="1" id="xVo-eu-czA"/>
-                                        <menuItem isSeparatorItem="YES" id="g3W-G3-S8I"/>
-                                        <menuItem title="PVR RGBA8888" tag="2" id="Una-da-WrH"/>
-                                        <menuItem title="PVR RGBA4444" tag="3" id="kJf-KG-vpc">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="PVR RGB565" tag="4" id="Ku2-hc-qSS">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                            <connections>
-                                <binding destination="-2" name="selectedTag" keyPath="format_android" id="CYB-SU-GnS"/>
-                            </connections>
-                        </popUpButton>
-                        <button id="c4a-xV-eI5">
-                            <rect key="frame" x="135" y="1" width="49" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="check" title="Dither" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" state="on" inset="2" id="i7D-L7-yp0">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="miniSystem"/>
-                            </buttonCell>
-                            <connections>
-                                <binding destination="-2" name="value" keyPath="format_android_dither" id="QJZ-hP-ZWi"/>
-                                <binding destination="-2" name="enabled" keyPath="format_android_dither_enabled" id="W1N-9f-mpc"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </customView>
             </subviews>
         </customView>
         <menu autoenablesItems="NO" id="YgR-2N-odH" userLabel="Menu - phone">

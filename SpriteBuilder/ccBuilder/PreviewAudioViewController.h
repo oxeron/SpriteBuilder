@@ -23,8 +23,4 @@
 @property (nonatomic) int format_ios_sound_quality;
 @property (nonatomic) int format_ios_sound_quality_enabled;
 
-@property (nonatomic) int format_android_sound;
-@property (nonatomic) int format_android_sound_quality;
-@property (nonatomic) int format_android_sound_quality_enabled;
-
 @end

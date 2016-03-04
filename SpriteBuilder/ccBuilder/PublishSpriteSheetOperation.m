@@ -15,9 +15,6 @@
 @property (nonatomic) int format_ios;
 @property (nonatomic) BOOL format_ios_dither;
 @property (nonatomic) BOOL format_ios_compress;
-@property (nonatomic) int format_android;
-@property (nonatomic) BOOL format_android_dither;
-@property (nonatomic) BOOL format_android_compress;
 @property (nonatomic) BOOL trim;
 
 @end
@@ -144,12 +141,6 @@ static NSMutableSet *__spriteSheetPreviewsGenerated;
         _packer.compress = self.format_ios_compress;
         _packer.dither = self.format_ios_dither;
     }
-    else if (_osType == kCCBPublisherOSTypeAndroid)
-    {
-        _packer.imageFormat = self.format_android;
-        _packer.compress = self.format_android_compress;
-        _packer.dither = self.format_android_dither;
-    }
 }
 
 - (void)setTextureMaxSize
@@ -177,9 +168,6 @@ static NSMutableSet *__spriteSheetPreviewsGenerated;
     self.format_ios = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT] intValue];
     self.format_ios_dither = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_DITHER] boolValue];
     self.format_ios_compress = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS] boolValue];
-    self.format_android = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT] intValue];
-    self.format_android_dither = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER] boolValue];
-    self.format_android_compress = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS] boolValue];
     self.trim = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_TRIM_SPRITES] boolValue];
 }
 

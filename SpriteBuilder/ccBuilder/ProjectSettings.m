@@ -63,7 +63,6 @@
 
     self.resourcePaths = [[NSMutableArray alloc] init];
     self.publishDirectory = @"Published-iOS";
-    self.publishDirectoryAndroid = @"Published-Android";
 
     self.onlyPublishCCBs = NO;
     self.publishToZipFile = NO;
@@ -73,21 +72,15 @@
     self.resourceAutoScaleFactor = 4;
     
     self.publishEnabledIOS = YES;
-    self.publishEnabledAndroid = YES;
 
     self.publishResolution_ios_phone = YES;
     self.publishResolution_ios_phonehd = YES;
     self.publishResolution_ios_tablet = YES;
     self.publishResolution_ios_tablethd = YES;
-    self.publishResolution_android_phone = YES;
-    self.publishResolution_android_phonehd = YES;
-    self.publishResolution_android_tablet = YES;
-    self.publishResolution_android_tablethd = YES;
     
     self.publishEnvironment = kCCBPublishEnvironmentDevelop;
 
     self.publishAudioQuality_ios = DEFAULT_AUDIO_QUALITY;
-    self.publishAudioQuality_android = DEFAULT_AUDIO_QUALITY;
     
     self.tabletPositionScaleFactor = 2.0f;
 
@@ -127,34 +120,17 @@
         self.publishDirectory = @"";
     }
 
-    self.publishDirectoryAndroid = [dict objectForKey:@"publishDirectoryAndroid"];
-    if (!_publishDirectoryAndroid)
-    {
-        self.publishDirectoryAndroid = @"";
-    }
-
     self.publishEnabledIOS = [[dict objectForKey:@"publishEnablediPhone"] boolValue];
-    self.publishEnabledAndroid = [[dict objectForKey:@"publishEnabledAndroid"] boolValue];
 
     self.publishResolution_ios_phone = [[dict objectForKey:@"publishResolution_ios_phone"] boolValue];
     self.publishResolution_ios_phonehd = [[dict objectForKey:@"publishResolution_ios_phonehd"] boolValue];
     self.publishResolution_ios_tablet = [[dict objectForKey:@"publishResolution_ios_tablet"] boolValue];
     self.publishResolution_ios_tablethd = [[dict objectForKey:@"publishResolution_ios_tablethd"] boolValue];
-    self.publishResolution_android_phone = [[dict objectForKey:@"publishResolution_android_phone"] boolValue];
-    self.publishResolution_android_phonehd = [[dict objectForKey:@"publishResolution_android_phonehd"] boolValue];
-    self.publishResolution_android_tablet = [[dict objectForKey:@"publishResolution_android_tablet"] boolValue];
-    self.publishResolution_android_tablethd = [[dict objectForKey:@"publishResolution_android_tablethd"] boolValue];
     
     self.publishAudioQuality_ios = [[dict objectForKey:@"publishAudioQuality_ios"]intValue];
     if (!self.publishAudioQuality_ios)
     {
         self.publishAudioQuality_ios = DEFAULT_AUDIO_QUALITY;
-    }
-
-    self.publishAudioQuality_android = [[dict objectForKey:@"publishAudioQuality_android"]intValue];
-    if (!self.publishAudioQuality_android)
-    {
-        self.publishAudioQuality_android = DEFAULT_AUDIO_QUALITY;
     }
 
     self.publishToZipFile = [[dict objectForKey:@"publishToZipFile"] boolValue];
@@ -231,22 +207,15 @@
     dict[@"resourcePaths"] = _resourcePaths;
     
     dict[@"publishDirectory"] = _publishDirectory;
-    dict[@"publishDirectoryAndroid"] = _publishDirectoryAndroid;
 
     dict[@"publishEnablediPhone"] = @(_publishEnabledIOS);
-    dict[@"publishEnabledAndroid"] = @(_publishEnabledAndroid);
 
     dict[@"publishResolution_ios_phone"] = @(_publishResolution_ios_phone);
     dict[@"publishResolution_ios_phonehd"] = @(_publishResolution_ios_phonehd);
     dict[@"publishResolution_ios_tablet"] = @(_publishResolution_ios_tablet);
     dict[@"publishResolution_ios_tablethd"] = @(_publishResolution_ios_tablethd);
-    dict[@"publishResolution_android_phone"] = @(_publishResolution_android_phone);
-    dict[@"publishResolution_android_phonehd"] = @(_publishResolution_android_phonehd);
-    dict[@"publishResolution_android_tablet"] = @(_publishResolution_android_tablet);
-    dict[@"publishResolution_android_tablethd"] = @(_publishResolution_android_tablethd);
     
     dict[@"publishAudioQuality_ios"] = @(_publishAudioQuality_ios);
-    dict[@"publishAudioQuality_android"] = @(_publishAudioQuality_android);
 
     dict[@"publishToZipFile"] = @(_publishToZipFile);
     dict[@"onlyPublishCCBs"] = @(_onlyPublishCCBs);

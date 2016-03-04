@@ -24,11 +24,4 @@
 @property (nonatomic) BOOL format_ios_dither_enabled;
 @property (nonatomic) BOOL format_ios_compress_enabled;
 
-@property (nonatomic) int format_android;
-@property (nonatomic) BOOL format_android_dither;
-@property (nonatomic) BOOL format_android_compress;
-@property (nonatomic) BOOL format_android_dither_enabled;
-@property (nonatomic) BOOL format_android_compress_enabled;
-
-
 @end

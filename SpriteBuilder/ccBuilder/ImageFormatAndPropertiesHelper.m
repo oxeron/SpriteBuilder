@@ -24,11 +24,6 @@
         ];
     }
 
-    if (osType ==  kCCBPublisherOSTypeAndroid)
-    {
-        formatsSupportingComress = @[];
-    }
-
     return [formatsSupportingComress containsObject:@(format)];
 }
 
@@ -37,15 +32,6 @@
     NSArray *formatsSupportingDither;
 
     if (osType ==  kCCBPublisherOSTypeIOS)
-    {
-        formatsSupportingDither = @[
-                @(kFCImageFormatPNG_8BIT),
-                @(kFCImageFormatPVR_RGBA4444),
-                @(kFCImageFormatPVR_RGB565)
-        ];
-    }
-
-    if (osType ==  kCCBPublisherOSTypeAndroid)
     {
         formatsSupportingDither = @[
                 @(kFCImageFormatPNG_8BIT),

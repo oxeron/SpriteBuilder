@@ -270,37 +270,6 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
             deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-fixed.png"];
             rotateDevice = YES;
         }
-        else if (devType == kCCBCanvasSizeAndroidXSmallPortrait)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-xsmall.png"];
-            rotateDevice = NO;
-        }
-        else if (devType == kCCBCanvasSizeAndroidXSmallLandscape)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-xsmall.png"];
-            rotateDevice = YES;
-        }
-        else if (devType == kCCBCanvasSizeAndroidSmallPortrait)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-small.png"];
-            rotateDevice = NO;
-        }
-        else if (devType == kCCBCanvasSizeAndroidSmallLandscape)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-small.png"];
-            rotateDevice = YES;
-        }
-        else if (devType == kCCBCanvasSizeAndroidMediumPortrait)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-medium.png"];
-            rotateDevice = NO;
-        }
-        else if (devType == kCCBCanvasSizeAndroidMediumLandscape)
-        {
-            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-android-medium.png"];
-            rotateDevice = YES;
-        }
-        
         if (deviceTexture)
         {
             if (rotateDevice) borderDevice.rotation = 90;

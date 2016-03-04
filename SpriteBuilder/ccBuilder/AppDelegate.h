@@ -45,13 +45,7 @@ enum {
     kCCBCanvasSizeIPadLandscape,
     kCCBCanvasSizeIPadPortrait,
     kCCBCanvasSizeFixedLandscape,
-    kCCBCanvasSizeFixedPortrait,
-    kCCBCanvasSizeAndroidXSmallLandscape,
-    kCCBCanvasSizeAndroidXSmallPortrait,
-    kCCBCanvasSizeAndroidSmallLandscape,
-    kCCBCanvasSizeAndroidSmallPortrait,
-    kCCBCanvasSizeAndroidMediumLandscape,
-    kCCBCanvasSizeAndroidMediumPortrait,
+    kCCBCanvasSizeFixedPortrait
 };
 
 enum {
