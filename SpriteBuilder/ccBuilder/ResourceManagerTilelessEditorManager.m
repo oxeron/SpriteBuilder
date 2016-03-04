@@ -202,7 +202,7 @@
         [[AppDelegate appDelegate] openFile:res.filePath];
         return;
     }
-    [super imageBrowser:aBrowser cellWasDoubleClickedAtIndex:index];
+    //[super imageBrowser:aBrowser cellWasDoubleClickedAtIndex:index];
 }
 
 #pragma mark Table View data source
