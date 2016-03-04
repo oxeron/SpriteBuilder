@@ -68,7 +68,7 @@ self.name = [dict[@"value"] numberValue];\
 
 }
 @property (nonatomic) NSString * title; //Title of the effect.
-@property (nonatomic) NSString * description;//Short description.
+@property (nonatomic) NSString * effectDescription;//Short description.
 @property (nonatomic) NSString * imageName;//Icon image.
 @property (nonatomic) NSString * className;//Sprite builder class.
 @property (nonatomic) NSString * baseClass;//Actual runtime class.

@@ -92,7 +92,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Brightness";
-		effectDescription.description = @"Makes things bright";
+		effectDescription.effectDescription = @"Makes things bright";
 		effectDescription.imageName = @"effect-brightness.png";
 		effectDescription.className = NSStringFromClass([CCBPEffectBrightness class]);
 		effectDescription.baseClass = @"CCEffectBrightness";
@@ -105,7 +105,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Contrast";
-		effectDescription.description = @"Makes things contrast";
+		effectDescription.effectDescription = @"Makes things contrast";
 		effectDescription.imageName = @"effect-contrast.png";
 		effectDescription.className = NSStringFromClass([CCBPEffectContrast class]);
 		effectDescription.baseClass = @"CCEffectContrast";
@@ -118,7 +118,7 @@
     {
         EffectDescription * effectDescription = [[EffectDescription alloc] init];
         effectDescription.title = @"Saturation";
-        effectDescription.description = @"Makes things saturate";
+        effectDescription.effectDescription = @"Makes things saturate";
         effectDescription.imageName = @"effect-saturation.png";
         effectDescription.baseClass = @"CCEffectSaturation";
         effectDescription.className = NSStringFromClass([CCBPEffectSaturation class]);
@@ -131,7 +131,7 @@
     {
         EffectDescription * effectDescription = [[EffectDescription alloc] init];
         effectDescription.title = @"Hue";
-        effectDescription.description = @"Makes things hueier";
+        effectDescription.effectDescription = @"Makes things hueier";
         effectDescription.imageName = @"effect-hue.png";
         effectDescription.baseClass = @"CCEffectHue";
         effectDescription.className = NSStringFromClass([CCBPEffectHue class]);
@@ -144,7 +144,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Pixellate";
-		effectDescription.description = @"Makes things pixelate";
+		effectDescription.effectDescription = @"Makes things pixelate";
 		effectDescription.imageName = @"effect-pixelate.png";
 		effectDescription.className = NSStringFromClass([CCBPEffectPixelate class]);
 		effectDescription.baseClass = @"CCEffectPixellate";
@@ -157,7 +157,7 @@
 	{
         EffectDescription * effectDescription = [[EffectDescription alloc] init];
         effectDescription.title = @"Color Channel Offset";
-        effectDescription.description = @"Shifts color channels";
+        effectDescription.effectDescription = @"Shifts color channels";
         effectDescription.imageName = @"effect-color-channel-offset.png";
         effectDescription.className = NSStringFromClass([CCBPEffectColorChannelOffset class]);
         effectDescription.baseClass = @"CCEffectColorChannelOffset";
@@ -170,7 +170,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Blur";
-		effectDescription.description = @"Makes things blur";
+		effectDescription.effectDescription = @"Makes things blur";
 		effectDescription.imageName = @"effect-blur.png";
 		effectDescription.baseClass = @"CCEffectBlur";
 		effectDescription.className = NSStringFromClass([CCBPEffectBlur class]);
@@ -183,7 +183,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Bloom";
-		effectDescription.description = @"Makes things bloom";
+		effectDescription.effectDescription = @"Makes things bloom";
 		effectDescription.imageName = @"effect-bloom.png";
 		effectDescription.className = NSStringFromClass([CCBPEffectBloom class]);
 		effectDescription.baseClass = @"CCEffectBloom";
@@ -197,7 +197,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Refraction";
-		effectDescription.description = @"Makes things refract";
+		effectDescription.effectDescription = @"Makes things refract";
 		effectDescription.imageName = @"effect-refraction";
 		effectDescription.className = NSStringFromClass([CCBPEffectRefraction class]);
 		effectDescription.baseClass = @"CCEffectRefraction";
@@ -212,7 +212,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Reflection";
-		effectDescription.description = @"Makes things reflect";
+		effectDescription.effectDescription = @"Makes things reflect";
 		effectDescription.imageName = @"effect-reflection";
 		effectDescription.className = NSStringFromClass([CCBPEffectReflection class]);
 		effectDescription.baseClass = @"CCEffectReflection";
@@ -226,7 +226,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Glass";
-		effectDescription.description = @"Makes things look like glass";
+		effectDescription.effectDescription = @"Makes things look like glass";
 		effectDescription.imageName = @"effect-glass";
 		effectDescription.className = NSStringFromClass([CCBPEffectGlass class]);
 		effectDescription.baseClass = @"CCEffectGlass";
@@ -239,7 +239,7 @@
 	{
 		EffectDescription * effectDescription = [[EffectDescription alloc] init];
 		effectDescription.title = @"Lighting";
-		effectDescription.description = @"Applies lighting to things";
+		effectDescription.effectDescription = @"Applies lighting to things";
 		effectDescription.imageName = @"effect-lighting";
 		effectDescription.className = NSStringFromClass([CCBPEffectLighting class]);
 		effectDescription.baseClass = @"CCEffectLighting";
@@ -253,7 +253,7 @@
     {
         EffectDescription * effectDescription = [[EffectDescription alloc] init];
         effectDescription.title = @"Outline";
-        effectDescription.description = @"Adds an outline";
+        effectDescription.effectDescription = @"Adds an outline";
         effectDescription.imageName = @"effect-outline.png";
         effectDescription.className = NSStringFromClass([CCBPEffectOutline class]);
         effectDescription.baseClass = @"CCEffectOutline";
