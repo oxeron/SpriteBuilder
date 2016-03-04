@@ -165,7 +165,7 @@
 							 @"external/Chipmunk/doc",
 							 @"external/Chipmunk/doc-src",
 							 @"external/Chipmunk/msvc",
-							 @"external/Chipmunk/xcode",
+							 //@"external/Chipmunk/xcode",
 							 @"external/ObjectAL/ObjectAL/diagrams",
 							 @"external/ObjectAL/ObjectALDemo",
 							 @"external/ObjectAL/Sample Code",
