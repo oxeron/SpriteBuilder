@@ -117,18 +117,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
-		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		5B12101B19748413004C1E1D /* PROJECTIDENTIFIERActivity.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = PROJECTIDENTIFIERActivity.java; path = Source/Platforms/Android/java/org/cocos2d/PROJECTIDENTIFIER/PROJECTIDENTIFIERActivity.java; sourceTree = "<group>"; };
-		5B12102E197484FA004C1E1D /* PROJECTIDENTIFIERActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PROJECTIDENTIFIERActivity.h; path = Source/Platforms/Android/PROJECTIDENTIFIERActivity.h; sourceTree = "<group>"; };
-		5B12102F197484FA004C1E1D /* PROJECTIDENTIFIERActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PROJECTIDENTIFIERActivity.m; path = Source/Platforms/Android/PROJECTIDENTIFIERActivity.m; sourceTree = "<group>"; };
-		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
-		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
 		7A046D7519E84C36004C4763 /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScene.swift; path = Source/MainScene.swift; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* PROJECTNAME Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PROJECTNAME Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
@@ -141,7 +134,6 @@
 		7A59498A19E38E4A00F65F90 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Platforms/Mac/MainMenu.xib; sourceTree = "<group>"; };
 		7AFCD5DB19E9BD9F00BCCCDA /* cocos2d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cocos2d.h; path = "Source/libs/cocos2d-iphone/cocos2d/cocos2d.h"; sourceTree = "<group>"; };
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
-		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -175,13 +167,6 @@
 		B77F1B3D17B978D7009739AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		B78A0B0F198AF87200C63841 /* Published-Android */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Published-Android"; sourceTree = "<group>"; };
-		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
-		BC5399D31A44DCC90063F482 /* AndroidKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AndroidKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/AndroidKit.framework"; sourceTree = "<group>"; };
-		BC5399D41A44DCC90063F482 /* CoreJava.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreJava.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/CoreJava.framework"; sourceTree = "<group>"; };
-		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
-		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
-		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				7A40362119DDF08C007B6E8F /* iOS */,
-				7A40362219DDF090007B6E8F /* Android */,
 				7A9791C019E6FAC5001FFC4D /* Mac */,
 			);
 			name = Platforms;
@@ -286,16 +270,6 @@
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		7A40362219DDF090007B6E8F /* Android */ = {
-			isa = PBXGroup;
-			children = (
-				5B12101B19748413004C1E1D /* PROJECTIDENTIFIERActivity.java */,
-				5B12102E197484FA004C1E1D /* PROJECTIDENTIFIERActivity.h */,
-				5B12102F197484FA004C1E1D /* PROJECTIDENTIFIERActivity.m */,
-			);
-			name = Android;
 			sourceTree = "<group>";
 		};
 		7A40365D19DDF896007B6E8F /* Platforms */ = {
@@ -327,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				7A40366219DDF8CB007B6E8F /* iOS */,
-				7A40366319DDF8D4007B6E8F /* Android */,
 				7A40366419DDF8DB007B6E8F /* Mac */,
 			);
 			name = Platforms;
@@ -339,15 +312,6 @@
 				5B121034197485FE004C1E1D /* Info.plist */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		7A40366319DDF8D4007B6E8F /* Android */ = {
-			isa = PBXGroup;
-			children = (
-				5BA4619E1974C88900785744 /* AndroidManifest.xml */,
-				5B121033197485FE004C1E1D /* Info.plist */,
-			);
-			name = Android;
 			sourceTree = "<group>";
 		};
 		7A40366419DDF8DB007B6E8F /* Mac */ = {
@@ -444,19 +408,10 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
-				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
-				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
-				BC5399D61A44DCC90063F482 /* JavaFoundation.framework */,
-				BC5399D71A44DCC90063F482 /* JavaKit.framework */,
-				7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */,
 				7A59493C19E37FB200F65F90 /* libz.dylib */,
 				7A59493A19E37F9300F65F90 /* OpenGL.framework */,
 				7A4036F419DE3FA8007B6E8F /* AppKit.framework */,
-				5B12100B19748281004C1E1D /* BridgeKitV3.framework */,
-				5B12100919748273004C1E1D /* libEGL.so */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
-				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
 				B77F1B3117B978D7009739AE /* QuartzCore.framework */,
 				B77F1B3317B978D7009739AE /* OpenGLES.framework */,
 				B77F1B3517B978D7009739AE /* OpenAL.framework */,
@@ -477,7 +432,6 @@
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
 				B737893A180761570076A88C /* Published-iOS */,
-				B78A0B0F198AF87200C63841 /* Published-Android */,
 			);
 			name = Resources;
 			path = Source/Resources;
@@ -735,7 +689,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -782,7 +735,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -847,7 +799,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -878,7 +831,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
