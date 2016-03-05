@@ -24,6 +24,7 @@
 
 #import "AboutWindow.h"
 #import "AppDelegate.h"
+#import "Cocos2dUpdater.h"
 
 @interface AboutWindow ()
 
@@ -47,7 +48,9 @@
         [btnVersion setEnabled:NO];
     }
     
-    self.version = [version substringWithRange:NSMakeRange(version.length-11, 10)];
+    ProjectSettings* projectSettings = [[ProjectSettings alloc] init];
+    NSDictionary * versionDictionary = [projectSettings getVersionDictionary];
+    self.version = versionDictionary[@"revision"];
 
     NSButton* closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
     [closeButton setFrameOrigin:NSMakePoint(21, 317)];
@@ -63,7 +66,9 @@
 	NSString * aboutInfo = @"";
 	aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"SB Version: %@\n", versionDictionary[@"version"]]];
 	aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"SB Revision: %@\n", versionDictionary[@"revision"]]];
-
+    // add cocos2d version
+    NSString *cocos2dVersion = [Cocos2dUpdater readSpriteBuildersCocos2dVersionFile];
+    aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"Cocos2d Version: %@\n", cocos2dVersion]];
 	return aboutInfo;
 }
 
@@ -71,7 +76,7 @@
 {
     if (self.version)
     {
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://github.com/apportable/SpriteBuilder/tree/%@",self.version]]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"https://github.com/oxeron/SpriteBuilder/tree/%@",self.version] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     }
     [self.window orderOut:sender];
 }
@@ -90,7 +95,7 @@
 
 - (IBAction)btnGetSource:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/apportable/SpriteBuilder"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/oxeron/SpriteBuilder"]];
     [self.window orderOut:sender];
 }
 

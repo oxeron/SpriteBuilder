@@ -16,6 +16,7 @@
 
 - (instancetype)initWithAppDelegate:(AppDelegate *)appDelegate projectSettings:(ProjectSettings *)projectSettings;
 
++ (NSString *)readSpriteBuildersCocos2dVersionFile;
 - (void)updateAndBypassIgnore:(BOOL)bypassIgnore;
 
 @end

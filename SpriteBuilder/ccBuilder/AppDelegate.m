@@ -4376,7 +4376,7 @@ typedef enum
 
 - (IBAction)reportBug:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/apportable/SpriteBuilder/issues"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/oxeron/SpriteBuilder/issues"]];
 }
 - (IBAction)menuHiddenNode:(id)sender {
 }

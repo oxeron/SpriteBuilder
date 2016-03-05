@@ -84,7 +84,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.spritebuild
         self.appDelegate = appDelegate;
         self.projectSettings = projectSettings;
 
-        self.spritebuildersCocos2dVersion = [self readSpriteBuildersCocos2dVersionFile];
+        self.spritebuildersCocos2dVersion = [Cocos2dUpdater readSpriteBuildersCocos2dVersionFile];
         self.projectsCocos2dVersion = [self readProjectsCocos2dVersionFile];
     }
     return self;
@@ -430,7 +430,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.spritebuild
                               message:@"Your project has been updated to use the latest version of Cocos2D.\n\nPlease test your Xcode project. If you encounter any issues check spritebuilder.com for more information."];
 }
 
-- (NSString *)readSpriteBuildersCocos2dVersionFile
++ (NSString *)readSpriteBuildersCocos2dVersionFile
 {
     NSString *versionFilePath = [[NSBundle mainBundle] pathForResource:@"cocos2d_version" ofType:@"txt" inDirectory:@"Generated"];
 
