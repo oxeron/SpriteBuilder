@@ -4115,7 +4115,11 @@ typedef enum
         if (!hasOpenedDocument) return NO;
         return (self.selectedNode != NULL);
     }
-    
+    else if (menuItem.action == @selector(menuSelectBehind:))
+    {
+        if (!hasOpenedDocument) return NO;
+        return (self.selectedNode != NULL);
+    }
     return YES;
 }
 
