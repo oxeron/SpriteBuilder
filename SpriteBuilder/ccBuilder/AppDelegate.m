@@ -506,12 +506,6 @@ typedef enum
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-#ifndef TESTING
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"138b7cc7454016e05dbbc512f38082b7" delegate:self];
-    
-    [[BITHockeyManager sharedHockeyManager] startManager];
-#endif
-
     [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"ApplePersistenceIgnoreState"];
 
     [self registerUserDefaults];

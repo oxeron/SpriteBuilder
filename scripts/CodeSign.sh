@@ -104,14 +104,6 @@ createKeychain
 
 #Use RB App Checker Lite to find things that aren't code signed.
 
-codeSign Contents/Frameworks/HockeySDK.framework/Frameworks/CrashReporter.framework/
-codeSign Contents/Frameworks/HockeySDK.framework/Frameworks/CrashReporter.framework/Versions/A/CrashReporter
-codeSign Contents/Frameworks/HockeySDK.framework/Frameworks/CrashReporter.framework/Versions/Current/CrashReporter
-codeSign Contents/Frameworks/HockeySDK.framework/Versions/A/Frameworks/CrashReporter.framework/
-codeSign Contents/Frameworks/HockeySDK.framework/Versions/A/Frameworks/CrashReporter.framework/Versions/A/CrashReporter
-codeSign Contents/Frameworks/HockeySDK.framework/Versions/A/Frameworks/CrashReporter.framework/Versions/Current/CrashReporter
-codeSign Contents/Frameworks/HockeySDK.framework/Versions/A/HockeySDK
-codeSign Contents/Frameworks/HockeySDK.framework/Versions/Current/Frameworks/CrashReporter.framework/Versions/A/CrashReporter
 codeSign Contents/Resources/ccz
 codeSign Contents/Resources/lame
 codeSign Contents/Resources/oggenc

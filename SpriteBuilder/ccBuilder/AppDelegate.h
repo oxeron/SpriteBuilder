@@ -28,7 +28,6 @@
 #import "cocos2d.h"
 #import "PSMTabBarControl.h"
 #import "SMTabBar.h"
-#import <HockeySDK/HockeySDK.h>
 #import "ProjectSettings.h"
 #import "CCNode+NodeInfo.h"
 #import "PublishingFinishedDelegate.h"
@@ -129,7 +128,7 @@ typedef void (^CompletionCallback) (BOOL success);
 - (void) oldVisit:(__unsafe_unretained CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform;
 @end
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, SMTabBarDelegate, BITHockeyManagerDelegate, PublishingFinishedDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, SMTabBarDelegate, PublishingFinishedDelegate>
 {
     
     // Panel Views
