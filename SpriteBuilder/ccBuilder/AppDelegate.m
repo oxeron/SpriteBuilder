@@ -137,6 +137,8 @@
 #import "InspectorController.h"
 #import "SBOpenPathsController.h"
 #import "LightingHandler.h"
+#import "NSAlert+Convenience.h"
+#import "SecurityScopedBookmarksStore.h"
 
 static const int CCNODE_INDEX_LAST = -1;
 
@@ -144,6 +146,7 @@ static const int CCNODE_INDEX_LAST = -1;
 
 @property (nonatomic, strong) CCBPublisherController *publisherController;
 @property (nonatomic, strong) ResourceCommandController *resourceCommandController;
+@property (nonatomic, copy) NSURL *securityScopedProjectFolderResource;
 
 @end
 
@@ -1632,26 +1635,24 @@ typedef enum
     [self updateSmallTabBarsEnabled];
     
     self.window.representedFilename = @"";
+    
+    [_securityScopedProjectFolderResource stopAccessingSecurityScopedResource];
+    self.securityScopedProjectFolderResource = nil;
 }
 
-- (BOOL) openProject:(NSString*) fileName
+- (BOOL)openProjectWithProjectPath:(NSString *)projectPath
 {
-    if (![fileName hasSuffix:@".spritebuilder"])
-    {
-        return NO;
-    }
-
     [self closeProject];
     
     // Add to recent list of opened documents
-    [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:fileName]];
+    [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:projectPath]];
     
     // Convert folder to actual project file
-    NSString* projName = [[fileName lastPathComponent] stringByDeletingPathExtension];
-    fileName = [[fileName stringByAppendingPathComponent:projName] stringByAppendingPathExtension:@"ccbproj"];
+    NSString* projName = [[projectPath lastPathComponent] stringByDeletingPathExtension];
+    projectPath = [[projectPath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:@"ccbproj"];
     
     // Load the project file
-    NSMutableDictionary* projectDict = [NSMutableDictionary dictionaryWithContentsOfFile:fileName];
+    NSMutableDictionary* projectDict = [NSMutableDictionary dictionaryWithContentsOfFile:projectPath];
     if (!projectDict)
     {
         [self modalDialogTitle:@"Invalid Project File" message:@"Failed to open the project. File may be missing or invalid."];
@@ -1664,7 +1665,7 @@ typedef enum
         [self modalDialogTitle:@"Invalid Project File" message:@"Failed to open the project. File is invalid or is created with a newer version of SpriteBuilder."];
         return NO;
     }
-    prjctSettings.projectPath = fileName;
+    prjctSettings.projectPath = projectPath;
     [prjctSettings store];
 
     // inject new project settings
@@ -1694,13 +1695,13 @@ typedef enum
     localizationEditorHandler.managedFile = langFile;
     
     // Update the title of the main window
-    [window setTitle:[NSString stringWithFormat:@"%@ - SpriteBuilder", [[fileName stringByDeletingLastPathComponent] lastPathComponent]]];
+    [window setTitle:[NSString stringWithFormat:@"%@ - SpriteBuilder", [[projectPath stringByDeletingLastPathComponent] lastPathComponent]]];
     
     // Open ccb file for project if there is only one
     NSArray* resPaths = prjctSettings.absoluteResourcePaths;
     if (resPaths.count > 0)
     {
-        NSString* resPath = [resPaths objectAtIndex:0];
+        NSString* resPath = resPaths[0];
         
         NSArray* resDir = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:resPath error:NULL];
         
@@ -1730,9 +1731,73 @@ typedef enum
     Cocos2dUpdater *cocos2dUpdater = [[Cocos2dUpdater alloc] initWithAppDelegate:self projectSettings:projectSettings];
     [cocos2dUpdater updateAndBypassIgnore:NO];
 
-    self.window.representedFilename = [fileName stringByDeletingLastPathComponent];
+    self.window.representedFilename = [projectPath stringByDeletingLastPathComponent];
 
     return YES;
+}
+- (void)openProject:(NSString *)fileName
+{
+    if (![fileName hasSuffix:@".spritebuilder"]
+        && ![fileName hasSuffix:@".ccbproj"])
+    {
+        return;
+    }
+    
+    if ([fileName hasSuffix:@".ccbproj"])
+    {
+        NSURL *projectPathURL = [NSURL fileURLWithPath:[fileName stringByDeletingLastPathComponent] isDirectory:YES];
+        NSURL *projectPathURLResolved = [SecurityScopedBookmarksStore resolveBookmarkForURL:projectPathURL];
+        
+        if (projectPathURLResolved)
+        {
+            if ([projectPathURLResolved startAccessingSecurityScopedResource])
+            {
+                self.securityScopedProjectFolderResource = projectPathURLResolved;
+                [self openProjectWithProjectPath:projectPathURLResolved.path];
+            }
+            else
+            {
+                [self openProjectFileByAskingForUsersConsentWithProjectPath:projectPathURLResolved];
+            }
+        }
+        else
+        {
+            [self openProjectFileByAskingForUsersConsentWithProjectPath:projectPathURL];
+        }
+    }
+    else
+    {
+        [self openProjectWithProjectPath:fileName];
+    }
+}
+
+- (void)openProjectFileByAskingForUsersConsentWithProjectPath:(NSURL *)projectPathURL
+{
+    NSOpenPanel*openPanel = [NSOpenPanel openPanel];
+    [openPanel setMessage:@"Spritebuilder is running in a sandbox and needs access to all files within the project folder. Please click Open to grant access."];
+    [openPanel setAllowsMultipleSelection:NO];
+    [openPanel setPrompt:@"Open"];
+    [openPanel setDirectoryURL:projectPathURL];
+    [openPanel setCanChooseFiles:NO];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel beginSheetModalForWindow:window completionHandler:^(NSInteger result)
+     {
+         if (result == NSFileHandlingPanelCancelButton)
+         {
+             return;
+         }
+         
+         if (result == NSOKButton && [[openPanel URL] isEqualTo:projectPathURL])
+         {
+             [SecurityScopedBookmarksStore createAndStoreBookmarkForURL:projectPathURL];
+             [self openProjectWithProjectPath:projectPathURL.path];
+         }
+         else
+         {
+             [NSAlert showModalDialogWithTitle:@"Error"
+                                       message:@"The chosen folder is not the project folder of the selected project file."];
+         }
+     }];
 }
 
 - (void) openFile:(NSString*)filePath
@@ -4277,6 +4342,9 @@ typedef enum
     [window saveMainWindowPanelsVisibility];
 
     [self saveOpenProjectPathToDefaults];
+    
+    [_securityScopedProjectFolderResource stopAccessingSecurityScopedResource];
+    self.securityScopedProjectFolderResource = nil;
 
     [[NSApplication sharedApplication] terminate:self];
 }
@@ -4314,6 +4382,10 @@ typedef enum
     if ([self windowShouldClose:self])
     {
 		[self.projectSettings store];
+        
+        [_securityScopedProjectFolderResource stopAccessingSecurityScopedResource];
+        self.securityScopedProjectFolderResource = nil;
+        
         [[NSApplication sharedApplication] terminate:self];
     }
 }
