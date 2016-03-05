@@ -41,6 +41,12 @@
 #error This library requires automatic reference counting
 #endif
 
+#if TARGET_OS_MAC && __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_9
+#define LEGACY_API 1
+#elif TARGET_OS_IPHONE && __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+#define LEGACY_API 1
+#warning testy test test
+#endif
 
 @implementation NSData (Base64)
 
@@ -50,14 +56,14 @@
     
     NSData *decoded = nil;
     
-#if __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_9 || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+#if defined(LEGACY_API)
     
     if (![NSData instancesRespondToSelector:@selector(initWithBase64EncodedString:options:)])
     {
         decoded = [[self alloc] initWithBase64Encoding:[string stringByReplacingOccurrencesOfString:@"[^A-Za-z0-9+/=]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [string length])]];
     }
     else
-    
+        
 #endif
         
     {
@@ -73,16 +79,16 @@
     
     NSString *encoded = nil;
     
-#if __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_9 || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+#if defined(LEGACY_API)
     
     if (![NSData instancesRespondToSelector:@selector(base64EncodedStringWithOptions:)])
     {
         encoded = [self base64Encoding];
     }
     else
-    
+        
 #endif
-    
+        
     {
         switch (wrapWidth)
         {

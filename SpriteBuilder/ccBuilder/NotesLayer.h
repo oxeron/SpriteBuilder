@@ -51,7 +51,7 @@ enum
     IBOutlet NSTextView* textView;
     IBOutlet NSButton* closeButton;
 }
-- (void) setup;
+
 - (void) addNote;
 - (IBAction)clickedClose:(id)sender;
 - (BOOL) mouseDown:(CGPoint)pt event:(NSEvent*)event;
