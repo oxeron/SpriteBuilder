@@ -48,12 +48,6 @@
 
     PublishOSSettings *osSettingsIOSKVC = [_packagePublishSettings valueForKeyPath:@"osSettings.ios"];
     XCTAssertNotNil(osSettingsIOSKVC);
-
-    PublishOSSettings *osSettingsAndroid = [_packagePublishSettings settingsForOsType:kCCBPublisherOSTypeAndroid];
-    XCTAssertNotNil(osSettingsAndroid);
-
-    PublishOSSettings *osSettingsAndroidKVC = [_packagePublishSettings valueForKeyPath:@"osSettings.android"];
-    XCTAssertNotNil(osSettingsAndroidKVC);
 }
 
 - (void)testPersistency
@@ -70,11 +64,6 @@
     osSettingsIOS.resolutions = @[@"phone"];
     [_packagePublishSettings setOSSettings:osSettingsIOS forOsType:kCCBPublisherOSTypeIOS];
 
-    PublishOSSettings *osSettingsAndroid = [_packagePublishSettings settingsForOsType:kCCBPublisherOSTypeAndroid];
-    osSettingsAndroid.audio_quality = 2;
-    osSettingsAndroid.resolutions = @[@"tablethd"];
-    [_packagePublishSettings setOSSettings:osSettingsAndroid forOsType:kCCBPublisherOSTypeAndroid];
-
     [_packagePublishSettings store];
 
     [self assertFileExists:@"/foo/project.spritebuilder/Packages/mypackage.sbpack/Package.plist"];
@@ -89,11 +78,6 @@
     XCTAssertEqual(_packagePublishSettings.publishToZip, settingsLoaded.publishToZip);
     XCTAssertEqual(_packagePublishSettings.publishToCustomOutputDirectory, settingsLoaded.publishToCustomOutputDirectory);
     XCTAssertEqual(_packagePublishSettings.resourceAutoScaleFactor, settingsLoaded.resourceAutoScaleFactor);
-
-    PublishOSSettings *osSettingsAndroidLoaded = [settingsLoaded settingsForOsType:kCCBPublisherOSTypeAndroid];
-    XCTAssertEqual(osSettingsAndroidLoaded.audio_quality, osSettingsAndroid.audio_quality);
-    XCTAssertTrue([osSettingsAndroidLoaded.resolutions containsObject:RESOLUTION_TABLET_HD]);
-    XCTAssertFalse([osSettingsAndroidLoaded.resolutions containsObject:RESOLUTION_TABLET]);
 
     PublishOSSettings *osSettingsIOSLoaded = [settingsLoaded settingsForOsType:kCCBPublisherOSTypeIOS];
     XCTAssertEqual(osSettingsIOSLoaded.audio_quality, osSettingsIOS.audio_quality);

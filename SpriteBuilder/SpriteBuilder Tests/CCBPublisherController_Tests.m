@@ -35,7 +35,6 @@
     self.projectSettings = [[ProjectSettings alloc] init];
     _projectSettings.projectPath = [self fullPathForFile:@"baa.spritebuilder/publishtest.ccbproj"];
     _projectSettings.publishDirectory = @"../Published-iOS";
-    _projectSettings.publishDirectoryAndroid = @"../Published-Android";
 
     self.publisherController = [[CCBPublisherController alloc] init];
     _publisherController.projectSettings = _projectSettings;
@@ -67,10 +66,6 @@
     iosSettings.resolution_tablethd = YES;
     iosSettings.resolution_phone = YES;
 
-    PublishOSSettings *androidSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeAndroid];
-    androidSettings.resolution_tablet = YES;
-    androidSettings.resolution_phonehd = YES;
-
     [self createFolders:@[@"baa.spritebuilder/Packages/foo.sbpack"]];
 
     _publisherController.packageSettings = @[_packageSettings];
@@ -86,14 +81,10 @@
 
     [self assertFileDoesNotExist:@"Published-Packages/foo-iOS-tablethd"];
     [self assertFileDoesNotExist:@"Published-Packages/foo-iOS-phone"];
-    [self assertFileDoesNotExist:@"Published-Packages/foo-Android-tablet"];
-    [self assertFileDoesNotExist:@"Published-Packages/foo-Android-phonehd"];
 
     [self assertFilesExistRelativeToDirectory:[@"baa.spritebuilder" stringByAppendingPathComponent:DEFAULT_OUTPUTDIR_PUBLISHED_PACKAGES] filesPaths:@[
             @"foo-iOS-tablethd.zip",
-            @"foo-iOS-phone.zip",
-            @"foo-Android-tablet.zip",
-            @"foo-Android-phonehd.zip"
+            @"foo-iOS-phone.zip"
     ]];
 }
 
@@ -102,7 +93,6 @@
     [self configureSinglePackagePublishSettingCase];
 
     _projectSettings.publishEnabledIOS = NO;
-    _projectSettings.publishEnabledAndroid = YES;
 
     _packageSettings.publishToZip = NO;
     _packageSettings.publishToMainProject = YES;
@@ -118,17 +108,6 @@
 
 
     [_publisherController startAsync:NO];
-
-    [self assertFilesExistRelativeToDirectory:@"Published-Android" filesPaths:@[
-            @"resources-phone/sun.png",
-            @"resources-phonehd/sun.png",
-            @"resources-tablet/sun.png",
-            @"resources-tablethd/sun.png",
-            @"resources-phone/plane.png",
-            @"resources-phonehd/plane.png",
-            @"resources-tablet/plane.png",
-            @"resources-tablethd/plane.png"
-    ]];
 }
 
 - (void)testPackageExportToCustomDirectory
@@ -143,15 +122,12 @@
     PublishOSSettings *iosSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeIOS];
     iosSettings.resolutions = @[];
 
-    PublishOSSettings *androidSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeAndroid];
-    androidSettings.resolutions = @[];
-    androidSettings.resolution_phone = YES;
-
     [_publisherController startAsync:NO];
-
+    /*
     [self assertFilesExistRelativeToDirectory:@"custom" filesPaths:@[
           @"foo-Android-phone.zip"
     ]];
+     */
 }
 
 - (void)testPublishMainProjectWithSomePackagesNotIncluded
@@ -164,7 +140,6 @@
     [_projectSettings addResourcePath:[self fullPathForFile:@"baa.spritebuilder/Packages/Characters.sbpack"] error:nil];
     [_projectSettings addResourcePath:[self fullPathForFile:@"baa.spritebuilder/Packages/Backgrounds.sbpack"] error:nil];
     _projectSettings.publishEnabledIOS = YES;
-    _projectSettings.publishEnabledAndroid = YES;
 
     SBPackageSettings *packageSettingsMenus = [self createSettingsWithPath:@"baa.spritebuilder/Packages/Menus.sbpack"];
     packageSettingsMenus.publishToMainProject = NO;
@@ -183,7 +158,7 @@
     [_publisherController startAsync:NO];
 
     NSArray *resolutions = @[RESOLUTION_TABLET, RESOLUTION_TABLET_HD, RESOLUTION_PHONE, RESOLUTION_PHONE_HD];
-    NSArray *osSuffixes = @[@"iOS", @"Android"];
+    NSArray *osSuffixes = @[@"iOS"];
 
     for (NSString *osSuffix in osSuffixes)
     {
@@ -229,7 +204,6 @@
     [_publisherController startAsync:NO];
 
     [self assertFileDoesNotExist:@"Published-iOS"];
-    [self assertFileDoesNotExist:@"Published-Android"];
     [self assertFileDoesNotExist:DEFAULT_OUTPUTDIR_PUBLISHED_PACKAGES];
 }
 

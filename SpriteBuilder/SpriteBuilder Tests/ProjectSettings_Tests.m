@@ -212,22 +212,16 @@
             RESOURCE_PROPERTY_IMAGE_SCALE_FROM:@(1)
          }
       },
-      @"publishDirectoryAndroid":@"Source/Resources/Published-Android",
       @"defaultOrientation":@(0),
-      @"publishResolution_android_tablet":@(YES),
-      @"publishEnabledAndroid":@(YES),
       @"publishResolution_ios_phonehd":@(YES),
       @"publishResolution_ios_tablet":@(YES),
-      @"publishResolution_android_phone":@(YES),
       @"fileType":@"CocosBuilderProject",
       @"resourcePaths":@[
          @{
             @"path":@"packages/SpriteBuilder Resources.sbpack"
          }
       ],
-      @"publishAudioQuality_android":@(4),
       @"deviceOrientationLandscapeLeft":@(YES),
-      @"publishResolution_android_tablethd":@(YES),
       @"publishAudioQuality_ios":@(4),
       @"publishEnvironment":@(0),
       @"publishEnablediPhone":@(YES),
@@ -237,7 +231,6 @@
       @"publishResolution_ios_phone":@(YES),
       @"publishResolution_ios_tablethd":@(YES),
       @"deviceOrientationUpsideDown":@(NO),
-      @"publishResolution_android_phonehd":@(YES),
       @"deviceOrientationLandscapeRight":@(YES),
       @"onlyPublishCCBs":@(NO),
       @"deviceScaling":@(0),
@@ -258,14 +251,7 @@
     XCTAssertEqual(project.resourceAutoScaleFactor, 4);
     SBAssertStringsEqual(project.publishDirectory, @"Source/Resources/Published-iOS");
 
-    SBAssertStringsEqual(project.publishDirectoryAndroid, @"Source/Resources/Published-Android");
     XCTAssertEqual(project.defaultOrientation, 0);
-
-    XCTAssertTrue(project.publishEnabledAndroid);
-    XCTAssertTrue(project.publishResolution_android_phone);
-    XCTAssertTrue(project.publishResolution_android_phonehd);
-    XCTAssertTrue(project.publishResolution_android_tablet);
-    XCTAssertTrue(project.publishResolution_android_tablethd);
 
     XCTAssertTrue(project.publishEnabledIOS);
     XCTAssertTrue(project.publishResolution_ios_phone);
@@ -275,7 +261,6 @@
 
     [self assertResourcePaths:@[@"packages/SpriteBuilder Resources.sbpack"] inProject:project];
 
-    XCTAssertEqual(project.publishAudioQuality_android, 4);
     XCTAssertEqual(project.publishAudioQuality_ios, 4);
 
     XCTAssertFalse(project.onlyPublishCCBs);
@@ -314,10 +299,8 @@
 
     ProjectSettings *project = [[ProjectSettings alloc] initWithSerialization:projectDict];
     XCTAssertNotNil(project);
-    XCTAssertEqual(project.publishAudioQuality_android, DEFAULT_AUDIO_QUALITY);
     XCTAssertEqual(project.publishAudioQuality_ios, DEFAULT_AUDIO_QUALITY);
     SBAssertStringsEqual(project.publishDirectory, @"");
-    SBAssertStringsEqual(project.publishDirectoryAndroid, @"");
     XCTAssertFalse(project.excludedFromPackageMigration);
 }
 
@@ -339,7 +322,6 @@
     XCTAssertEqual(projectSettings.resourcePaths.count, 0);
     XCTAssertEqual(projectSettings.engine, CCBTargetEngineCocos2d);
     SBAssertStringsEqual(projectSettings.publishDirectory, @"Published-iOS");
-    SBAssertStringsEqual(projectSettings.publishDirectoryAndroid, @"Published-Android");
 
     XCTAssertFalse(projectSettings.onlyPublishCCBs);
     XCTAssertFalse(projectSettings.publishToZipFile);
@@ -349,21 +331,14 @@
 
     XCTAssertEqual(projectSettings.resourceAutoScaleFactor, 4);
     XCTAssertTrue(projectSettings.publishEnabledIOS);
-    XCTAssertTrue(projectSettings.publishEnabledAndroid);
 
     XCTAssertTrue(projectSettings.publishResolution_ios_phone);
     XCTAssertTrue(projectSettings.publishResolution_ios_phonehd);
     XCTAssertTrue(projectSettings.publishResolution_ios_tablet);
     XCTAssertTrue(projectSettings.publishResolution_ios_tablethd);
 
-    XCTAssertTrue(projectSettings.publishResolution_android_phone);
-    XCTAssertTrue(projectSettings.publishResolution_android_phonehd);
-    XCTAssertTrue(projectSettings.publishResolution_android_tablet);
-    XCTAssertTrue(projectSettings.publishResolution_android_tablethd);
-
     XCTAssertEqual(projectSettings.publishEnvironment, kCCBPublishEnvironmentDevelop);
     XCTAssertEqual(projectSettings.publishAudioQuality_ios, 4);
-    XCTAssertEqual(projectSettings.publishAudioQuality_android, 4);
 
     XCTAssertEqual(projectSettings.tabletPositionScaleFactor, 2.0f);
 
@@ -442,20 +417,20 @@
 
 - (void)testConvenienceMethodForAudioQualityOfResources
 {
+    /*
     NSInteger quality = [_projectSettings soundQualityForRelPath:@"foo" osType:kCCBPublisherOSTypeAndroid];
     XCTAssertEqual(quality, NSNotFound);
-
+    
     [_projectSettings setProperty:@(7) forRelPath:@"baa" andKey:RESOURCE_PROPERTY_ANDROID_SOUND_QUALITY];
     NSInteger quality2 = [_projectSettings soundQualityForRelPath:@"baa" osType:kCCBPublisherOSTypeAndroid];
     XCTAssertEqual(quality2, 7);
+     */
 }
 
 - (void)testConvenienceMethodForAudioQuality
 {
-    _projectSettings.publishAudioQuality_android = 8;
     _projectSettings.publishAudioQuality_ios = 6;
 
-    XCTAssertEqual([_projectSettings audioQualityForOsType:kCCBPublisherOSTypeAndroid], 8);
     XCTAssertEqual([_projectSettings audioQualityForOsType:kCCBPublisherOSTypeIOS], 6);
 }
 

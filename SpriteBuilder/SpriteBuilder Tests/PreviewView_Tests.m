@@ -76,10 +76,7 @@
             RESOURCE_PROPERTY_IMAGE_TABLET_SCALE : @(1),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVR_RGBA8888),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(YES),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVR_RGBA8888),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(YES)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(YES)
     }];
 
     [_previewImageViewController setPreviewedResource:_resource projectSettings:_projectSettings];
@@ -89,10 +86,7 @@
             RESOURCE_PROPERTY_IMAGE_TABLET_SCALE : @(2),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(NO)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO)
     }];
 }
 
@@ -102,8 +96,7 @@
     _resource.type = kCCBResTypeAudio;
     [self setResourceProperties:@{
             RESOURCE_PROPERTY_IOS_SOUND : @(kFCSoundFormatMP4),
-            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(1),
-            RESOURCE_PROPERTY_ANDROID_SOUND : @(2)
+            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(1)
     }];
 
     [_previewAudioViewController setPreviewedResource:_resource
@@ -112,8 +105,7 @@
     [self setPropertiesIndividuallyAndAssertResourceIsDirtyViewController:_previewAudioViewController
                                                                properties:@{
             RESOURCE_PROPERTY_IOS_SOUND : @(kFCSoundFormatCAF),
-            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(4),
-            RESOURCE_PROPERTY_ANDROID_SOUND : @(5)
+            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(4)
     }];
 }
 
@@ -125,10 +117,7 @@
             RESOURCE_PROPERTY_TRIM_SPRITES:@(YES),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVR_RGBA8888),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(YES),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVR_RGBA8888),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(YES)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(YES)
     }];
 
     [_previewSpriteSheetViewController setPreviewedResource:_resource
@@ -139,10 +128,7 @@
             RESOURCE_PROPERTY_TRIM_SPRITES:@(NO),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(NO)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO)
     }];
 }
 
@@ -153,10 +139,7 @@
             RESOURCE_PROPERTY_IMAGE_SCALE_FROM:@(1),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT:@(kFCImageFormatPVR_RGBA8888),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER:@(YES),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS:@(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT:@(kFCImageFormatPVR_RGBA8888),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER:@(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS:@(YES)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS:@(YES)
     }];
 
     [_previewImageViewController setPreviewedResource:_resource projectSettings:_projectSettings];
@@ -167,10 +150,7 @@
         RESOURCE_PROPERTY_IMAGE_SCALE_FROM : @(2),
         RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
         RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(NO),
-        RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO),
-        RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
-        RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(NO),
-        RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(NO)
+        RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO)
     }];
 }
 
@@ -179,10 +159,7 @@
     _resource.type = kCCBResTypeAudio;
     [self setResourceProperties:@{
             RESOURCE_PROPERTY_IOS_SOUND : @(kFCSoundFormatMP4),
-            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(1),
-            // Yes this is illegal app wise but we need a value here that will be different from the set one
-            RESOURCE_PROPERTY_ANDROID_SOUND : @(kFCSoundFormatCAF),
-            RESOURCE_PROPERTY_ANDROID_SOUND_QUALITY : @(1)
+            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(1)
     }];
 
     [_previewAudioViewController setPreviewedResource:_resource projectSettings:_projectSettings];
@@ -191,9 +168,7 @@
                                          isAudio:YES
                                       properties:@{
             RESOURCE_PROPERTY_IOS_SOUND : @(kFCSoundFormatCAF),
-            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(4),
-            RESOURCE_PROPERTY_ANDROID_SOUND : @(kFCSoundFormatOGG),
-            RESOURCE_PROPERTY_ANDROID_SOUND_QUALITY : @(6)
+            RESOURCE_PROPERTY_IOS_SOUND_QUALITY : @(4)
     }];
 }
 
@@ -204,10 +179,7 @@
             RESOURCE_PROPERTY_TRIM_SPRITES : @(NO),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT:@(kFCImageFormatPVR_RGBA8888),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER:@(YES),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS:@(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT:@(kFCImageFormatPVR_RGBA8888),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER:@(YES),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS:@(YES)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS:@(YES)
     }];
 
     [_previewSpriteSheetViewController setPreviewedResource:_resource projectSettings:_projectSettings];
@@ -218,10 +190,7 @@
             RESOURCE_PROPERTY_TRIM_SPRITES : @(YES),
             RESOURCE_PROPERTY_IOS_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
             RESOURCE_PROPERTY_IOS_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT : @(kFCImageFormatPVRTC_4BPP),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_DITHER : @(NO),
-            RESOURCE_PROPERTY_ANDROID_IMAGE_COMPRESS : @(NO)
+            RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS : @(NO)
     }];
 }
 

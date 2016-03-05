@@ -30,7 +30,6 @@
 @property (nonatomic, strong) CCBWarnings *warnings;
 @property (nonatomic, strong) CCBPublisher *publisher;
 @property (nonatomic, strong) CCBPublishingTarget *targetIOS;
-@property (nonatomic, strong) CCBPublishingTarget *targetAndroid;
 
 @end
 
@@ -44,7 +43,6 @@
     self.projectSettings = [[ProjectSettings alloc] init];
     _projectSettings.projectPath = [self fullPathForFile:@"baa.spritebuilder/publishtest.ccbproj"];
     _projectSettings.publishEnabledIOS = YES;
-    _projectSettings.publishEnabledAndroid = NO;
 
     RMPackage *package = [[RMPackage alloc] init];
     package.dirPath = [self fullPathForFile:@"baa.spritebuilder/Packages/foo.sbpack"];
@@ -64,13 +62,7 @@
     _targetIOS.outputDirectory = [self fullPathForFile:@"Published-iOS"];
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
 
-    self.targetAndroid = [[CCBPublishingTarget alloc] init];
-    _targetAndroid.osType = kCCBPublisherOSTypeAndroid;
-    _targetAndroid.inputDirectories = @[[self fullPathForFile:@"baa.spritebuilder/Packages/foo.sbpack"]];
-    _targetAndroid.outputDirectory = [self fullPathForFile:@"Published-Android"];
-    _targetAndroid.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeAndroid];
-
-    [self createFolders:@[@"Published-iOS", @"Published-Android", @"baa.spritebuilder/Packages/foo.sbpack"]];
+    [self createFolders:@[@"Published-iOS", @"baa.spritebuilder/Packages/foo.sbpack"]];
 }
 
 - (void)testPublishingProject
@@ -148,27 +140,14 @@
     _projectSettings.publishResolution_ios_phone = NO;
     _projectSettings.publishResolution_ios_phonehd = YES;
 
-    _projectSettings.publishEnabledAndroid = YES;
-    _projectSettings.publishResolution_android_tablet = NO;
-    _projectSettings.publishResolution_android_tablethd = YES;
-    _projectSettings.publishResolution_android_phone = YES;
-    _projectSettings.publishResolution_android_phonehd = NO;
-
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
     [_publisher addPublishingTarget:_targetIOS];
-    _targetAndroid.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeAndroid];
-    [_publisher addPublishingTarget:_targetAndroid];
     [_publisher start];
 
     [self assertFileExists:@"Published-iOS/resources-phonehd/picture.png"];
     [self assertFileExists:@"Published-iOS/resources-tablet/picture.png"];
     [self assertFileDoesNotExist:@"Published-iOS/resources-phone/picture.png"];
     [self assertFileDoesNotExist:@"Published-iOS/resources-tablethd/picture.png"];
-
-    [self assertFileExists:@"Published-Android/resources-phone/picture.png"];
-    [self assertFileExists:@"Published-Android/resources-tablethd/picture.png"];
-    [self assertFileDoesNotExist:@"Published-Android/resources-phonehd/picture.png"];
-    [self assertFileDoesNotExist:@"Published-Android/resources-tablet/picture.png"];
 }
 
 - (void)testPublishBMFont
@@ -241,49 +220,34 @@
     [self assertPNGAtPath:@"Published-iOS/resources-phonehd/rocket.png" hasWidth:8 hasHeight:40];
 }
 
-- (void)testDifferentOutputFormatsForIOSAndAndroid
+- (void)testDifferentOutputFormatsForIOS
 {
     [self createPNGAtPath:@"baa.spritebuilder/Packages/foo.sbpack/resources-auto/rocket.png" width:4 height:20];
     [self copyTestingResource:@"blank.wav" toFolder:@"baa.spritebuilder/Packages/foo.sbpack"];
 
-    _projectSettings.publishEnabledAndroid = YES;
     _projectSettings.resourceAutoScaleFactor = 4;
 
     [_projectSettings setProperty:@(kFCImageFormatJPG_High) forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT];
-    [_projectSettings setProperty:@(kFCImageFormatJPG_High) forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_ANDROID_IMAGE_FORMAT];
     [_projectSettings setProperty:@(kFCSoundFormatMP4) forRelPath:@"blank.wav" andKey:RESOURCE_PROPERTY_IOS_SOUND];
 
     [_publisher addPublishingTarget:_targetIOS];
-    [_publisher addPublishingTarget:_targetAndroid];
     [_publisher start];
 
     [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"rocket.png" renamedName:@"rocket.jpg"];
     [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"blank.wav" renamedName:@"blank.m4a"];
-
-    [self assertRenamingRuleInfFileLookup:@"Published-Android/fileLookup.plist" originalName:@"rocket.png" renamedName:@"rocket.jpg"];
-    [self assertRenamingRuleInfFileLookup:@"Published-Android/fileLookup.plist" originalName:@"blank.wav" renamedName:@"blank.ogg"];
 
     [self assertJPGAtPath:@"Published-iOS/resources-tablet/rocket.jpg" hasWidth:2 hasHeight:10];
     [self assertJPGAtPath:@"Published-iOS/resources-tablethd/rocket.jpg" hasWidth:4 hasHeight:20];
     [self assertJPGAtPath:@"Published-iOS/resources-phone/rocket.jpg" hasWidth:1 hasHeight:5];
     [self assertJPGAtPath:@"Published-iOS/resources-phonehd/rocket.jpg" hasWidth:2 hasHeight:10];
 
-    [self assertJPGAtPath:@"Published-Android/resources-tablet/rocket.jpg" hasWidth:2 hasHeight:10];
-    [self assertJPGAtPath:@"Published-Android/resources-tablethd/rocket.jpg" hasWidth:4 hasHeight:20];
-    [self assertJPGAtPath:@"Published-Android/resources-phone/rocket.jpg" hasWidth:1 hasHeight:5];
-    [self assertJPGAtPath:@"Published-Android/resources-phonehd/rocket.jpg" hasWidth:2 hasHeight:10];
-
     [self assertFileExists:@"Published-iOS/blank.m4a"];
-    [self assertFileExists:@"Published-Android/blank.ogg"];
 
     NSData *wavData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"baa.spritebuilder/Packages/foo.sbpack/blank.wav"]];
     NSData *m4aData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"Published-iOS/blank.m4a"]];
-    NSData *oggData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"Published-Android/blank.ogg"]];
     XCTAssertNotNil(wavData, @"wav data must not be nil");
     XCTAssertNotNil(m4aData, @"m4a data must not be nil");
-    XCTAssertNotNil(oggData, @"ogg data must not be nil");
     XCTAssertTrue(![m4aData isEqualToData:wavData], @"m4a data must be different than wav data");
-    XCTAssertTrue(![oggData isEqualToData:wavData], @"ogg data must be different than wav data");
 }
 
 - (void)testSpriteSheets
@@ -439,15 +403,12 @@
 {
     XCTAssertEqual(kCCBPublisherOSTypeHTML5, 0, @"Enum value kCCBPublisherOSTypeHTML5  must not change");
     XCTAssertEqual(kCCBPublisherOSTypeIOS, 1, @"Enum value kCCBPublisherOSTypeIOS  must not change");
-    XCTAssertEqual(kCCBPublisherOSTypeAndroid, 2, @"Enum value kCCBPublisherOSTypeAndroid  must not change");
 
     XCTAssertEqual(kCCBPublishEnvironmentDevelop, 0, @"Enum value kCCBPublishEnvironmentDevelop  must not change");
     XCTAssertEqual(kCCBPublishEnvironmentRelease, 1, @"Enum value kCCBPublishEnvironmentRelease  must not change");
 
     XCTAssertEqual(kCCBPublishFormatSound_ios_caf, 0, @"Enum value kCCBPublishFormatSound_ios_caf  must not change");
     XCTAssertEqual(kCCBPublishFormatSound_ios_mp4, 1, @"Enum value kCCBPublishFormatSound_ios_mp4  must not change");
-
-    XCTAssertEqual(kCCBPublishFormatSound_android_ogg, 0, @"Enum value kCCBPublishFormatSound_android_ogg  must not change");
 }
 
 #pragma mark - assert helpers
