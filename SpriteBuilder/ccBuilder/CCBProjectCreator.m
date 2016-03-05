@@ -63,7 +63,7 @@
     NSTask* zipTask = [[NSTask alloc] init];
     [zipTask setCurrentDirectoryPath:parentPath];
     [zipTask setLaunchPath:@"/usr/bin/unzip"];
-    NSArray* args = [NSArray arrayWithObjects:@"-o", zipFile, nil];
+    NSArray* args = @[@"-o", zipFile];
     [zipTask setArguments:args];
     [zipTask launch];
     [zipTask waitUntilExit];

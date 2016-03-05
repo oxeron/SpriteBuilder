@@ -132,7 +132,6 @@
 #import "CCBPublisherCacheCleaner.h"
 #import "CCBPublisherController.h"
 #import "ResourceManager+Publishing.h"
-#import "SBUpdater.h"
 #import "CCNode+NodeInfo.h"
 #import "PreviewContainerViewController.h"
 #import "InspectorController.h"
@@ -566,7 +565,6 @@ typedef enum
     [self setupProjectTilelessEditor];
     [self setupExtras];
     [self setupResourceCommandController];
-	[self setupSparkleGui];
 	
     [window restorePreviousOpenedPanels];
 
@@ -3029,7 +3027,10 @@ typedef enum
             [[UsageManager sharedManager] sendEvent:[NSString stringWithFormat:@"project_new_%@",saveDlgLanguagePopup.selectedItem.title]];
             
             // Check validity of file name
-            NSCharacterSet* invalidChars = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+            NSMutableCharacterSet* validChars = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
+            [validChars addCharactersInString:@"_"];
+            NSCharacterSet* invalidChars = [validChars invertedSet];
+            
             if ([[fileNameRaw lastPathComponent] rangeOfCharacterFromSet:invalidChars].location == NSNotFound)
             {
                 // Create directory
@@ -4160,29 +4161,6 @@ typedef enum
 -(NSString*)applicationTitle
 {
 	return @"SpriteBuilder";
-}
-
-#pragma mark Sparkle
-
--(void)setupSparkleGui
-{
-#if SB_SANDBOXED
-	[self.menuCheckForUpdates setHidden:YES];
-#endif
-}
-
-- (SBVersionComparitor*)versionComparatorForUpdater
-{
-	return [SBVersionComparitor new];
-}
-
-- (BOOL)updaterShouldPromptForPermissionToCheckForUpdates
-{
-#if TESTING || SB_SANDBOXED
-	return NO;
-#else 
-	return YES;
-#endif
 }
 
 - (NSString *)feedURLStringForUpdater:(id)updater

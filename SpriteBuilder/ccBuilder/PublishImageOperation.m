@@ -300,26 +300,6 @@
     return srcDate;
 }
 
-- (NSString *)pathWithCocoaImageResolutionSuffix:(NSString *)path resolution:(NSString *)resolution
-{
-    NSString *extension = [path pathExtension];
-
-    if ([resolution isEqualToString:RESOLUTION_PHONE_HD])
-    {
-        path = [NSString stringWithFormat:@"%@@2x.%@", [path stringByDeletingPathExtension], extension];
-    }
-    else if ([resolution isEqualToString:RESOLUTION_TABLET])
-    {
-        path = [NSString stringWithFormat:@"%@~ipad.%@", [path stringByDeletingPathExtension], extension];
-    }
-    else if ([resolution isEqualToString:RESOLUTION_TABLET_HD])
-    {
-        path = [NSString stringWithFormat:@"%@@2x~ipad.%@", [path stringByDeletingPathExtension], extension];
-    }
-
-    return path;
-}
-
 - (NSDate *)latestModifiedDateForDirectory:(NSString *)dir
 {
     NSDate *latestDate = [CCBFileUtil modificationDateForFile:dir];

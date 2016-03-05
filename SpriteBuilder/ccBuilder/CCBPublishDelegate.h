@@ -9,6 +9,9 @@
 @protocol CCBPublishDelegate <NSObject>
 
 @required
-- (void) addWarningWithDescription:(NSString*)description isFatal:(BOOL)fatal relatedFile:(NSString*) relatedFile resolution:(NSString*) resolution;
+- (void)addWarningWithDescription:(NSString *)description
+                          isFatal:(BOOL)fatal
+                      relatedFile:(NSString *)relatedFile
+                       resolution:(NSString *)resolution;
 
 @end

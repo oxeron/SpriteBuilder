@@ -156,7 +156,10 @@
 
 #pragma mark - CCBPublishDelegate methods
 
-- (void)addWarningWithDescription:(NSString *)description isFatal:(BOOL)fatal relatedFile:(NSString *)relatedFile resolution:(NSString *)resolution
+- (void)addWarningWithDescription:(NSString *)description
+                          isFatal:(BOOL)fatal
+                      relatedFile:(NSString *)relatedFile
+                       resolution:(NSString *)resolution
 {
     [_warnings addWarningWithDescription:description isFatal:fatal relatedFile:relatedFile resolution:resolution];
 }

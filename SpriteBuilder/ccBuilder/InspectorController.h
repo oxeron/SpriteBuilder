@@ -21,7 +21,7 @@
 + (void)setSingleton:(InspectorController *)sharedController;
 
 - (void)setupInspectorPane;
-
+- (void)refreshAllProperties;
 - (void)refreshProperty:(NSString *)name;
 
 - (void)refreshPropertiesOfType:(NSString *)type;

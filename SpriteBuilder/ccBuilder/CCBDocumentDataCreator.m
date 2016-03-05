@@ -38,7 +38,7 @@
     NSAssert(sceneGraph != nil, @"sceneGraph must not be nil");
     NSAssert(document != nil, @"document must not be nil");
     NSAssert(projectSettings != nil, @"projectSettings must not be nil");
-
+    
     self = [super init];
     if (self)
     {
@@ -47,75 +47,75 @@
         self.projectSettings = projectSettings;
         self.sequenceId = sequenceId;
     }
-
+    
     return self;
 }
 
 - (NSMutableDictionary *)createData;
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-
+    
     [self setNodeGraphInDict:dict];
-
+    
     [self setMetaDataInDict:dict];
-
+    
     [self setStageInDict:dict];
-
+    
     [self setGuidesAndNotesInDict:dict];
-
+    
     [self setGridSpacingInDict:dict];
-
+    
     [self setJointsDataInDictDict:dict];
-
+    
     [self setResolutionsInDict:dict];
-
+    
     [self setSequencerTimelinesInDict:dict];
-
+    
     [self setExportPathAndPluginInDict:dict];
-
+    
     [self setMiscDataInDict:dict];
-
+    
     return dict;
 }
 
 - (void)setMiscDataInDict:(NSMutableDictionary *)dict
 {
     // TODO: obsolete legacy code for javascript
-    [dict setObject:@(NO) forKey:@"jsControlled"];
-
-    [dict setObject:@([[CocosScene cocosScene] centeredOrigin]) forKey:@"centeredOrigin"];
-    [dict setObject:@(_document.docDimensionsType) forKey:@"docDimensionsType"];
-    [dict setObject:@(_document.UUID) forKey:@"UUID"];
+    dict[@"jsControlled"] = @(NO);
+    
+    dict[@"centeredOrigin"] = @([[CocosScene cocosScene] centeredOrigin]);
+    dict[@"docDimensionsType"] = @(_document.docDimensionsType);
+    dict[@"UUID"] = @(_document.UUID);
 }
 
 - (void)setNodeGraphInDict:(NSMutableDictionary *)dict
 {
     NSMutableDictionary* nodeGraph = [CCBWriterInternal dictionaryFromCCObject:_sceneGraph.rootNode];
-    [dict setObject:nodeGraph forKey:@"nodeGraph"];
+    dict[@"nodeGraph"] = nodeGraph;
 }
 
 - (void)setMetaDataInDict:(NSMutableDictionary *)dict
 {
-    [dict setObject:@"CocosBuilder" forKey:@"fileType"];
-    [dict setObject:@(kCCBFileFormatVersion) forKey:@"fileVersion"];
+    dict[@"fileType"] = @"CocosBuilder";
+    dict[@"fileVersion"] = @(kCCBFileFormatVersion);
 }
 
 - (void)setStageInDict:(NSMutableDictionary *)dict
 {
-    [dict setObject:[NSNumber numberWithInt:[[CocosScene cocosScene] stageBorder]] forKey:@"stageBorder"];
-    [dict setObject:[NSNumber numberWithInt:_document.stageColor] forKey:@"stageColor"];
+    dict[@"stageBorder"] = @([[CocosScene cocosScene] stageBorder]);
+    dict[@"stageColor"] = @(_document.stageColor);
 }
 
 - (void)setGuidesAndNotesInDict:(NSMutableDictionary *)dict
 {
-    [dict setObject:[[CocosScene cocosScene].guideLayer serializeGuides] forKey:@"guides"];
-    [dict setObject:[[CocosScene cocosScene].notesLayer serializeNotes] forKey:@"notes"];
+    dict[@"guides"] = [[CocosScene cocosScene].guideLayer serializeGuides];
+    dict[@"notes"] = [[CocosScene cocosScene].notesLayer serializeNotes];
 }
 
 - (void)setGridSpacingInDict:(NSMutableDictionary *)dict
 {
-    [dict setObject:[NSNumber numberWithInt:[CocosScene cocosScene].guideLayer.gridSize.width] forKey:@"gridspaceWidth"];
-    [dict setObject:[NSNumber numberWithInt:[CocosScene cocosScene].guideLayer.gridSize.height] forKey:@"gridspaceHeight"];
+    dict[@"gridspaceWidth"] = [NSNumber numberWithInt:[CocosScene cocosScene].guideLayer.gridSize.width];
+    dict[@"gridspaceHeight"] = [NSNumber numberWithInt:[CocosScene cocosScene].guideLayer.gridSize.height];
 }
 
 - (void)setJointsDataInDictDict:(NSMutableDictionary *)dict
@@ -125,18 +125,18 @@
     {
         [joints addObject:[CCBWriterInternal dictionaryFromCCObject:joint]];
     }
-
-    [dict setObject:joints forKey:@"joints"];
-
-    [dict setObject:[_sceneGraph.joints serialize] forKey:@"SequencerJoints"];
+    
+    dict[@"joints"] = joints;
+    
+    dict[@"SequencerJoints"] = [_sceneGraph.joints serialize];
 }
 
 - (void)setExportPathAndPluginInDict:(NSMutableDictionary *)dict
 {
     if (_document.exportPath && _document.exportPlugIn)
     {
-        [dict setObject:_document.exportPlugIn forKey:@"exportPlugIn"];
-        [dict setObject:_document.exportPath forKey:@"exportPath"];
+        dict[@"exportPlugIn"] = _document.exportPlugIn;
+        dict[@"exportPath"] = _document.exportPath;
     }
 }
 
@@ -149,8 +149,8 @@
         {
             [resolutions addObject:[r serialize]];
         }
-        [dict setObject:resolutions forKey:@"resolutions"];
-        [dict setObject:@(_document.currentResolution) forKey:@"currentResolution"];
+        dict[@"resolutions"] = resolutions;
+        dict[@"currentResolution"] = @(_document.currentResolution);
     }
 }
 
@@ -163,11 +163,9 @@
         {
             [sequences addObject:[seq serialize]];
         }
-        [dict setObject:sequences forKey:@"sequences"];
-        [dict setObject:@(_sequenceId) forKey:@"currentSequenceId"];
+        dict[@"sequences"] = sequences;
+        dict[@"currentSequenceId"] = @(_sequenceId);
     }
 }
-
-
 
 @end

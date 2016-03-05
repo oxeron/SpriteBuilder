@@ -310,8 +310,7 @@ static SequencerHandler* sharedSequencerHandler;
 	
 	if (item == nil)
 	{
-		const NSUInteger itemCount = 4;
-		return itemCount;
+        return 4;
 	}
     
     if([item isKindOfClass:[SequencerJoints class]])
@@ -372,10 +371,11 @@ static SequencerHandler* sharedSequencerHandler;
     }
 
     CCNode* node = (CCNode*)item;
+    NSUInteger count = node.children.count - 1;
 
-    if (index < node.children.count)
+    if (index <= count)
     {
-        return [node children][(NSUInteger) index];
+        return [node children][count - index];
     }
     else
     {
@@ -980,6 +980,9 @@ static SequencerHandler* sharedSequencerHandler;
 
 - (BOOL)acceptDropForNodeType:(id)item index:(NSInteger)index clipData:(NSData *)clipData
 {
+    CCNode *parent = (CCNode *)item;
+    index = parent.children.count - index;
+    
 	NSArray *nodes = [self deserializeDraggedObjects:clipData];
 	for (NSDictionary *node in nodes)
 		{

@@ -20,7 +20,7 @@
     {
         self.filePath = filePath;
     }
-
+    
     return self;
 }
 
@@ -35,7 +35,7 @@
             RMSpriteFrame* frame = [[RMSpriteFrame alloc] init];
             frame.spriteFrameName = frameName;
             frame.spriteSheetFile = _filePath;
-
+            
             [spriteFrames addObject:frame];
         }
         self.data = spriteFrames;
@@ -49,7 +49,7 @@
             RMAnimation* anim = [[RMAnimation alloc] init];
             anim.animationName = animationName;
             anim.animationFile = self.filePath;
-
+            
             [animations addObject:anim];
         }
         self.data = animations;
@@ -71,27 +71,34 @@
 
 - (NSImage*) previewForResolution:(NSString *)res
 {
-    if (!res) res = @"auto";
+    
+    NSString* autoPath = [self absoluteAutoPathForResolution:res];
+    if(!autoPath) return NULL;
+    
+    return [[NSImage alloc] initWithContentsOfFile:autoPath];
+}
 
+- (NSString*)absoluteAutoPathForResolution:(NSString *)res {
+    
+    if (!res) res = @"auto";
+    
     if (_type == kCCBResTypeImage)
     {
         NSString* fileName = [_filePath lastPathComponent];
         NSString* dirPath = [_filePath stringByDeletingLastPathComponent];
         NSString* resDirName = [@"resources-" stringByAppendingString:res];
-
-        NSString* autoPath = [[dirPath stringByAppendingPathComponent:resDirName] stringByAppendingPathComponent:fileName];
-
-        NSImage* img = [[NSImage alloc] initWithContentsOfFile:autoPath];
-        return img;
+        
+        return [[dirPath stringByAppendingPathComponent:resDirName] stringByAppendingPathComponent:fileName];
+        
     }
-
-    return NULL;
+    
+    return nil;
 }
 
 - (NSComparisonResult) compare:(id) obj
 {
     RMResource* res = obj;
-
+    
     if (res.type < self.type)
     {
         return NSOrderedDescending;
@@ -112,7 +119,7 @@
 - (id) pasteboardPropertyListForType:(NSString *)pbType
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-
+    
     if ([pbType isEqualToString:@"com.cocosbuilder.RMResource"])
     {
         dict[@"type"] = @(_type);
@@ -152,7 +159,7 @@
     {
         [pbTypes addObject:@"com.cocosbuilder.wav"];
     }
-
+    
     return pbTypes;
 }
 
@@ -195,18 +202,18 @@
     if (self.type == kCCBResTypeImage)
     {
         NSFileManager* fm = [NSFileManager defaultManager];
-
+        
         NSString* dir = [self.filePath stringByDeletingLastPathComponent];
         NSString* file = [self.filePath lastPathComponent];
         NSString* autoPath = [[dir stringByAppendingPathComponent:@"resources-auto"] stringByAppendingPathComponent:file];
-
+        
         if ([fm fileExistsAtPath:autoPath]) return autoPath;
         else return NULL;
     }
     else if (self.type == kCCBResTypeCCBFile)
     {
         NSFileManager* fm = [NSFileManager defaultManager];
-
+        
         NSString* previewPath = [self.filePath stringByAppendingPathExtension:PNG_PREVIEW_IMAGE_SUFFIX];
         if ([fm fileExistsAtPath:previewPath]) return previewPath;
         else return NULL;
@@ -222,11 +229,11 @@
     if (self.type == kCCBResTypeImage)
     {
         NSFileManager* fm = [NSFileManager defaultManager];
-
+        
         NSString* dir = [self.filePath stringByDeletingLastPathComponent];
         NSString* file = [self.filePath lastPathComponent];
         NSString* autoPath = [[dir stringByAppendingPathComponent:@"resources-auto"] stringByAppendingPathComponent:file];
-
+        
         if ([fm fileExistsAtPath:autoPath])
         {
             NSDate* fileDate = [CCBFileUtil modificationDateForFile:autoPath];
@@ -237,7 +244,7 @@
     else if (self.type == kCCBResTypeCCBFile)
     {
         NSFileManager* fm = [NSFileManager defaultManager];
-
+        
         NSString* previewPath = [self.filePath stringByAppendingPathExtension:PNG_PREVIEW_IMAGE_SUFFIX];
         if ([fm fileExistsAtPath:previewPath])
         {
