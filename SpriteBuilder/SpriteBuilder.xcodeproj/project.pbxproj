@@ -1048,6 +1048,11 @@
 		FF9398941C8CC91A00D424C7 /* test_ccbreader_button.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398921C8CC91A00D424C7 /* test_ccbreader_button.ccb */; };
 		FF93989A1C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */; };
 		FF93989C1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */; };
+		FF9398A21C8CCFD400D424C7 /* test_ccbreader_boxlayout.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989D1C8CCFD400D424C7 /* test_ccbreader_boxlayout.ccb */; };
+		FF9398A31C8CCFD400D424C7 /* test_ccbreader_effectnode.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989E1C8CCFD400D424C7 /* test_ccbreader_effectnode.ccb */; };
+		FF9398A41C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989F1C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb */; };
+		FF9398A51C8CCFD400D424C7 /* test_ccbreader_slider.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */; };
+		FF9398A61C8CCFD400D424C7 /* test_ccbreader_subfile.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2814,6 +2819,11 @@
 		FF9398921C8CC91A00D424C7 /* test_ccbreader_button.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_button.ccb; path = "Testing Resources/test_ccbreader_button.ccb"; sourceTree = "<group>"; };
 		FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_node_customClass_customProperties.ccb; path = "Testing Resources/test_ccbreader_node_customClass_customProperties.ccb"; sourceTree = "<group>"; };
 		FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_textfield.ccb; path = "Testing Resources/test_ccbreader_textfield.ccb"; sourceTree = "<group>"; };
+		FF93989D1C8CCFD400D424C7 /* test_ccbreader_boxlayout.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_boxlayout.ccb; path = "Testing Resources/test_ccbreader_boxlayout.ccb"; sourceTree = "<group>"; };
+		FF93989E1C8CCFD400D424C7 /* test_ccbreader_effectnode.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_effectnode.ccb; path = "Testing Resources/test_ccbreader_effectnode.ccb"; sourceTree = "<group>"; };
+		FF93989F1C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_scrollview.ccb; path = "Testing Resources/test_ccbreader_scrollview.ccb"; sourceTree = "<group>"; };
+		FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_slider.ccb; path = "Testing Resources/test_ccbreader_slider.ccb"; sourceTree = "<group>"; };
+		FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_subfile.ccb; path = "Testing Resources/test_ccbreader_subfile.ccb"; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -5851,6 +5861,11 @@
 		FF9398661C8CAD7100D424C7 /* Testing Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FF93989D1C8CCFD400D424C7 /* test_ccbreader_boxlayout.ccb */,
+				FF93989E1C8CCFD400D424C7 /* test_ccbreader_effectnode.ccb */,
+				FF93989F1C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb */,
+				FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */,
+				FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */,
 				FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */,
 				FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */,
 				FF9398911C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb */,
@@ -6902,8 +6917,10 @@
 				FF9398941C8CC91A00D424C7 /* test_ccbreader_button.ccb in Resources */,
 				B7E6BB5119F868F000619A58 /* sel-round@2x.png in Resources */,
 				FF93989C1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb in Resources */,
+				FF9398A61C8CCFD400D424C7 /* test_ccbreader_subfile.ccb in Resources */,
 				FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */,
 				922CC396194676B600B34854 /* AnimationTest1.ccb in Resources */,
+				FF9398A51C8CCFD400D424C7 /* test_ccbreader_slider.ccb in Resources */,
 				83599E9A1975470D008283EC /* photoshop.psd in Resources */,
 				B7E6BB5319F868F000619A58 /* select-corner@2x.png in Resources */,
 				92F85F3C194F8A4A0076B343 /* AnimationTest5.ccb in Resources */,
@@ -6911,6 +6928,8 @@
 				837D2E731A0D07F0009918B7 /* greyscale.png in Resources */,
 				920994C419870EF90006F38D /* ShinyBallNormals.png in Resources */,
 				FF93987B1C8CC1A400D424C7 /* test_ccbreader_sprite.ccb in Resources */,
+				FF9398A41C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb in Resources */,
+				FF9398A21C8CCFD400D424C7 /* test_ccbreader_boxlayout.ccb in Resources */,
 				FF9398781C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb in Resources */,
 				FF9398761C8CC1A400D424C7 /* test_ccbreader_colornode.ccb in Resources */,
 				920994C319870EF90006F38D /* ShinyBallColor.png in Resources */,
@@ -6929,6 +6948,7 @@
 				92F85F37194F70CA0076B343 /* AnimationTest4.ccb in Resources */,
 				92F85F34194F6AD80076B343 /* AnimationTest3.ccb in Resources */,
 				B7E6BB5519F868F000619A58 /* select-physics-corner@2x.png in Resources */,
+				FF9398A31C8CCFD400D424C7 /* test_ccbreader_effectnode.ccb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
