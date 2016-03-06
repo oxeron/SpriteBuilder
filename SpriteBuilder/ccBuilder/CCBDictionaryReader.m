@@ -68,7 +68,27 @@ __strong NSDictionary* renamedProperties = nil;
 -(void)postDeserializationFixup;
 @end
 
+@interface CCBDictionaryReader()
+
+@property (nonatomic) NSUInteger fileVersion;
+@property (nonatomic, strong) NSDictionary *dataDict;
+
+@end
+
+
 @implementation CCBDictionaryReader
+
+- (instancetype)initWithDictionary:(NSDictionary *)dataDict
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.dataDict = dataDict;
+    }
+    
+    return self;
+}
 
 + (NSPoint) deserializePoint:(id) val
 {
@@ -575,7 +595,7 @@ __strong NSDictionary* renamedProperties = nil;
     CGSize contentSize = node.contentSize;
     for (NSUInteger i = 0; i < [children count]; i++)
     {
-        CCNode* child = [CCBDictionaryReader nodeGraphFromDictionary:children[i] parentSize:contentSize];
+        CCNode* child = [CCBDictionaryReader nodeGraphFromDictionary:children[i] parentSize:contentSize withParentGraph:nil];
         
         if (child)
         {
@@ -609,11 +629,6 @@ __strong NSDictionary* renamedProperties = nil;
     }
     
     return node;
-}
-
-+ (CCNode*) nodeGraphFromDocumentDictionary:(NSDictionary *)dict
-{
-    return [CCBDictionaryReader nodeGraphFromDocumentDictionary:dict parentSize:CGSizeZero];
 }
 
 + (CCNode*) nodeGraphFromDocumentDictionary:(NSDictionary *)dict parentSize:(CGSize) parentSize
@@ -651,7 +666,7 @@ __strong NSDictionary* renamedProperties = nil;
         return NULL;
     }
     
-    return [CCBDictionaryReader nodeGraphFromDictionary:nodeGraph parentSize:parentSize];
+    return [CCBDictionaryReader nodeGraphFromDictionary:nodeGraph parentSize:parentSize withParentGraph:nil];
 }
 
 

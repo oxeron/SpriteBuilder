@@ -1038,6 +1038,8 @@
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
 		FFA689E51C8C0FD0009B3F5B /* CCBDictionaryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E31C8C0FD0009B3F5B /* CCBDictionaryWriter.m */; };
+		FFA68A141C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA68A131C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m */; };
+		FFA68A171C8C7D7B009B3F5B /* CCBDictionaryReaderRenamedProps.plist in Sources */ = {isa = PBXBuildFile; fileRef = FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2791,6 +2793,8 @@
 		FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader.m; sourceTree = "<group>"; };
 		FFA689E21C8C0FD0009B3F5B /* CCBDictionaryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBDictionaryWriter.h; sourceTree = "<group>"; };
 		FFA689E31C8C0FD0009B3F5B /* CCBDictionaryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryWriter.m; sourceTree = "<group>"; };
+		FFA68A131C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryWriter_Tests.m; sourceTree = "<group>"; };
+		FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBDictionaryReaderRenamedProps.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3023,6 +3027,7 @@
 		776041E01498F4A00078095D /* Document Readers & Writers */ = {
 			isa = PBXGroup;
 			children = (
+				FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */,
 				FFA689E01C8C0FD0009B3F5B /* CCBDictionaryReader.h */,
 				FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */,
 				FFA689E21C8C0FD0009B3F5B /* CCBDictionaryWriter.h */,
@@ -3965,6 +3970,7 @@
 				E525F5F44F65BD7C2E55CDC5 /* Inspector */,
 				E525F4E8267453E4F829C98F /* Plugin Manager */,
 				E525F03E1544B3B62082E0C1 /* Migration */,
+				FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */,
 			);
 			path = "SpriteBuilder Tests";
 			sourceTree = "<group>";
@@ -5813,6 +5819,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */ = {
+			isa = PBXGroup;
+			children = (
+				FFA68A131C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m */,
+			);
+			name = "Document Readers & Writers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -7138,6 +7152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA68A171C8C7D7B009B3F5B /* CCBDictionaryReaderRenamedProps.plist in Sources */,
 				92B792D318C92FEF007DF895 /* CCBPhysicsTwoBodyJoint.m in Sources */,
 				832705A019E5389100A311A0 /* SBPasteboardTypes.m in Sources */,
 				92B792D218C92FE7007DF895 /* CCBPhysicsSpringJoint.m in Sources */,
@@ -7498,6 +7513,7 @@
 				E525F30A9EE36DBB3B363EE8 /* SBPackageSettings_Tests.m in Sources */,
 				E525F4F4F15D32310BBCA63D /* CCBPublisherController_Tests.m in Sources */,
 				E525FFF21919490B3568DC1F /* ZipDirectoryOperation_Tests.m in Sources */,
+				FFA68A141C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m in Sources */,
 				E525FBFD616A1BE9F86C2312 /* PublishOSSettings_Tests.m in Sources */,
 				E525F0AAD83A6EC0D743511F /* ResourceManager+Publishing_Tests.m in Sources */,
 				E525F651194EC2A13EA30026 /* ResourceManager_Tests.m in Sources */,

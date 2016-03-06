@@ -2548,7 +2548,7 @@ typedef enum
         if (asChild) parentSize = self.selectedNode.contentSize;
         else parentSize = self.selectedNode.parent.contentSize;
         
-        CCNode* clipNode = [CCBDictionaryReader nodeGraphFromDictionary:clipDict parentSize:parentSize];
+        CCNode* clipNode = [CCBDictionaryReader nodeGraphFromDictionary:clipDict parentSize:parentSize withParentGraph:nil];
         [CCBDictionaryReader postDeserializationFixup:clipNode];
         [self updateUUIDs:clipNode];
         

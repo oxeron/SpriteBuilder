@@ -521,6 +521,7 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         for (CCNode* node in nodes)
         {
             // Refresh informations for "Select Behind" called from outlineHierarchy
+            /*
             [nodesAtSelectionPt removeAllObjects];
             CGPoint worldPos = [node convertToWorldSpace:node.position];
             [self nodesUnderPt:worldPos rootNode:rootNode nodes:nodesAtSelectionPt];
@@ -528,7 +529,8 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
                 [self nodesUnderPt:worldPos rootNode:jointNode nodes:nodesAtSelectionPt];
             }];
             currentNodeAtSelectionPtIdx = (int)[nodesAtSelectionPt count] -1;
-
+            */
+            
             //Don't display if special case rendering flag is present.
             if([[node extraPropForKey:@"disableStageRendering"] boolValue])
             {
