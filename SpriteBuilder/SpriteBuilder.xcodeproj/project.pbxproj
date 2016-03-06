@@ -1053,6 +1053,7 @@
 		FF9398A41C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989F1C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb */; };
 		FF9398A51C8CCFD400D424C7 /* test_ccbreader_slider.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */; };
 		FF9398A61C8CCFD400D424C7 /* test_ccbreader_subfile.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */; };
+		FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2824,6 +2825,8 @@
 		FF93989F1C8CCFD400D424C7 /* test_ccbreader_scrollview.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_scrollview.ccb; path = "Testing Resources/test_ccbreader_scrollview.ccb"; sourceTree = "<group>"; };
 		FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_slider.ccb; path = "Testing Resources/test_ccbreader_slider.ccb"; sourceTree = "<group>"; };
 		FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_subfile.ccb; path = "Testing Resources/test_ccbreader_subfile.ccb"; sourceTree = "<group>"; };
+		FF9398A71C8CDD4B00D424C7 /* CCBDictionaryKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBDictionaryKeys.h; sourceTree = "<group>"; };
+		FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryKeys.m; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -3065,6 +3068,8 @@
 		776041E01498F4A00078095D /* Document Readers & Writers */ = {
 			isa = PBXGroup;
 			children = (
+				FF9398A71C8CDD4B00D424C7 /* CCBDictionaryKeys.h */,
+				FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */,
 				FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */,
 				FFA689E01C8C0FD0009B3F5B /* CCBDictionaryReader.h */,
 				FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */,
@@ -7483,6 +7488,7 @@
 				E525F310D9DF45E96DCBAA31 /* ResourceShowInFinderCommand.m in Sources */,
 				E525F4326AF2614C4F4FAD29 /* ResourceOpenInExternalEditorCommand.m in Sources */,
 				E525F8431AD20B10AD62EB80 /* ResourceCreateKeyframesCommand.m in Sources */,
+				FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */,
 				E525F0EA925087B3D2ABE8D3 /* ResourceNewPackageCommand.m in Sources */,
 				E525FF949D54CFB8CD7B9F55 /* RMResourceBase.m in Sources */,
 				E525F9C561CF0D13BB57D6F5 /* NSError+SBErrors.m in Sources */,

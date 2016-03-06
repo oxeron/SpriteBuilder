@@ -40,6 +40,9 @@
 #import "EffectsManager.h"
 #import "NSArray+Query.h"
 #import "CCBPEffectNode.h"
+#import "CCBDictionaryKeys.h"
+#import "NSError+SBErrors.h"
+#import "SBErrors.h"
 
 // Old positioning constants
 enum
@@ -630,45 +633,67 @@ __strong NSDictionary* renamedProperties = nil;
     return node;
 }
 
-+ (CCNode *)nodeGraphFromDocumentData:(NSDictionary *)documentData parentSize:(CGSize)parentSize;
-
-{
-    return [CCBDictionaryReader nodeGraphFromDocumentData:documentData parentSize:parentSize withParentGraph:nil];
-}
-
-+ (CCNode*) nodeGraphFromDocumentData:(NSDictionary *)documentData parentSize:(CGSize) parentSize withParentGraph:(CCNode*)parentGraph
++ (CCNode *)nodeGraphFromDocumentData:(NSDictionary *)documentData parentSize:(CGSize)parentSize error:(NSError **)error
 {
     if (!documentData)
     {
-        NSLog(@"WARNING! Trying to load invalid file type (dict is null)");
-        return NULL;
-    }
-    // Load file metadata
-    
-    NSString* fileType = documentData[@"fileType"];
-    int fileVersion = [documentData[@"fileVersion"] intValue];
-    
-    if (!fileType  || ![fileType isEqualToString:@"CocosBuilder"])
-    {
-        NSLog(@"WARNING! Trying to load invalid file type (%@)", fileType);
+        [NSError setNewErrorWithErrorPointer:error code:SBCCBReadingError message:@"Document is nil"];
+        return nil;
     }
     
-    NSDictionary* nodeGraph = documentData[@"nodeGraph"];
-    
-    if (fileVersion <= 2)
+    if (![self isFileVersionValid:[documentData[CCB_DICTIONARY_KEY_FILEVERSION] intValue] error:error])
     {
-        NSLog(@"WARNING! Trying to load a file that is no longer supported by CocosBuilder");
-        return NULL;
+        return nil;
+    }
+    
+    if (![self isFileTypeValid:documentData[CCB_DICTIONARY_KEY_FILETYPE] error:error])
+    {
+        return nil;
+    }
+    
+    NSDictionary *nodeGraph = documentData[CCB_DICTIONARY_KEY_NODEGRAPH];
+    CCNode *node = [CCBDictionaryReader nodeGraphFromNodeGraphData:nodeGraph parentSize:parentSize withParentGraph:nil];
+    if (node)
+    {
+        return node;
+    }
+    
+    [NSError setNewErrorWithErrorPointer:error code:SBCCBReadingErrorNoNodesFound message:@"No nodes found"];
+    return nil;
+}
+
++ (BOOL)isFileTypeValid:(NSString *)fileType error:(NSError **)error
+{
+    if (!fileType
+        || !([fileType isEqualToString:@"CocosBuilder"]
+             || [fileType isEqualToString:@"SpriteBuilder"]))
+    {
+        [NSError setNewErrorWithErrorPointer:error
+                                        code:SBCCBReadingErrorInvalidFileType
+                                     message:[NSString stringWithFormat:@"Filetype is wrong: Should be CocosBuilder but \"%@\" found", fileType]];
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL)isFileVersionValid:(int)fileVersion error:(NSError **)error
+{
+    if (fileVersion <= kCCBDictionaryLowestVersionSupport)
+    {
+        [NSError setNewErrorWithErrorPointer:error
+                                        code:SBCCBReadingErrorVersionTooOld
+                                     message:[NSString stringWithFormat:@"Version no longer supported, min version is %d but %d found", kCCBDictionaryLowestVersionSupport, fileVersion]];
+        return NO;
     }
     else if (fileVersion > kCCBDictionaryFormatVersion)
     {
-        NSLog(@"WARNING! Trying to load file made with a newer version of CocosBuilder");
-        return NULL;
+        [NSError setNewErrorWithErrorPointer:error
+                                        code:SBCCBReadingErrorVersionHigherThanSpritebuilderSupport
+                                     message:[NSString stringWithFormat:@"Version is newer than version supported by Spritebuilder, version found %d, support %d", fileVersion, kCCBDictionaryFormatVersion]];
+        return NO;
     }
-    
-    return [CCBDictionaryReader nodeGraphFromNodeGraphData:nodeGraph parentSize:parentSize withParentGraph:nil];
+    return YES;
 }
-
 
 +(void)postDeserializationFixup:(CCNode*)node
 {

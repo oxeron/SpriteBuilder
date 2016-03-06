@@ -29,3 +29,10 @@ extern NSInteger const SBNoPackagePathsToImport;
 extern NSInteger const SBPackageAlreayInProject;
 extern NSInteger const SBEmptyPackageNameError;
 extern NSInteger const SBMigrationError;
+
+// CCB Reading and writing
+extern NSInteger const SBCCBReadingError;
+extern NSInteger const SBCCBReadingErrorInvalidFileType;
+extern NSInteger const SBCCBReadingErrorVersionTooOld;
+extern NSInteger const SBCCBReadingErrorVersionHigherThanSpritebuilderSupport;
+extern NSInteger const SBCCBReadingErrorNoNodesFound;
