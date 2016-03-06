@@ -27,9 +27,7 @@
 {
     [self.effect willChangeValueForKey:@"redOffsetWithPoint"];
 
-    CGPoint redOffset = self.effect.redOffsetWithPoint;
-    redOffset.x = x;
-    self.effect.redOffsetWithPoint = redOffset;
+    self.effect.redOffsetWithPoint = CGPointMake(x, self.effect.redOffsetWithPoint.y);
 
     [self.effect didChangeValueForKey:@"redOffsetWithPoint"];
 }
@@ -42,10 +40,8 @@
 - (void)setRedOffsetY:(float)y
 {
     [self.effect willChangeValueForKey:@"redOffsetWithPoint"];
-    
-    CGPoint redOffset = self.effect.redOffsetWithPoint;
-    redOffset.y = y;
-    self.effect.redOffsetWithPoint = redOffset;
+
+    self.effect.redOffsetWithPoint = CGPointMake(self.effect.redOffsetWithPoint.x, y);
 
     [self.effect didChangeValueForKey:@"redOffsetWithPoint"];
 }
@@ -59,9 +55,7 @@
 {
     [self.effect willChangeValueForKey:@"greenOffsetWithPoint"];
     
-    CGPoint greenOffset = self.effect.greenOffsetWithPoint;
-    greenOffset.x = x;
-    self.effect.greenOffsetWithPoint = greenOffset;
+    self.effect.greenOffsetWithPoint = CGPointMake(x, self.effect.greenOffsetWithPoint.y);
     
     [self.effect didChangeValueForKey:@"greenOffsetWithPoint"];
 }
@@ -75,9 +69,7 @@
 {
     [self.effect willChangeValueForKey:@"greenOffsetWithPoint"];
     
-    CGPoint greenOffset = self.effect.greenOffsetWithPoint;
-    greenOffset.y = y;
-    self.effect.greenOffsetWithPoint = greenOffset;
+    self.effect.greenOffsetWithPoint = CGPointMake(self.effect.greenOffsetWithPoint.x, y);
     
     [self.effect didChangeValueForKey:@"greenOffsetWithPoint"];
 }
@@ -91,9 +83,7 @@
 {
     [self.effect willChangeValueForKey:@"blueOffsetWithPoint"];
     
-    CGPoint blueOffset = self.effect.blueOffsetWithPoint;
-    blueOffset.x = x;
-    self.effect.blueOffsetWithPoint = blueOffset;
+    self.effect.blueOffsetWithPoint = CGPointMake(x, self.effect.blueOffsetWithPoint.y);
     
     [self.effect didChangeValueForKey:@"blueOffsetWithPoint"];
 }
@@ -107,9 +97,7 @@
 {
     [self.effect willChangeValueForKey:@"blueOffsetWithPoint"];
     
-    CGPoint blueOffset = self.effect.blueOffsetWithPoint;
-    blueOffset.y = y;
-    self.effect.blueOffsetWithPoint = blueOffset;
+    self.effect.blueOffsetWithPoint = CGPointMake(self.effect.blueOffsetWithPoint.x, y);
     
     [self.effect didChangeValueForKey:@"blueOffsetWithPoint"];
 }
