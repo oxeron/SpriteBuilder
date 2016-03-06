@@ -1044,6 +1044,10 @@
 		FF93987B1C8CC1A400D424C7 /* test_ccbreader_sprite.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398741C8CC1A400D424C7 /* test_ccbreader_sprite.ccb */; };
 		FF93987C1C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398751C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb */; };
 		FF93987E1C8CC22200D424C7 /* version_4.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93987D1C8CC22200D424C7 /* version_4.ccb */; };
+		FF9398931C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398911C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb */; };
+		FF9398941C8CC91A00D424C7 /* test_ccbreader_button.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398921C8CC91A00D424C7 /* test_ccbreader_button.ccb */; };
+		FF93989A1C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */; };
+		FF93989C1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2806,6 +2810,10 @@
 		FF9398741C8CC1A400D424C7 /* test_ccbreader_sprite.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_sprite.ccb; path = "Testing Resources/test_ccbreader_sprite.ccb"; sourceTree = "<group>"; };
 		FF9398751C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_sprite9slice.ccb; path = "Testing Resources/test_ccbreader_sprite9slice.ccb"; sourceTree = "<group>"; };
 		FF93987D1C8CC22200D424C7 /* version_4.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = version_4.ccb; path = "Testing Resources/version_4.ccb"; sourceTree = "<group>"; };
+		FF9398911C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_bmfont.ccb; path = "Testing Resources/test_ccbreader_bmfont.ccb"; sourceTree = "<group>"; };
+		FF9398921C8CC91A00D424C7 /* test_ccbreader_button.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_button.ccb; path = "Testing Resources/test_ccbreader_button.ccb"; sourceTree = "<group>"; };
+		FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_node_customClass_customProperties.ccb; path = "Testing Resources/test_ccbreader_node_customClass_customProperties.ccb"; sourceTree = "<group>"; };
+		FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_textfield.ccb; path = "Testing Resources/test_ccbreader_textfield.ccb"; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -5843,6 +5851,10 @@
 		FF9398661C8CAD7100D424C7 /* Testing Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FF93989B1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb */,
+				FF9398991C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb */,
+				FF9398911C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb */,
+				FF9398921C8CC91A00D424C7 /* test_ccbreader_button.ccb */,
 				FF93987D1C8CC22200D424C7 /* version_4.ccb */,
 				FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */,
 				FF9398701C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb */,
@@ -6887,7 +6899,9 @@
 				833A5C52192B48CB001837B3 /* InfoPlist.strings in Resources */,
 				FF93987E1C8CC22200D424C7 /* version_4.ccb in Resources */,
 				B7E6BB6919F86A9800619A58 /* ui-nopreview@2x.png in Resources */,
+				FF9398941C8CC91A00D424C7 /* test_ccbreader_button.ccb in Resources */,
 				B7E6BB5119F868F000619A58 /* sel-round@2x.png in Resources */,
+				FF93989C1C8CC9F000D424C7 /* test_ccbreader_textfield.ccb in Resources */,
 				FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */,
 				922CC396194676B600B34854 /* AnimationTest1.ccb in Resources */,
 				83599E9A1975470D008283EC /* photoshop.psd in Resources */,
@@ -6905,7 +6919,9 @@
 				B7E6BB5719F868F000619A58 /* select-pt@2x.png in Resources */,
 				FF93987A1C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb in Resources */,
 				830B39B0197032F400218021 /* blank.wav in Resources */,
+				FF9398931C8CC91A00D424C7 /* test_ccbreader_bmfont.ccb in Resources */,
 				B7E6BB5919F868F000619A58 /* seq-scaleslide-bg@2x.png in Resources */,
+				FF93989A1C8CC97F00D424C7 /* test_ccbreader_node_customClass_customProperties.ccb in Resources */,
 				FF9398771C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb in Resources */,
 				B7E6BB4F19F868F000619A58 /* doc-particlesystem@2x.png in Resources */,
 				920994C119870EF90006F38D /* EffectTest1.ccb in Resources */,
