@@ -25,7 +25,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define kCCBFileFormatVersion 5
+#define kCCBFileFormatVersion 4
 
 @interface CCBDictionaryReader : NSObject
 

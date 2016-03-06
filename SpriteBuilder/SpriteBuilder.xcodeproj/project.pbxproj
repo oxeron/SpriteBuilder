@@ -1034,6 +1034,8 @@
 		FA98CFD9154E828E006E58C5 /* PlugInExport.m in Sources */ = {isa = PBXBuildFile; fileRef = E398C03214FB86D20078E771 /* PlugInExport.m */; };
 		FA98CFDB154E8D16006E58C5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98CFDA154E8D16006E58C5 /* CoreServices.framework */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
+		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
+		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2786,6 +2788,8 @@
 		FA98CFC6154E7D1C006E58C5 /* ccbpublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ccbpublish.m; sourceTree = "<group>"; };
 		FA98CFC9154E7D1C006E58C5 /* ccbpublish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ccbpublish-Prefix.pch"; sourceTree = "<group>"; };
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
+		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -3971,6 +3975,7 @@
 				E525F4E8267453E4F829C98F /* Plugin Manager */,
 				E525F03E1544B3B62082E0C1 /* Migration */,
 				FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */,
+				FF9398661C8CAD7100D424C7 /* Testing Resources */,
 			);
 			path = "SpriteBuilder Tests";
 			sourceTree = "<group>";
@@ -5819,9 +5824,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FF9398661C8CAD7100D424C7 /* Testing Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */,
+			);
+			name = "Testing Resources";
+			sourceTree = "<group>";
+		};
 		FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */ = {
 			isa = PBXGroup;
 			children = (
+				FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */,
 				FFA68A131C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m */,
 			);
 			name = "Document Readers & Writers";
@@ -6849,6 +6863,7 @@
 				833A5C52192B48CB001837B3 /* InfoPlist.strings in Resources */,
 				B7E6BB6919F86A9800619A58 /* ui-nopreview@2x.png in Resources */,
 				B7E6BB5119F868F000619A58 /* sel-round@2x.png in Resources */,
+				FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */,
 				922CC396194676B600B34854 /* AnimationTest1.ccb in Resources */,
 				83599E9A1975470D008283EC /* photoshop.psd in Resources */,
 				B7E6BB5319F868F000619A58 /* select-corner@2x.png in Resources */,
@@ -7525,6 +7540,7 @@
 				E525F93359F8368EAE1A2EB8 /* PreviewView_Tests.m in Sources */,
 				E525F622A96F0C31CACF1883 /* InspectoreController_Tests.m in Sources */,
 				E525FD827D765352A369AC22 /* CreateDirectoryFileCommand_Tests.m in Sources */,
+				FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */,
 				E525FF7BFA996BCCCE146C24 /* RemoveFileCommand_Tests.m in Sources */,
 				E525F5F8C06CCB481FC77BEC /* MoveFileCommand_Tests.m in Sources */,
 				E525F57D9C6C716295683654 /* PackageMigrator_Tests.m in Sources */,
