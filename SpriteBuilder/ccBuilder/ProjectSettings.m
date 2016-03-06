@@ -544,7 +544,7 @@
         }
     }
 
-    [NSError setNewErrorWithCode:error
+    [NSError setNewErrorWithErrorPointer:error
                             code:SBResourcePathNotInProjectError
                          message:[NSString stringWithFormat:@"Cannot remove path \"%@\" does not exist in project.", relResourcePath]];
     return NO;
@@ -561,7 +561,7 @@
     }
     else
     {
-        [NSError setNewErrorWithCode:error code:SBDuplicateResourcePathError message:[NSString stringWithFormat:@"Cannot create %@, already present.", [path lastPathComponent]]];
+        [NSError setNewErrorWithErrorPointer:error code:SBDuplicateResourcePathError message:[NSString stringWithFormat:@"Cannot create %@, already present.", [path lastPathComponent]]];
         return NO;
     }
 }
@@ -590,7 +590,7 @@
 {
     if ([self isResourcePathInProject:toPath])
     {
-        [NSError setNewErrorWithCode:error code:SBDuplicateResourcePathError message:@"Cannot move resource path, there's already one with the same name."];
+        [NSError setNewErrorWithErrorPointer:error code:SBDuplicateResourcePathError message:@"Cannot move resource path, there's already one with the same name."];
         return NO;
     }
 

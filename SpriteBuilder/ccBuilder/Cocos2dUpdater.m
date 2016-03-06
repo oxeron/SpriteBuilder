@@ -505,7 +505,7 @@ static int copyFileCallback(int currentState, int stage, copyfile_state_t state,
     {
         if (!self.isCancelled)
         {
-            [NSError setNewErrorWithCode:error
+            [NSError setNewErrorWithErrorPointer:error
                                     code:SBCocos2dUpdateCopyFilesError
                                  message:@"An error occured copying the cocos2d folder to the project directory."];
 
@@ -514,7 +514,7 @@ static int copyFileCallback(int currentState, int stage, copyfile_state_t state,
         }
         else
         {
-            [NSError setNewErrorWithCode:error
+            [NSError setNewErrorWithErrorPointer:error
                                     code:SBCocos2dUpdateUserCancelledError
                                  message:@"Update cancelled."];
         }
