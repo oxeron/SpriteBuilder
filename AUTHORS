@@ -51,4 +51,6 @@ People/companies who were/are contributing code to CocosBuilder (alphabetically 
     Added padding to start/end of timline view
     Speedup mousewheel scrolling for timeline
     Added support for delegating interpolation frame drawing to the node-plugin
-    
+
+* Olivier PIERRE (http://www.oxeron.com/)
+    Building SB 1.5 with cocod2d 3.4.9
