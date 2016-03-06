@@ -8125,14 +8125,11 @@
 				GCC_PREFIX_HEADER = "ccBuilder/SpriteBuilder-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(SB_DEBUG_PREPROCESSOR_DEFINES)";
 				HEADER_SEARCH_PATHS = (
-					libs/Fragaria,
-					"../Examples/CocosBuilderExample/libs/CCBReader/**",
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
-					"libs/Sparkle/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -8170,14 +8167,11 @@
 				GCC_PREFIX_HEADER = "ccBuilder/SpriteBuilder-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(SB_RELEASE_PREPROCESSOR_DEFINES)";
 				HEADER_SEARCH_PATHS = (
-					libs/Fragaria,
-					"../Examples/CocosBuilderExample/libs/CCBReader/**",
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
-					"libs/Sparkle/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -8327,14 +8321,11 @@
 					"SPRITEBUILDER_PRO=1",
 				);
 				HEADER_SEARCH_PATHS = (
-					libs/Fragaria,
-					"../Examples/CocosBuilderExample/libs/CCBReader/**",
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
-					"libs/Sparkle/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
