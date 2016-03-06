@@ -1036,14 +1036,6 @@
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
 		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
-		FF9398761C8CC1A400D424C7 /* test_ccbreader_colornode.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */; };
-		FF9398771C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398701C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb */; };
-		FF9398781C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398711C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb */; };
-		FF9398791C8CC1A400D424C7 /* test_ccbreader_particlesystem_gravity.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398721C8CC1A400D424C7 /* test_ccbreader_particlesystem_gravity.ccb */; };
-		FF93987A1C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398731C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb */; };
-		FF93987B1C8CC1A400D424C7 /* test_ccbreader_sprite.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398741C8CC1A400D424C7 /* test_ccbreader_sprite.ccb */; };
-		FF93987C1C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398751C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb */; };
-		FF93987E1C8CC22200D424C7 /* version_4.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93987D1C8CC22200D424C7 /* version_4.ccb */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2798,14 +2790,6 @@
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
-		FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_colornode.ccb; path = "Testing Resources/test_ccbreader_colornode.ccb"; sourceTree = "<group>"; };
-		FF9398701C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_labeltff.ccb; path = "Testing Resources/test_ccbreader_labeltff.ccb"; sourceTree = "<group>"; };
-		FF9398711C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_nodegradient.ccb; path = "Testing Resources/test_ccbreader_nodegradient.ccb"; sourceTree = "<group>"; };
-		FF9398721C8CC1A400D424C7 /* test_ccbreader_particlesystem_gravity.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_particlesystem_gravity.ccb; path = "Testing Resources/test_ccbreader_particlesystem_gravity.ccb"; sourceTree = "<group>"; };
-		FF9398731C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_particlesystem_radial.ccb; path = "Testing Resources/test_ccbreader_particlesystem_radial.ccb"; sourceTree = "<group>"; };
-		FF9398741C8CC1A400D424C7 /* test_ccbreader_sprite.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_sprite.ccb; path = "Testing Resources/test_ccbreader_sprite.ccb"; sourceTree = "<group>"; };
-		FF9398751C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_sprite9slice.ccb; path = "Testing Resources/test_ccbreader_sprite9slice.ccb"; sourceTree = "<group>"; };
-		FF93987D1C8CC22200D424C7 /* version_4.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = version_4.ccb; path = "Testing Resources/version_4.ccb"; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -5843,14 +5827,6 @@
 		FF9398661C8CAD7100D424C7 /* Testing Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FF93987D1C8CC22200D424C7 /* version_4.ccb */,
-				FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */,
-				FF9398701C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb */,
-				FF9398711C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb */,
-				FF9398721C8CC1A400D424C7 /* test_ccbreader_particlesystem_gravity.ccb */,
-				FF9398731C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb */,
-				FF9398741C8CC1A400D424C7 /* test_ccbreader_sprite.ccb */,
-				FF9398751C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb */,
 				FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */,
 			);
 			name = "Testing Resources";
@@ -6885,7 +6861,6 @@
 			files = (
 				922CC3981946873A00B34854 /* AnimationTest2.ccb in Resources */,
 				833A5C52192B48CB001837B3 /* InfoPlist.strings in Resources */,
-				FF93987E1C8CC22200D424C7 /* version_4.ccb in Resources */,
 				B7E6BB6919F86A9800619A58 /* ui-nopreview@2x.png in Resources */,
 				B7E6BB5119F868F000619A58 /* sel-round@2x.png in Resources */,
 				FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */,
@@ -6893,23 +6868,16 @@
 				83599E9A1975470D008283EC /* photoshop.psd in Resources */,
 				B7E6BB5319F868F000619A58 /* select-corner@2x.png in Resources */,
 				92F85F3C194F8A4A0076B343 /* AnimationTest5.ccb in Resources */,
-				FF93987C1C8CC1A400D424C7 /* test_ccbreader_sprite9slice.ccb in Resources */,
 				837D2E731A0D07F0009918B7 /* greyscale.png in Resources */,
 				920994C419870EF90006F38D /* ShinyBallNormals.png in Resources */,
-				FF93987B1C8CC1A400D424C7 /* test_ccbreader_sprite.ccb in Resources */,
-				FF9398781C8CC1A400D424C7 /* test_ccbreader_nodegradient.ccb in Resources */,
-				FF9398761C8CC1A400D424C7 /* test_ccbreader_colornode.ccb in Resources */,
 				920994C319870EF90006F38D /* ShinyBallColor.png in Resources */,
 				B7E6BB5B19F868F000619A58 /* seq-timedisplay-bg@2x.png in Resources */,
 				920994C219870EF90006F38D /* cartoon_house.jpg in Resources */,
 				B7E6BB5719F868F000619A58 /* select-pt@2x.png in Resources */,
-				FF93987A1C8CC1A400D424C7 /* test_ccbreader_particlesystem_radial.ccb in Resources */,
 				830B39B0197032F400218021 /* blank.wav in Resources */,
 				B7E6BB5919F868F000619A58 /* seq-scaleslide-bg@2x.png in Resources */,
-				FF9398771C8CC1A400D424C7 /* test_ccbreader_labeltff.ccb in Resources */,
 				B7E6BB4F19F868F000619A58 /* doc-particlesystem@2x.png in Resources */,
 				920994C119870EF90006F38D /* EffectTest1.ccb in Resources */,
-				FF9398791C8CC1A400D424C7 /* test_ccbreader_particlesystem_gravity.ccb in Resources */,
 				92F85F37194F70CA0076B343 /* AnimationTest4.ccb in Resources */,
 				92F85F34194F6AD80076B343 /* AnimationTest3.ccb in Resources */,
 				B7E6BB5519F868F000619A58 /* select-physics-corner@2x.png in Resources */,

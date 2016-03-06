@@ -130,6 +130,10 @@
 - (BOOL)doPublish
 {
     __weak id weakSelf = self;
+/*    [_publishingQueue addOperationWithBlock:^
+    {
+        [weakSelf removeOldPublishDirIfCacheCleaned];
+    }];*/
 
     [self removeOldPublishDirIfCacheCleaned];
 
