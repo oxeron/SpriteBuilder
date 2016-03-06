@@ -97,10 +97,48 @@ __strong NSDictionary* renamedProperties = nil;
     return NSMakePoint(x,y);
 }
 
-+ (NSSize) deserializeSize:(id) val
++ (NSSize) deserializeSize:(id)value sizeType:(CCSizeType *)sizeType
 {
-    float w = [[val objectAtIndex:0] floatValue];
-    float h = [[val objectAtIndex:1] floatValue];
+    float w = [[value objectAtIndex:0] floatValue];
+    float h = [[value objectAtIndex:1] floatValue];
+    
+    if ([(NSArray*) value count] == 3)
+    {
+        // Convert old content size type
+        int oldSizeType = [[value objectAtIndex:2] intValue];
+        if (oldSizeType == kCCBSizeTypePercent)
+        {
+            *sizeType = CCSizeTypeNormalized;
+            w /= 100.0f;
+            h /= 100.0f;
+        }
+        else if (oldSizeType == kCCBSizeTypeRelativeContainer)
+        {
+            sizeType->widthUnit = CCSizeUnitInsetPoints;
+            sizeType->heightUnit = CCSizeUnitInsetPoints;
+        }
+        else if (oldSizeType == kCCBSizeTypeHorizontalPercent)
+        {
+            sizeType->widthUnit = CCSizeUnitNormalized;
+            w /= 100.0f;
+        }
+        else if (oldSizeType == kCCBSzieTypeVerticalPercent)
+        {
+            sizeType->heightUnit = CCSizeUnitNormalized;
+            h /= 100.0f;
+        }
+        else if (oldSizeType == kCCBSizeTypeMultiplyResolution)
+        {
+            *sizeType = CCSizeTypeUIPoints;
+        }
+    }
+    else if ([(NSArray*) value count] == 4)
+    {
+        // Uses new content size type
+        sizeType->widthUnit = (CCSizeUnit) [[value objectAtIndex:2] intValue];
+        sizeType->heightUnit = (CCSizeUnit) [[value objectAtIndex:3] intValue];
+    }
+    
     return NSMakeSize(w, h);
 }
 
@@ -188,48 +226,9 @@ __strong NSDictionary* renamedProperties = nil;
     }
     else if ([type isEqualToString:@"Size"])
     {
-        float w = [[serializedValue objectAtIndex:0] floatValue];
-        float h = [[serializedValue objectAtIndex:1] floatValue];
-        
         CCSizeType sizeType = CCSizeTypePoints;
-        if ([(NSArray*)serializedValue count] == 3)
-        {
-            // Convert old content size type
-            int oldSizeType = [[serializedValue objectAtIndex:2] intValue];
-            if (oldSizeType == kCCBSizeTypePercent)
-            {
-                sizeType = CCSizeTypeNormalized;
-                w /= 100.0f;
-                h /= 100.0f;
-            }
-            else if (oldSizeType == kCCBSizeTypeRelativeContainer)
-            {
-                sizeType.widthUnit = CCSizeUnitInsetPoints;
-                sizeType.heightUnit = CCSizeUnitInsetPoints;
-            }
-            else if (oldSizeType == kCCBSizeTypeHorizontalPercent)
-            {
-                sizeType.widthUnit = CCSizeUnitNormalized;
-                w /= 100.0f;
-            }
-            else if (oldSizeType == kCCBSzieTypeVerticalPercent)
-            {
-                sizeType.heightUnit = CCSizeUnitNormalized;
-                h /= 100.0f;
-            }
-            else if (oldSizeType == kCCBSizeTypeMultiplyResolution)
-            {
-                sizeType = CCSizeTypeUIPoints;
-            }
-        }
-        else if ([(NSArray*)serializedValue count] == 4)
-        {
-            // Uses new content size type
-            sizeType.widthUnit = (CCSizeUnit) [[serializedValue objectAtIndex:2] intValue];
-            sizeType.heightUnit = (CCSizeUnit) [[serializedValue objectAtIndex:3] intValue];
-        }
-        
-        NSSize size =  NSMakeSize(w, h);
+        NSSize size = [self deserializeSize:serializedValue sizeType:&sizeType];
+
         [PositionPropertySetter setSize:size type:sizeType forNode:node prop:name];
     }
     else if ([type isEqualToString:@"Scale"]
@@ -479,12 +478,12 @@ __strong NSDictionary* renamedProperties = nil;
     }
 }
 
-+ (CCNode*) nodeGraphFromDictionary:(NSDictionary*) dict parentSize:(CGSize)parentSize
++ (CCNode*) nodeGraphFromNodeGraphData:(NSDictionary*) dict parentSize:(CGSize)parentSize
 {
-    return [CCBDictionaryReader nodeGraphFromDictionary:dict parentSize:parentSize withParentGraph:nil];
+    return [CCBDictionaryReader nodeGraphFromNodeGraphData:dict parentSize:parentSize withParentGraph:nil];
 }
 
-+ (CCNode*) nodeGraphFromDictionary:(NSDictionary*) dict parentSize:(CGSize)parentSize withParentGraph:(CCNode*)parentGraph
++ (CCNode *)nodeGraphFromNodeGraphData:(NSDictionary *)nodeGraphData parentSize:(CGSize)parentSize withParentGraph:(CCNode *)parentGraph;
 {
     if (!renamedProperties)
     {
@@ -492,9 +491,9 @@ __strong NSDictionary* renamedProperties = nil;
         NSAssert(renamedProperties, @"Failed to load renamed properties dict");
     }
     
-    NSArray* props = dict[@"properties"];
-    NSString* baseClass = dict[@"baseClass"];
-    NSArray* children = dict[@"children"];
+    NSArray* props = nodeGraphData[@"properties"];
+    NSString* baseClass = nodeGraphData[@"baseClass"];
+    NSArray* children = nodeGraphData[@"children"];
     
     // Create the node
     CCNode* node = [[PlugInManager sharedManager] createDefaultNodeOfType:baseClass];
@@ -509,22 +508,22 @@ __strong NSDictionary* renamedProperties = nil;
     NodeInfo* nodeInfo = node.userObject;
     NSMutableDictionary* extraProps = nodeInfo.extraProps;
     PlugInNode* plugIn = nodeInfo.plugIn;
-    node.UUID = [dict[@"UUID"] unsignedIntegerValue];
+    node.UUID = [nodeGraphData[@"UUID"] unsignedIntegerValue];
     
     // Flash skew compatibility
-    if ([dict[@"usesFlashSkew"] boolValue])
+    if ([nodeGraphData[@"usesFlashSkew"] boolValue])
     {
         [node setUsesFlashSkew:YES];
     }
     
     // Hidden node graph
-    if ([dict[@"hidden"] boolValue])
+    if ([nodeGraphData[@"hidden"] boolValue])
     {
         node.hidden = YES;
     }
     
     // Locked node
-    if ([dict[@"locked"] boolValue])
+    if ([nodeGraphData[@"locked"] boolValue])
     {
         node.locked = YES;
     }
@@ -558,11 +557,11 @@ __strong NSDictionary* renamedProperties = nil;
     }
     
     // Set extra properties for code connections
-    NSString* customClass = dict[@"customClass"];
+    NSString* customClass = nodeGraphData[@"customClass"];
     if (!customClass) customClass = @"";
-    NSString* memberVarName = dict[@"memberVarAssignmentName"];
+    NSString* memberVarName = nodeGraphData[@"memberVarAssignmentName"];
     if (!memberVarName) memberVarName = @"";
-    int memberVarType = [dict[@"memberVarAssignmentType"] intValue];
+    int memberVarType = [nodeGraphData[@"memberVarAssignmentType"] intValue];
     
     //memberVarType is obsolete. Set to 1 upon deserialization.
     if(memberVarType == 0)
@@ -576,26 +575,26 @@ __strong NSDictionary* renamedProperties = nil;
     extraProps[@"memberVarAssignmentType"] = @(memberVarType);
     
     // JS code connections
-    NSString* jsController = dict[@"jsController"];
+    NSString* jsController = nodeGraphData[@"jsController"];
     if (jsController)
     {
         extraProps[@"jsController"] = jsController;
     }
     
-    NSString* displayName = dict[@"displayName"];
+    NSString* displayName = nodeGraphData[@"displayName"];
     if (displayName)
     {
         node.displayName = displayName;
     }
     
-    id animatedProps = dict[@"animatedProperties"];
+    id animatedProps = nodeGraphData[@"animatedProperties"];
     [node loadAnimatedPropertiesFromSerialization:animatedProps];
-    node.seqExpanded = [dict[@"seqExpanded"] boolValue];
+    node.seqExpanded = [nodeGraphData[@"seqExpanded"] boolValue];
     
     CGSize contentSize = node.contentSize;
     for (NSUInteger i = 0; i < [children count]; i++)
     {
-        CCNode* child = [CCBDictionaryReader nodeGraphFromDictionary:children[i] parentSize:contentSize withParentGraph:nil];
+        CCNode* child = [CCBDictionaryReader nodeGraphFromNodeGraphData:children[i] parentSize:contentSize withParentGraph:nil];
         
         if (child)
         {
@@ -604,13 +603,13 @@ __strong NSDictionary* renamedProperties = nil;
     }
     
     // Physics
-    if (dict[@"physicsBody"])
+    if (nodeGraphData[@"physicsBody"])
     {
-        node.nodePhysicsBody = [[NodePhysicsBody alloc] initWithSerialization:dict[@"physicsBody"]];
+        node.nodePhysicsBody = [[NodePhysicsBody alloc] initWithSerialization:nodeGraphData[@"physicsBody"]];
     }
     
     // Selections
-    if ([dict[@"selected"] boolValue])
+    if ([nodeGraphData[@"selected"] boolValue])
     {
         [[AppDelegate appDelegate].loadedSelectedNodes addObject:node];
     }
@@ -621,52 +620,53 @@ __strong NSDictionary* renamedProperties = nil;
     if (isCCBSubFile)
     {
         // For sub ccb files the custom properties are already loaded by the sub file and forwarded. We just need to override the values from the sub ccb file
-        [node loadCustomPropertyValuesFromSerialization:dict[@"customProperties"]];
+        [node loadCustomPropertyValuesFromSerialization:nodeGraphData[@"customProperties"]];
     }
     else
     {
-        [node loadCustomPropertiesFromSerialization:dict[@"customProperties"]];
+        [node loadCustomPropertiesFromSerialization:nodeGraphData[@"customProperties"]];
     }
     
     return node;
 }
 
-+ (CCNode*) nodeGraphFromDocumentDictionary:(NSDictionary *)dict parentSize:(CGSize) parentSize
++ (CCNode *)nodeGraphFromDocumentData:(NSDictionary *)documentData parentSize:(CGSize)parentSize;
+
 {
-    return [CCBDictionaryReader nodeGraphFromDocumentDictionary:dict parentSize:parentSize withParentGraph:nil];
+    return [CCBDictionaryReader nodeGraphFromDocumentData:documentData parentSize:parentSize withParentGraph:nil];
 }
 
-+ (CCNode*) nodeGraphFromDocumentDictionary:(NSDictionary *)dict parentSize:(CGSize) parentSize withParentGraph:(CCNode*)parentGraph
++ (CCNode*) nodeGraphFromDocumentData:(NSDictionary *)documentData parentSize:(CGSize) parentSize withParentGraph:(CCNode*)parentGraph
 {
-    if (!dict)
+    if (!documentData)
     {
         NSLog(@"WARNING! Trying to load invalid file type (dict is null)");
         return NULL;
     }
     // Load file metadata
     
-    NSString* fileType = dict[@"fileType"];
-    int fileVersion = [dict[@"fileVersion"] intValue];
+    NSString* fileType = documentData[@"fileType"];
+    int fileVersion = [documentData[@"fileVersion"] intValue];
     
     if (!fileType  || ![fileType isEqualToString:@"CocosBuilder"])
     {
         NSLog(@"WARNING! Trying to load invalid file type (%@)", fileType);
     }
     
-    NSDictionary* nodeGraph = dict[@"nodeGraph"];
+    NSDictionary* nodeGraph = documentData[@"nodeGraph"];
     
     if (fileVersion <= 2)
     {
         NSLog(@"WARNING! Trying to load a file that is no longer supported by CocosBuilder");
         return NULL;
     }
-    else if (fileVersion > kCCBFileFormatVersion)
+    else if (fileVersion > kCCBDictionaryFormatVersion)
     {
         NSLog(@"WARNING! Trying to load file made with a newer version of CocosBuilder");
         return NULL;
     }
     
-    return [CCBDictionaryReader nodeGraphFromDictionary:nodeGraph parentSize:parentSize withParentGraph:nil];
+    return [CCBDictionaryReader nodeGraphFromNodeGraphData:nodeGraph parentSize:parentSize withParentGraph:nil];
 }
 
 

@@ -3154,20 +3154,20 @@
 		776041E31498F5E80078095D /* AppDelegate & Cocos2D Scene */ = {
 			isa = PBXGroup;
 			children = (
-				FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */,
-				FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */,
-				83F3CA921A423AEA003D8659 /* LightingHandler.h */,
-				83F3CA931A423AEA003D8659 /* LightingHandler.m */,
-				83F3CA941A423AEA003D8659 /* LightVisibilityDelegate.h */,
-				7789ACE8133AB47A00CEFCC7 /* CocosScene.h */,
-				7789ACE9133AB47A00CEFCC7 /* CocosScene.m */,
 				7789ABD4133AA82000CEFCC7 /* AppDelegate.h */,
 				7789ABD5133AA82000CEFCC7 /* AppDelegate.m */,
 				776A37B41398D6B900960E94 /* CCBGLView.h */,
 				776A37B51398D6BD00960E94 /* CCBGLView.m */,
+				7789ACE8133AB47A00CEFCC7 /* CocosScene.h */,
+				7789ACE9133AB47A00CEFCC7 /* CocosScene.m */,
+				83F3CA921A423AEA003D8659 /* LightingHandler.h */,
+				83F3CA931A423AEA003D8659 /* LightingHandler.m */,
+				83F3CA941A423AEA003D8659 /* LightVisibilityDelegate.h */,
 				7789ABD7133AA82000CEFCC7 /* MainMenu.xib */,
 				E335CAFE1576702300A612EE /* MainWindow.h */,
 				E335CAFF1576702300A612EE /* MainWindow.m */,
+				FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */,
+				FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */,
 			);
 			name = "AppDelegate & Cocos2D Scene";
 			sourceTree = "<group>";
