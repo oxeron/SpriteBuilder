@@ -7,8 +7,8 @@
 //
 
 #import "CCBPEffectColorChannelOffset.h"
-#import "CCBReaderInternal.h"
-#import "CCBWriterInternal.h"
+#import "CCBDictionaryReader.h"
+#import "CCBDictionaryWriter.h"
 #import "EffectsUndoHelper.h"
 
 @implementation CCBPEffectColorChannelOffset
@@ -23,9 +23,9 @@
 
 - (id)serialize
 {
-    return @[@{@"name" : @"redOffsetWithPoint",   @"type" : @"Point", @"value": [CCBWriterInternal serializePoint:self.redOffsetWithPoint] },
-             @{@"name" : @"greenOffsetWithPoint", @"type" : @"Point", @"value": [CCBWriterInternal serializePoint:self.greenOffsetWithPoint] },
-             @{@"name" : @"blueOffsetWithPoint",  @"type" : @"Point", @"value": [CCBWriterInternal serializePoint:self.blueOffsetWithPoint] },
+    return @[@{@"name" : @"redOffsetWithPoint",   @"type" : @"Point", @"value": [CCBDictionaryWriter serializePoint:self.redOffsetWithPoint] },
+             @{@"name" : @"greenOffsetWithPoint", @"type" : @"Point", @"value": [CCBDictionaryWriter serializePoint:self.greenOffsetWithPoint] },
+             @{@"name" : @"blueOffsetWithPoint",  @"type" : @"Point", @"value": [CCBDictionaryWriter serializePoint:self.blueOffsetWithPoint] },
              ];
 }
 
@@ -35,21 +35,21 @@
         return [dict[@"name"] isEqualToString:@"redOffsetWithPoint"];\
     } complete:^(NSDictionary * dict, int idx) {
         
-        self.redOffsetWithPoint = [CCBReaderInternal deserializePoint:dict[@"value"]];
+        self.redOffsetWithPoint = [CCBDictionaryReader deserializePoint:dict[@"value"]];
     }];
 
     [properties findFirst:^BOOL(NSDictionary * dict, int idx) {\
         return [dict[@"name"] isEqualToString:@"greenOffsetWithPoint"];\
     } complete:^(NSDictionary * dict, int idx) {
         
-        self.greenOffsetWithPoint = [CCBReaderInternal deserializePoint:dict[@"value"]];
+        self.greenOffsetWithPoint = [CCBDictionaryReader deserializePoint:dict[@"value"]];
     }];
 
     [properties findFirst:^BOOL(NSDictionary * dict, int idx) {\
         return [dict[@"name"] isEqualToString:@"blueOffsetWithPoint"];\
     } complete:^(NSDictionary * dict, int idx) {
         
-        self.blueOffsetWithPoint = [CCBReaderInternal deserializePoint:dict[@"value"]];
+        self.blueOffsetWithPoint = [CCBDictionaryReader deserializePoint:dict[@"value"]];
     }];
 }
 

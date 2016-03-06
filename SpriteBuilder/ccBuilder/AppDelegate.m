@@ -30,8 +30,8 @@
 #import "NSFlippedView.h"
 #import "CCBGlobals.h"
 #import "cocos2d.h"
-#import "CCBWriterInternal.h"
-#import "CCBReaderInternal.h"
+#import "CCBDictionaryWriter.h"
+#import "CCBDictionaryReader.h"
 #import "CCBDocument.h"
 #import "NewDocWindowController.h"
 #import "CCBSpriteSheetParser.h"
@@ -200,7 +200,7 @@ static AppDelegate* sharedAppDelegate;
 //However it then proceeds to call the real '[CCNode visit]' (now renamed oldVisit).
 void ApplyCustomNodeVisitSwizzle()
 {
-	
+    
     Method origMethod = class_getInstanceMethod([CCNode class], @selector(visit:parentTransform:));
     Method newMethod = class_getInstanceMethod([CCNode class], @selector(customVisit:parentTransform:));
     
@@ -217,14 +217,14 @@ void ApplyCustomNodeVisitSwizzle()
     
     // Insert code here to initialize your application
     CCDirectorMac *director = (CCDirectorMac*) [CCDirector sharedDirector];
-
+    
     NSAssert(cocosView, @"cocosView is nil");
     [director setView:cocosView];
     [cocosView setWantsBestResolutionOpenGLSurface:YES];
     [[CCFileUtils sharedFileUtils] buildSearchResolutionsOrder];
-	
-	[director setDisplayStats:NO];
-	[director setProjection:CCDirectorProjection2D];    
+    
+    [director setDisplayStats:NO];
+    [director setProjection:CCDirectorProjection2D];
     
     _baseContentScaleFactor = director.deviceContentScaleFactor;
     
@@ -234,18 +234,18 @@ void ApplyCustomNodeVisitSwizzle()
     
     [director reshapeProjection:realSize];
     
-	// EXPERIMENTAL stuff.
-	// 'Effects' don't work correctly when autoscale is turned on.
-	// Use kCCDirectorResize_NoScale if you don't want auto-scaling.
-	[director setResizeMode:kCCDirectorResize_NoScale];
-	
-	// Enable "moving" mouse event. Default no.
-	//[window setAcceptsMouseMovedEvents:YES];
-	
-	[director runWithScene:[CocosScene sceneWithAppDelegate:self]];
-	
-	NSAssert( [NSThread currentThread] == [[CCDirector sharedDirector] runningThread],
-			 @"cocos2d should run on the Main Thread. Compile SpriteBuilder with CC_DIRECTOR_MAC_THREAD=2");
+    // EXPERIMENTAL stuff.
+    // 'Effects' don't work correctly when autoscale is turned on.
+    // Use kCCDirectorResize_NoScale if you don't want auto-scaling.
+    [director setResizeMode:kCCDirectorResize_NoScale];
+    
+    // Enable "moving" mouse event. Default no.
+    //[window setAcceptsMouseMovedEvents:YES];
+    
+    [director runWithScene:[CocosScene sceneWithAppDelegate:self]];
+    
+    NSAssert( [NSThread currentThread] == [[CCDirector sharedDirector] runningThread],
+             @"cocos2d should run on the Main Thread. Compile SpriteBuilder with CC_DIRECTOR_MAC_THREAD=2");
 }
 
 - (void) updateDerivedViewScaleFactor {
@@ -331,18 +331,18 @@ void ApplyCustomNodeVisitSwizzle()
     itemWarnings.toolTip = @"Warnings view";
     itemWarnings.keyEquivalent = @"";
     [items addObject:itemWarnings];
-
+    
     projectViewTabs.items = items;
     projectViewTabs.delegate = self;
 }
 
 typedef enum
 {
-	eItemViewTabType_Properties,
-	eItemViewTabType_CodeConnections,
-	eItemViewTabType_Physics,
-	eItemViewTabType_Template
-	
+    eItemViewTabType_Properties,
+    eItemViewTabType_CodeConnections,
+    eItemViewTabType_Physics,
+    eItemViewTabType_Template
+    
 } eItemViewTabType;
 
 - (void) setupItemViewTabBar
@@ -354,7 +354,7 @@ typedef enum
     SMTabBarItem* itemProps = [[SMTabBarItem alloc] initWithImage:imgProps tag:0];
     itemProps.toolTip = @"Item Properties";
     itemProps.keyEquivalent = @"";
-	itemProps.tag = eItemViewTabType_Properties;
+    itemProps.tag = eItemViewTabType_Properties;
     [items addObject:itemProps];
     
     NSImage* imgCode = [NSImage imageNamed:@"inspector-codeconnections"];
@@ -362,7 +362,7 @@ typedef enum
     SMTabBarItem* itemCode = [[SMTabBarItem alloc] initWithImage:imgCode tag:0];
     itemCode.toolTip = @"Item Code Connections";
     itemCode.keyEquivalent = @"";
-	itemCode.tag = eItemViewTabType_CodeConnections;
+    itemCode.tag = eItemViewTabType_CodeConnections;
     [items addObject:itemCode];
     
     NSImage* imgPhysics = [NSImage imageNamed:@"inspector-physics"];
@@ -370,7 +370,7 @@ typedef enum
     SMTabBarItem* itemPhysics = [[SMTabBarItem alloc] initWithImage:imgPhysics tag:0];
     itemPhysics.toolTip = @"Item Physics";
     itemPhysics.keyEquivalent = @"";
-	itemPhysics.tag = eItemViewTabType_Physics;
+    itemPhysics.tag = eItemViewTabType_Physics;
     [items addObject:itemPhysics];
     
     NSImage* imgTemplate = [NSImage imageNamed:@"inspector-template"];
@@ -378,7 +378,7 @@ typedef enum
     SMTabBarItem* itemTemplate = [[SMTabBarItem alloc] initWithImage:imgTemplate tag:0];
     itemTemplate.toolTip = @"Item Templates";
     itemTemplate.keyEquivalent = @"";
-	itemTemplate.tag = eItemViewTabType_Template;
+    itemTemplate.tag = eItemViewTabType_Template;
     [items addObject:itemTemplate];
     
     itemViewTabs.items = items;
@@ -420,23 +420,23 @@ typedef enum
     
     // Update enable depending on if object is selected
     BOOL itemEnable = (self.selectedNode != NULL);
-	BOOL physicsEnabled = (!self.selectedNode.plugIn.isJoint)  && (![self.selectedNode.plugIn.nodeClassName isEqualToString:@"CCBFile"]);
-	
+    BOOL physicsEnabled = (!self.selectedNode.plugIn.isJoint)  && (![self.selectedNode.plugIn.nodeClassName isEqualToString:@"CCBFile"]);
+    
     for (SMTabBarItem* item in itemViewTabs.items)
     {
-		if(item.tag == eItemViewTabType_Physics && !physicsEnabled)
-		{
-			item.enabled = NO;
-			continue;
-		}
-		
+        if(item.tag == eItemViewTabType_Physics && !physicsEnabled)
+        {
+            item.enabled = NO;
+            continue;
+        }
+        
         item.enabled = allEnable && itemEnable;
     }
     
     BOOL templateEnable = (itemEnable && self.selectedNode.plugIn.supportsTemplates);
     SMTabBarItem* templateItem = [itemViewTabs.items objectAtIndex:3];
     templateItem.enabled = templateEnable;
-
+    
     if (!templateEnable && [itemViewTabs selectedItem] == templateItem)
     {
         // If template isn't available select first tab instead
@@ -459,26 +459,26 @@ typedef enum
     NSColor * color = [NSColor colorWithCalibratedRed:0.0f green:0.50f blue:0.50f alpha:1.0f];
     
     color = [color colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
-
+    
     CGFloat r, g, b, a;
     [color getRed:&r green:&g blue:&b alpha:&a];
     
     NSColor * color2 = [NSColor colorWithDeviceRed:r green:g blue:b alpha:a];
     NSColor * calibratedColor = [color2 colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-
+    
     NSLog(@"R:%f G:%f B:%f A:%f",calibratedColor.redComponent, calibratedColor.greenComponent, calibratedColor.blueComponent, calibratedColor.alphaComponent);
     
     // Load resource manager
-	[ResourceManager sharedManager];
+    [ResourceManager sharedManager];
     
-
+    
     // Setup project display
     projectOutlineHandler = [[ResourceManagerOutlineHandler alloc] initWithOutlineView:outlineProject
                                                                                resType:kCCBResTypeNone
                                                                      previewController:_previewContainerViewController];
     projectOutlineHandler.projectSettings = projectSettings;
     resourceManagerSplitView.delegate = _previewContainerViewController;
-
+    
     //Setup warnings outline
     warningHandler = [[WarningTableViewHandler alloc] init];
     
@@ -508,16 +508,16 @@ typedef enum
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"ApplePersistenceIgnoreState"];
-
+    
     [self registerUserDefaults];
-
+    
     [self registerNotificationObservers];
-
+    
     [[UsageManager sharedManager] registerUsage];
     
     // Initialize Audio
     //[OALSimpleAudio sharedInstance];
-
+    
     [self setupFeatureToggle];
     
     selectedNodes = [[NSMutableArray alloc] init];
@@ -538,16 +538,16 @@ typedef enum
     // Fixed
     defaultCanvasSizes[kCCBCanvasSizeFixedLandscape] = CGSizeMake(568, 384);
     defaultCanvasSizes[kCCBCanvasSizeFixedPortrait] = CGSizeMake(384, 568);
-        
+    
     [window setDelegate:self];
-
+    
     [self setupTabBar];
-
-
+    
+    
     [self setupCocos2d];
     [self setupSequenceHandler];
     animationPlaybackManager.sequencerHandler = sequenceHandler;
-
+    
     [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
     
     CocosScene* cs = [CocosScene cocosScene];
@@ -567,42 +567,42 @@ typedef enum
     [self setupProjectTilelessEditor];
     [self setupExtras];
     [self setupResourceCommandController];
-	
+    
     [window restorePreviousOpenedPanels];
-
+    
     [self.window makeKeyWindow];
     
     // Install default templates
     [_propertyInspectorTemplateHandler installDefaultTemplatesReplace:NO];
     [_propertyInspectorTemplateHandler loadTemplateLibrary];
-
+    
     [InspectorController setSingleton:_inspectorController];
     [self setupInspectorController];
     [_inspectorController updateInspectorFromSelection];
-
-	_applicationLaunchComplete = YES;
+    
+    _applicationLaunchComplete = YES;
     
     if (YOSEMITE_UI)
     {
         [loopButton setBezelStyle:NSTexturedRoundedBezelStyle];
     }
     
-
+    
 #ifdef TESTING
-	return;
+    return;
 #endif
-	
-
+    
+    
     // Open registration window
     /*
-    BOOL alreadyRegistered = (BOOL)([[NSUserDefaults standardUserDefaults] objectForKey:kSbRegisteredEmail]);
-
-    if(!alreadyRegistered && ![self openRegistration])
-	{
-		[[NSApplication sharedApplication] terminate:self];
-	}
-    */
-
+     BOOL alreadyRegistered = (BOOL)([[NSUserDefaults standardUserDefaults] objectForKey:kSbRegisteredEmail]);
+     
+     if(!alreadyRegistered && ![self openRegistration])
+     {
+     [[NSApplication sharedApplication] terminate:self];
+     }
+     */
+    
     if (delayOpenFiles)
     {
         [self openFiles:delayOpenFiles];
@@ -610,9 +610,9 @@ typedef enum
     }
     else
     {
-        #ifndef TESTING
+#ifndef TESTING
         [self openLastOpenProject];
-        #endif
+#endif
     }
     
     // Check for first run
@@ -623,9 +623,9 @@ typedef enum
         // First run completed
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"completedFirstRun"];
     }
-
+    
     [self toggleFeatures];
-
+    
     [_openPathsController populateOpenPathsMenuItems];
 }
 
@@ -634,7 +634,7 @@ typedef enum
     _inspectorController.appDelegate = self;
     _inspectorController.cocosScene = [CocosScene cocosScene];
     _inspectorController.sequenceHandler = [SequencerHandler sharedHandler];
-
+    
     [_inspectorController setupInspectorPane];
 }
 
@@ -645,7 +645,7 @@ typedef enum
     _resourceCommandController.window = window;
     _resourceCommandController.resourceManager = [ResourceManager sharedManager];
     _resourceCommandController.publishDelegate = self;
-
+    
     outlineProject.actionTarget = _resourceCommandController;
 }
 
@@ -664,28 +664,28 @@ typedef enum
 - (void)registerNotificationObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateEverythingAfterSettingsChanged) name:RESOURCE_PATHS_CHANGED object:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadResources) name:RESOURCES_CHANGED object:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removedDocumentWithPath:) name:RESOURCE_PATH_REMOVED object:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselectAll) name:ANIMATION_PLAYBACK_WILL_START object:nil];
 }
 
 - (void)registerUserDefaults
 {
     NSDictionary *defaults = @{
-            LAST_VISIT_LEFT_PANEL_VISIBLE : @(1),
-            LAST_VISIT_BOTTOM_PANEL_VISIBLE : @(1),
-            LAST_VISIT_RIGHT_PANEL_VISIBLE : @(1)};
-
+                               LAST_VISIT_LEFT_PANEL_VISIBLE : @(1),
+                               LAST_VISIT_BOTTOM_PANEL_VISIBLE : @(1),
+                               LAST_VISIT_RIGHT_PANEL_VISIBLE : @(1)};
+    
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 - (void)openLastOpenProject
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+    
     NSString *filePath = [defaults valueForKey:LAST_OPENED_PROJECT_PATH];
     if (filePath)
     {
@@ -698,24 +698,24 @@ typedef enum
 - (void) modalDialogTitle: (NSString*)title message:(NSString*)msg
 {
     NSAlert* alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"%@",msg];
-	[alert runModal];
+    [alert runModal];
 }
 
 - (void) modalDialogTitle: (NSString*)title message:(NSString*)msg disableKey:(NSString*)key
 {
-	if(![self showHelpDialog:key])
-	{
-		return;
-	}
-	
-	NSAlert* alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"%@",msg];
-	
-	[alert setShowsSuppressionButton:YES];
-	[alert runModal];
-	
-	if ([[alert suppressionButton] state] == NSOnState) {
+    if(![self showHelpDialog:key])
+    {
+        return;
+    }
+    
+    NSAlert* alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"%@",msg];
+    
+    [alert setShowsSuppressionButton:YES];
+    [alert runModal];
+    
+    if ([[alert suppressionButton] state] == NSOnState) {
         // Suppress this alert from now on.
-		[self disableHelpDialog:key];
+        [self disableHelpDialog:key];
     }
 }
 
@@ -725,13 +725,13 @@ typedef enum
     {
         modalTaskStatusWindow = [[TaskStatusWindow alloc] initWithWindowNibName:@"TaskStatusWindow"];
     }
-
+    
     modalTaskStatusWindow.indeterminate = isIndeterminate;
     modalTaskStatusWindow.onCancelBlock = onCancelBlock;
     modalTaskStatusWindow.window.title = title;
     [modalTaskStatusWindow.window center];
     [modalTaskStatusWindow.window makeKeyAndOrderFront:self];
-
+    
     [[NSApplication sharedApplication] runModalForWindow:modalTaskStatusWindow.window];
 }
 
@@ -776,8 +776,8 @@ typedef enum
 - (void) addTab:(CCBDocument*)doc
 {
     NSTabViewItem *newItem = [[NSTabViewItem alloc] initWithIdentifier:doc];
-	[newItem setLabel:[doc formattedName]];
-	[tabView addTabViewItem:newItem];
+    [newItem setLabel:[doc formattedName]];
+    [tabView addTabViewItem:newItem];
     [tabView selectTabViewItem:newItem]; // this is optional, but expected behavior
 }
 
@@ -855,24 +855,24 @@ typedef enum
 
 - (void) setSelectedNodes:(NSArray*) selection
 {
-	
-	//Ensure that the selected joint is on top.
-	CCBPhysicsJoint* selectedJoint = [selection findFirst:^BOOL(CCNode * node, int idx) {
-		return node.plugIn.isJoint;
-	}];
-	
-	if(selectedJoint)
-	{
-		[[SceneGraph instance].joints.all forEach:^(CCNode * joint, int idx) {
-			joint.zOrder = (joint == selectedJoint) ? 1 : 0;
-		}];
-		
-		selection = [NSArray arrayWithObject:selectedJoint];
-	}
-	
-	
-
-	
+    
+    //Ensure that the selected joint is on top.
+    CCBPhysicsJoint* selectedJoint = [selection findFirst:^BOOL(CCNode * node, int idx) {
+        return node.plugIn.isJoint;
+    }];
+    
+    if(selectedJoint)
+    {
+        [[SceneGraph instance].joints.all forEach:^(CCNode * joint, int idx) {
+            joint.zOrder = (joint == selectedJoint) ? 1 : 0;
+        }];
+        
+        selection = [NSArray arrayWithObject:selectedJoint];
+    }
+    
+    
+    
+    
     [self willChangeValueForKey:@"selectedNode"];
     [self willChangeValueForKey:@"selectedNodes"];
     [physicsHandler willChangeSelection];
@@ -935,7 +935,7 @@ typedef enum
     
     physicsHandler.selectedNodePhysicsBody = self.selectedNode.nodePhysicsBody;
     [physicsHandler didChangeSelection];
-
+    
     [animationPlaybackManager stop];
 }
 
@@ -974,7 +974,7 @@ typedef enum
     if (notification.object == self.window)
     {
         CocosScene* cs = [CocosScene cocosScene];
-    
+        
         if (![[CCDirector sharedDirector] isPaused])
         {
             [[CCDirector sharedDirector] pause];
@@ -988,7 +988,7 @@ typedef enum
     if (notification.object == self.window)
     {
         CocosScene* cs = [CocosScene cocosScene];
-    
+        
         if ([[CCDirector sharedDirector] isPaused])
         {
             [[CCDirector sharedDirector] resume];
@@ -1107,7 +1107,7 @@ typedef enum
             }
         }
     }
-
+    
     [animationPlaybackManager stop];
 }
 
@@ -1136,10 +1136,10 @@ typedef enum
 - (NSMutableDictionary*) docDataFromCurrentNodeGraph
 {
     CCBDocumentDataCreator *dataCreator =
-            [[CCBDocumentDataCreator alloc] initWithSceneGraph:[SceneGraph instance]
-                                                      document:currentDocument
-                                               projectSettings:projectSettings
-                                                    sequenceId:sequenceHandler.currentSequence.sequenceId];
+    [[CCBDocumentDataCreator alloc] initWithSceneGraph:[SceneGraph instance]
+                                              document:currentDocument
+                                       projectSettings:projectSettings
+                                            sequenceId:sequenceHandler.currentSequence.sequenceId];
     return [dataCreator createData];
 }
 
@@ -1147,7 +1147,7 @@ typedef enum
 {
     [self.window makeKeyWindow];
     CocosScene* cs = [CocosScene cocosScene];
-		
+    
     if (![self hasOpenedDocument]) return;
     currentDocument.data = [self docDataFromCurrentNodeGraph];
     currentDocument.stageZoom = [cs stageZoom];
@@ -1232,7 +1232,7 @@ typedef enum
 
 - (void) replaceDocumentData:(NSMutableDictionary*)doc
 {
-//    SceneGraph* g = [SceneGraph instance];
+    //    SceneGraph* g = [SceneGraph instance];
     
     [loadedSelectedNodes removeAllObjects];
     
@@ -1323,7 +1323,7 @@ typedef enum
     currentDocument.stageColor = stageColor;
     [self updateCanvasColor];
     [menuItemStageColor setEnabled: currentDocument.docDimensionsType != kCCBDocDimensionsTypeFullScreen];
-
+    
     // Setup sequencer timelines
     NSMutableArray* serializedSequences = [doc objectForKey:@"sequences"];
     if (serializedSequences)
@@ -1351,26 +1351,26 @@ typedef enum
     {
         // Setup a default timeline
         NSMutableArray* sequences = [NSMutableArray array];
-    
+        
         SequencerSequence* seq = [[SequencerSequence alloc] init];
         seq.name = @"Default Timeline";
         seq.sequenceId = 0;
         seq.autoPlay = YES;
         [sequences addObject:seq];
-    
+        
         currentDocument.sequences = sequences;
         sequenceHandler.currentSequence = seq;
     }
     
     // Process contents
-    CCNode* loadedRoot = [CCBReaderInternal nodeGraphFromDocumentDictionary:doc parentSize:CGSizeMake(resolution.width, resolution.height)];
+    CCNode* loadedRoot = [CCBDictionaryReader nodeGraphFromDocumentDictionary:doc parentSize:CGSizeMake(resolution.width, resolution.height)];
     
     NSMutableArray* loadedJoints = [NSMutableArray array];
     if(doc[@"joints"] != nil)
     {
         for (NSDictionary * jointDict in doc[@"joints"])
         {
-            CCNode * joint = [CCBReaderInternal nodeGraphFromDictionary:jointDict parentSize:CGSizeMake(resolution.width, resolution.height) withParentGraph:loadedRoot];
+            CCNode * joint = [CCBDictionaryReader nodeGraphFromDictionary:jointDict parentSize:CGSizeMake(resolution.width, resolution.height) withParentGraph:loadedRoot];
             
             if(joint)
             {
@@ -1389,9 +1389,9 @@ typedef enum
     [loadedJoints forEach:^(CCBPhysicsJoint * child, int idx) {
         [g.joints addJoint:child];
     }];
-
-	[CCBReaderInternal postDeserializationFixup:g.rootNode];
-
+    
+    [CCBDictionaryReader postDeserializationFixup:g.rootNode];
+    
     
     [[CocosScene cocosScene] replaceSceneNodes:g];
     [outlineHierarchy reloadData];
@@ -1429,8 +1429,8 @@ typedef enum
     if(gridspaceWidth && gridspaceHeight) {
         CGSize gridspace = CGSizeMake([gridspaceWidth intValue],[gridspaceHeight intValue]);
         [[CocosScene cocosScene].guideLayer setGridSize:gridspace];
-   }
-
+    }
+    
     // Restore selections
     self.selectedNodes = loadedSelectedNodes;
     
@@ -1439,16 +1439,16 @@ typedef enum
     
     [self willChangeValueForKey:@"showJoints"];
     [self didChangeValueForKey:@"showJoints"];
-
+    
     [lightingHandler refreshAll];
 }
 
 - (void) switchToDocument:(CCBDocument*) document forceReload:(BOOL)forceReload
 {
     if (!forceReload && [document.filePath isEqualToString:currentDocument.filePath]) return;
-
+    
     [animationPlaybackManager stop];
-
+    
     [self prepareForDocumentSwitch];
     
     self.currentDocument = document;
@@ -1495,7 +1495,7 @@ typedef enum
     {
         doc.UUID = 0x1;
         [self fixupUUID:doc dict: doc.data[@"nodeGraph"]];
-
+        
     }
 }
 
@@ -1557,17 +1557,17 @@ typedef enum
 // the first view that is within a given folder path
 - (NSTabViewItem *)tabViewItemFromPath:(NSString *)path includeViewWithinFolderPath:(BOOL)includeViewWithinFolderPath
 {
-	NSArray *items = [tabView tabViewItems];
-	for (NSUInteger i = 0; i < [items count]; i++)
-	{
-		CCBDocument *doc = [(NSTabViewItem *) [items objectAtIndex:i] identifier];
-		if ([doc.filePath isEqualToString:path]
-			|| (includeViewWithinFolderPath && [doc isWithinPath:path]))
-		{
-			return [items objectAtIndex:i];
-		}
-	}
-	return NULL;
+    NSArray *items = [tabView tabViewItems];
+    for (NSUInteger i = 0; i < [items count]; i++)
+    {
+        CCBDocument *doc = [(NSTabViewItem *) [items objectAtIndex:i] identifier];
+        if ([doc.filePath isEqualToString:path]
+            || (includeViewWithinFolderPath && [doc isWithinPath:path]))
+        {
+            return [items objectAtIndex:i];
+        }
+    }
+    return NULL;
 }
 
 - (void) checkForTooManyDirectoriesInCurrentDoc
@@ -1628,13 +1628,13 @@ typedef enum
     }
     
     [window setTitle:@"SpriteBuilder"];
-
+    
     [self.projectSettings store];
-
+    
     // Remove resource paths
     self.projectSettings = NULL;
     _openPathsController.projectSettings = nil;
-
+    
     [[ResourceManager sharedManager] removeAllDirectories];
     
     // Remove language file
@@ -1679,29 +1679,29 @@ typedef enum
     }
     prjctSettings.projectPath = projectPath;
     [prjctSettings store];
-
+    
     // inject new project settings
     self.projectSettings = prjctSettings;
     _resourceCommandController.projectSettings = projectSettings;
     projectOutlineHandler.projectSettings = projectSettings;
     [ResourceManager sharedManager].projectSettings = projectSettings;
     _openPathsController.projectSettings = projectSettings;
-
+    
     // Update resource paths
     [self updateResourcePathsFromProjectSettings];
-
+    
     // Update Node Plugins list
-	[plugInNodeViewHandler showNodePluginsForEngine:prjctSettings.engine];
-	
+    [plugInNodeViewHandler showNodePluginsForEngine:prjctSettings.engine];
+    
     BOOL success = [self checkForTooManyDirectoriesInCurrentProject];
     if (!success)
     {
         return NO;
     }
-
+    
     ProjectMigrator *migrator = [[ProjectMigrator alloc] initWithProjectSettings:projectSettings];
     [migrator migrate];
-
+    
     // Load or create language file
     NSString* langFile = [[ResourceManager sharedManager].mainActiveDirectoryPath stringByAppendingPathComponent:@"Strings.ccbLang"];
     localizationEditorHandler.managedFile = langFile;
@@ -1739,12 +1739,12 @@ typedef enum
     
     [self updateWarningsButton];
     [self updateSmallTabBarsEnabled];
-
+    
     Cocos2dUpdater *cocos2dUpdater = [[Cocos2dUpdater alloc] initWithAppDelegate:self projectSettings:projectSettings];
     [cocos2dUpdater updateAndBypassIgnore:NO];
-
+    
     self.window.representedFilename = [projectPath stringByDeletingLastPathComponent];
-
+    
     return YES;
 }
 - (void)openProject:(NSString *)fileName
@@ -1814,7 +1814,7 @@ typedef enum
 
 - (void) openFile:(NSString*)filePath
 {
-	[(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
+    [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
     
     // Check if file is already open
     CCBDocument* openDoc = [self findDocumentFromFile:filePath];
@@ -1827,9 +1827,9 @@ typedef enum
     [self prepareForDocumentSwitch];
     
     CCBDocument *newDoc = [[CCBDocument alloc] initWithContentsOfFile:filePath];
-
+    
     [self switchToDocument:newDoc];
-     
+    
     [self addDocument:newDoc];
     self.hasOpenedDocument = YES;
     
@@ -1839,7 +1839,7 @@ typedef enum
     physicsHandler.selectedNodePhysicsBody = NULL;
     [self setSelectedNodes:NULL];
     
-	[(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
+    [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
 }
 
 - (void) saveFile:(NSString*) fileName
@@ -1856,7 +1856,7 @@ typedef enum
         [tabBar setIsEdited:NO ForTabViewItem:item];
         [self updateDirtyMark];
     }
-        
+    
     [currentDocument.undoManager removeAllActions];
     currentDocument.lastEditedProperty = NULL;
     
@@ -1968,7 +1968,7 @@ typedef enum
     {
         self.currentDocument.stageColor = kCCBCanvasColorBlack;
     }
-
+    
     [self updateResolutionMenu];
     
     [self saveFile:fileName];
@@ -1996,48 +1996,48 @@ typedef enum
     [[CocosScene cocosScene] setScrollOffset:ccp(0,0)];
     
     [self checkForTooManyDirectoriesInCurrentDoc];
-
+    
     [[ResourceManager sharedManager] updateForNewFile:fileName];
 }
 
 
 - (NSString*) findProject:(NSString*) path
 {
-	NSString* projectFile = nil;
-	NSFileManager* fm = [NSFileManager defaultManager];
+    NSString* projectFile = nil;
+    NSFileManager* fm = [NSFileManager defaultManager];
     
-	NSArray* files = [fm contentsOfDirectoryAtPath:path error:NULL];
-	for( NSString* file in files )
-	{
-		if( [file hasSuffix:@".ccbproj"] )
-		{
-			projectFile = [path stringByAppendingPathComponent:file];
-			break;
-		}
-	}
-	return projectFile;
+    NSArray* files = [fm contentsOfDirectoryAtPath:path error:NULL];
+    for( NSString* file in files )
+    {
+        if( [file hasSuffix:@".ccbproj"] )
+        {
+            projectFile = [path stringByAppendingPathComponent:file];
+            break;
+        }
+    }
+    return projectFile;
 }
 
 - (void)openFiles:(NSArray*)filenames
 {
-	for( NSString* filename in filenames )
-	{
-		[self openProject:filename];		
-	}
+    for( NSString* filename in filenames )
+    {
+        [self openProject:filename];
+    }
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
 {
-	// must wait for resource manager & rest of app to have completed the launch process before opening file(s)
-	if (_applicationLaunchComplete == NO)
-	{
-		NSAssert(delayOpenFiles == NULL, @"This shouldn't be set to anything since this value will only get applied once.");
-		delayOpenFiles = [[NSMutableArray alloc] initWithArray:filenames];
-	}
-	else 
-	{
-		[self openFiles:filenames];
-	}
+    // must wait for resource manager & rest of app to have completed the launch process before opening file(s)
+    if (_applicationLaunchComplete == NO)
+    {
+        NSAssert(delayOpenFiles == NULL, @"This shouldn't be set to anything since this value will only get applied once.");
+        delayOpenFiles = [[NSMutableArray alloc] initWithArray:filenames];
+    }
+    else
+    {
+        [self openFiles:filenames];
+    }
 }
 
 - (IBAction)menuResetSpriteBuilder:(id)sender
@@ -2070,16 +2070,16 @@ typedef enum
     {
         return;
     }
-
+    
     currentDocument.isDirty = YES;
     currentDocument.lastEditedProperty = prop;
-
+    
     NSMutableDictionary* doc = [self docDataFromCurrentNodeGraph];
     [currentDocument.undoManager registerUndoWithTarget:self selector:@selector(revertToState:) object:doc];
-
+    
     NSTabViewItem* item = [self tabViewItemFromDoc:currentDocument];
     [tabBar setIsEdited:YES ForTabViewItem:item];
-
+    
     [self updateDirtyMark];
 }
 
@@ -2092,17 +2092,17 @@ typedef enum
 
 - (BOOL) addCCObject:(CCNode *)child toParent:(CCNode*)parent atIndex:(int)index
 {
-	if (!child || !parent)
-	{
-		return NO;
-	}
-
-	NSError *error;
-	if (![self canChildBeAddedToParent:child parent:parent error:&error])
-	{
-		self.errorDescription = error.localizedDescription;
-		return NO;
-	}
+    if (!child || !parent)
+    {
+        return NO;
+    }
+    
+    NSError *error;
+    if (![self canChildBeAddedToParent:child parent:parent error:&error])
+    {
+        self.errorDescription = error.localizedDescription;
+        return NO;
+    }
     
     [self saveUndoState];
     
@@ -2110,7 +2110,7 @@ typedef enum
     if (index == CCNODE_INDEX_LAST)
     {
         // Add at end of array
-		[parent addChild:child z:[parent.children count]];
+        [parent addChild:child z:[parent.children count]];
     }
     else
     {
@@ -2121,7 +2121,7 @@ typedef enum
             CCNode *aChild = children[i];
             aChild.zOrder += 1;
         }
-		[parent addChild:child z:index];
+        [parent addChild:child z:index];
         [parent sortAllChildren];
     }
     
@@ -2129,11 +2129,11 @@ typedef enum
     {
         child.hidden = YES;
     }
-
+    
     //Set an unset UUID
     if(child.UUID == 0x0)
     {
-		child.UUID = [currentDocument getAndIncrementUUID];
+        child.UUID = [currentDocument getAndIncrementUUID];
     }
     
     [outlineHierarchy reloadData];
@@ -2147,59 +2147,59 @@ typedef enum
 
 - (BOOL)canChildBeAddedToParent:(CCNode *)child parent:(CCNode *)parent error:(NSError **)error
 {
-	NodeInfo *parentInfo = parent.userObject;
+    NodeInfo *parentInfo = parent.userObject;
     NodeInfo *childInfo = child.userObject;
-
-	if (!parentInfo.plugIn.canHaveChildren)
-	{
-		if (error)
-		{
-			NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"You cannot add children to a %@", parentInfo.plugIn.nodeClassName] };
-			*error = [NSError errorWithDomain:SBErrorDomain code:SBNodeDoesNotSupportChildrenError userInfo:errorDictionary];
-		}
-		return NO;
-	}
-
-	if ([self doesToBeAddedChildRequireSpecificParent:child parent:parent])
-	{
-		if (error)
-		{
-			NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"A %@ must be added to a %@", childInfo.plugIn.nodeClassName, childInfo.plugIn.requireParentClass] };
-			*error = [NSError errorWithDomain:SBErrorDomain code:SBChildRequiresSpecificParentError userInfo:errorDictionary];
-		}
-		return NO;
-	}
-
-	if ([self doesParentPermitChildToBeAdded:parent child:child])
-	{
-		if (error)
-		{
-			NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"You cannot add a %@ to a %@", childInfo.plugIn.nodeClassName, parentInfo.plugIn.nodeClassName] };
-			*error = [NSError errorWithDomain:SBErrorDomain code:SBParentDoesNotPermitSpecificChildrenError userInfo:errorDictionary];
-		}
-		return NO;
-	}
-	return YES;
+    
+    if (!parentInfo.plugIn.canHaveChildren)
+    {
+        if (error)
+        {
+            NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"You cannot add children to a %@", parentInfo.plugIn.nodeClassName] };
+            *error = [NSError errorWithDomain:SBErrorDomain code:SBNodeDoesNotSupportChildrenError userInfo:errorDictionary];
+        }
+        return NO;
+    }
+    
+    if ([self doesToBeAddedChildRequireSpecificParent:child parent:parent])
+    {
+        if (error)
+        {
+            NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"A %@ must be added to a %@", childInfo.plugIn.nodeClassName, childInfo.plugIn.requireParentClass] };
+            *error = [NSError errorWithDomain:SBErrorDomain code:SBChildRequiresSpecificParentError userInfo:errorDictionary];
+        }
+        return NO;
+    }
+    
+    if ([self doesParentPermitChildToBeAdded:parent child:child])
+    {
+        if (error)
+        {
+            NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"You cannot add a %@ to a %@", childInfo.plugIn.nodeClassName, parentInfo.plugIn.nodeClassName] };
+            *error = [NSError errorWithDomain:SBErrorDomain code:SBParentDoesNotPermitSpecificChildrenError userInfo:errorDictionary];
+        }
+        return NO;
+    }
+    return YES;
 }
 
 - (BOOL)doesParentPermitChildToBeAdded:(CCNode *)parent child:(CCNode *)child
 {
-	NodeInfo *parentInfo = parent.userObject;
+    NodeInfo *parentInfo = parent.userObject;
     NodeInfo *childInfo = child.userObject;
-
-	NSArray*requiredChildren = parentInfo.plugIn.requireChildClass;
-	return (requiredChildren
-			&& [requiredChildren indexOfObject:childInfo.plugIn.nodeClassName] == NSNotFound);
+    
+    NSArray*requiredChildren = parentInfo.plugIn.requireChildClass;
+    return (requiredChildren
+            && [requiredChildren indexOfObject:childInfo.plugIn.nodeClassName] == NSNotFound);
 }
 
 - (BOOL)doesToBeAddedChildRequireSpecificParent:(CCNode *)toBeAddedChild parent:(CCNode *)parent
 {
-	NodeInfo* nodeInfoParent = parent.userObject;
+    NodeInfo* nodeInfoParent = parent.userObject;
     NodeInfo* nodeInfo = toBeAddedChild.userObject;
-
-	NSString* requireParentClass = nodeInfo.plugIn.requireParentClass;
-	return (requireParentClass
-			&& ![requireParentClass isEqualToString: nodeInfoParent.plugIn.nodeClassName]);
+    
+    NSString* requireParentClass = nodeInfo.plugIn.requireParentClass;
+    return (requireParentClass
+            && ![requireParentClass isEqualToString: nodeInfoParent.plugIn.nodeClassName]);
 }
 
 - (BOOL) addCCObject:(CCNode *)obj toParent:(CCNode *)parent
@@ -2253,7 +2253,7 @@ typedef enum
 - (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild
 {
     [animationPlaybackManager stop];
-
+    
     self.errorDescription = NULL;
     CCNode* node = [[PlugInManager sharedManager] createDefaultNodeOfType:name];
     BOOL success = [self addCCObject:node asChild:asChild];
@@ -2270,7 +2270,7 @@ typedef enum
 - (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt parent:(CCNode*)parent
 {
     [animationPlaybackManager stop];
-
+    
     NodeInfo* info = parent.userObject;
     PlugInNode* plugIn = info.plugIn;
     
@@ -2292,7 +2292,7 @@ typedef enum
         // Set its position
         [PositionPropertySetter setPosition:NSPointFromCGPoint(pt) forNode:node prop:@"position"];
         
-        [CCBReaderInternal setProp:prop ofType:@"SpriteFrame" toValue:[NSArray arrayWithObjects:spriteSheetFile, spriteFile, nil] forNode:node parentSize:CGSizeZero withParentGraph:nil];
+        [CCBDictionaryReader setProp:prop ofType:@"SpriteFrame" toValue:[NSArray arrayWithObjects:spriteSheetFile, spriteFile, nil] forNode:node parentSize:CGSizeZero withParentGraph:nil];
         // Set it's displayName to the name of the spriteFile
         node.displayName = [[spriteFile lastPathComponent] stringByDeletingPathExtension];
         [self addCCObject:node toParent:parent];
@@ -2325,13 +2325,13 @@ typedef enum
 
 -(BOOL)showJoints
 {
-	return ![SceneGraph instance].joints.node.hidden;
+    return ![SceneGraph instance].joints.node.hidden;
 }
 
 -(void)setShowJoints:(BOOL)showJoints
 {
-	[SceneGraph instance].joints.node.hidden = !showJoints;
-	[sequenceHandler.outlineHierarchy reloadItem:[SceneGraph instance].joints reloadChildren:YES];
+    [SceneGraph instance].joints.node.hidden = !showJoints;
+    [sequenceHandler.outlineHierarchy reloadItem:[SceneGraph instance].joints reloadChildren:YES];
 }
 
 -(void)addJoint:(NSString*)jointName at:(CGPoint)pt
@@ -2340,11 +2340,11 @@ typedef enum
     
     CCNode* addedNode = [[PlugInManager sharedManager] createDefaultNodeOfType:jointName];
     addedNode.UUID = [[AppDelegate appDelegate].currentDocument getAndIncrementUUID];
-
+    
     
     [g.joints addJoint:(CCBPhysicsJoint*)addedNode];
     
-
+    
     [PositionPropertySetter setPosition:[addedNode.parent convertToNodeSpace:pt] forNode:addedNode prop:@"position"];
     
     [outlineHierarchy reloadData];
@@ -2354,15 +2354,15 @@ typedef enum
 
 - (void) gotoAutoplaySequence
 {
-	SequencerSequence * autoPlaySequence = [currentDocument.sequences findFirst:^BOOL(SequencerSequence * sequence, int idx) {
-		return sequence.autoPlay;
-	}];
-	
-	if(autoPlaySequence)
-	{
-		sequenceHandler.currentSequence = autoPlaySequence;
-		sequenceHandler.currentSequence.timelinePosition = 0.0f;
-	}
+    SequencerSequence * autoPlaySequence = [currentDocument.sequences findFirst:^BOOL(SequencerSequence * sequence, int idx) {
+        return sequence.autoPlay;
+    }];
+    
+    if(autoPlaySequence)
+    {
+        sequenceHandler.currentSequence = autoPlaySequence;
+        sequenceHandler.currentSequence.timelinePosition = 0.0f;
+    }
 }
 
 - (void) dropAddPlugInNodeNamed:(NSString*) nodeName at:(CGPoint)pt
@@ -2370,15 +2370,15 @@ typedef enum
     PlugInNode* pluginDescription = [[PlugInManager sharedManager] plugInNodeNamed:nodeName];
     if(pluginDescription.isJoint)
     {
-		if(!sequenceHandler.currentSequence.autoPlay || sequenceHandler.currentSequence.timelinePosition != 0.0f)
-		{
-			[self modalDialogTitle:@"Changing Timeline" message:@"In order to add a new joint, you must be viewing the first frame of the 'autoplay' timeline." disableKey:@"AddJointSetSequencer"];
-			
-		
-			[self gotoAutoplaySequence];
-		}
-
-		
+        if(!sequenceHandler.currentSequence.autoPlay || sequenceHandler.currentSequence.timelinePosition != 0.0f)
+        {
+            [self modalDialogTitle:@"Changing Timeline" message:@"In order to add a new joint, you must be viewing the first frame of the 'autoplay' timeline." disableKey:@"AddJointSetSequencer"];
+            
+            
+            [self gotoAutoplaySequence];
+        }
+        
+        
         [self addJoint:nodeName at:pt];
         return;
     }
@@ -2386,7 +2386,7 @@ typedef enum
     // New node was dropped in working canvas
     CCNode* addedNode = [self addPlugInNodeNamed:nodeName asChild:NO];
     
-        
+    
     // Set position
     if (addedNode)
     {
@@ -2434,7 +2434,7 @@ typedef enum
         [cb setString:stringToWrite forType:NSStringPboardType];
         return;
     }
-
+    
     // Copy keyframes
     NSArray* keyframes = [sequenceHandler selectedKeyframesForCurrentSequence];
     if ([keyframes count] > 0)
@@ -2514,7 +2514,7 @@ typedef enum
         return;
     
     // Serialize selected node
-    NSMutableDictionary* clipDict = [CCBWriterInternal dictionaryFromCCObject:self.selectedNode];
+    NSMutableDictionary* clipDict = [CCBDictionaryWriter serializeNode:self.selectedNode];
     NSData* clipData = [NSKeyedArchiver archivedDataWithRootObject:clipDict];
     NSPasteboard* cb = [NSPasteboard generalPasteboard];
     
@@ -2525,7 +2525,7 @@ typedef enum
 -(void)updateUUIDs:(CCNode*)node
 {
     node.UUID = [currentDocument getAndIncrementUUID];
-	[node postCopyFixup];
+    [node postCopyFixup];
     
     for (CCNode * child in node.children) {
         [self updateUUIDs:child];
@@ -2540,7 +2540,7 @@ typedef enum
     if (type)
     {
         [animationPlaybackManager stop];
-
+        
         NSData* clipData = [cb dataForType:type];
         NSMutableDictionary* clipDict = [NSKeyedUnarchiver unarchiveObjectWithData:clipData];
         
@@ -2548,14 +2548,14 @@ typedef enum
         if (asChild) parentSize = self.selectedNode.contentSize;
         else parentSize = self.selectedNode.parent.contentSize;
         
-        CCNode* clipNode = [CCBReaderInternal nodeGraphFromDictionary:clipDict parentSize:parentSize];
-		[CCBReaderInternal postDeserializationFixup:clipNode];
+        CCNode* clipNode = [CCBDictionaryReader nodeGraphFromDictionary:clipDict parentSize:parentSize];
+        [CCBDictionaryReader postDeserializationFixup:clipNode];
         [self updateUUIDs:clipNode];
         
         
         [self addCCObject:clipNode asChild:asChild];
         
-        //We might have copy/cut/pasted and body. Fix it up.		
+        //We might have copy/cut/pasted and body. Fix it up.
         [SceneGraph fixupReferences];
     }
 }
@@ -2575,7 +2575,7 @@ typedef enum
             [self modalDialogTitle:@"Paste Failed" message:@"You need to select a node to paste keyframes"];
             return;
         }
-            
+        
         // Unarchive keyframes
         NSData* clipData = [cb dataForType:type];
         NSMutableArray* serKeyframes = [NSKeyedUnarchiver unarchiveObjectWithData:clipData];
@@ -2592,7 +2592,7 @@ typedef enum
             }
             [keyframes addObject:keyframe];
         }
-            
+        
         // Adjust times and add keyframes
         SequencerSequence* seq = sequenceHandler.currentSequence;
         
@@ -2619,7 +2619,7 @@ typedef enum
                 [keyframe.parent deleteKeyframesAfterTime:seq.timelineLength];
                 [[SequencerHandler sharedHandler] redrawTimeline];
             }
-
+            
             [[SequencerHandler sharedHandler] deleteDuplicateKeyframesForCurrentSequence];
         }
         
@@ -2637,13 +2637,13 @@ typedef enum
 - (void) deleteNode:(CCNode*)node
 {
     SceneGraph* g = [SceneGraph instance];
-
+    
     if (!node
         || node == g.rootNode)
     {
         return;
     }
-
+    
     [self saveUndoState];
     
     // Change zOrder of nodes after this one
@@ -2662,7 +2662,7 @@ typedef enum
     
     [self deselectAll];
     [sequenceHandler updateOutlineViewSelection];
-
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:SCENEGRAPH_NODE_DELETED object:self userInfo:@{NOTIFICATION_USERINFO_KEY_NODE : node}];
     
     [lightingHandler refreshStageLightAndMenu];
@@ -2671,12 +2671,12 @@ typedef enum
 - (IBAction) delete:(id) sender
 {
     // First attempt to delete selected keyframes
-	if ([sequenceHandler deleteSelectedKeyframesForCurrentSequence])
-	{
-		return;
-	}
-
-	// Then delete the selected node
+    if ([sequenceHandler deleteSelectedKeyframesForCurrentSequence])
+    {
+        return;
+    }
+    
+    // Then delete the selected node
     NSArray* nodesToDelete = [NSArray arrayWithArray:self.selectedNodes];
     for (CCNode* node in nodesToDelete)
     {
@@ -2762,7 +2762,7 @@ typedef enum
     
     NSSavePanel* saveDlg = [NSSavePanel savePanel];
     [saveDlg setAllowedFileTypes:[NSArray arrayWithObject:@"ccb"]];
-	__block SavePanelLimiter* limiter = [[SavePanelLimiter alloc] initWithPanel:saveDlg];
+    __block SavePanelLimiter* limiter = [[SavePanelLimiter alloc] initWithPanel:saveDlg];
     
     [saveDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result){
         if (result == NSOKButton)
@@ -2770,23 +2770,23 @@ typedef enum
             NSString *filename = [[saveDlg URL] path];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
                            dispatch_get_main_queue(), ^{
-                [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
-                
-                // Save file to new path
-                [self saveFile:filename];
-                
-                // Close document
-                [tabView removeTabViewItem:[self tabViewItemFromDoc:currentDocument]];
-                
-                // Open newly created document
-                [self openFile:filename];
-                
-                [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
-            });
+                               [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
+                               
+                               // Save file to new path
+                               [self saveFile:filename];
+                               
+                               // Close document
+                               [tabView removeTabViewItem:[self tabViewItemFromDoc:currentDocument]];
+                               
+                               // Open newly created document
+                               [self openFile:filename];
+                               
+                               [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
+                           });
         }
-		
-		// ensures the limiter remains in memory until the block finishes
-		limiter = nil;
+        
+        // ensures the limiter remains in memory until the block finishes
+        limiter = nil;
     }];
 }
 
@@ -2828,11 +2828,11 @@ typedef enum
     for (int i = 0; i < [docs count]; i++)
     {
         CCBDocument* doc = [(NSTabViewItem*) docs[i] identifier];
-         if (doc.isDirty)
-         {
-             [self switchToDocument:doc forceReload:NO];
-             [self saveDocument:sender];
-         }
+        if (doc.isDirty)
+        {
+            [self switchToDocument:doc forceReload:NO];
+            [self saveDocument:sender];
+        }
     }
     [self switchToDocument:oldCurDoc forceReload:NO];
 }
@@ -2885,31 +2885,31 @@ typedef enum
     _publisherController.projectSettings = projectSettings;
     _publisherController.packageSettings = [[ResourceManager sharedManager] loadAllPackageSettings];
     _publisherController.oldResourcePaths = [[ResourceManager sharedManager] oldResourcePaths];
-
+    
     id __weak selfWeak = self;
     _publisherController.finishBlock = ^(CCBPublisher *aPublisher, CCBWarnings *someWarnings)
     {
         [selfWeak publisher:aPublisher finishedWithWarnings:someWarnings];
     };
-
+    
     modalTaskStatusWindow = [[TaskStatusWindow alloc] initWithWindowNibName:@"TaskStatusWindow"];
     _publisherController.taskStatusUpdater = modalTaskStatusWindow;
-
+    
     // Open progress window and publish
     if (async)
     {
         [_publisherController startAsync:YES];
         [self modalStatusWindowStartWithTitle:@"Publishing" isIndeterminate:NO onCancelBlock:^
-        {
-            [_publisherController cancel];
-        }];
+         {
+             [_publisherController cancel];
+         }];
         [self modalStatusWindowUpdateStatusText:@"Starting up..."];
     }
     else
     {
         [_publisherController startAsync:NO];
     }
-
+    
     [animationPlaybackManager stop];
 }
 
@@ -2954,28 +2954,28 @@ typedef enum
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
                            dispatch_get_main_queue(), ^{
-                [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
-                
-                for (int i = 0; i < [files count]; i++)
-                {
-                    NSString* dirName = [[files objectAtIndex:i] path];
-                    
-                    NSArray* arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirName error:NULL];
-                    for(NSString* file in arr)
-                    {
-                        if ([file hasSuffix:@".ccb"])
-                        {
-                            NSString* absPath = [dirName stringByAppendingPathComponent:file];
-                            [self openFile:absPath];
-                            [self saveFile:absPath];
-                            //[self publishDocument:NULL];
-                            [self performClose:sender];
-                        }
-                    }
-                }
-                
-                [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
-            });
+                               [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
+                               
+                               for (int i = 0; i < [files count]; i++)
+                               {
+                                   NSString* dirName = [[files objectAtIndex:i] path];
+                                   
+                                   NSArray* arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirName error:NULL];
+                                   for(NSString* file in arr)
+                                   {
+                                       if ([file hasSuffix:@".ccb"])
+                                       {
+                                           NSString* absPath = [dirName stringByAppendingPathComponent:file];
+                                           [self openFile:absPath];
+                                           [self saveFile:absPath];
+                                           //[self publishDocument:NULL];
+                                           [self performClose:sender];
+                                       }
+                                   }
+                               }
+                               
+                               [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
+                           });
         }
     }];
 }
@@ -2993,10 +2993,10 @@ typedef enum
     {
         return;
     }
-
+    
     ProjectSettingsWindowController *settingsWindowController = [[ProjectSettingsWindowController alloc] init];
     settingsWindowController.projectSettings = self.projectSettings;
-
+    
     if ([settingsWindowController runModalSheetForWindow:window])
     {
         [self updateEverythingAfterSettingsChanged];
@@ -3018,36 +3018,36 @@ typedef enum
     // Create the File Open Dialog
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
     [openDlg setCanChooseFiles:YES];
-
+    
     NSArray *allowedFileTypes = currentDocument
-        ? @[@"spritebuilder", PACKAGE_NAME_SUFFIX]
-        : @[@"spritebuilder"];
+    ? @[@"spritebuilder", PACKAGE_NAME_SUFFIX]
+    : @[@"spritebuilder"];
     [openDlg setAllowedFileTypes:allowedFileTypes];
-
+    
     [openDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result)
-    {
-        if (result == NSOKButton)
-        {
-            NSArray* files = [openDlg URLs];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^
-            {
-                for (int i = 0; i < [files count]; i++)
-                {
-                    NSString *fileName = [[files objectAtIndex:i] path];
-                    if ([fileName hasSuffix:PACKAGE_NAME_SUFFIX])
-                    {
-                        PackageImporter *packageImporter = [[PackageImporter alloc] init];
-                        packageImporter.projectSettings = projectSettings;
-                        [packageImporter importPackagesWithPaths:@[fileName] error:NULL];
-                    }
-                    else
-                    {
-                        [self openProject:fileName];
-                    }
-                }
-            });
-        }
-    }];
+     {
+         if (result == NSOKButton)
+         {
+             NSArray* files = [openDlg URLs];
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^
+                            {
+                                for (int i = 0; i < [files count]; i++)
+                                {
+                                    NSString *fileName = [[files objectAtIndex:i] path];
+                                    if ([fileName hasSuffix:PACKAGE_NAME_SUFFIX])
+                                    {
+                                        PackageImporter *packageImporter = [[PackageImporter alloc] init];
+                                        packageImporter.projectSettings = projectSettings;
+                                        [packageImporter importPackagesWithPaths:@[fileName] error:NULL];
+                                    }
+                                    else
+                                    {
+                                        [self openProject:fileName];
+                                    }
+                                }
+                            });
+         }
+     }];
 }
 
 - (IBAction) menuCloseProject:(id)sender
@@ -3084,7 +3084,7 @@ typedef enum
     NSSavePanel* saveDlg = [NSSavePanel savePanel];
     [saveDlg setAllowedFileTypes:[NSArray arrayWithObject:@"spritebuilder"]];
     //saveDlg.message = @"Save your project file in the same directory as your projects resources.";
-
+    
     // Configure the accessory view
     [saveDlg setAccessoryView:saveDlgAccessoryView];
     [saveDlgLanguagePopup removeAllItems];
@@ -3094,7 +3094,7 @@ typedef enum
     saveDlgLanguagePopup.target = self;
     saveDlgLanguagePopup.action = @selector(updateLanguageHint);
     [self updateLanguageHint];
-
+    
     [saveDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result){
         if (result == NSOKButton)
         {
@@ -3144,7 +3144,7 @@ typedef enum
 
 - (IBAction) menuNewProject:(id)sender
 {
-	[self createNewProjectTargetting:CCBTargetEngineCocos2d];
+    [self createNewProjectTargetting:CCBTargetEngineCocos2d];
 }
 
 - (IBAction) menuNewPackage:(id)sender
@@ -3177,7 +3177,7 @@ typedef enum
 - (void) removedDocumentWithPath:(NSNotification *)notification
 {
     NSString *path = [notification userInfo][@"filepath"];
-
+    
     NSTabViewItem* item = [self tabViewItemFromPath:path includeViewWithinFolderPath:YES];
     if (item)
     {
@@ -3198,7 +3198,7 @@ typedef enum
     NSArray *items = [tabView tabViewItems];
    	for (NSUInteger i = 0; i < [items count]; i++)
    	{
-   		CCBDocument *doc = [(NSTabViewItem *) [items objectAtIndex:i] identifier];
+        CCBDocument *doc = [(NSTabViewItem *) [items objectAtIndex:i] identifier];
         if ([doc.filePath rangeOfString:fromPath].location != NSNotFound)
         {
             NSString *newFileName = [doc.filePath stringByReplacingOccurrencesOfString:fromPath withString:toPath];
@@ -3252,7 +3252,7 @@ typedef enum
     
     CGFloat s = _baseContentScaleFactor * res.scale;
     
-	if([CCDirector sharedDirector].contentScaleFactor != s)
+    if([CCDirector sharedDirector].contentScaleFactor != s)
     {
         [[CCTextureCache sharedTextureCache] removeAllTextures];
         [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFrames];
@@ -3345,14 +3345,14 @@ typedef enum
 }
 
 /*
-- (void) updateStateOriginCenteredMenu
-{
-    CocosScene* cs = [CocosScene cocosScene];
-    BOOL centered = [cs centeredOrigin];
-    
-    if (centered) [menuItemStageCentered setState:NSOnState];
-    else [menuItemStageCentered setState:NSOffState];
-}
+ - (void) updateStateOriginCenteredMenu
+ {
+ CocosScene* cs = [CocosScene cocosScene];
+ BOOL centered = [cs centeredOrigin];
+ 
+ if (centered) [menuItemStageCentered setState:NSOnState];
+ else [menuItemStageCentered setState:NSOffState];
+ }
  */
 
 - (IBAction) menuSetStateOriginCentered:(id)sender
@@ -3396,7 +3396,7 @@ typedef enum
 {
     CocosScene* cs = [CocosScene cocosScene];
     int color = currentDocument.stageColor;
-
+    
     [cs setStageColor: color forDocDimensionsType: currentDocument.docDimensionsType];
     
     for (NSMenuItem *item in menuItemStageColor.submenu.itemArray)
@@ -3500,11 +3500,11 @@ typedef enum
                 seq.sequenceId = [self uniqueSequenceIdFromSequences:wc.sequences];
             }
         }
-    
+        
         // Update the timelines
         currentDocument.sequences = wc.sequences;
         sequenceHandler.currentSequence = [currentDocument.sequences objectAtIndex:0];
-
+        
         [animationPlaybackManager stop];
     }
 }
@@ -3523,7 +3523,7 @@ typedef enum
     
     // and set it to current
     sequenceHandler.currentSequence = newSeq;
-
+    
     [animationPlaybackManager stop];
 }
 
@@ -3540,7 +3540,7 @@ typedef enum
     
     // and set it to current
     sequenceHandler.currentSequence = newSeq;
-
+    
     [animationPlaybackManager stop];
 }
 
@@ -3712,7 +3712,7 @@ typedef enum
         [PositionPropertySetter setPosition:newRelPos forNode:node prop:@"position"];
         [PositionPropertySetter addPositionKeyframeForNode:node];
     }
- }
+}
 
 - (void) menuAlignObjectsAcross:(id)sender alignmentType:(int)alignmentType
 {
@@ -3734,7 +3734,7 @@ typedef enum
     {
         CCNode* node = [self.selectedNodes objectAtIndex:i];
         
-
+        
         
         cxNode = node.contentSize.width * node.scaleX;
         
@@ -3837,7 +3837,7 @@ typedef enum
             return NSOrderedDescending;
         return NSOrderedSame;
     }];
-
+    
     for (int i = 0; i < self.selectedNodes.count; ++i)
     {
         CCNode* node = [sortedNodes objectAtIndex:i];
@@ -3862,45 +3862,45 @@ typedef enum
 - (void) menuAlignObjectsSize:(id)sender alignmentType:(int)alignmentType
 {
     /*
-    CGFloat x;
-    CGFloat y;
-    
-    int nAnchor = self.selectedNodes.count - 1;
-    CCNode* nodeAnchor = [self.selectedNodes objectAtIndex:nAnchor];
- 
-    for (int i = 0; i < self.selectedNodes.count - 1; ++i)
-    {
-        CCNode* node = [self.selectedNodes objectAtIndex:i];
-        
-        switch (alignmentType)
-        {
-            case kCCBAlignSameWidth:
-                x = nodeAnchor.contentSize.width * nodeAnchor.scaleX;
-                if (abs(x) >= 0.0001f)
-                    x /= node.contentSize.width;
-                y = node.scaleY;
-                break;
-            case kCCBAlignSameHeight:
-                x = node.scaleX;
-                y = nodeAnchor.contentSize.height * nodeAnchor.scaleY;
-                if (abs(y) >= 0.0001f)
-                    y /= node.contentSize.height;
-                break;
-            case kCCBAlignSameSize:
-                x = nodeAnchor.contentSize.width * nodeAnchor.scaleX;
-                if (abs(x) >= 0.0001f)
-                    x /= node.contentSize.width;
-                y = nodeAnchor.contentSize.height * nodeAnchor.scaleY;
-                if (abs(y) >= 0.0001f)
-                    y /= node.contentSize.height;
-                break;
-        }
-
-        int posType = [PositionPropertySetter positionTypeForNode:node prop:@"scale"];
-        
-        [PositionPropertySetter setScaledX:x Y:y type:posType forNode:node prop:@"scale"];
-        [PositionPropertySetter addPositionKeyframeForNode:node];
-    }
+     CGFloat x;
+     CGFloat y;
+     
+     int nAnchor = self.selectedNodes.count - 1;
+     CCNode* nodeAnchor = [self.selectedNodes objectAtIndex:nAnchor];
+     
+     for (int i = 0; i < self.selectedNodes.count - 1; ++i)
+     {
+     CCNode* node = [self.selectedNodes objectAtIndex:i];
+     
+     switch (alignmentType)
+     {
+     case kCCBAlignSameWidth:
+     x = nodeAnchor.contentSize.width * nodeAnchor.scaleX;
+     if (abs(x) >= 0.0001f)
+     x /= node.contentSize.width;
+     y = node.scaleY;
+     break;
+     case kCCBAlignSameHeight:
+     x = node.scaleX;
+     y = nodeAnchor.contentSize.height * nodeAnchor.scaleY;
+     if (abs(y) >= 0.0001f)
+     y /= node.contentSize.height;
+     break;
+     case kCCBAlignSameSize:
+     x = nodeAnchor.contentSize.width * nodeAnchor.scaleX;
+     if (abs(x) >= 0.0001f)
+     x /= node.contentSize.width;
+     y = nodeAnchor.contentSize.height * nodeAnchor.scaleY;
+     if (abs(y) >= 0.0001f)
+     y /= node.contentSize.height;
+     break;
+     }
+     
+     int posType = [PositionPropertySetter positionTypeForNode:node prop:@"scale"];
+     
+     [PositionPropertySetter setScaledX:x Y:y type:posType forNode:node prop:@"scale"];
+     [PositionPropertySetter addPositionKeyframeForNode:node];
+     }
      */
 }
 
@@ -3992,13 +3992,13 @@ typedef enum
     {
         newIndex = node.zOrder + 1;
     }
-
+    
     // Note: Deleting the node will cleanup the userObject containting the NodeInfo stuff
     // This needs to be preserved and attached again.
     id userObject = node.userObject;
     [self deleteNode:node];
     node.userObject = userObject;
-
+    
     [self addCCObject:node toParent:parent atIndex:newIndex];
 }
 
@@ -4200,7 +4200,7 @@ typedef enum
     {
         return [tabView numberOfTabViewItems] > 1;
     }
-
+    
     return YES;
 }
 
@@ -4216,10 +4216,10 @@ typedef enum
 
 - (IBAction) openRegistrationWindow:(id)sender
 {
-	[self openRegistration];
+    [self openRegistration];
 }
-	
-	
+
+
 -(BOOL)openRegistration
 {
     if (!registrationWindow)
@@ -4227,16 +4227,16 @@ typedef enum
         registrationWindow = [[MailingListWindow alloc] initWithWindowNibName:@"MailingListWindow"];
     }
     
-	NSInteger result = [NSApp runModalForWindow: registrationWindow.window];
-	[NSApp endSheet:registrationWindow.window];
-	[registrationWindow.window close];
-	
-	if(result == NSModalResponseStop)
-	{
-		return YES;
-	}
-
-	return NO;
+    NSInteger result = [NSApp runModalForWindow: registrationWindow.window];
+    [NSApp endSheet:registrationWindow.window];
+    [registrationWindow.window close];
+    
+    if(result == NSModalResponseStop)
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (NSUndoManager*) windowWillReturnUndoManager:(NSWindow *)window
@@ -4246,12 +4246,12 @@ typedef enum
 
 -(NSString*)applicationTitle
 {
-	return @"SpriteBuilder";
+    return @"SpriteBuilder";
 }
 
 - (NSString *)feedURLStringForUpdater:(id)updater
 {
-	return @"http://update.spritebuilder.com";
+    return @"http://update.spritebuilder.com";
 }
 
 #pragma mark Extras / Snap
@@ -4287,7 +4287,7 @@ typedef enum
 - (IBAction) menuGuideGridSettings:(id)sender
 {
     if (!currentDocument) return;
-
+    
     GuideGridSizeWindow* wc = [[GuideGridSizeWindow alloc] initWithWindowNibName:@"GuideGridSizeWindow"];
     
     wc.wStage = [[[CocosScene cocosScene] guideLayer] gridSize].width;
@@ -4315,7 +4315,7 @@ typedef enum
 - (void)windowDidChangeScreen:(NSNotification *)notification {
     if (window == notification.object) {
         CCDirectorMac *dir = (CCDirectorMac *)[CCDirector sharedDirector];
-
+        
         // check if DPI has changed
         if (dir.deviceContentScaleFactor != _baseContentScaleFactor) {
             
@@ -4340,16 +4340,16 @@ typedef enum
                                        alternateButton:@"Quit"
                                            otherButton:@"Save All & Quit"
                              informativeTextWithFormat:@"There are unsaved documents. If you quit now you will lose any changes you have made."];
-
+        
         [alert setAlertStyle:NSWarningAlertStyle];
         NSInteger result = [alert runModal];
-
+        
         if (result == NSAlertOtherReturn)
         {
             [self saveAllDocuments:nil];
             return YES;
         }
-
+        
         if (result == NSAlertDefaultReturn)
         {
             return NO;
@@ -4361,12 +4361,12 @@ typedef enum
 - (void) windowWillClose:(NSNotification *)notification
 {
     [window saveMainWindowPanelsVisibility];
-
+    
     [self saveOpenProjectPathToDefaults];
     
     [_securityScopedProjectFolderResource stopAccessingSecurityScopedResource];
     self.securityScopedProjectFolderResource = nil;
-
+    
     [[NSApplication sharedApplication] terminate:self];
 }
 
@@ -4375,10 +4375,10 @@ typedef enum
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *projectPath = @"";
     if (projectSettings) {
-		projectPath = projectSettings.projectPath;
-		projectPath = [projectPath stringByDeletingLastPathComponent];
+        projectPath = projectSettings.projectPath;
+        projectPath = [projectPath stringByDeletingLastPathComponent];
         [defaults setObject:projectPath forKey:LAST_OPENED_PROJECT_PATH];
-	}
+    }
     else
     {
         [defaults removeObjectForKey:LAST_OPENED_PROJECT_PATH];
@@ -4392,17 +4392,17 @@ typedef enum
     static float minHeight = 500.0f;
     [splitHorizontalView setNeedsLayout:YES];
     return NSSizeFromCGSize(
-                CGSizeMake(
-                        frameSize.width<minWidth ? minWidth:frameSize.width,
-                        frameSize.height<minHeight ? minHeight:frameSize.height)
-    );
+                            CGSizeMake(
+                                       frameSize.width<minWidth ? minWidth:frameSize.width,
+                                       frameSize.height<minHeight ? minHeight:frameSize.height)
+                            );
 }
 
 - (IBAction) menuQuit:(id)sender
 {
     if ([self windowShouldClose:self])
     {
-		[self.projectSettings store];
+        [self.projectSettings store];
         
         [_securityScopedProjectFolderResource stopAccessingSecurityScopedResource];
         self.securityScopedProjectFolderResource = nil;
@@ -4413,26 +4413,26 @@ typedef enum
 
 -(BOOL)showHelpDialog:(NSString*)type
 {
-	NSDictionary * helpDialogs = [[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"];
-	if(helpDialogs == nil || !helpDialogs[type])
-		return YES;
-	
-	//Its presence indicates we don't show the dialog.
-	return NO;
-			
+    NSDictionary * helpDialogs = [[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"];
+    if(helpDialogs == nil || !helpDialogs[type])
+        return YES;
+    
+    //Its presence indicates we don't show the dialog.
+    return NO;
+    
 }
 -(void)disableHelpDialog:(NSString*)type
 {
-	NSMutableDictionary * helpDialogs = [NSMutableDictionary dictionary];
-	
-	if([[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"])
-	{
-		NSDictionary * temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"];
-		helpDialogs = [NSMutableDictionary dictionaryWithDictionary:temp];
-	}
-	
-	helpDialogs[type] = @(NO);
-	[[NSUserDefaults standardUserDefaults] setObject:helpDialogs forKey:@"HelpDialogs"];
+    NSMutableDictionary * helpDialogs = [NSMutableDictionary dictionary];
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"])
+    {
+        NSDictionary * temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"HelpDialogs"];
+        helpDialogs = [NSMutableDictionary dictionaryWithDictionary:temp];
+    }
+    
+    helpDialogs[type] = @(NO);
+    [[NSUserDefaults standardUserDefaults] setObject:helpDialogs forKey:@"HelpDialogs"];
 }
 
 - (IBAction)showHelp:(id)sender
@@ -4470,19 +4470,19 @@ typedef enum
 {
     NSOutlineView* outlineView = [AppDelegate appDelegate].outlineProject;
     NSUInteger idx = [item tag];
-	
-	NSString * fullpath;
-	
-	id row = [outlineView itemAtRow:idx];
-	if([row isKindOfClass:[RMDirectory class]])
-	{
-		fullpath = [row dirPath];
-	}
-	else if([row isKindOfClass:[RMResource class]])
-	{
-		fullpath = [row filePath];
-	}
-
+    
+    NSString * fullpath;
+    
+    id row = [outlineView itemAtRow:idx];
+    if([row isKindOfClass:[RMDirectory class]])
+    {
+        fullpath = [row dirPath];
+    }
+    else if([row isKindOfClass:[RMResource class]])
+    {
+        fullpath = [row filePath];
+    }
+    
     
     // if it doesn't exist, peek inside "resources-auto" (only needed in the case of resources, which has a different visual
     // layout than what is actually on the disk).
