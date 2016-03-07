@@ -1057,6 +1057,10 @@
 		FF9398D51C8D606100D424C7 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D41C8D606100D424C7 /* Rakefile */; };
 		FF9398D71C8D607900D424C7 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D61C8D607900D424C7 /* VERSION */; };
 		FF9398D91C8D607C00D424C7 /* circle.yml in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D81C8D607C00D424C7 /* circle.yml */; };
+		FF9DA9C31C8D79900034F4C6 /* build_distribution.py in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */; };
+		FF9DA9C41C8D79900034F4C6 /* CodeSign-local.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */; };
+		FF9DA9C51C8D79900034F4C6 /* CodeSign-pkg.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */; };
+		FF9DA9C61C8D79900034F4C6 /* CodeSign.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2832,6 +2836,10 @@
 		FF9398D41C8D606100D424C7 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		FF9398D61C8D607900D424C7 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		FF9398D81C8D607C00D424C7 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.yml; sourceTree = "<group>"; };
+		FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = build_distribution.py; path = ../../scripts/build_distribution.py; sourceTree = "<group>"; };
+		FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-local.sh"; path = "../../scripts/CodeSign-local.sh"; sourceTree = "<group>"; };
+		FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-pkg.sh"; path = "../../scripts/CodeSign-pkg.sh"; sourceTree = "<group>"; };
+		FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CodeSign.sh; path = ../../scripts/CodeSign.sh; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -3824,7 +3832,6 @@
 		7789ACEB133AB6A700CEFCC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FF9398D31C8D5FBA00D424C7 /* Compilation */,
 				B7AC69DB17A9D9700041B8BD /* defaultTemplates.zip */,
 				E390C780170A371E003E9E92 /* Generated */,
 				E3AF6CE015F0CFAE0048DB2A /* Documentation */,
@@ -5756,6 +5763,13 @@
 		E525F5A4A89A3C9ABF48EA61 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				FF9398D41C8D606100D424C7 /* Rakefile */,
+				FF9398D81C8D607C00D424C7 /* circle.yml */,
+				FF9398D11C8D5FA700D424C7 /* Version.xcconfig */,
+				FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */,
+				FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */,
+				FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */,
+				FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */,
 				83F3C9611A4229DB003D8659 /* OpenPaths.scpt */,
 			);
 			name = Scripts;
@@ -5891,16 +5905,6 @@
 				FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */,
 			);
 			name = "Testing Resources";
-			sourceTree = "<group>";
-		};
-		FF9398D31C8D5FBA00D424C7 /* Compilation */ = {
-			isa = PBXGroup;
-			children = (
-				FF9398D41C8D606100D424C7 /* Rakefile */,
-				FF9398D81C8D607C00D424C7 /* circle.yml */,
-				FF9398D11C8D5FA700D424C7 /* Version.xcconfig */,
-			);
-			name = Compilation;
 			sourceTree = "<group>";
 		};
 		FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */ = {
@@ -6580,6 +6584,7 @@
 				776A370B139544A200960E94 /* TB_actualSize.png in Resources */,
 				776A370C139544A200960E94 /* TB_grab.png in Resources */,
 				B747E60A19CB3BF700F692A2 /* effect-hue.png in Resources */,
+				FF9DA9C51C8D79900034F4C6 /* CodeSign-pkg.sh in Resources */,
 				9218DF3A1919B04D0033851E /* joint-pivot-mode-l-off@2x.png in Resources */,
 				92F0960718F8851300D47A94 /* inspector-body-remove-dis.png in Resources */,
 				776A370D139544A200960E94 /* TB_select.png in Resources */,
@@ -6677,6 +6682,7 @@
 				83F3CA901A4239A0003D8659 /* btn-dropdown@2x.png in Resources */,
 				E3E8B49D15793AF800373983 /* seq-btn-stepforward.png in Resources */,
 				E3E8B4A4157CD5DB00373983 /* seq-scrub-handle.png in Resources */,
+				FF9DA9C61C8D79900034F4C6 /* CodeSign.sh in Resources */,
 				926D13C518B5778300582959 /* joint-distance-sel@2x.png in Resources */,
 				E3E8B4A5157CD5DB00373983 /* seq-scrub-line.png in Resources */,
 				B7C3533817FA0FEF005697C1 /* inspector-physics@2x.png in Resources */,
@@ -6845,6 +6851,7 @@
 				926D13C918B5778300582959 /* joint-distance-slide@2x.png in Resources */,
 				926D13CB18B5778300582959 /* joint-distance@2x.png in Resources */,
 				B7AC69CA17A70A4B0041B8BD /* inspector-codeconnections@2x.png in Resources */,
+				FF9DA9C41C8D79900034F4C6 /* CodeSign-local.sh in Resources */,
 				9218DF331919B04D0033851E /* joint-pivot-mode-s-on.png in Resources */,
 				B7AC69CB17A70A4B0041B8BD /* inspector-props.png in Resources */,
 				83F3CA621A4232C4003D8659 /* InspectorTokenArray.xib in Resources */,
@@ -6860,6 +6867,7 @@
 				B7083DFB17B2CC65006628C7 /* LocaliztaionEditorLanguageList.plist in Resources */,
 				92B1B9D6192429A400DB91F5 /* joint-pivot-range@2x.png in Resources */,
 				B7DEBD6417D113B800942E4D /* SpriteBuilder.icns in Resources */,
+				FF9DA9C31C8D79900034F4C6 /* build_distribution.py in Resources */,
 				9218DF361919B04D0033851E /* joint-pivot-mode-r-on@2x.png in Resources */,
 				B7F02D4817D12DB1008A2E2D /* about-bg.png in Resources */,
 				B7F02D4917D12DB1008A2E2D /* about-bg@2x.png in Resources */,
