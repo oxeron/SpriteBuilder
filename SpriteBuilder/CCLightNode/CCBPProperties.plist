@@ -7,7 +7,7 @@
 	<key>ordering</key>
 	<integer>4000</integer>
 	<key>description</key>
-	<string>Draws a rectangular area filled with a color.</string>
+	<string>Creates a light source.</string>
 	<key>inheritsFrom</key>
 	<string>CCNode</string>
 	<key>canHaveChildren</key>
@@ -81,8 +81,8 @@
 			<string>Float</string>
 			<key>name</key>
 			<string>intensity</string>
-            <key>extra</key>
-            <string>min|0|max|1</string>
+			<key>extra</key>
+			<string>min|0|max|1</string>
 		</dict>
 		<dict>
 			<key>animatable</key>
@@ -121,8 +121,8 @@
 			<string>Float</string>
 			<key>name</key>
 			<string>specularIntensity</string>
-            <key>extra</key>
-            <string>min|0|max|1</string>
+			<key>extra</key>
+			<string>min|0|max|1</string>
 		</dict>
 		<dict>
 			<key>animatable</key>
@@ -161,8 +161,8 @@
 			<string>Float</string>
 			<key>name</key>
 			<string>ambientIntensity</string>
-            <key>extra</key>
-            <string>min|0|max|1</string>
+			<key>extra</key>
+			<string>min|0|max|1</string>
 		</dict>
 		<dict>
 			<key>defaultSerialization</key>
@@ -177,8 +177,8 @@
 			<string>Float</string>
 			<key>name</key>
 			<string>cutoffRadius</string>
-            <key>extra</key>
-            <string>min|0</string>
+			<key>extra</key>
+			<string>min|0</string>
 		</dict>
 		<dict>
 			<key>defaultSerialization</key>
@@ -193,8 +193,8 @@
 			<string>Float</string>
 			<key>name</key>
 			<string>halfRadius</string>
-            <key>extra</key>
-            <string>min|0|max|1</string>
+			<key>extra</key>
+			<string>min|0|max|1</string>
 		</dict>
 		<dict>
 			<key>defaultSerialization</key>
