@@ -95,37 +95,40 @@
 
 - (BOOL)isDisabledProperty
 {
-    BOOL animatable = [selection.plugIn isAnimatableProperty:propertyName node:selection];
-    
-    // Only animatable properties can be disabled
-    if (!animatable)
-    {
-        return NO;
-    }
-    
-    SequencerSequence *sequence = [SequencerHandler sharedHandler].currentSequence;
-    SequencerNodeProperty *sequencerNodeProperty = [selection sequenceNodeProperty:propertyName sequenceId:sequence.sequenceId];
-    
-    // Do not disable if animation hasn't been enabled
-    if (!sequencerNodeProperty)
-    {
-        return NO;
-    }
-    
-    // Disable visiblilty if there are keyframes
-    if (sequencerNodeProperty.keyframes.count > 0 && [propertyName isEqualToString:@"visible"])
-    {
+    // CCBPEffectRefraction does not use .plugin
+    if ([selection respondsToSelector:@selector(plugIn)]) {
+        BOOL animatable = [selection.plugIn isAnimatableProperty:propertyName node:selection];
+        
+        // Only animatable properties can be disabled
+        if (!animatable)
+        {
+            return NO;
+        }
+        
+        SequencerSequence *sequence = [SequencerHandler sharedHandler].currentSequence;
+        SequencerNodeProperty *sequencerNodeProperty = [selection sequenceNodeProperty:propertyName sequenceId:sequence.sequenceId];
+        
+        // Do not disable if animation hasn't been enabled
+        if (!sequencerNodeProperty)
+        {
+            return NO;
+        }
+        
+        // Disable visiblilty if there are keyframes
+        if (sequencerNodeProperty.keyframes.count > 0 && [propertyName isEqualToString:@"visible"])
+        {
+            return YES;
+        }
+        
+        // Do not disable if we are currently at a keyframe
+        if ([sequencerNodeProperty hasKeyframeAtTime:sequence.timelinePosition])
+        {
+            return NO;
+        }
+        
+        // Between keyframes - disable
         return YES;
     }
-    
-    // Do not disable if we are currently at a keyframe
-    if ([sequencerNodeProperty hasKeyframeAtTime:sequence.timelinePosition])
-    {
-        return NO;
-    }
-    
-    // Between keyframes - disable
-    return YES;
 }
 
 - (void) updateAffectedProperties
