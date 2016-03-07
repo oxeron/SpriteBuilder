@@ -316,7 +316,6 @@
 		922E8EFE18C13666008E1764 /* OutletDrawWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E8EFD18C13666008E1764 /* OutletDrawWindow.m */; };
 		922EAC471958F41E006F2D75 /* CCBPEffectBrightness.m in Sources */ = {isa = PBXBuildFile; fileRef = 922EAC461958F41E006F2D75 /* CCBPEffectBrightness.m */; };
 		9249983218B7E1F500DE9ADA /* SceneGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 9249983118B7E1F500DE9ADA /* SceneGraph.m */; };
-		9252073419623E2F00BFC071 /* SpriteBuilder.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */; };
 		9254805618D7706F00236DED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B792C318C92C60007DF895 /* InfoPlist.strings */; };
 		9254805A18D913C500236DED /* seq-locked-faint.png in Resources */ = {isa = PBXBuildFile; fileRef = 9254805918D913C500236DED /* seq-locked-faint.png */; };
 		9266089118B581BC007A0A05 /* CCPhysicsPinJoint.ccbPlugNode in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 926D13E318B57B9500582959 /* CCPhysicsPinJoint.ccbPlugNode */; };
@@ -1054,6 +1053,10 @@
 		FF9398A51C8CCFD400D424C7 /* test_ccbreader_slider.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */; };
 		FF9398A61C8CCFD400D424C7 /* test_ccbreader_subfile.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */; };
 		FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */; };
+		FF9398D21C8D5FA700D424C7 /* Version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D11C8D5FA700D424C7 /* Version.xcconfig */; };
+		FF9398D51C8D606100D424C7 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D41C8D606100D424C7 /* Rakefile */; };
+		FF9398D71C8D607900D424C7 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D61C8D607900D424C7 /* VERSION */; };
+		FF9398D91C8D607C00D424C7 /* circle.yml in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D81C8D607C00D424C7 /* circle.yml */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -1753,8 +1756,6 @@
 		9248BD1F199A8BB2009C154F /* SequencerTimelineDrawDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerTimelineDrawDelegate.h; sourceTree = "<group>"; };
 		9249983018B7E1F500DE9ADA /* SceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraph.h; sourceTree = "<group>"; };
 		9249983118B7E1F500DE9ADA /* SceneGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGraph.m; sourceTree = "<group>"; };
-		92520731196238D000BFC071 /* SpriteBuilder 1.3 Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "SpriteBuilder 1.3 Beta.xcconfig"; sourceTree = "<group>"; };
-		9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SpriteBuilder.xcconfig; sourceTree = "<group>"; };
 		9254805918D913C500236DED /* seq-locked-faint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-locked-faint.png"; sourceTree = "<group>"; };
 		9266EE12195A1578006CBE81 /* CCBPEffectContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBPEffectContrast.h; path = ccBuilder/CCBPEffectContrast.h; sourceTree = "<group>"; };
 		9266EE13195A1578006CBE81 /* CCBPEffectContrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBPEffectContrast.m; path = ccBuilder/CCBPEffectContrast.m; sourceTree = "<group>"; };
@@ -2827,6 +2828,10 @@
 		FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_subfile.ccb; path = "Testing Resources/test_ccbreader_subfile.ccb"; sourceTree = "<group>"; };
 		FF9398A71C8CDD4B00D424C7 /* CCBDictionaryKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBDictionaryKeys.h; sourceTree = "<group>"; };
 		FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryKeys.m; sourceTree = "<group>"; };
+		FF9398D11C8D5FA700D424C7 /* Version.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		FF9398D41C8D606100D424C7 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
+		FF9398D61C8D607900D424C7 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		FF9398D81C8D607C00D424C7 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.yml; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -3644,11 +3649,10 @@
 		7789ABB3133AA82000CEFCC7 = {
 			isa = PBXGroup;
 			children = (
-				9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */,
-				92520731196238D000BFC071 /* SpriteBuilder 1.3 Beta.xcconfig */,
 				E3D08A321524581100E55891 /* README.md */,
 				E3D59118150F50D1004180CA /* AUTHORS */,
 				E395DC7D1511FDF70075979E /* CHANGELOG */,
+				FF9398D61C8D607900D424C7 /* VERSION */,
 				E3D59119150F50D1004180CA /* LICENSE_CocosBuilder.txt */,
 				E3D5911A150F50D1004180CA /* LICENSE_PSMTabBarControl.txt */,
 				E3D5911B150F50D1004180CA /* LICENSE_SCEvents.txt */,
@@ -3820,6 +3824,7 @@
 		7789ACEB133AB6A700CEFCC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FF9398D31C8D5FBA00D424C7 /* Compilation */,
 				B7AC69DB17A9D9700041B8BD /* defaultTemplates.zip */,
 				E390C780170A371E003E9E92 /* Generated */,
 				E3AF6CE015F0CFAE0048DB2A /* Documentation */,
@@ -5888,6 +5893,16 @@
 			name = "Testing Resources";
 			sourceTree = "<group>";
 		};
+		FF9398D31C8D5FBA00D424C7 /* Compilation */ = {
+			isa = PBXGroup;
+			children = (
+				FF9398D41C8D606100D424C7 /* Rakefile */,
+				FF9398D81C8D607C00D424C7 /* circle.yml */,
+				FF9398D11C8D5FA700D424C7 /* Version.xcconfig */,
+			);
+			name = Compilation;
+			sourceTree = "<group>";
+		};
 		FFA68A0E1C8C74C1009B3F5B /* Document Readers & Writers */ = {
 			isa = PBXGroup;
 			children = (
@@ -6500,6 +6515,7 @@
 				772BE57C134398EE0009B5B9 /* NewDocWindow.xib in Resources */,
 				774F95C613638D74005D43EB /* missing-particle-texture.png in Resources */,
 				774E4EC2136D98AB0025D0A8 /* select-bl.png in Resources */,
+				FF9398D51C8D606100D424C7 /* Rakefile in Resources */,
 				9218DF3C1919B04D0033851E /* joint-pivot-mode-bg@2x.png in Resources */,
 				774E4EC3136D98AB0025D0A8 /* select-br.png in Resources */,
 				83F3CA1B1A422CD6003D8659 /* ruler-guide.png in Resources */,
@@ -6550,6 +6566,7 @@
 				776C68911388107400153214 /* missing-font.fnt in Resources */,
 				D2E0168B18D789E800927430 /* SpriteBuilder.sdef in Resources */,
 				B71706D1184ECD660081720A /* select-scale@2x.png in Resources */,
+				FF9398D91C8D607C00D424C7 /* circle.yml in Resources */,
 				776C68921388107400153214 /* missing-font.png in Resources */,
 				9266EE2E195A1695006CBE81 /* effect-pixelate.png in Resources */,
 				B7096E26180CD98E00164A8A /* doc-layer.png in Resources */,
@@ -6694,7 +6711,6 @@
 				9218DF2D1919B04D0033851E /* joint-pivot-mode-bg.png in Resources */,
 				92CB085919BA2DE800EFDCE3 /* effect-blur.png in Resources */,
 				E3E2704815B18CF500287470 /* TB_play.png in Resources */,
-				9252073419623E2F00BFC071 /* SpriteBuilder.xcconfig in Resources */,
 				E3E2704915B18CF500287470 /* TB_stop.png in Resources */,
 				E3E2704B15B1904400287470 /* toolbar-bottom.png in Resources */,
 				E326EFB615C84123006D6CE6 /* seq-endmarker.png in Resources */,
@@ -6719,6 +6735,7 @@
 				830F4E9B192F5263002B832D /* Package.icns in Resources */,
 				83F3CA031A422CA4003D8659 /* seq-visible@2x.png in Resources */,
 				920994D3198718F10006F38D /* effect-glass.png in Resources */,
+				FF9398D71C8D607900D424C7 /* VERSION in Resources */,
 				9218DF3E1919B04D0033851E /* joint-pivot-handle-ratchet@2x.png in Resources */,
 				E3B19F6D15E65229000B023E /* DefaultResourcesList.plist in Resources */,
 				E360789015EBA5420040A172 /* sel-frame.png in Resources */,
@@ -6732,6 +6749,7 @@
 				9218DF421919B04D0033851E /* joint-pivot-motor@2x.png in Resources */,
 				58FA2034162D73F3006B8856 /* TB_bottomPanel.png in Resources */,
 				58FA2035162D73F3006B8856 /* TB_leftPanel.png in Resources */,
+				FF9398D21C8D5FA700D424C7 /* Version.xcconfig in Resources */,
 				58FA2036162D73F3006B8856 /* TB_rightPanel.png in Resources */,
 				83F3CA251A422CD6003D8659 /* ruler-numbers@2x.fnt in Resources */,
 				83F3C9F81A422CA4003D8659 /* seq-scrub-line@2x.png in Resources */,
@@ -7230,7 +7248,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n# This script updates the generated Xcode projects...\n# Uncomment the lines as needed. Avoid committing comment changes.\n\n# Updates Cocos2D Project ....\n#\"$SRCROOT/../scripts/GenerateTemplateProject.sh\" PROJECTNAME";
+			shellScript = "#!/bin/bash\n# This script updates the generated Xcode projects...\n# Uncomment the lines as needed. Avoid committing comment changes.\n\n# Updates Cocos2D Project ....\n#\"$SRCROOT/../scripts/GenerateTemplateProject.sh\" PROJECTNAME\n\n#!/bin/bash\n\n#regenerate templates if any changes have occurred\nrake build:generated";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -8216,7 +8234,6 @@
 		};
 		7789ABDD133AA82000CEFCC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -8247,9 +8264,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = "$(SB_PRODUCT_NAME)";
+				PRODUCT_NAME = SpriteBuilder;
 				PROVISIONING_PROFILE = "";
-				SBPRO_PRIVATE_KEY = "fake_private_key___________________________=";
+				SB_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
+				SB_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
 				SB_VERSION = 1.5.0;
 				SDKROOT = macosx10.10;
 				WRAPPER_EXTENSION = app;
@@ -8258,7 +8276,6 @@
 		};
 		7789ABDE133AA82000CEFCC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -8289,9 +8306,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = "$(SB_PRODUCT_NAME)";
+				PRODUCT_NAME = SpriteBuilder;
 				PROVISIONING_PROFILE = "";
-				SBPRO_PRIVATE_KEY = "fake_private_key___________________________=";
+				SB_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
+				SB_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
 				SB_VERSION = 1.5.0;
 				SDKROOT = macosx10.10;
 				WRAPPER_EXTENSION = app;
@@ -8408,7 +8426,6 @@
 		};
 		8383315D196578F500E6EFB1 /* Testing */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9252073319623E2F00BFC071 /* SpriteBuilder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
@@ -8443,9 +8460,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = "$(SB_PRODUCT_NAME)";
+				PRODUCT_NAME = SpriteBuilder;
 				PROVISIONING_PROFILE = "";
-				SBPRO_PRIVATE_KEY = "fake_private_key___________________________=";
+				SB_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
+				SB_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
 				SB_VERSION = 1.5.0;
 				SDKROOT = macosx10.10;
 				WRAPPER_EXTENSION = app;
