@@ -1055,12 +1055,12 @@
 		FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */; };
 		FF9398D21C8D5FA700D424C7 /* Version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D11C8D5FA700D424C7 /* Version.xcconfig */; };
 		FF9398D51C8D606100D424C7 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D41C8D606100D424C7 /* Rakefile */; };
-		FF9398D71C8D607900D424C7 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D61C8D607900D424C7 /* VERSION */; };
 		FF9398D91C8D607C00D424C7 /* circle.yml in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D81C8D607C00D424C7 /* circle.yml */; };
 		FF9DA9C31C8D79900034F4C6 /* build_distribution.py in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */; };
 		FF9DA9C41C8D79900034F4C6 /* CodeSign-local.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */; };
 		FF9DA9C51C8D79900034F4C6 /* CodeSign-pkg.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */; };
 		FF9DA9C61C8D79900034F4C6 /* CodeSign.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */; };
+		FF9DA9C81C8D7CA90034F4C6 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C71C8D7CA90034F4C6 /* VERSION */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -2834,12 +2834,12 @@
 		FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryKeys.m; sourceTree = "<group>"; };
 		FF9398D11C8D5FA700D424C7 /* Version.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 		FF9398D41C8D606100D424C7 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
-		FF9398D61C8D607900D424C7 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		FF9398D81C8D607C00D424C7 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.yml; sourceTree = "<group>"; };
 		FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = build_distribution.py; path = ../../scripts/build_distribution.py; sourceTree = "<group>"; };
 		FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-local.sh"; path = "../../scripts/CodeSign-local.sh"; sourceTree = "<group>"; };
 		FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-pkg.sh"; path = "../../scripts/CodeSign-pkg.sh"; sourceTree = "<group>"; };
 		FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CodeSign.sh; path = ../../scripts/CodeSign.sh; sourceTree = "<group>"; };
+		FF9DA9C71C8D7CA90034F4C6 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VERSION; path = ../VERSION; sourceTree = "<group>"; };
 		FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		FFA689BD1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityScopedBookmarksStore.h; sourceTree = "<group>"; };
 		FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityScopedBookmarksStore.m; sourceTree = "<group>"; };
@@ -3660,7 +3660,7 @@
 				E3D08A321524581100E55891 /* README.md */,
 				E3D59118150F50D1004180CA /* AUTHORS */,
 				E395DC7D1511FDF70075979E /* CHANGELOG */,
-				FF9398D61C8D607900D424C7 /* VERSION */,
+				FF9DA9C71C8D7CA90034F4C6 /* VERSION */,
 				E3D59119150F50D1004180CA /* LICENSE_CocosBuilder.txt */,
 				E3D5911A150F50D1004180CA /* LICENSE_PSMTabBarControl.txt */,
 				E3D5911B150F50D1004180CA /* LICENSE_SCEvents.txt */,
@@ -6741,7 +6741,6 @@
 				830F4E9B192F5263002B832D /* Package.icns in Resources */,
 				83F3CA031A422CA4003D8659 /* seq-visible@2x.png in Resources */,
 				920994D3198718F10006F38D /* effect-glass.png in Resources */,
-				FF9398D71C8D607900D424C7 /* VERSION in Resources */,
 				9218DF3E1919B04D0033851E /* joint-pivot-handle-ratchet@2x.png in Resources */,
 				E3B19F6D15E65229000B023E /* DefaultResourcesList.plist in Resources */,
 				E360789015EBA5420040A172 /* sel-frame.png in Resources */,
@@ -6906,6 +6905,7 @@
 				E525F208C4E3988423F9FA69 /* InspectorSpriteFrame.xib in Resources */,
 				E525F8060449703DC2A1A4BD /* InspectorPopoverSpriteFrame.xib in Resources */,
 				83F3C9E31A422CA4003D8659 /* seq-keyframe-sel.png in Resources */,
+				FF9DA9C81C8D7CA90034F4C6 /* VERSION in Resources */,
 				E525FB8A7250188137051AF3 /* InspectorTexture.xib in Resources */,
 				E525F2BED7C8468DEDF82A7A /* InspectorPopoverByte.xib in Resources */,
 				E525F560E9CD0BFCB143ACC0 /* InspectorByte.xib in Resources */,
