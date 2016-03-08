@@ -94,12 +94,17 @@
     // Start playback
     self.playbackLastFrameTime = [NSDate timeIntervalSinceReferenceDate];
     self.playingBack = YES;
+    
+    // playing sound effects at current position
+    //[_sequencerHandler.currentSequence playSoundEffectsAtPosition:_sequencerHandler.currentSequence.timelinePosition];
+    
     [self updatePlayback];
 }
 
 - (IBAction)stop
 {
     self.playingBack = NO;
+    [[OALSimpleAudio sharedInstance] stopAllEffects];
 }
 
 - (IBAction)jumpToStart:(id)sender
