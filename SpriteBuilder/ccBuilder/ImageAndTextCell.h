@@ -41,7 +41,7 @@
 
 @interface ImageAndTextCell : NSTextFieldCell
 
-@property (nonatomic) NSImage *image;
+@property (nonatomic) NSImage *imageMain;
 @property (nonatomic) NSImage *imageAlt;
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView;
