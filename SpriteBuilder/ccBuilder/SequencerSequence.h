@@ -30,6 +30,8 @@
 @class SequencerCallbackChannel;
 @class SequencerSoundChannel;
 
+//@class AVPlayer, AVPlayerLayer;
+
 @interface SequencerSequence : NSObject
 {
     float timelineScale;
@@ -37,6 +39,7 @@
     float timelineLength;
     float timelinePosition;
     float timelineResolution;
+    //AVPlayer *soundPlayer;
     
     NSString* name;
     int sequenceId;
@@ -85,5 +88,7 @@
 - (SequencerSequence*) duplicateWithNewId:(int)seqId;
 
 - (float) alignTimeToResolution:(float)time;
+
+-(void)playSoundEffectsAtPosition:(NSTimeInterval) timelinePositionForSound;
 
 @end

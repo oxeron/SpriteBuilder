@@ -311,7 +311,7 @@
     {
         icon = [self smallIconForFileType:@"p12"];
     }
-    [cell setImage:icon];
+    [cell setImageMain:icon];
     [cell setImageAlt:warningIcon];
 }
 

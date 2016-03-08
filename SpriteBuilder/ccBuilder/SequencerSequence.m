@@ -68,6 +68,7 @@
     
     callbackChannel = [[SequencerCallbackChannel alloc] init];
     soundChannel = [[SequencerSoundChannel alloc] init];
+    //soundPlayer = [[AVPlayer alloc] init];
     
     return self;
 }
@@ -93,6 +94,7 @@
     callbackChannel = [[SequencerCallbackChannel alloc] initWithSerialization: serCallbacks];
     id serSounds = [ser objectForKey:@"soundChannel"];
     soundChannel = [[SequencerSoundChannel alloc] initWithSerialization: serSounds];
+    //soundPlayer = [[AVPlayer alloc] init];
     
     return self;
 }
@@ -253,12 +255,44 @@
         if ([[NSFileManager defaultManager] fileExistsAtPath:absFile])
         {
             [[OALSimpleAudio sharedInstance] playEffect:absFile volume:gain pitch:pitch pan:pan loop:NO];
+            
+            /*
+            NSURL *url = [[NSURL alloc] initFileURLWithPath: absFile];
+            AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+            AVPlayerItem *anItem = [AVPlayerItem playerItemWithAsset:asset];
+            [soundPlayer initWithPlayerItem:anItem];
+            [soundPlayer play];
+             */
         }
     }
     
     // Update timeline
     self.timelinePosition = newTime;
     [[SequencerHandler sharedHandler] updateScrollerToShowCurrentTime];
+}
+
+-(void)playSoundEffectsAtPosition:(NSTimeInterval) timelinePositionForSound
+{
+    /*
+     // search previous keys for music, and seek to the correct position if not already started
+     NSArray* soundKeyframes = [soundChannel.seqNodeProp keyframesBetweenMinTime:0 maxTime:timelinePositionForSound];
+     for (SequencerKeyframe* keyframe in soundKeyframes)
+     {
+         NSString* soundFile = [keyframe.value objectAtIndex:0];
+         float pitch = [[keyframe.value objectAtIndex:1] floatValue];
+         float pan = [[keyframe.value objectAtIndex:2] floatValue];
+         float gain = [[keyframe.value objectAtIndex:3] floatValue];
+         
+         NSString* absFile = [[ResourceManager sharedManager] toAbsolutePath:soundFile];
+         if ([[NSFileManager defaultManager] fileExistsAtPath:absFile])
+         {
+             // typedef double NSTimeInterval; (seconds)
+             // SequencerHandler* sh = [SequencerHandler sharedHandler];
+             [[OALSimpleAudio sharedInstance] preloadBg:absFile seekTime:timelinePositionForSound];
+             [[OALSimpleAudio sharedInstance] playEffect:absFile volume:gain pitch:pitch pan:pan loop:NO];
+         }
+     }
+   */
 }
 
 - (void) stepBack:(int)numSteps
