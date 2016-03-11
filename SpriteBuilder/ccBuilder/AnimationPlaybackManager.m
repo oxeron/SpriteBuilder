@@ -3,7 +3,7 @@
 #import "SequencerHandler.h"
 #import "SequencerSequence.h"
 #import "NotificationNames.h"
-
+#import "OALSimpleAudio.h"
 
 @interface AnimationPlaybackManager ()
 
