@@ -31,7 +31,8 @@
 #import "chipmunk.h"
 #import "CocosScene.h"
 #import "CCBUtil.h"
-#import "CCSprite_Private.h"
+#import "CCSprite.h"
+
 #import "PlugInNode.h"
 #import "CCBPhysicsPivotJoint.h"
 #import "CCBGlobals.h"

@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
+#include <objc/runtime.h>
 #import "cocos2d.h"
 #import "CCBXCocos2diPhone.h"
 #import "PlugInManager.h"
 #import "PlugInExport.h"
 #import "CCBReader.h"
 #import "CCAnimationManager.h"
-#import "CCAnimationManager_Private.h"
 #import "CCBSequence.h"
 #import "Cocos2dTestHelpers.h"
 

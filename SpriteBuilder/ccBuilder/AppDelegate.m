@@ -99,10 +99,10 @@
 #import "PhysicsHandler.h"
 #import "CCBProjectCreator.h"
 #import "CCTextureCache.h"
-#import "CCLabelBMFont_Private.h"
+#import "CCLabelBMFont.h"
 #import "WarningTableViewHandler.h"
 #import "CCNode+NodeInfo.h"
-#import "CCNode_Private.h"
+#import "CCNode.h"
 #import "UsageManager.h"
 #import <ExceptionHandling/NSExceptionHandler.h>
 #import <objc/runtime.h>
