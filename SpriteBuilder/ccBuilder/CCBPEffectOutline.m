@@ -12,8 +12,8 @@
 #if CC_EFFECTS_EXPERIMENTAL
 
 #import "EffectsUndoHelper.h"
-#importCCBDictionaryReader
-#importCCBDictionaryWriter
+#import "CCBDictionaryReader.h"
+#import "CCBDictionaryWriter.h"
 
 
 @implementation CCBPEffectOutline
