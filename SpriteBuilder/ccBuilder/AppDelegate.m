@@ -4200,7 +4200,7 @@ typedef enum
     else if (menuItem.action == @selector(menuSelectBehind:))
     {
         if (!hasOpenedDocument) return NO;
-        return (self.selectedNode != NULL);
+        return (self.selectedNode != NULL && [[CocosScene cocosScene] currentNodeAtSelectionPtIdx] != NULL);
     }
     else if (menuItem.action == @selector(selectNextTab:))
     {

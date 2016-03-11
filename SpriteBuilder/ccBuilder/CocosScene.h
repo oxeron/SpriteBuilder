@@ -123,7 +123,7 @@ enum {
     
     // Selection
     NSMutableArray* nodesAtSelectionPt;
-    int currentNodeAtSelectionPtIdx;
+    
     
     CCNodeColor* borderBottom;
     CCNodeColor* borderTop;
@@ -145,6 +145,8 @@ enum {
 	BOOL               effectSpriteDragging;
     CGPoint            effectSpriteDraggingLocation;
 }
+
+@property (nonatomic,readonly) int currentNodeAtSelectionPtIdx;
 
 @property (nonatomic) CCNode* rootNode;
 
@@ -198,7 +200,7 @@ enum {
 - (void)mouseExited:(NSEvent *)event;
 - (void)cursorUpdate:(NSEvent *)event;
 
-//Draggin
+//Dragging
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender pos:(CGPoint)pos;
 - (NSDragOperation)draggingUpdated:(id <NSDraggingInfo>)sender pos:(CGPoint)pos;
 - (void)draggingExited:(id <NSDraggingInfo>)sender pos:(CGPoint)pos;

@@ -76,6 +76,7 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
 @synthesize physicsLayer;
 @synthesize lightIconsLayer;
 @synthesize stageLight;
+@synthesize currentNodeAtSelectionPtIdx;
 
 +(id) sceneWithAppDelegate:(AppDelegate*)app
 {
@@ -521,8 +522,9 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         for (CCNode* node in nodes)
         {
             // Refresh informations for "Select Behind" called from outlineHierarchy
+            
             /*
-            [nodesAtSelectionPt removeAllObjects];
+            //[nodesAtSelectionPt removeAllObjects];
             CGPoint worldPos = [node convertToWorldSpace:node.position];
             [self nodesUnderPt:worldPos rootNode:rootNode nodes:nodesAtSelectionPt];
             [[jointsLayer.children.firstObject children] forEach:^(CCNode * jointNode, int idx) {
@@ -1288,7 +1290,6 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     // shortcut for Select Behind: Alt + LeftClick
     if ([event modifierFlags] & NSAlternateKeyMask)
     {
-        NSLog(@"selectBehind");
         [self selectBehind];
     }
     
