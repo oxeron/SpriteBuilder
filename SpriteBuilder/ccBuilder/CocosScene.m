@@ -1167,8 +1167,6 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     return (isMirroredX ^ isMirroredY);
 }
 
-
-
 - (void)rightMouseDown:(NSEvent *)event
 {
     if (!appDelegate.hasOpenedDocument) return;
@@ -1194,7 +1192,6 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     // Handle grab tool
     if (currentTool == kCCBToolGrab || ([event modifierFlags] & NSCommandKeyMask))
     {
-
         self.currentTool = kCCBToolGrab;
         isPanning = YES;
         panningStartScrollOffset = scrollOffset;
@@ -1256,10 +1253,8 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         }
     }
     
-    
     // Clicks inside objects
     [nodesAtSelectionPt removeAllObjects];
-    
    
 	[self nodesUnderPt:pos rootNode:rootNode nodes:nodesAtSelectionPt];
 	
@@ -1290,10 +1285,15 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         }
     }
     
+    // shortcut for Select Behind: Alt + LeftClick
+    if ([event modifierFlags] & NSAlternateKeyMask)
+    {
+        NSLog(@"selectBehind");
+        [self selectBehind];
+    }
+    
     return;
 }
-
-
 
 - (void) rightMouseUp:(NSEvent *)event
 {
@@ -1302,8 +1302,6 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     CGPoint pos = [[CCDirectorMac sharedDirector] convertEventToGL:event];
     
     if ([appDelegate.physicsHandler rightMouseUp:pos event:event]) return;
-    
-    
 }
 
 //0=bottom, 1=right  2=top 3=left
@@ -1403,10 +1401,7 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     const float t = ccpDot(ccpSub(point, v),ccpSub(w , v)) / l2;
     const CGPoint projection =  ccpAdd(v,  ccpMult(ccpSub(w, v),t));  // v + t * (w - v);  Projection falls on the segment
     return projection;
-
-    
 }
-
 
 - (void) mouseDragged:(NSEvent *)event
 {
