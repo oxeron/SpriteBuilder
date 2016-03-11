@@ -30,28 +30,14 @@
 	<integer>1</integer>
 	<key>onlyPublishCCBs</key>
 	<false/>
-	<key>publishAudioQuality_android</key>
-	<integer>4</integer>
 	<key>publishAudioQuality_ios</key>
 	<integer>4</integer>
 	<key>publishDirectory</key>
 	<string>Source/Resources/Published-iOS</string>
-	<key>publishDirectoryAndroid</key>
-	<string>Source/Resources/Published-Android</string>
-	<key>publishEnabledAndroid</key>
-	<true/>
 	<key>publishEnablediPhone</key>
 	<true/>
 	<key>publishEnvironment</key>
 	<integer>0</integer>
-	<key>publishResolution_android_phone</key>
-	<true/>
-	<key>publishResolution_android_phonehd</key>
-	<true/>
-	<key>publishResolution_android_tablet</key>
-	<true/>
-	<key>publishResolution_android_tablethd</key>
-	<true/>
 	<key>publishResolution_ios_phone</key>
 	<true/>
 	<key>publishResolution_ios_phonehd</key>
@@ -164,9 +150,9 @@
 		</dict>
 	</dict>
 	<key>versionStr</key>
-	<string>revision : 106c48a287
+	<string>revision : a8ea3fe634
 sku : default
-version : 1.3.0-beta
+version : 1.5.0
 </string>
 </dict>
 </plist>
