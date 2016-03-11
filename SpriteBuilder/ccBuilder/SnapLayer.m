@@ -473,10 +473,18 @@
             
             nodesToSearchForSnapping = nil;
             CGPoint difference = ccpSub(currentLocationInPoints, sNode.positionInPoints);
-            for(CCNode *node in appDelegate.selectedNodes) {
-                if(node != sNode) {
-                    NSPoint point = ccpSub(node.positionInPoints, difference);
-                    sNode.positionInPoints = [sNode.parent convertToNodeSpace:point];
+            if (appDelegate.selectedNodes.count > 1)  {
+                // Find out how much the sNode moved in world coordinates
+                CGSize worldDifference = CGSizeMake(difference.x, difference.y);
+                worldDifference = CGSizeApplyAffineTransform(worldDifference, sNode.parent.nodeToWorldTransform);
+                
+                for(CCNode *node in appDelegate.selectedNodes) {
+                    if(node != sNode) {
+                        // Now apply that difference change to all other selected nodes
+                        NSPoint point = [node convertToWorldSpace:node.anchorPointInPoints];
+                        point = ccpSub(point, ccpFromSize(worldDifference));
+                        node.positionInPoints = [node.parent convertToNodeSpace:point];
+                    }
                 }
             }
         }
