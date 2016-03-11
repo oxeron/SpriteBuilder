@@ -24,6 +24,7 @@
  */
 
 #import "cocos2d.h"
+#import "CCLightNode.h"
 @class SceneGraph;
 @class AppDelegate;
 @class CCBTemplateNode;

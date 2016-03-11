@@ -92,7 +92,8 @@
                inFile:pbxprojFile
                search:@"MACOSX_DEPLOYMENT_TARGET = 10.10"];
         [self removeLinesMatching:@".*MainScene[.]swift.*" inFile:pbxprojFile];
-        filesToRemove = @[@"Source/MainScene.swift"];
+        [self removeLinesMatching:@".*AppDelegate[.]swift.*" inFile:pbxprojFile];
+        filesToRemove = @[@"Source/MainScene.swift", @"Source/Platforms/iOS/AppDelegate.swift", @"Source/Platforms/Mac/AppDelegate.swift"];
     }
     else if (programmingLanguage == CCBProgrammingLanguageSwift)
     {
@@ -111,7 +112,7 @@
     // Update workspace data
     [self setName:projName inFile:[xcodeFileName stringByAppendingPathComponent:@"project.xcworkspace/contents.xcworkspacedata"] search:substitutableProjectName];
     
-    NSArray *platforms = @[@"iOS", @"Mac"];
+    NSArray *platforms = @[@"iOS", @"Mac", @"tvOS"];
     
     for (id platform in platforms) {
         // Update scheme
@@ -143,6 +144,9 @@
     
     // Update Mac Xib file
     NSString* xibFileName = [parentPath stringByAppendingPathComponent:@"Source/Resources/Platforms/Mac/MainMenu.xib"];
+    if (programmingLanguage == CCBProgrammingLanguageObjectiveC) {
+        [self setName:@"" inFile:xibFileName search: @"customModule=\"PROJECTNAME\""];
+    }
     [self setName:identifier inFile:xibFileName search:substitutableProjectIdentifier];
     [self setName:projName inFile:xibFileName search:substitutableProjectName];
 	

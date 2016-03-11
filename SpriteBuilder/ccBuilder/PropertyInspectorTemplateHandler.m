@@ -11,6 +11,7 @@
 #import "PlugInNode.h"
 #import "PropertyInspectorTemplate.h"
 #import "InspectorController.h"
+#import "CCParticles.h"
 
 @implementation PropertyInspectorTemplateHandler
 

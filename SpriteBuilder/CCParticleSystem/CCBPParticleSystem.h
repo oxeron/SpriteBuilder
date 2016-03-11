@@ -23,6 +23,7 @@
  */
 
 #import "cocos2d.h"
+#import "CCParticleSystem.h"
 
 @interface CCBPParticleSystem : CCParticleSystem
 

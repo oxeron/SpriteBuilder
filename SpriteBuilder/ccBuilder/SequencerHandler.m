@@ -51,6 +51,7 @@
 #import "EffectsManager.h"
 #import "InspectorController.h"
 #import "NotificationNames.h"
+#import "CCEffect.h"
 
 static NSString *const ORIGINAL_NODE_POINTER_KEY = @"srcNode";
 static NSString *const ORIGINAL_NODE_KEY = @"originalNode";

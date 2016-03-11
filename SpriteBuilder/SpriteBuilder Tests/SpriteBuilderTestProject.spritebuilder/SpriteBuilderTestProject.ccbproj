@@ -21,7 +21,7 @@
 	<key>engine</key>
 	<integer>0</integer>
 	<key>excludedFromPackageMigration</key>
-	<integer>1</integer>
+	<true/>
 	<key>exporter</key>
 	<string>ccbi</string>
 	<key>fileType</key>
@@ -30,28 +30,14 @@
 	<integer>1</integer>
 	<key>onlyPublishCCBs</key>
 	<false/>
-	<key>publishAudioQuality_android</key>
-	<integer>4</integer>
 	<key>publishAudioQuality_ios</key>
 	<integer>4</integer>
 	<key>publishDirectory</key>
 	<string>Source/Resources/Published-iOS</string>
-	<key>publishDirectoryAndroid</key>
-	<string>Source/Resources/Published-Android</string>
-	<key>publishEnabledAndroid</key>
-	<true/>
 	<key>publishEnablediPhone</key>
 	<true/>
 	<key>publishEnvironment</key>
 	<integer>0</integer>
-	<key>publishResolution_android_phone</key>
-	<true/>
-	<key>publishResolution_android_phonehd</key>
-	<true/>
-	<key>publishResolution_android_tablet</key>
-	<true/>
-	<key>publishResolution_android_tablethd</key>
-	<true/>
 	<key>publishResolution_ios_phone</key>
 	<true/>
 	<key>publishResolution_ios_phonehd</key>
@@ -87,10 +73,9 @@
 		</dict>
 	</dict>
 	<key>versionStr</key>
-	<string>Version: 0.9
-Sku: pro
-GitHub: 
-59c650bc32
+	<string>revision : d5c6db563d
+sku : default
+version : 1.5.0
 </string>
 </dict>
 </plist>

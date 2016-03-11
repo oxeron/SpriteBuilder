@@ -19,6 +19,8 @@
 #import "CCScrollView.h"
 #import "SBErrors.h"
 #import "CCBDictionaryKeys.h"
+#import "CCEffects.h"
+#import "CCParticles.h"
 
 @interface CCBDictionaryReader_Tests : XCTestCase
 

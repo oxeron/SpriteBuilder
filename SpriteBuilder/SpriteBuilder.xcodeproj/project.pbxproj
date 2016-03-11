@@ -1091,13 +1091,6 @@
 			remoteGlobalIDString = 5018F24D0DFDEAC400C013A5;
 			remoteInfo = "cocos2d-ios";
 		};
-		836E2D5719EE5BCC00CD5B66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 836E2D3E19EE5AF300CD5B66 /* cocos2d.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2FEB74F194F6C9E00FC0574;
-			remoteInfo = cocos2dAndroid;
-		};
 		836E2D5B19EE5BCC00CD5B66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 836E2D3E19EE5AF300CD5B66 /* cocos2d.xcodeproj */;
@@ -1258,6 +1251,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E3D59120150F5367004180CA;
 			remoteInfo = CCBFile;
+		};
+		FF1E12B31C8F6C5F00C154B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 836E2D3E19EE5AF300CD5B66 /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 08F4AB671C6E98A1004DAAF7;
+			remoteInfo = "cocos2d-tvos";
 		};
 		FF3005A51C88CB0F0015A411 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -4108,9 +4108,9 @@
 			isa = PBXGroup;
 			children = (
 				836E2D5619EE5BCC00CD5B66 /* libcocos2d.a */,
-				836E2D5819EE5BCC00CD5B66 /* libcocos2dAndroid.a */,
 				836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */,
 				FF3005A61C88CB0F0015A411 /* cocos2dMacFramework.framework */,
+				FF1E12B41C8F6C5F00C154B5 /* libcocos2d-tvos.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6449,18 +6449,18 @@
 			remoteRef = 836E2D5519EE5BCC00CD5B66 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		836E2D5819EE5BCC00CD5B66 /* libcocos2dAndroid.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcocos2dAndroid.a;
-			remoteRef = 836E2D5719EE5BCC00CD5B66 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libcocos2d-mac.a";
 			remoteRef = 836E2D5B19EE5BCC00CD5B66 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF1E12B41C8F6C5F00C154B5 /* libcocos2d-tvos.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-tvos.a";
+			remoteRef = FF1E12B31C8F6C5F00C154B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		FF3005A61C88CB0F0015A411 /* cocos2dMacFramework.framework */ = {
@@ -8261,6 +8261,9 @@
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -8303,6 +8306,9 @@
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -8349,8 +8355,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -8387,8 +8396,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -8457,6 +8469,9 @@
 					"libs/cocos2d-iphone/external/Chipmunk/include/chipmunk",
 					"libs/cocos2d-iphone/external/Chipmunk/objectivec/include/",
 					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "ccBuilder/SpriteBuilder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -8503,8 +8518,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -8642,6 +8660,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite/CCSprite-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -8688,7 +8707,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite9Slice/CCSprite9Slice-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -8817,7 +8836,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCLabelTTF/CCLabelTTF-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -8850,7 +8869,8 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCParticleSystem/CCParticleSystem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -8883,7 +8903,9 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCBFile/CCBFile-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -8930,6 +8952,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCButton/CCButton-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9022,7 +9045,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCTextField/CCTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9115,7 +9138,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSlider/CCSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9255,6 +9278,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCPhysicsPinJoint/CCPhysicsPinJoint-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9355,8 +9379,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				HEADER_SEARCH_PATHS = (
-					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCLightNode/CCLightNode-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9385,8 +9411,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				HEADER_SEARCH_PATHS = (
-					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCLightNode/CCLightNode-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9405,6 +9433,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+				);
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_DEPENDENCY_INFO_FILE = "$(OBJECT_FILE_DIR_$(CURRENT_VARIANT))/$(CURRENT_ARCH)/$(PRODUCT_NAME)_dependency_info.dat";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -9540,6 +9574,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCPhysicsPinJoint/CCPhysicsPinJoint-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9584,6 +9619,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCPhysicsPinJoint/CCPhysicsPinJoint-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9601,6 +9637,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
+				);
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_DEPENDENCY_INFO_FILE = "$(OBJECT_FILE_DIR_$(CURRENT_VARIANT))/$(CURRENT_ARCH)/$(PRODUCT_NAME)_dependency_info.dat";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -9627,8 +9668,9 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				HEADER_SEARCH_PATHS = (
-					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
 				);
 				INFOPLIST_FILE = "CCEffectNode/CCEffectNode-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9657,8 +9699,9 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				HEADER_SEARCH_PATHS = (
-					"libs/cocos2d-iphone/cocos2d/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d/**",
 				);
 				INFOPLIST_FILE = "CCEffectNode/CCEffectNode-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9797,7 +9840,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSlider/CCSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -9841,7 +9884,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSlider/CCSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10066,7 +10109,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite9Slice/CCSprite9Slice-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10110,7 +10153,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite9Slice/CCSprite9Slice-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10157,6 +10200,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCButton/CCButton-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10200,6 +10244,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCButton/CCButton-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10335,7 +10380,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCTextField/CCTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10379,7 +10424,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCTextField/CCTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10681,7 +10726,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCLabelTTF/CCLabelTTF-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10710,7 +10755,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCLabelTTF/CCLabelTTF-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10743,7 +10788,8 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCParticleSystem/CCParticleSystem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10772,7 +10818,8 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCParticleSystem/CCParticleSystem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10921,6 +10968,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite/CCSprite-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10949,6 +10997,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
 				);
 				INFOPLIST_FILE = "CCSprite/CCSprite-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -10981,7 +11030,9 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCBFile/CCBFile-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -11010,7 +11061,9 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/external/ObjectAL/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
+					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 				);
 				INFOPLIST_FILE = "CCBFile/CCBFile-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
