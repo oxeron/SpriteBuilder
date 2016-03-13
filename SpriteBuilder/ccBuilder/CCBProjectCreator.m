@@ -85,12 +85,14 @@
     NSArray *filesToRemove;
     if (programmingLanguage == CCBProgrammingLanguageObjectiveC)
     {
-        [self setName:@"IPHONEOS_DEPLOYMENT_TARGET = 6.0"
+        [self setName:@"IPHONEOS_DEPLOYMENT_TARGET = 8.0"
                inFile:pbxprojFile
                search:@"IPHONEOS_DEPLOYMENT_TARGET = 7.0"];
-        [self setName:@"MACOSX_DEPLOYMENT_TARGET = 10.9"
+        
+        [self setName:@"MACOSX_DEPLOYMENT_TARGET = 10.10"
                inFile:pbxprojFile
-               search:@"MACOSX_DEPLOYMENT_TARGET = 10.10"];
+               search:@"MACOSX_DEPLOYMENT_TARGET = 10.11"];
+        
         [self removeLinesMatching:@".*MainScene[.]swift.*" inFile:pbxprojFile];
         [self removeLinesMatching:@".*AppDelegate[.]swift.*" inFile:pbxprojFile];
         filesToRemove = @[@"Source/MainScene.swift", @"Source/Platforms/iOS/AppDelegate.swift", @"Source/Platforms/Mac/AppDelegate.swift"];
