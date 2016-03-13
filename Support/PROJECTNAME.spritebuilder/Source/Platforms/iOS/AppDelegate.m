@@ -53,6 +53,7 @@
     // You can use anything you want, and completely dropping extensions will in most cases automatically scale the artwork correct
     // To make it easy to understand what resolutions I am using, I have changed this for this demo to -4x -2x and -1x
     // Notice that I deliberately added some of the artwork without extensions
+    /*
     [CCFileUtils sharedFileUtils].suffixesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                   @"-2x", CCFileUtilsSuffixiPad,
                                                   @"-4x", CCFileUtilsSuffixiPadHD,
@@ -62,9 +63,9 @@
                                                   @"-2x", CCFileUtilsSuffixiPhone5HD,
                                                   @"", CCFileUtilsSuffixDefault,
                                                   nil];
-    
+    */
     // Call this instead of line above if you are using SpriteBuilder
-    //[CCBReader configureCCFileUtils];
+    [CCBReader configureCCFileUtils];
     
     // Show FPS
     // We really want this when developing an app
@@ -93,8 +94,9 @@
     
     CCDirectorIOS* director = (CCDirectorIOS*)[CCDirector sharedDirector];
     
-    // Creat a scene
-    CCScene* main = [MainScene new];
+    // Create a scene
+    //CCScene* main = [MainScene new];
+    CCScene* main = [CCBReader loadAsScene:@"MainScene"];
     
     // Run the director with the scene.
     // Push as much scenes as you want (maybe useful for 3D touch)

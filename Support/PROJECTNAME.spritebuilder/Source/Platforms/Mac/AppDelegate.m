@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "MainScene.h"
+#import "CCPackageManager.h"
 
 @interface AppDelegate ()
 
@@ -51,8 +52,9 @@
                                                   @"", CCFileUtilsSuffixDefault,
                                                   nil];
 #endif
-    // Creat a scene
-    CCScene* main = [MainScene new];
+    // Create a scene
+    //CCScene* main = [MainScene new];
+    CCScene* main = [CCBReader loadAsScene:@"MainScene"];
     
     // Run the director with the scene.
     // Push as much scenes as you want (maybe useful for 3D touch)

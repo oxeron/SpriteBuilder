@@ -67,6 +67,10 @@
 		FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510961C8FF70200649B06 /* libcocos2d.a */; };
 		FF1511171C900DFE00649B06 /* libcocos2d-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */; };
 		FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510981C8FF70200649B06 /* libcocos2d-mac.a */; };
+		FF3D62601C95A2280076AEB7 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; };
+		FF3D62611C95A2280076AEB7 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF3D62641C95A38D0076AEB7 /* ObjectAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */; };
+		FF3D62651C95A3980076AEB7 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,20 @@
 			remoteInfo = "cocos2d-tvos";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF3D62621C95A2290076AEB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF3D62611C95A2280076AEB7 /* ZipArchive.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08BA201D1C785CA100263AF8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -140,9 +158,10 @@
 		B77F1B3D17B978D7009739AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "Source/libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		FF15108D1C8FF70200649B06 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "Source/libs/cocos2d-iphone/cocos2d.xcodeproj"; sourceTree = "<group>"; };
+		FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZipArchive.framework; path = "../../Library/Developer/Xcode/DerivedData/aa-dxrrrnetirdfueavvxmoaoumjfoe/Build/Products/Debug-iphoneos/ZipArchive.framework"; sourceTree = SOURCE_ROOT; };
+		FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "Source/libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3D62651C95A3980076AEB7 /* ZipArchive.framework in Frameworks */,
+				FF3D62641C95A38D0076AEB7 /* ObjectAL.framework in Frameworks */,
 				FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */,
 				7A59493D19E37FB200F65F90 /* libz.dylib in Frameworks */,
 				7A59493B19E37F9300F65F90 /* OpenGL.framework in Frameworks */,
@@ -189,6 +210,7 @@
 			files = (
 				FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
+				FF3D62601C95A2280076AEB7 /* ZipArchive.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
@@ -339,11 +361,11 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */,
+				FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */,
 				7A59493C19E37FB200F65F90 /* libz.dylib */,
 				7A59493A19E37F9300F65F90 /* OpenGL.framework */,
 				7A4036F419DE3FA8007B6E8F /* AppKit.framework */,
-				5B12100B19748281004C1E1D /* BridgeKitV3.framework */,
-				5B12100919748273004C1E1D /* libEGL.so */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
 				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
 				B77F1B3117B978D7009739AE /* QuartzCore.framework */,
@@ -441,6 +463,7 @@
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
+				FF3D62621C95A2290076AEB7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -688,7 +711,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -728,7 +751,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -760,6 +783,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -777,6 +801,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"Source/libs/cocos2d-iphone/cocos2d-ext/CCPackages/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -812,6 +837,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -824,6 +850,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"Source/libs/cocos2d-iphone/cocos2d-ext/CCPackages/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -866,7 +893,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -897,7 +924,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -914,6 +941,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -928,7 +956,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -954,6 +982,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -967,7 +996,7 @@
 					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
