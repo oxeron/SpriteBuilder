@@ -1032,8 +1032,6 @@
 		FA98CFD7154E828E006E58C5 /* PlugInManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7AEDC14E3246100DFD402 /* PlugInManager.m */; };
 		FA98CFD9154E828E006E58C5 /* PlugInExport.m in Sources */ = {isa = PBXBuildFile; fileRef = E398C03214FB86D20078E771 /* PlugInExport.m */; };
 		FA98CFDB154E8D16006E58C5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98CFDA154E8D16006E58C5 /* CoreServices.framework */; };
-		FF3D62261C953F8F0076AEB7 /* ObjectAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D62251C953F8F0076AEB7 /* ObjectAL.framework */; };
-		FF3D623C1C9598940076AEB7 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D623B1C9598940076AEB7 /* ZipArchive.framework */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
 		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
@@ -1503,7 +1501,7 @@
 		830F4E9A192F5263002B832D /* Package.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Package.icns; sourceTree = "<group>"; };
 		830F4EB019347032002B832D /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = libs/OCMock.framework; sourceTree = "<group>"; };
 		833A5C4A192B48CB001837B3 /* SpriteBuilder Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpriteBuilder Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		833A5C4B192B48CB001837B3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		833A5C4B192B48CB001837B3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		833A5C4F192B48CB001837B3 /* SpriteBuilder Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpriteBuilder Tests-Info.plist"; sourceTree = "<group>"; };
 		833A5C51192B48CB001837B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		833A5C55192B48CB001837B3 /* SpriteBuilder Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpriteBuilder Tests-Prefix.pch"; sourceTree = "<group>"; };
@@ -2803,15 +2801,6 @@
 		FA98CFC6154E7D1C006E58C5 /* ccbpublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ccbpublish.m; sourceTree = "<group>"; };
 		FA98CFC9154E7D1C006E58C5 /* ccbpublish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ccbpublish-Prefix.pch"; sourceTree = "<group>"; };
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		FF1AEC681C9406140004C451 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "libs/cocos2d-iphone/external/SSZipArchive/build/Debug/ZipArchive.framework"; sourceTree = "<group>"; };
-		FF3D62131C953B4E0076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "libs/cocos2d-iphone/external/SSZipArchive/build/Debug/ZipArchive.framework"; sourceTree = "<group>"; };
-		FF3D62151C953C2F0076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SpriteBuilder-ekhwhzzrluljfxaivljaxikqtrae/Build/Products/Debug-iphoneos/ZipArchive.framework"; sourceTree = "<group>"; };
-		FF3D62191C953DFD0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
-		FF3D621A1C953DFD0076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "libs/cocos2d-iphone/external/SSZipArchive/build/Debug/ZipArchive.framework"; sourceTree = "<group>"; };
-		FF3D62231C953F700076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
-		FF3D62251C953F8F0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
-		FF3D622B1C9595430076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Release/ObjectAL.framework"; sourceTree = "<group>"; };
-		FF3D623B1C9598940076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "libs/cocos2d-iphone/external/SSZipArchive/build/Debug/ZipArchive.framework"; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
 		FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_colornode.ccb; path = "Testing Resources/test_ccbreader_colornode.ccb"; sourceTree = "<group>"; };
@@ -2850,7 +2839,6 @@
 		FFA689E31C8C0FD0009B3F5B /* CCBDictionaryWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryWriter.m; sourceTree = "<group>"; };
 		FFA68A131C8C754D009B3F5B /* CCBDictionaryWriter_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryWriter_Tests.m; sourceTree = "<group>"; };
 		FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBDictionaryReaderRenamedProps.plist; sourceTree = "<group>"; };
-		FFAED25D1C93FC0800DBA1A1 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/SpriteBuilder-ekhwhzzrluljfxaivljaxikqtrae/Build/Products/Debug-appletvos/ObjectAL.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2858,10 +2846,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3D623C1C9598940076AEB7 /* ZipArchive.framework in Frameworks */,
-				FF3D62261C953F8F0076AEB7 /* ObjectAL.framework in Frameworks */,
-				FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */,
 				FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */,
+				FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */,
 				D35E589E18E391DA008571EC /* GLKit.framework in Frameworks */,
 				80AD79A21863878B00B653B7 /* libPVRTexLib.a in Frameworks */,
 				B7E1EFDD185F8D3D00C9E6E0 /* WebKit.framework in Frameworks */,
@@ -3716,16 +3702,6 @@
 		7789ABC1133AA82000CEFCC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FF3D623B1C9598940076AEB7 /* ZipArchive.framework */,
-				FF3D622B1C9595430076AEB7 /* ObjectAL.framework */,
-				FF3D62251C953F8F0076AEB7 /* ObjectAL.framework */,
-				FF3D62231C953F700076AEB7 /* ObjectAL.framework */,
-				FF3D62191C953DFD0076AEB7 /* ObjectAL.framework */,
-				FF3D621A1C953DFD0076AEB7 /* ZipArchive.framework */,
-				FF3D62151C953C2F0076AEB7 /* ZipArchive.framework */,
-				FF3D62131C953B4E0076AEB7 /* ZipArchive.framework */,
-				FF1AEC681C9406140004C451 /* ZipArchive.framework */,
-				FFAED25D1C93FC0800DBA1A1 /* ObjectAL.framework */,
 				FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */,
 				830F4EB019347032002B832D /* OCMock.framework */,
 				D35E589D18E391DA008571EC /* GLKit.framework */,
