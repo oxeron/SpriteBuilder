@@ -67,10 +67,6 @@
 		FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510961C8FF70200649B06 /* libcocos2d.a */; };
 		FF1511171C900DFE00649B06 /* libcocos2d-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */; };
 		FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510981C8FF70200649B06 /* libcocos2d-mac.a */; };
-		FF3D62601C95A2280076AEB7 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; };
-		FF3D62611C95A2280076AEB7 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF3D62641C95A38D0076AEB7 /* ObjectAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */; };
-		FF3D62651C95A3980076AEB7 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,20 +99,6 @@
 			remoteInfo = "cocos2d-tvos";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FF3D62621C95A2290076AEB7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FF3D62611C95A2280076AEB7 /* ZipArchive.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08BA201D1C785CA100263AF8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -187,8 +169,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3D62651C95A3980076AEB7 /* ZipArchive.framework in Frameworks */,
-				FF3D62641C95A38D0076AEB7 /* ObjectAL.framework in Frameworks */,
 				FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */,
 				7A59493D19E37FB200F65F90 /* libz.dylib in Frameworks */,
 				7A59493B19E37F9300F65F90 /* OpenGL.framework in Frameworks */,
@@ -210,7 +190,6 @@
 			files = (
 				FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
-				FF3D62601C95A2280076AEB7 /* ZipArchive.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
@@ -367,7 +346,6 @@
 				7A59493A19E37F9300F65F90 /* OpenGL.framework */,
 				7A4036F419DE3FA8007B6E8F /* AppKit.framework */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
-				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
 				B77F1B3117B978D7009739AE /* QuartzCore.framework */,
 				B77F1B3317B978D7009739AE /* OpenGLES.framework */,
 				B77F1B3517B978D7009739AE /* OpenAL.framework */,
@@ -463,7 +441,6 @@
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
-				FF3D62621C95A2290076AEB7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
