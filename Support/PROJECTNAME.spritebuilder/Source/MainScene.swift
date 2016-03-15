@@ -3,7 +3,7 @@ import Foundation
 class MainScene: CCScene {
     override init!() {
         super.init()
-        
+        /*
         // Background
         let sprite = CCSprite(imageNamed:"ic_launcher.png")
         sprite.position = ccp(0.5, 0.5)
@@ -15,6 +15,7 @@ class MainScene: CCScene {
         label.positionType = CCPositionTypeNormalized
         label.position = ccp(0.5, 0.25)
         self.addChild(label)
+        */
     }
 
 }
