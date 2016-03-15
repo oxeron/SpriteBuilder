@@ -1032,6 +1032,7 @@
 		FA98CFD7154E828E006E58C5 /* PlugInManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7AEDC14E3246100DFD402 /* PlugInManager.m */; };
 		FA98CFD9154E828E006E58C5 /* PlugInExport.m in Sources */ = {isa = PBXBuildFile; fileRef = E398C03214FB86D20078E771 /* PlugInExport.m */; };
 		FA98CFDB154E8D16006E58C5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98CFDA154E8D16006E58C5 /* CoreServices.framework */; };
+		FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
 		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
@@ -2801,6 +2802,7 @@
 		FA98CFC6154E7D1C006E58C5 /* ccbpublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ccbpublish.m; sourceTree = "<group>"; };
 		FA98CFC9154E7D1C006E58C5 /* ccbpublish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ccbpublish-Prefix.pch"; sourceTree = "<group>"; };
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeTag_Tests.m; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
 		FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_colornode.ccb; path = "Testing Resources/test_ccbreader_colornode.ccb"; sourceTree = "<group>"; };
@@ -4001,6 +4003,7 @@
 		833A5C4D192B48CB001837B3 /* SpriteBuilder Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FF0C33A51C988C4F0032B324 /* Nodes */,
 				83CD4497193F35A90086E9E7 /* Resource Manager */,
 				83993DA61935D6D2001C228B /* Application Settings & Globals */,
 				830F4EA419336962002B832D /* Cocos2DIntegration */,
@@ -5872,6 +5875,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FF0C33A51C988C4F0032B324 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
 		FF9398661C8CAD7100D424C7 /* Testing Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -7630,6 +7641,7 @@
 				E525F622A96F0C31CACF1883 /* InspectoreController_Tests.m in Sources */,
 				E525FD827D765352A369AC22 /* CreateDirectoryFileCommand_Tests.m in Sources */,
 				FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */,
+				FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */,
 				E525FF7BFA996BCCCE146C24 /* RemoveFileCommand_Tests.m in Sources */,
 				E525F5F8C06CCB481FC77BEC /* MoveFileCommand_Tests.m in Sources */,
 				E525F57D9C6C716295683654 /* PackageMigrator_Tests.m in Sources */,
@@ -8348,10 +8360,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
+					"libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -8391,10 +8400,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
+					"libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -8516,10 +8522,7 @@
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
 					"libs/cocos2d-iphone/cocos2d-ui/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
+					"libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = "SpriteBuilder Tests/SpriteBuilder Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
