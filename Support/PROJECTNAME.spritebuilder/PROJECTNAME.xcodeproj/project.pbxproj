@@ -676,14 +676,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -716,14 +714,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -768,15 +764,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCPackages/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -817,15 +810,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCPackages/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -921,14 +911,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -961,14 +949,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					Source/libs/Chipmunk/Chipmunk/objectivec/include,
-					Source/libs/Chipmunk/Chipmunk/chipmunk/include,
-					"Source/libs/cocos2d-iphone/cocos2d/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCEffects/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCLighting/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCParticles/**",
-					"Source/libs/cocos2d-iphone/cocos2d-ext/CCBReader/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
