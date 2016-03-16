@@ -534,6 +534,8 @@ typedef enum
     defaultCanvasSizes[kCCBCanvasSizeIPhone5Portrait] = CGSizeMake(320, 568);
     defaultCanvasSizes[kCCBCanvasSizeIPadLandscape] = CGSizeMake(512, 384);
     defaultCanvasSizes[kCCBCanvasSizeIPadPortrait] = CGSizeMake(384, 512);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6Landscape] = CGSizeMake(667, 375);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6Portrait] = CGSizeMake(375, 667);
     
     // Fixed
     defaultCanvasSizes[kCCBCanvasSizeFixedLandscape] = CGSizeMake(568, 384);
@@ -1207,6 +1209,7 @@ typedef enum
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6Landscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
             }
@@ -1221,6 +1224,7 @@ typedef enum
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Portrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6Portrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
             }

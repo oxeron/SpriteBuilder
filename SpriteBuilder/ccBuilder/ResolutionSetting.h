@@ -58,6 +58,8 @@
 + (ResolutionSetting*) settingIPad;
 + (ResolutionSetting*) settingIPadLandscape;
 + (ResolutionSetting*) settingIPadPortrait;
++ (ResolutionSetting*) settingIPhone6Landscape;
++ (ResolutionSetting*) settingIPhone6Portrait;
 
 // HTML 5
 + (ResolutionSetting*) settingHTML5;

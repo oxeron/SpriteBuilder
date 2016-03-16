@@ -44,7 +44,9 @@ enum {
     kCCBCanvasSizeIPadLandscape,
     kCCBCanvasSizeIPadPortrait,
     kCCBCanvasSizeFixedLandscape,
-    kCCBCanvasSizeFixedPortrait
+    kCCBCanvasSizeFixedPortrait,
+    kCCBCanvasSizeIPhone6Landscape,
+    kCCBCanvasSizeIPhone6Portrait
 };
 
 enum {
