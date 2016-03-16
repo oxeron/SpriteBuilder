@@ -21,11 +21,8 @@
  */
 
 #import "cocos2d.h"
-
 #import "AppDelegate.h"
-#if CC_CCBREADER
 #import "CCBuilderReader.h"
-#endif
 #import "MainScene.h"
 
 
@@ -34,7 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSMutableDictionary* cocos2dSetup;
-#if CC_CCBREADER
+
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
@@ -43,56 +40,23 @@
     
     // Configure CCFileUtils to work with SpriteBuilder
     [CCBReader configureCCFileUtils];
-#else
-    // Cocos2D takes a dictionary to start ... yeah I know ... but it does, and it is kind of neat
-    cocos2dSetup = [NSMutableDictionary dictionary];
-    
-    // Let's add some setup stuff
-    
-    // File extensions
-    // You can use anything you want, and completely dropping extensions will in most cases automatically scale the artwork correct
-    // To make it easy to understand what resolutions I am using, I have changed this for this demo to -4x -2x and -1x
-    // Notice that I deliberately added some of the artwork without extensions
-    /*
-    [CCFileUtils sharedFileUtils].suffixesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                  @"-2x", CCFileUtilsSuffixiPad,
-                                                  @"-4x", CCFileUtilsSuffixiPadHD,
-                                                  @"-1x", CCFileUtilsSuffixiPhone,
-                                                  @"-1x", CCFileUtilsSuffixiPhoneHD,
-                                                  @"-1x", CCFileUtilsSuffixiPhone5,
-                                                  @"-2x", CCFileUtilsSuffixiPhone5HD,
-                                                  @"", CCFileUtilsSuffixDefault,
-                                                  nil];
-    */
-    // Call this instead of line above if you are using SpriteBuilder
-    [CCBReader configureCCFileUtils];
-    
-    // Show FPS
-    // We really want this when developing an app
-    [cocos2dSetup setObject:@(YES) forKey:CCSetupShowDebugStats];
-    
-    // A acouple of other examples
-    
-    // Use a 16 bit color buffer
-    // This will lower the color depth from 32 bits to 16 bits for that extra performance
-    // Most will want 32, so we disbaled it
-    // ---
-    // [startUpOptions setObject:kEAGLColorFormatRGB565 forKey:CCSetupPixelFormat];
-    
-    // Use a simplified coordinate system that is shared across devices
-    // Normally you work in the coordinate of the device (an iPad is 1024x768, an iPhone 4 480x320 and so on)
-    // This feature makes it easier to use the same setup for all devices (easier is a relative term)
-    // Most will want to handle iPad and iPhone exclusively, so it is disabled by default
-    // ---
-    // [startUpOptions setObject:CCScreenModeFixed forKey:CCSetupScreenMode];
-    
-    // All the supported keys can be found in CCConfiguration.h
-#endif
     // We are done ...
     // Lets get this thing on the road!
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     CCDirectorIOS* director = (CCDirectorIOS*)[CCDirector sharedDirector];
+    
+    // uncomment this code to upscale your assets for iPhone6 and iPhone6Plus
+    /*
+    NSInteger device = [[CCConfiguration sharedConfiguration] runningDevice];
+    if (device == CCDeviceiPhone6 || device == CCDeviceiPhone6Plus) {
+        // if portrait
+        [CCDirector sharedDirector].contentScaleFactor *= [UIScreen mainScreen].bounds.size.height/568.0;
+        
+        // if landscape
+        //[CCDirector sharedDirector].contentScaleFactor *= [UIScreen mainScreen].bounds.size.width/568.0;
+    }
+    */
     
     // Create a scene
     //CCScene* main = [MainScene new];

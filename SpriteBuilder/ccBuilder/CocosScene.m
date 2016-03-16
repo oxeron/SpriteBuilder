@@ -278,6 +278,15 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         {
             deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6.png"];
             rotateDevice = YES;
+        } else if (devType == kCCBCanvasSizeIPhone6PlusPortrait)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6Plus.png"];
+            rotateDevice = NO;
+        }
+        else if (devType == kCCBCanvasSizeIPhone6PlusLandscape)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6Plus.png"];
+            rotateDevice = YES;
         }
         
         if (deviceTexture)

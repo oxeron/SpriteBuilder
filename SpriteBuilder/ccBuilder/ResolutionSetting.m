@@ -264,6 +264,28 @@
     return setting;
 }
 
++ (ResolutionSetting*) settingIPhone6PlusLandscape
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone6Plus Landscape";
+    setting.width = 736;
+    setting.height = 414;
+    
+    return setting;
+}
+
++ (ResolutionSetting*) settingIPhone6PlusPortrait
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone6Plus Portrait";
+    setting.width = 414;
+    setting.height = 736;
+    
+    return setting;
+}
+
 + (ResolutionSetting*) settingHTML5
 {
     ResolutionSetting* setting = [[ResolutionSetting alloc] init];

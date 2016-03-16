@@ -536,6 +536,8 @@ typedef enum
     defaultCanvasSizes[kCCBCanvasSizeIPadPortrait] = CGSizeMake(384, 512);
     defaultCanvasSizes[kCCBCanvasSizeIPhone6Landscape] = CGSizeMake(667, 375);
     defaultCanvasSizes[kCCBCanvasSizeIPhone6Portrait] = CGSizeMake(375, 667);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6PlusLandscape] = CGSizeMake(736, 414);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6PlusPortrait] = CGSizeMake(414, 736);
     
     // Fixed
     defaultCanvasSizes[kCCBCanvasSizeFixedLandscape] = CGSizeMake(568, 384);
@@ -1208,10 +1210,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
+                [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6Landscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
             }
         }
         else
@@ -1223,10 +1226,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
+                [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Portrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6Portrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusPortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
             }
         }
     }
