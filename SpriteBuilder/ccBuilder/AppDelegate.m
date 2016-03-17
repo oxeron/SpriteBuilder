@@ -38,7 +38,7 @@
 #import "CCBUtil.h"
 #import "StageSizeWindow.h"
 #import "GuideGridSizeWindow.h"
-#import "ResolutionSettingsWindow.h"
+//#import "ResolutionSettingsWindow.h"
 #import "PlugInManager.h"
 #import "InspectorPosition.h"
 #import "NodeInfo.h"
@@ -138,6 +138,9 @@
 #import "LightingHandler.h"
 #import "NSAlert+Convenience.h"
 #import "SecurityScopedBookmarksStore.h"
+
+// default resolution menu is iPhone 6
+#define kDefaultResolution 2
 
 static const int CCNODE_INDEX_LAST = -1;
 
@@ -534,6 +537,10 @@ typedef enum
     defaultCanvasSizes[kCCBCanvasSizeIPhone5Portrait] = CGSizeMake(320, 568);
     defaultCanvasSizes[kCCBCanvasSizeIPadLandscape] = CGSizeMake(512, 384);
     defaultCanvasSizes[kCCBCanvasSizeIPadPortrait] = CGSizeMake(384, 512);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6Landscape] = CGSizeMake(667, 375);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6Portrait] = CGSizeMake(375, 667);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6PlusLandscape] = CGSizeMake(736, 414);
+    defaultCanvasSizes[kCCBCanvasSizeIPhone6PlusPortrait] = CGSizeMake(414, 736);
     
     // Fixed
     defaultCanvasSizes[kCCBCanvasSizeFixedLandscape] = CGSizeMake(568, 384);
@@ -1206,9 +1213,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
-                [updatedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6Landscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
             }
         }
         else
@@ -1220,9 +1229,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
-                [updatedResolutions addObject:[ResolutionSetting settingIPhone5Portrait]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone5Portrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6Portrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusPortrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
             }
         }
     }
@@ -1842,6 +1853,8 @@ typedef enum
     
     [self addDocument:newDoc];
     self.hasOpenedDocument = YES;
+    
+    [self setResolution:kDefaultResolution];
     
     [self checkForTooManyDirectoriesInCurrentDoc];
     
@@ -3019,7 +3032,7 @@ typedef enum
     [self updateResourcePathsFromProjectSettings];
     [CCBPublisherCacheCleaner cleanWithProjectSettings:projectSettings];
     [self reloadResources];
-    [self setResolution:0];
+    [self setResolution:kDefaultResolution];
     [_openPathsController updateMenuItemsForPackages];
 }
 
@@ -3280,6 +3293,15 @@ typedef enum
 
 - (void) setResolution:(int)r
 {
+    // check if r is a key of the available resolutions
+    if (!currentDocument.resolutions[r]) {
+        r = kDefaultResolution;
+    }
+    if (!currentDocument.resolutions[r]) {
+        r = 0;
+    }
+    NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
+    
     currentDocument.currentResolution = r;
     
     [self updatePositionScaleFactor];
@@ -3291,7 +3313,8 @@ typedef enum
     //ResolutionSetting* resolution = [currentDocument.resolutions objectAtIndex:r];
     //[cs setStageSize:CGSizeMake(resolution.width, resolution.height) centeredOrigin:[cs centeredOrigin]];
     
-    [self updateResolutionMenu];
+    // already called in switchToDocument in reloadResouces
+    //[self updateResolutionMenu];
     [self reloadResources];
     
     // Update size of root node
@@ -3318,7 +3341,7 @@ typedef enum
         
         currentDocument.resolutions = [self updateResolutions:currentDocument.resolutions forDocDimensionType:kCCBDocDimensionsTypeLayer];
         [self updateResolutionMenu];
-        [self setResolution:0];
+        [self setResolution:kDefaultResolution];
     }
 }
 
@@ -3585,7 +3608,9 @@ typedef enum
     FNTConfigRemoveCache();
     
     [self switchToDocument:currentDocument forceReload:YES];
-    [sequenceHandler updatePropertiesToTimelinePosition];
+    
+    // already called in switchToDocument
+    //[sequenceHandler updatePropertiesToTimelinePosition];
 }
 
 - (IBAction) menuAlignToPixels:(id)sender

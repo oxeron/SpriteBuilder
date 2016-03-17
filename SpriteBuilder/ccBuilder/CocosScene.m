@@ -269,7 +269,26 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         {
             deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-fixed.png"];
             rotateDevice = YES;
+        } else if (devType == kCCBCanvasSizeIPhone6Portrait)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6.png"];
+            rotateDevice = NO;
         }
+        else if (devType == kCCBCanvasSizeIPhone6Landscape)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6.png"];
+            rotateDevice = YES;
+        } else if (devType == kCCBCanvasSizeIPhone6PlusPortrait)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6Plus.png"];
+            rotateDevice = NO;
+        }
+        else if (devType == kCCBCanvasSizeIPhone6PlusLandscape)
+        {
+            deviceTexture = [[CCTextureCache sharedTextureCache] addImage:@"frame-iphone6Plus.png"];
+            rotateDevice = YES;
+        }
+        
         if (deviceTexture)
         {
             if (rotateDevice) borderDevice.rotation = 90;

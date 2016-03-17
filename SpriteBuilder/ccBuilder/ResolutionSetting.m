@@ -154,7 +154,7 @@
 {
     ResolutionSetting* setting = [[ResolutionSetting alloc] init];
     
-    setting.name = @"Phone";
+    setting.name = @"iPhone";
     setting.width = 0;
     setting.height = 0;
     setting.ext = @"phone";
@@ -167,7 +167,7 @@
 {
     ResolutionSetting* setting = [self settingIPhone];
     
-    setting.name = @"Phone Landscape (short)";
+    setting.name = @"iPhone 4 Landscape";
     setting.width = 480;
     setting.height = 320;
     
@@ -178,7 +178,7 @@
 {
     ResolutionSetting* setting = [self settingIPhone];
     
-    setting.name = @"iPhone Portrait (short)";
+    setting.name = @"iPhone 4 Portrait";
     setting.width = 320;
     setting.height = 480;
     
@@ -189,7 +189,7 @@
 {
     ResolutionSetting* setting = [self settingIPhone];
     
-    setting.name = @"Phone Landscape";
+    setting.name = @"iPhone 5 Landscape";
     setting.width = 568;
     setting.height = 320;
     
@@ -200,9 +200,53 @@
 {
     ResolutionSetting* setting = [self settingIPhone];
     
-    setting.name = @"Phone Portrait";
+    setting.name = @"iPhone 5 Portrait";
     setting.width = 320;
     setting.height = 568;
+    
+    return setting;
+}
+
++ (ResolutionSetting*) settingIPhone6Landscape
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone 6 Landscape";
+    setting.width = 667;
+    setting.height = 375;
+    
+    return setting;
+}
+
++ (ResolutionSetting*) settingIPhone6Portrait
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone 6 Portrait";
+    setting.width = 375;
+    setting.height = 667;
+    
+    return setting;
+}
+
++ (ResolutionSetting*) settingIPhone6PlusLandscape
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone 6 Plus Landscape";
+    setting.width = 736;
+    setting.height = 414;
+    
+    return setting;
+}
+
++ (ResolutionSetting*) settingIPhone6PlusPortrait
+{
+    ResolutionSetting* setting = [self settingIPhone];
+    
+    setting.name = @"iPhone 6 Plus Portrait";
+    setting.width = 414;
+    setting.height = 736;
     
     return setting;
 }
@@ -211,7 +255,7 @@
 {
     ResolutionSetting* setting = [[ResolutionSetting alloc] init];
     
-    setting.name = @"Tablet";
+    setting.name = @"iPad";
     setting.width = 0;
     setting.height = 0;
     setting.ext = @"tablet phonehd";
@@ -224,7 +268,7 @@
 {
     ResolutionSetting* setting = [self settingIPad];
     
-    setting.name = @"Tablet Landscape";
+    setting.name = @"iPad Landscape";
     setting.width = 512;
     setting.height = 384;
     
@@ -235,48 +279,12 @@
 {
     ResolutionSetting* setting = [self settingIPad];
     
-    setting.name = @"Tablet Portrait";
+    setting.name = @"iPad Portrait";
     setting.width = 384;
     setting.height = 512;
     
     return setting;
 }
-
-+ (ResolutionSetting*) settingHTML5
-{
-    ResolutionSetting* setting = [[ResolutionSetting alloc] init];
-    
-    setting.name = @"HTML 5";
-    setting.width = 0;
-    setting.height = 0;
-    setting.ext = @"html5";
-    setting.scale = 2;
-    
-    return setting;
-}
-
-+ (ResolutionSetting*) settingHTML5Landscape
-{
-    ResolutionSetting* setting = [self settingHTML5];
-    
-    setting.name = @"HTML 5 Landscape";
-    setting.width = 1024;
-    setting.height = 768;
-    
-    return setting;
-}
-
-+ (ResolutionSetting*) settingHTML5Portrait
-{
-    ResolutionSetting* setting = [self settingHTML5];
-    
-    setting.name = @"HTML 5 Portrait";
-    setting.width = 768;
-    setting.height = 1024;
-    
-    return setting;
-}
-
 
 - (NSString *) description
 {

@@ -1033,7 +1033,9 @@
 		FA98CFD9154E828E006E58C5 /* PlugInExport.m in Sources */ = {isa = PBXBuildFile; fileRef = E398C03214FB86D20078E771 /* PlugInExport.m */; };
 		FA98CFDB154E8D16006E58C5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98CFDA154E8D16006E58C5 /* CoreServices.framework */; };
 		FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */; };
+		FF0C33DF1C9962700032B324 /* frame-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0C33DE1C9962700032B324 /* frame-iphone6.png */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
+		FF9296681C9A146100A6F6B2 /* frame-iphone6Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
 		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
 		FF9398761C8CC1A400D424C7 /* test_ccbreader_colornode.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */; };
@@ -2803,6 +2805,8 @@
 		FA98CFC9154E7D1C006E58C5 /* ccbpublish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ccbpublish-Prefix.pch"; sourceTree = "<group>"; };
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeTag_Tests.m; sourceTree = "<group>"; };
+		FF0C33DE1C9962700032B324 /* frame-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6.png"; sourceTree = "<group>"; };
+		FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6Plus.png"; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
 		FF93986F1C8CC1A400D424C7 /* test_ccbreader_colornode.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_ccbreader_colornode.ccb; path = "Testing Resources/test_ccbreader_colornode.ccb"; sourceTree = "<group>"; };
@@ -3328,6 +3332,8 @@
 				7729F03C1390600200CAA44F /* frame-ipad.png */,
 				7729F0391390215400CAA44F /* frame-iphone.png */,
 				E3DFE830160226760068CB50 /* frame-iphone5.png */,
+				FF0C33DE1C9962700032B324 /* frame-iphone6.png */,
+				FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */,
 				921EEACE18A5760700D864C2 /* joint-anchor-sel.png */,
 				921EEACF18A5760700D864C2 /* joint-anchor-sel@2x.png */,
 				921EEAD018A5760700D864C2 /* joint-anchor.png */,
@@ -6550,6 +6556,7 @@
 				83F3C9D51A422CA4003D8659 /* seq-btn-stepforward@2x.png in Resources */,
 				77E1995713858DE0006C361B /* TabClose_Dirty.png in Resources */,
 				830485A619AF2A7000A624BB /* PreviewImageView.xib in Resources */,
+				FF0C33DF1C9962700032B324 /* frame-iphone6.png in Resources */,
 				830485A719AF2A7200A624BB /* PreviewSpriteSheetView.xib in Resources */,
 				9218DF2E1919B04D0033851E /* joint-pivot-mode-l-off.png in Resources */,
 				926D13C618B5778300582959 /* joint-distance-slide-sel.png in Resources */,
@@ -6823,6 +6830,7 @@
 				920994D1198717D20006F38D /* EffectGlassControl.xib in Resources */,
 				B7096E2D180CD98E00164A8A /* doc-sprite.png in Resources */,
 				9218DF3F1919B04D0033851E /* joint-pivot-handle-min@2x.png in Resources */,
+				FF9296681C9A146100A6F6B2 /* frame-iphone6Plus.png in Resources */,
 				E37FCAEF175D2704009F81D6 /* ui-cogs@2x.png in Resources */,
 				05CA9CF51A5082C500265997 /* TabClose_Front_Rollover@2x.png in Resources */,
 				8354FDFC198233AB004EC272 /* MainProjectSettingsDetailView.xib in Resources */,
