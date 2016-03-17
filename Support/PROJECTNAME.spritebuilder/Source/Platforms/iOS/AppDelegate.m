@@ -45,6 +45,9 @@
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     CCDirectorIOS* director = (CCDirectorIOS*)[CCDirector sharedDirector];
+
+    // enable FPS and SPF
+    [director setDisplayStats:YES];
     
     // uncomment this code to upscale your assets for iPhone6 and iPhone6Plus
     /*
