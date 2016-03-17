@@ -38,7 +38,7 @@
 #import "CCBUtil.h"
 #import "StageSizeWindow.h"
 #import "GuideGridSizeWindow.h"
-#import "ResolutionSettingsWindow.h"
+//#import "ResolutionSettingsWindow.h"
 #import "PlugInManager.h"
 #import "InspectorPosition.h"
 #import "NodeInfo.h"
@@ -138,6 +138,9 @@
 #import "LightingHandler.h"
 #import "NSAlert+Convenience.h"
 #import "SecurityScopedBookmarksStore.h"
+
+// default resolution menu is iPhone 6
+#define kDefaultResolution 2
 
 static const int CCNODE_INDEX_LAST = -1;
 
@@ -1851,6 +1854,8 @@ typedef enum
     [self addDocument:newDoc];
     self.hasOpenedDocument = YES;
     
+    [self setResolution:kDefaultResolution];
+    
     [self checkForTooManyDirectoriesInCurrentDoc];
     
     // Remove selections
@@ -3027,7 +3032,7 @@ typedef enum
     [self updateResourcePathsFromProjectSettings];
     [CCBPublisherCacheCleaner cleanWithProjectSettings:projectSettings];
     [self reloadResources];
-    [self setResolution:0];
+    [self setResolution:kDefaultResolution];
     [_openPathsController updateMenuItemsForPackages];
 }
 
@@ -3288,6 +3293,15 @@ typedef enum
 
 - (void) setResolution:(int)r
 {
+    // check if r is a key of the available resolutions
+    if (!currentDocument.resolutions[r]) {
+        r = kDefaultResolution;
+    }
+    if (!currentDocument.resolutions[r]) {
+        r = 0;
+    }
+    NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
+    
     currentDocument.currentResolution = r;
     
     [self updatePositionScaleFactor];
@@ -3299,7 +3313,8 @@ typedef enum
     //ResolutionSetting* resolution = [currentDocument.resolutions objectAtIndex:r];
     //[cs setStageSize:CGSizeMake(resolution.width, resolution.height) centeredOrigin:[cs centeredOrigin]];
     
-    [self updateResolutionMenu];
+    // already called in switchToDocument in reloadResouces
+    //[self updateResolutionMenu];
     [self reloadResources];
     
     // Update size of root node
@@ -3326,7 +3341,7 @@ typedef enum
         
         currentDocument.resolutions = [self updateResolutions:currentDocument.resolutions forDocDimensionType:kCCBDocDimensionsTypeLayer];
         [self updateResolutionMenu];
-        [self setResolution:0];
+        [self setResolution:kDefaultResolution];
     }
 }
 
@@ -3593,7 +3608,9 @@ typedef enum
     FNTConfigRemoveCache();
     
     [self switchToDocument:currentDocument forceReload:YES];
-    [sequenceHandler updatePropertiesToTimelinePosition];
+    
+    // already called in switchToDocument
+    //[sequenceHandler updatePropertiesToTimelinePosition];
 }
 
 - (IBAction) menuAlignToPixels:(id)sender
