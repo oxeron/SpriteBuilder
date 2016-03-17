@@ -63,11 +63,6 @@
 + (ResolutionSetting*) settingIPhone6PlusLandscape;
 + (ResolutionSetting*) settingIPhone6PlusPortrait;
 
-// HTML 5
-+ (ResolutionSetting*) settingHTML5;
-+ (ResolutionSetting*) settingHTML5Landscape;
-+ (ResolutionSetting*) settingHTML5Portrait;
-
 - (id) initWithSerialization:(id)serialization;
 
 - (id) serialize;

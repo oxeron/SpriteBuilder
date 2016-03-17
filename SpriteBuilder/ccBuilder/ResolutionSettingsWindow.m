@@ -49,11 +49,6 @@
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone6PlusPortrait]];
     
-    // HTML 5
-    [predefinedResolutions addObject:[ResolutionSetting settingHTML5]];
-    [predefinedResolutions addObject:[ResolutionSetting settingHTML5Landscape]];
-    [predefinedResolutions addObject:[ResolutionSetting settingHTML5Portrait]];
-    
     int i = 0;
     for (ResolutionSetting* setting in predefinedResolutions)
     {
