@@ -3300,7 +3300,6 @@ typedef enum
     if (!currentDocument.resolutions[r]) {
         r = 0;
     }
-    NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
     
     currentDocument.currentResolution = r;
     
