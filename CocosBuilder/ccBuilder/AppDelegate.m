@@ -3300,11 +3300,9 @@ typedef enum
     if (!currentDocument.resolutions[r]) {
         r = 0;
     }
-<<<<<<< HEAD:SpriteBuilder/ccBuilder/AppDelegate.m
-=======
-    //NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
->>>>>>> rebranding:CocosBuilder/ccBuilder/AppDelegate.m
     
+    //NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
+
     currentDocument.currentResolution = r;
     
     [self updatePositionScaleFactor];
