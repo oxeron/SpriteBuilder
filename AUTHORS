@@ -53,4 +53,5 @@ People/companies who were/are contributing code to CocosBuilder (alphabetically 
     Added support for delegating interpolation frame drawing to the node-plugin
 
 * Olivier PIERRE (http://www.oxeron.com/)
-    Building SB 1.5 with cocod2d 3.4.9
+    Building CocosBuilder 1.5 with cocod2d 3.4.9
+    Building CocosBuilder 1.5 with cocod2d 3.5
