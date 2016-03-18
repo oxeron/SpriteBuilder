@@ -9,7 +9,7 @@ PKGID="3rd Party Mac Developer Installer: Apportable Inc. (U2K5E32W7G)"
 
 
 if [ "$1" = "" ]; then
-    APP="SpriteBuilder.app"
+    APP="CocosBuilder.app"
 else
     APP=$1
 fi
@@ -39,11 +39,11 @@ if [ "$APP_MODE" = "" ]; then
 fi
 
 if [ "$APP_MODE" = "sandboxed" ]; then
-    ENT="../SpriteBuilder/Sandboxed.entitlements"
+    ENT="../CocosBuilder/Sandboxed.entitlements"
 fi
 
 if [ "$APP_MODE" = "non_sandboxed" ]; then
-    ENT="../SpriteBuilder/NonSandboxed.entitlements"
+    ENT="../CocosBuilder/NonSandboxed.entitlements"
 fi
 
 
@@ -62,32 +62,32 @@ cd ../build
 # Sign command line tools
 
 function createKeychain() {
-    echo Creating spritebuilder.keychain
-    security delete-keychain  spritebuilder.keychain
-    security create-keychain -p spritebuilder spritebuilder.keychain
+    echo Creating CocosBuilder.keychain
+    security delete-keychain  cocosbuilder.keychain
+    security create-keychain -p cocosbuilder cocosbuilder.keychain
     if [ $? != 0 ]; then
         echo Failed to create keychain.
         exit 1
     fi
     
     echo $KEYSTORE/sb.keystore
-    security import $KEYSTORE/sb.keystore -k spritebuilder.keychain -f pkcs12 -P spritebuilder -A
+    security import $KEYSTORE/sb.keystore -k cocosbuilder.keychain -f pkcs12 -P cocosbuilder -A
     if [ $? != 0 ]; then
         echo Failed to import keystore.
         exit 1
     fi
-    security default-keychain -s spritebuilder.keychain
-    security unlock-keychain -p spritebuilder spritebuilder.keychain
+    security default-keychain -s cocosbuilder.keychain
+    security unlock-keychain -p cocosbuilder cocosbuilder.keychain
 }
 
 function deleteKeychain() {
-    security delete-keychain  spritebuilder.keychain
+    security delete-keychain  cocosbuilder.keychain
     security default-keychain -s login.keychain
 }
 
 function codeSign() {
     echo CodeSign Func: "$APP/$1"
-    codesign --entitlements $ENT  -f --deep --keychain spritebuilder.keychain -s "$KEYSTORE_ID" "$APP/""$1"
+    codesign --entitlements $ENT  -f --deep --keychain cocosbuilder.keychain -s "$KEYSTORE_ID" "$APP/""$1"
  
     if [ $? != 0 ]; then
         echo Codesign faild. $1
@@ -115,5 +115,5 @@ echo codeSign "$APP"
 codeSign
 
 # Archive App
-productbuild --component "$APP" /Applications --sign "$PKGID" --keychain spritebuilder.keychain --product ../SpriteBuilder/Requirements.plist "$APP.pkg"
+productbuild --component "$APP" /Applications --sign "$PKGID" --keychain cocosbuilder.keychain --product ../CocosBuilder/Requirements.plist "$APP.pkg"
 deleteKeychain

@@ -3,8 +3,8 @@
 ID="3rd Party Mac Developer Application: Apportable Inc. (U2K5E32W7G)"
 # ID="Developer ID Application: Apportable Inc. (U2K5E32W7G)"
 PKGID="3rd Party Mac Developer Installer: Apportable Inc. (U2K5E32W7G)"
-ENT="../SpriteBuilder/PlugIns.entitlements"
-APP="SpriteBuilder.app"
+ENT="../CocosBuilder/PlugIns.entitlements"
+APP="CocosBuilder.app"
 
 cd ../build
 
@@ -57,8 +57,8 @@ codesign --entitlements $ENT -s "$ID" "$APP/Contents/PlugIns/Cocos2d iPhone.ccbP
 # Sign Frameworks
 
 # Sign App
-codesign --entitlements ../SpriteBuilder/SpriteBuilder.entitlements -s "$ID" "$APP"
+codesign --entitlements ../CocosBuilder/CocosBuilder.entitlements -s "$ID" "$APP"
 
 # Archive App
-productbuild --component "$APP" /Applications --sign "$PKGID" --product ../SpriteBuilder/Requirements.plist "$APP.pkg"
+productbuild --component "$APP" /Applications --sign "$PKGID" --product ../CocosBuilder/Requirements.plist "$APP.pkg"
 

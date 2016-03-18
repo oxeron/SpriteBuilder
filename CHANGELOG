@@ -3,7 +3,7 @@ version 1.5.0
 . [FIX] Unit tests are working
 . [FIX] Menu "Select Behind" is no more crashing the application
 . [REMOVED] Removed all java, android and SpriteKit references
-. [REMOVED] Removed tracking request to spritebuilder.com website
+. [REMOVED] Removed tracking request to cocosbuilder.com website
 . [REMOVED] Removed registration window at startup
 
 version 3.0-alpha4 1-May-2013

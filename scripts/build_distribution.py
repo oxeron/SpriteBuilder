@@ -58,9 +58,9 @@ class BuildDistribution:
         self.clean_build_folders()
     
         if sku=='pro':
-            product_name = 'SpriteBuilder 1.3 Beta'
+            product_name = 'CocosBuilder 1.3 Beta'
         else:
-            product_name = 'SpriteBuilder'
+            product_name = 'CocosBuilder'
         
         self.create_all_generated_files(version, sku, version_info)
 
@@ -75,12 +75,12 @@ class BuildDistribution:
     def test_project(self):
 
         print "=== TESTING PROJECT ==="
-        os.chdir('SpriteBuilder/');
+        os.chdir('CocosBuilder/');
     
         subprocess.check_call('/usr/bin/xcodebuild -alltargets clean', shell=True)
      
         try:
-            subprocess.check_call('/usr/bin/xcodebuild -target "SpriteBuilder Tests" -configuration Testing -scheme SpriteBuilder test', shell=True)
+            subprocess.check_call('/usr/bin/xcodebuild -target "CocosBuilder Tests" -configuration Testing -scheme CocosBuilder test', shell=True)
         except Exception,e:
             print ("TESTS FAILED: %s" % e)
             print "Tests failed. If you'd like to ignore tests, build with '-tests false'" 
@@ -93,7 +93,7 @@ class BuildDistribution:
         # Clean and build CocosBuilder
         print "=== CLEANING PROJECT ==="
 
-        os.chdir('SpriteBuilder/');
+        os.chdir('CocosBuilder/');
         subprocess.check_call('/usr/bin/xcodebuild -alltargets clean', shell=True)
     
         if mode == 'sandboxed':
@@ -101,14 +101,14 @@ class BuildDistribution:
         else:
             sandboxed_mode_define = 'SB_NOT_SANDBOXED'
    
-        print "=== BUILDING SPRITEBUILDER === (please be patient)"
+        print "=== BUILDING CocosBuilder === (please be patient)"
         build_command = '/usr/bin/xcodebuild \
-            -target SpriteBuilder \
+            -target CocosBuilder \
             -configuration Release \
             -xcconfig \"{xcconfig}.xcconfig\" \
             SBPRO_PRIVATE_KEY=\"{private_key}\" \
             SB_SANDBOXED_MODE={sandboxed_mode_define}\
-            SB_VERSION={version}\
+            COCOSBUILDER_VERSION={version}\
             build'.format(xcconfig=product_name, private_key=private_key, sandboxed_mode_define=sandboxed_mode_define, version=version)
 
         print build_command
@@ -124,10 +124,10 @@ class BuildDistribution:
         if not os.path.exists('build'):
             os.makedirs('build')
 
-        shutil.copytree('SpriteBuilder/build/Release/{product_name}.app'.format(product_name=product_name),
+        shutil.copytree('CocosBuilder/build/Release/{product_name}.app'.format(product_name=product_name),
             'build/{product_name}.app'.format(product_name=product_name),symlinks=True)
 
-        shutil.copytree('SpriteBuilder/build/Release/{product_name}.app.dSYM'.format(product_name=product_name),
+        shutil.copytree('CocosBuilder/build/Release/{product_name}.app.dSYM'.format(product_name=product_name),
             'build/{product_name}.app.dSYM'.format(product_name=product_name),symlinks=True)
 
         os.chdir('build/');
@@ -143,7 +143,7 @@ class BuildDistribution:
 
     def clean_build_folders(self):
         shutil.rmtree('build',True)
-        shutil.rmtree('SpriteBuilder/build/',True)    
+        shutil.rmtree('CocosBuilder/build/',True)    
 
     def create_all_generated_files(self, version, sku, version_info):
     
@@ -170,7 +170,7 @@ class BuildDistribution:
         json.dump(version_info, open("Generated/Version.txt",'w'),sort_keys=True, indent=4)
     
         #Copy cocos version file.
-        shutil.copyfile('SpriteBuilder/libs/cocos2d-iphone/VERSION','Generated/cocos2d_version.txt')
+        shutil.copyfile('CocosBuilder/libs/cocos2d-iphone/VERSION','Generated/cocos2d_version.txt')
 
         self.generate_template_project('PROJECTNAME',sku_folder=sku)
 
@@ -181,7 +181,7 @@ class BuildDistribution:
         if not os.path.exists('Generated'):
             os.makedirs('Generated')
         
-        os.chdir('{rootfolder}/Support/{project_name}.spritebuilder/'.format(project_name=project_name,rootfolder=self.rootfolder))
+        os.chdir('{rootfolder}/Support/{project_name}.cocosbuilder/'.format(project_name=project_name,rootfolder=self.rootfolder))
 
         # Generate template project
         print 'Generating:', project_name

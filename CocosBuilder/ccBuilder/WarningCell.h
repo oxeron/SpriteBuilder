@@ -1,0 +1,13 @@
+//
+//  WarningCellController.h
+//  CocosBuilder
+//
+//  Created by John Twigg on 2013-11-15.
+//
+//
+
+#import <Cocoa/Cocoa.h>
+
+@interface WarningCell : NSTextFieldCell
+
+@end
