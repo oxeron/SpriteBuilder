@@ -26,7 +26,7 @@
     [super setUp];
 
     self.projectSettings = [[ProjectSettings alloc] init];
-    _projectSettings.projectPath = [self fullPathForFile:@"foo.cocosbuilder/foo.ccbproj"];
+    _projectSettings.projectPath = [self fullPathForFile:@"foo.ccbuilder/foo.ccbproj"];
 
     self.migrator = [[ResourcePropertiesMigrator alloc] initWithProjectSettings:self.projectSettings];
 }

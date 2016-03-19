@@ -28,6 +28,7 @@
 #import "CCBDocument.h"
 #import "ResolutionSetting.h"
 #import "ProjectSettings.h"
+#import "MiscConstants.h"
 
 @implementation CCBFileUtil
 
@@ -187,7 +188,7 @@
 	NSError* error;
 
 	// just to be sure we don't accidentally remove something when given an incorrect .ccbproj path
-	if ([parentPath hasSuffix:@".cocosbuilder"])
+	if ([parentPath hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]])
 	{
 		for (NSString* removeItem in removeItems)
 		{
@@ -209,7 +210,7 @@
 	}
 	else
 	{
-		NSAssert1(nil, @"Tried to cleanup .ccbproj path whose parent folder doesn't have the .cocosbuilder extension: %@", path);
+		NSAssert3(nil, @"Tried to cleanup .%@ path whose parent folder doesn't have the .%@ extension: %@", PROJECT_NAME_SUFFIX, FOLDER_NAME_SUFFIX, path);
 	}
 }
 

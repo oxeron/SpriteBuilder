@@ -37,19 +37,19 @@
 
     self.resourceManager = [ResourceManager sharedManager];
     [_resourceManager setActiveDirectoriesWithFullReset:@[
-            [self fullPathForFile:@"project/Packages/package1.sbpack"],
+            [self fullPathForFile:@"project/Packages/package1.ccbpack"],
     ]];
 
     self.projectSettings = [[ProjectSettings alloc] init];
     _projectSettings.projectPath = [self fullPathForFile:@"project/foo.ccbproj"];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"project/Packages/package1.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"project/Packages/package1.ccbpack"] error:nil];
 }
 
 - (void)testResourceForRelativePath
 {
-    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/image.png"]];
+    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/image.png"]];
 
-    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.sbpack"]];
+    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.ccbpack"]];
     [activeDirectory.any addObject:image];
     [activeDirectory.images addObject:image];
 
@@ -62,23 +62,23 @@
 {
     _resourceManager.projectSettings = _projectSettings;
 
-    RMResource *audio = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/spritesheet/sound.wav"]];
+    RMResource *audio = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/spritesheet/sound.wav"]];
     audio.type = kCCBResTypeAudio;
 
     XCTAssertFalse([_resourceManager isResourceInSpriteSheet:audio]);
 
 
-    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.sbpack"]];
+    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.ccbpack"]];
 
-    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/spritesheet/image.png"]];
+    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/spritesheet/image.png"]];
     image.type = kCCBResTypeImage;
     [activeDirectory.any addObject:image];
     [activeDirectory.images addObject:image];
 
     RMDirectory *spriteSheetData = [[RMDirectory alloc] init];
     spriteSheetData.projectSettings = _projectSettings;
-    spriteSheetData.dirPath = [self fullPathForFile:@"project/Packages/package1.sbpack/spritesheet"];
-    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/spritesheet"]];
+    spriteSheetData.dirPath = [self fullPathForFile:@"project/Packages/package1.ccbpack/spritesheet"];
+    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/spritesheet"]];
     spriteSheet.type = kCCBResTypeDirectory;
     spriteSheet.data = spriteSheetData;
     [activeDirectory.any addObject:spriteSheet];
@@ -93,18 +93,18 @@
 {
     _resourceManager.projectSettings = _projectSettings;
 
-    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.sbpack"]];
+    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.ccbpack"]];
 
-    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/somedir/image.png"]];
+    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/somedir/image.png"]];
     image.type = kCCBResTypeImage;
     [activeDirectory.any addObject:image];
     [activeDirectory.images addObject:image];
 
     RMDirectory *directoryData = [[RMDirectory alloc] init];
     directoryData.projectSettings = _projectSettings;
-    directoryData.dirPath = [self fullPathForFile:@"project/Packages/package1.sbpack/somedir"];
+    directoryData.dirPath = [self fullPathForFile:@"project/Packages/package1.ccbpack/somedir"];
 
-    RMResource *directory = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/somedir"]];
+    RMResource *directory = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/somedir"]];
     directory.type = kCCBResTypeDirectory;
     directory.data = directoryData;
     [activeDirectory.any addObject:directory];
@@ -116,18 +116,18 @@
 {
     _resourceManager.projectSettings = _projectSettings;
 
-    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.sbpack"]];
+    RMDirectory *activeDirectory = [_resourceManager activeDirectoryForPath:[self fullPathForFile:@"project/Packages/package1.ccbpack"]];
 
-    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/somedir/image.png"]];
+    RMResource *image = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/somedir/image.png"]];
     image.type = kCCBResTypeImage;
     [activeDirectory.any addObject:image];
     [activeDirectory.images addObject:image];
 
     RMDirectory *spriteSheetData = [[RMDirectory alloc] init];
     spriteSheetData.projectSettings = _projectSettings;
-    spriteSheetData.dirPath = [self fullPathForFile:@"project/Packages/package1.sbpack/somedir"];
+    spriteSheetData.dirPath = [self fullPathForFile:@"project/Packages/package1.ccbpack/somedir"];
 
-    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/somedir"]];
+    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/somedir"]];
     spriteSheet.type = kCCBResTypeDirectory;
     spriteSheet.data = spriteSheetData;
     [activeDirectory.any addObject:spriteSheet];
@@ -141,9 +141,9 @@
 - (void)testAllPackages
 {
     NSArray *expectedPackagePaths = @[
-        [self fullPathForFile:@"project/Packages/gigapackage.sbpack"],
-        [self fullPathForFile:@"project/Packages/superpackage.sbpack"],
-        [self fullPathForFile:@"project/Packages/ultrapackage.sbpack"],
+        [self fullPathForFile:@"project/Packages/gigapackage.ccbpack"],
+        [self fullPathForFile:@"project/Packages/superpackage.ccbpack"],
+        [self fullPathForFile:@"project/Packages/ultrapackage.ccbpack"],
     ];
 
     [self setupPackagesWithFullPaths:expectedPackagePaths];
@@ -162,26 +162,26 @@
 - (void)testPackageForPath
 {
     NSArray *packages = @[
-        [self fullPathForFile:@"project/Packages/foo.sbpack"],
-        [self fullPathForFile:@"project/Packages/baa.sbpack"],
+        [self fullPathForFile:@"project/Packages/foo.ccbpack"],
+        [self fullPathForFile:@"project/Packages/baa.ccbpack"],
     ];
 
     [self setupPackagesWithFullPaths:packages];
 
-    RMPackage *fooPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/foo.sbpack/images/resources-auto/sky.png"]];
-    RMPackage *baaPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/baa.sbpack/spritesheets/deep/deeper/bottom.png"]];
-    RMPackage *noPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/123.sbpack/images/resources-autp/sky.png"]];
+    RMPackage *fooPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/foo.ccbpack/images/resources-auto/sky.png"]];
+    RMPackage *baaPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/baa.ccbpack/spritesheets/deep/deeper/bottom.png"]];
+    RMPackage *noPackage = [_resourceManager packageForPath:[self fullPathForFile:@"project/Packages/123.ccbpack/images/resources-autp/sky.png"]];
 
-    SBAssertStringsEqual(fooPackage.fullPath, [self fullPathForFile:@"project/Packages/foo.sbpack"]);
-    SBAssertStringsEqual(baaPackage.fullPath, [self fullPathForFile:@"project/Packages/baa.sbpack"]);
+    SBAssertStringsEqual(fooPackage.fullPath, [self fullPathForFile:@"project/Packages/foo.ccbpack"]);
+    SBAssertStringsEqual(baaPackage.fullPath, [self fullPathForFile:@"project/Packages/baa.ccbpack"]);
 
     XCTAssertNil(noPackage);
 }
 
 - (void)testCreateCachedImageFromAutoPathWithGlobalDefaultScaling
 {
-    NSString *imgRelPath = @"project/Packages/foo.sbpack/resources-auto/original.png";
-    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.sbpack"]]];
+    NSString *imgRelPath = @"project/Packages/foo.ccbpack/resources-auto/original.png";
+    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.ccbpack"]]];
 
     [self createPNGAtPath:imgRelPath width:20 height:20];
     _projectSettings.resourceAutoScaleFactor = 4;
@@ -220,8 +220,8 @@
 
 - (void)testCreateCachedImageFromAutoPathWithPackageDefaultScalingSet
 {
-    NSString *imgRelPath = @"project/Packages/foo.sbpack/resources-auto/original.png";
-    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.sbpack"]]];
+    NSString *imgRelPath = @"project/Packages/foo.ccbpack/resources-auto/original.png";
+    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.ccbpack"]]];
 
     [self createPNGAtPath:imgRelPath width:20 height:20];
 
@@ -240,8 +240,8 @@
 
 - (void)testCreateCachedImageFromAutoPathWithAssetSpecificScaling
 {
-    NSString *imgRelPath = @"project/Packages/foo.sbpack/resources-auto/original.png";
-    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.sbpack"]]];
+    NSString *imgRelPath = @"project/Packages/foo.ccbpack/resources-auto/original.png";
+    [self setupPackagesWithFullPaths:@[[self fullPathForFile:@"project/Packages/foo.ccbpack"]]];
 
     [self createPNGAtPath:imgRelPath width:5 height:5];
 

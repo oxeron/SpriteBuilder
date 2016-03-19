@@ -2,8 +2,11 @@ NSInteger const DEFAULT_AUDIO_QUALITY = 4;
 
 NSInteger const EFFECTS_MAXIMUM_PER_NODE = 5;
 
-NSString *const PACKAGE_NAME_SUFFIX = @"sbpack";
+NSString *const PACKAGE_NAME_SUFFIX = @"ccbpack";
 NSString *const PACKAGES_FOLDER_NAME = @"Packages";
+
+NSString *const PROJECT_NAME_SUFFIX = @"ccbproj";
+NSString *const FOLDER_NAME_SUFFIX = @"ccbuilder";
 
 NSString *const PNG_PREVIEW_IMAGE_SUFFIX = @"ppng";
 

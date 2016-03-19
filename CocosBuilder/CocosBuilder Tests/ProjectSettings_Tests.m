@@ -218,7 +218,7 @@
       @"fileType":@"CocosBuilderProject",
       @"resourcePaths":@[
          @{
-            @"path":@"packages/CocosBuilder Resources.sbpack"
+            @"path":@"packages/CocosBuilder Resources.ccbpack"
          }
       ],
       @"deviceOrientationLandscapeLeft":@(YES),
@@ -259,7 +259,7 @@
     XCTAssertTrue(project.publishResolution_ios_tablet);
     XCTAssertTrue(project.publishResolution_ios_tablethd);
 
-    [self assertResourcePaths:@[@"packages/CocosBuilder Resources.sbpack"] inProject:project];
+    [self assertResourcePaths:@[@"packages/CocosBuilder Resources.ccbpack"] inProject:project];
 
     XCTAssertEqual(project.publishAudioQuality_ios, 4);
 
@@ -405,13 +405,13 @@
 
 - (void)testRelativePathFromAbsolutePath
 {
-    [_projectSettings addResourcePath:[self fullPathForFile:@"Packages/foo.sbpack"] error:nil];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"Packages/baa.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"Packages/foo.ccbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"Packages/baa.ccbpack"] error:nil];
 
-    NSString *fullPath = [self fullPathForFile:@"Packages/foo.sbpack/sprites/fighter.png"];
+    NSString *fullPath = [self fullPathForFile:@"Packages/foo.ccbpack/sprites/fighter.png"];
     SBAssertStringsEqual([_projectSettings findRelativePathInPackagesForAbsolutePath:fullPath], @"sprites/fighter.png");
 
-    NSString *fullPath2 = [self fullPathForFile:@"Packages/level1.sbpack/sprites/fighter.png"];
+    NSString *fullPath2 = [self fullPathForFile:@"Packages/level1.ccbpack/sprites/fighter.png"];
     XCTAssertNil([_projectSettings findRelativePathInPackagesForAbsolutePath:fullPath2]);
 }
 
@@ -436,16 +436,16 @@
 
 - (void)testMarkAsDirty
 {
-    RMResource *res1 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/foo.png"]];
-    RMResource *res2 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/baa.png"]];
-    RMResource *res3 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/123.png"]];
+    RMResource *res1 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/foo.png"]];
+    RMResource *res2 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/baa.png"]];
+    RMResource *res3 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/123.png"]];
 
     ResourceManager *resourceManager = [ResourceManager sharedManager];
     [resourceManager setActiveDirectoriesWithFullReset:@[
-            [self fullPathForFile:@"project/Packages/package1.sbpack"],
+            [self fullPathForFile:@"project/Packages/package1.ccbpack"],
     ]];
 
-    [_projectSettings addResourcePath:@"project/Packages/package1.sbpack" error:nil];
+    [_projectSettings addResourcePath:@"project/Packages/package1.ccbpack" error:nil];
     [_projectSettings clearAllDirtyMarkers];
 
 
@@ -495,10 +495,10 @@
 
 - (void)testMarkSpriteSheetDirtyIfNewOrRemovedImage
 {
-    NSString *REL_PACKAGE_PATH = @"project/Packages/package1.sbpack";
-    NSString *REL_SPRITESHEET_PATH = @"project/Packages/package1.sbpack/spritesheet";
-    NSString *REL_IMAGE_IN_SPRITESHEET_PATH = @"project/Packages/package1.sbpack/spritesheet/image.png";
-    NSString *REL_IMAGE_NOT_IN_SPRITESHEET_PATH = @"project/Packages/package1.sbpack/image.png";
+    NSString *REL_PACKAGE_PATH = @"project/Packages/package1.ccbpack";
+    NSString *REL_SPRITESHEET_PATH = @"project/Packages/package1.ccbpack/spritesheet";
+    NSString *REL_IMAGE_IN_SPRITESHEET_PATH = @"project/Packages/package1.ccbpack/spritesheet/image.png";
+    NSString *REL_IMAGE_NOT_IN_SPRITESHEET_PATH = @"project/Packages/package1.ccbpack/image.png";
 
     _projectSettings.projectPath = [self fullPathForFile:@"project/abc.ccbproj"];
     [_projectSettings addResourcePath:[self fullPathForFile:REL_PACKAGE_PATH] error:nil];
@@ -574,16 +574,16 @@
 
 - (void)testClearDirtyMarker
 {
-    RMResource *res1 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/foo.png"]];
-    RMResource *res2 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/baa.png"]];
-    RMResource *res3 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.sbpack/123.png"]];
+    RMResource *res1 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/foo.png"]];
+    RMResource *res2 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/baa.png"]];
+    RMResource *res3 = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project/Packages/package1.ccbpack/123.png"]];
 
     ResourceManager *resourceManager = [ResourceManager sharedManager];
     [resourceManager setActiveDirectoriesWithFullReset:@[
-            [self fullPathForFile:@"project/Packages/package1.sbpack"],
+            [self fullPathForFile:@"project/Packages/package1.ccbpack"],
     ]];
 
-    [_projectSettings addResourcePath:@"project/Packages/package1.sbpack" error:nil];
+    [_projectSettings addResourcePath:@"project/Packages/package1.ccbpack" error:nil];
     [_projectSettings clearAllDirtyMarkers];
 
     [_projectSettings markAsDirtyResource:res1];

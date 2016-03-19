@@ -31,29 +31,29 @@
     [super setUp];
 
     self.projectSettings = [[ProjectSettings alloc] init];
-    self.projectSettings.projectPath = [self fullPathForFile:@"foo.cocosbuilder/packagestests.ccbproj"];
+    self.projectSettings.projectPath = [self fullPathForFile:@"foo.ccbuilder/packagestests.ccbproj"];
 
     self.packageCreator = [[PackageCreator alloc] init];
     _packageCreator.projectSettings = _projectSettings;
 
-    [self createFolders:@[@"foo.cocosbuilder/Packages"]];
+    [self createFolders:@[@"foo.ccbuilder/Packages"]];
 }
 
 - (void)testCreatePackageWithName
 {
     NSError *error;
-    SBAssertStringsEqual([_packageCreator createPackageWithName:@"NewPackage" error:&error], [self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"]);
+    SBAssertStringsEqual([_packageCreator createPackageWithName:@"NewPackage" error:&error], [self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"]);
     XCTAssertNil(error, @"Error object should nil");
 
-    [self assertFileExists:@"foo.cocosbuilder/Packages/NewPackage.sbpack"];
-    [self assertFileExists:@"foo.cocosbuilder/Packages/NewPackage.sbpack/Package.plist"];
+    [self assertFileExists:@"foo.ccbuilder/Packages/NewPackage.ccbpack"];
+    [self assertFileExists:@"foo.ccbuilder/Packages/NewPackage.ccbpack/Package.plist"];
 
-    XCTAssertTrue([_projectSettings isResourcePathInProject:[self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"]]);
+    XCTAssertTrue([_projectSettings isResourcePathInProject:[self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"]]);
 }
 
 - (void)testCreatePackageFailsWithPackageAlreadyInProject
 {
-    NSString *fullPackagePath = [self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"];
+    NSString *fullPackagePath = [self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"];
 
     [_projectSettings addResourcePath:fullPackagePath error:nil];
 
@@ -68,7 +68,7 @@
     _fileManagerMock = [OCMockObject niceMockForClass:[NSFileManager class]];
     _packageCreator.fileManager = _fileManagerMock;
 
-    NSString *fullPackagePath = [self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"];
+    NSString *fullPackagePath = [self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"];
 
     NSError *underlyingFileError = [NSError errorWithDomain:SBErrorDomain code:NSFileWriteFileExistsError userInfo:nil];
     [[[_fileManagerMock expect] andReturnValue:@(NO)] createDirectoryAtPath:fullPackagePath
@@ -89,7 +89,7 @@
     _fileManagerMock = [OCMockObject niceMockForClass:[NSFileManager class]];
     _packageCreator.fileManager = _fileManagerMock;
 
-    NSString *fullPackagePath = [self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"];
+    NSString *fullPackagePath = [self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"];
 
     NSError *underlyingFileError = [NSError errorWithDomain:SBErrorDomain code:NSFileWriteNoPermissionError userInfo:nil];
     [[[_fileManagerMock expect] andReturnValue:@(NO)] createDirectoryAtPath:fullPackagePath
@@ -107,9 +107,9 @@
 
 - (void)testCreatablePackageNameWithBaseName
 {
-    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage.sbpack"] error:nil];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.cocosbuilder/Packages/NewPackage 1.sbpack"] error:nil];
-    [self createFolders:@[@"foo.cocosbuilder/Packages/NewPackage 2.sbpack"]];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage.ccbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.ccbuilder/Packages/NewPackage 1.ccbpack"] error:nil];
+    [self createFolders:@[@"foo.ccbuilder/Packages/NewPackage 2.ccbpack"]];
 
     SBAssertStringsEqual(@"NewPackage 3", [_packageCreator creatablePackageNameWithBaseName:@"NewPackage"]);
 }

@@ -25,7 +25,7 @@
 {
     [super setUp];
 
-    NSString *relPathToProjectFile = @"baa/projects/foo.cocosbuilder/foo.ccbproj";
+    NSString *relPathToProjectFile = @"baa/projects/foo.ccbuilder/foo.ccbproj";
     [self createEmptyFiles:@[relPathToProjectFile]];
 
     self.projectSettings = [[ProjectSettings alloc] init];
@@ -42,7 +42,7 @@
 
 - (void)testProjectfolderItselfAtRisk
 {
-    // ../.. translates to /TESTFOLDER/baa/projects/foo.cocosbuilder
+    // ../.. translates to /TESTFOLDER/baa/projects/foo.ccbuilder
     PublishDirectoryDeletionRisk result = [PublishUtil riskForPublishDirectoryBeingDeletedUponPublish:@"."
                                                                                       projectSettings:_projectSettings];
     XCTAssertEqual(PublishDirectoryDeletionRiskDirectoryContainingProject, result);

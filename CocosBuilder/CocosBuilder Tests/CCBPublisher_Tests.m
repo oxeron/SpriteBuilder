@@ -41,11 +41,11 @@
     [super setUp];
 
     self.projectSettings = [[ProjectSettings alloc] init];
-    _projectSettings.projectPath = [self fullPathForFile:@"baa.cocosbuilder/publishtest.ccbproj"];
+    _projectSettings.projectPath = [self fullPathForFile:@"baa.ccbuilder/publishtest.ccbproj"];
     _projectSettings.publishEnabledIOS = YES;
 
     RMPackage *package = [[RMPackage alloc] init];
-    package.dirPath = [self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack"];
+    package.dirPath = [self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"];
     [_projectSettings addResourcePath:package.dirPath error:nil];
 
     SBPackageSettings *packageSettings = [[SBPackageSettings alloc] initWithPackage:package];
@@ -58,28 +58,28 @@
 
     self.targetIOS = [[CCBPublishingTarget alloc] init];
     _targetIOS.osType = kCCBPublisherOSTypeIOS;
-    _targetIOS.inputDirectories = @[[self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack"]];
+    _targetIOS.inputDirectories = @[[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"]];
     _targetIOS.outputDirectory = [self fullPathForFile:@"Published-iOS"];
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
 
-    [self createFolders:@[@"Published-iOS", @"baa.cocosbuilder/Packages/foo.sbpack"]];
+    [self createFolders:@[@"Published-iOS", @"baa.ccbuilder/Packages/foo.ccbpack"]];
 }
 
 - (void)testPublishingProject
 {
     // Language files are just copied
-    [self createEmptyFiles:@[@"baa.cocosbuilder/Packages/foo.sbpack/Strings.ccbLang"]];
-    [self createEmptyFiles:@[@"baa.cocosbuilder/Packages/foo.sbpack/Package.plist"]];
+    [self createEmptyFiles:@[@"baa.ccbuilder/Packages/foo.ccbpack/Strings.ccbLang"]];
+    [self createEmptyFiles:@[@"baa.ccbuilder/Packages/foo.ccbpack/Package.plist"]];
 
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/ccbResources/resources-auto/ccbButtonHighlighted.png"
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/ccbResources/resources-auto/ccbButtonHighlighted.png"
                     width:4
                    height:12];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/ccbResources/resources-auto/ccbButtonHighlighted2.png"
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/ccbResources/resources-auto/ccbButtonHighlighted2.png"
                     width:20
                    height:8];
 
-    [self copyTestingResource:@"blank.wav" toFolder:@"baa.cocosbuilder/Packages/foo.sbpack"];
-    [self copyTestingResource:@"photoshop.psd" toFolder:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto"];
+    [self copyTestingResource:@"blank.wav" toFolder:@"baa.ccbuilder/Packages/foo.ccbpack"];
+    [self copyTestingResource:@"photoshop.psd" toFolder:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto"];
 
     _projectSettings.designTarget = kCCBDesignTargetFixed;
     _projectSettings.defaultOrientation = kCCBOrientationPortrait;
@@ -132,7 +132,7 @@
 
 - (void)testPublishingOfResolutions
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/picture.png" width:4 height:12];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/picture.png" width:4 height:12];
 
     _projectSettings.publishEnabledIOS = YES;
     _projectSettings.publishResolution_ios_tablet = YES;
@@ -152,7 +152,7 @@
 
 - (void)testPublishBMFont
 {
-    [self createEmptyFilesRelativeToDirectory:@"baa.cocosbuilder/Packages/foo.sbpack/test.bmfont" files:@[
+    [self createEmptyFilesRelativeToDirectory:@"baa.ccbuilder/Packages/foo.ccbpack/test.bmfont" files:@[
             @"resources-phone/din.fnt",
             @"resources-phone/din.png",
             @"resources-phonehd/din.fnt",
@@ -191,7 +191,7 @@
                                                                               sequenceId:0];
 
     NSMutableDictionary *doc = [documentCreator createData];
-    [doc writeToFile:[self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack/mainScene.ccb"] atomically:YES];
+    [doc writeToFile:[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack/mainScene.ccb"] atomically:YES];
 
     [_publisher addPublishingTarget:_targetIOS];
     [_publisher start];
@@ -201,10 +201,10 @@
 
 - (void)testCustomScalingFactorsForImages
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/rocket.png" width:4 height:20];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/rocket.png" width:4 height:20];
 
     // Overriden resolution for tablet hd
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-tablethd/rocket.png" width:3 height:17];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-tablethd/rocket.png" width:3 height:17];
 
     _projectSettings.resourceAutoScaleFactor = 4;
     [_projectSettings setProperty:@1 forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_IMAGE_SCALE_FROM];
@@ -222,8 +222,8 @@
 
 - (void)testDifferentOutputFormatsForIOS
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/rocket.png" width:4 height:20];
-    [self copyTestingResource:@"blank.wav" toFolder:@"baa.cocosbuilder/Packages/foo.sbpack"];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/rocket.png" width:4 height:20];
+    [self copyTestingResource:@"blank.wav" toFolder:@"baa.ccbuilder/Packages/foo.ccbpack"];
 
     _projectSettings.resourceAutoScaleFactor = 4;
 
@@ -243,7 +243,7 @@
 
     [self assertFileExists:@"Published-iOS/blank.m4a"];
 
-    NSData *wavData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack/blank.wav"]];
+    NSData *wavData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack/blank.wav"]];
     NSData *m4aData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"Published-iOS/blank.m4a"]];
     XCTAssertNotNil(wavData, @"wav data must not be nil");
     XCTAssertNotNil(m4aData, @"m4a data must not be nil");
@@ -252,11 +252,11 @@
 
 - (void)testSpriteSheets
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/paper.png" width:12 height:12 color:[NSColor whiteColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/shotgun.png" width:4 height:12 color:[NSColor blackColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/sword.png" width:4 height:12 color:[NSColor yellowColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/paper.png" width:12 height:12 color:[NSColor whiteColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/shotgun.png" width:4 height:12 color:[NSColor blackColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/sword.png" width:4 height:12 color:[NSColor yellowColor]];
 
     _projectSettings.resourceAutoScaleFactor = 4;
     [_projectSettings setProperty:@(YES) forRelPath:@"sheet" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
@@ -276,7 +276,7 @@
     [self assertPNGAtPath:@"Published-iOS/resources-phonehd/sheet.png" hasWidth:16 hasHeight:16];
 
     // Previews are generated in texture packer
-    [self assertFileExists:@"baa.cocosbuilder/Packages/foo.sbpack/sheet.ppng"];
+    [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/sheet.ppng"];
 
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
@@ -284,8 +284,8 @@
 
 - (void)testSpriteSheetsFileLookup
 {
-    [self copyTestingResource:@"photoshop.psd" toRelPath:@"baa.cocosbuilder/Packages/foo.sbpack/sub1/sheet1/resources-auto/rock.psd"];
-    [self copyTestingResource:@"photoshop.psd" toRelPath:@"baa.cocosbuilder/Packages/foo.sbpack/sub2/sheet2/resources-auto/scissors.psd"];
+    [self copyTestingResource:@"photoshop.psd" toRelPath:@"baa.ccbuilder/Packages/foo.ccbpack/sub1/sheet1/resources-auto/rock.psd"];
+    [self copyTestingResource:@"photoshop.psd" toRelPath:@"baa.ccbuilder/Packages/foo.ccbpack/sub2/sheet2/resources-auto/scissors.psd"];
     
     _projectSettings.publishResolution_ios_phone = YES;
     _projectSettings.publishResolution_ios_phonehd = NO;
@@ -307,8 +307,8 @@
         [self assertFileExists:@"Published-iOS/sub2/resources-phone/sheet2.png"];
         [self assertFileExists:@"Published-iOS/fileLookup.plist"];
 
-        [self assertFileDoesNotExist:@"baa.cocosbuilder/Packages/foo.sbpack/sub1/sheet1/intermediateFileLookup.plist"];
-        [self assertFileDoesNotExist:@"baa.cocosbuilder/Packages/foo.sbpack/sub2/sheet2/intermediateFileLookup.plist"];
+        [self assertFileDoesNotExist:@"baa.ccbuilder/Packages/foo.ccbpack/sub1/sheet1/intermediateFileLookup.plist"];
+        [self assertFileDoesNotExist:@"baa.ccbuilder/Packages/foo.ccbpack/sub2/sheet2/intermediateFileLookup.plist"];
 
         [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"sub1/sheet1/rock.psd" renamedName:@"sub1/sheet1/rock.png"];
         [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"sub2/sheet2/scissors.psd" renamedName:@"sub2/sheet2/scissors.png"];
@@ -324,11 +324,11 @@
 
 - (void)testSpriteSheetOutputPVRRGBA88888AndPVRTC
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/pvr/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/pvr/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/pvr/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/pvr/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
 
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/pvrtc/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/pvrtc/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/pvrtc/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/pvrtc/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
 
     _projectSettings.resourceAutoScaleFactor = 4;
     _projectSettings.publishResolution_ios_phonehd = YES;
@@ -349,11 +349,11 @@
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvr.plist"];
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvr.pvr"];
     // Previews are generated in texture packer
-    [self assertFileExists:@"baa.cocosbuilder/Packages/foo.sbpack/pvr.ppng"];
+    [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/pvr.ppng"];
 
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvrtc.plist"];
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvrtc.pvr"];
-    [self assertFileExists:@"baa.cocosbuilder/Packages/foo.sbpack/pvrtc.ppng"];
+    [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/pvrtc.ppng"];
 
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"pvr.plist"];
@@ -362,7 +362,7 @@
 
 - (void)testRepublishingWithoutCleaningCache
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/sheet/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
     [_projectSettings setProperty:@(YES) forRelPath:@"sheet" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
     _targetIOS.resolutions = @[RESOLUTION_TABLET];
 
@@ -376,15 +376,15 @@
             @"sheet.png"
     ]];
 
-    [self assertFileExists:@"baa.cocosbuilder/Packages/foo.sbpack/sheet.ppng"];
+    [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/sheet.ppng"];
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
 }
 
 - (void)testGreyscaleImagePublishing
 {
-    [self createFolders:@[@"baa.cocosbuilder/Packages/foo.sbpack/images/resources-auto"]];
-    [self copyTestingResource:@"greyscale.png" toFolder:@"baa.cocosbuilder/Packages/foo.sbpack/images/resources-auto"];
+    [self createFolders:@[@"baa.ccbuilder/Packages/foo.ccbpack/images/resources-auto"]];
+    [self copyTestingResource:@"greyscale.png" toFolder:@"baa.ccbuilder/Packages/foo.ccbpack/images/resources-auto"];
 
     _projectSettings.designTarget = kCCBDesignTargetFixed;
     _projectSettings.defaultOrientation = kCCBOrientationPortrait;

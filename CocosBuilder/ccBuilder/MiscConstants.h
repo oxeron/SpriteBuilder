@@ -5,6 +5,9 @@ extern NSInteger const EFFECTS_MAXIMUM_PER_NODE;
 extern NSString *const PACKAGE_NAME_SUFFIX;
 extern NSString *const PACKAGES_FOLDER_NAME;
 
+extern NSString *const PROJECT_NAME_SUFFIX;
+extern NSString *const FOLDER_NAME_SUFFIX;
+
 extern NSString *const PNG_PREVIEW_IMAGE_SUFFIX;
 
 extern NSString *const INTERMEDIATE_FILE_LOOKUP_NAME;

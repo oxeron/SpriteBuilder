@@ -54,7 +54,7 @@
 	<array>
 		<dict>
 			<key>path</key>
-			<string>Packages/CocosBuilder Resources.sbpack</string>
+			<string>Packages/CocosBuilder Resources.ccbpack</string>
 		</dict>
 	</array>
 	<key>resourceProperties</key>

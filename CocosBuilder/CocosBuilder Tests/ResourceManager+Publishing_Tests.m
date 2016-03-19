@@ -34,23 +34,23 @@
     // Note: Do not invoke this after creating directories, else weird things will happen
     // I guess due to path watchers being added
     [_resourceManager setActiveDirectoriesWithFullReset:@[
-            [self fullPathForFile:@"foo.cocosbuilder/Packages/package1.sbpack"],
-            [self fullPathForFile:@"foo.cocosbuilder/Packages/package2.sbpack"],
-            [self fullPathForFile:@"foo.cocosbuilder/resources"]
+            [self fullPathForFile:@"foo.ccbuilder/Packages/package1.ccbpack"],
+            [self fullPathForFile:@"foo.ccbuilder/Packages/package2.ccbpack"],
+            [self fullPathForFile:@"foo.ccbuilder/resources"]
     ]];
 
     [self createFolders:@[
-            @"foo.cocosbuilder/Packages/package1.sbpack",
-            @"foo.cocosbuilder/Packages/package2.sbpack",
-            @"foo.cocosbuilder/resources"]];
+            @"foo.ccbuilder/Packages/package1.ccbpack",
+            @"foo.ccbuilder/Packages/package2.ccbpack",
+            @"foo.ccbuilder/resources"]];
 
     RMPackage *package1 = [[RMPackage alloc] init];
-    package1.dirPath = [self fullPathForFile:@"foo.cocosbuilder/Packages/package1.sbpack"];
+    package1.dirPath = [self fullPathForFile:@"foo.ccbuilder/Packages/package1.ccbpack"];
     SBPackageSettings *packagePublishSettings1 = [[SBPackageSettings alloc] initWithPackage:package1];
     [packagePublishSettings1 store];
 
     RMPackage *package2 = [[RMPackage alloc] init];
-    package2.dirPath = [self fullPathForFile:@"foo.cocosbuilder/Packages/package2.sbpack"];
+    package2.dirPath = [self fullPathForFile:@"foo.ccbuilder/Packages/package2.ccbpack"];
     SBPackageSettings *packagePublishSettings2 = [[SBPackageSettings alloc] initWithPackage:package2];
     [packagePublishSettings2 store];
 }

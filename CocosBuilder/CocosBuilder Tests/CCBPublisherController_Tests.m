@@ -33,7 +33,7 @@
     [super setUp];
 
     self.projectSettings = [[ProjectSettings alloc] init];
-    _projectSettings.projectPath = [self fullPathForFile:@"baa.cocosbuilder/publishtest.ccbproj"];
+    _projectSettings.projectPath = [self fullPathForFile:@"baa.ccbuilder/publishtest.ccbproj"];
     _projectSettings.publishDirectory = @"../Published-iOS";
 
     self.publisherController = [[CCBPublisherController alloc] init];
@@ -52,10 +52,10 @@
 
 - (void)configureSinglePackagePublishSettingCase
 {
-    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"] error:nil];
 
     self.package = [[RMPackage alloc] init];
-    _package.dirPath = [self fullPathForFile:@"baa.cocosbuilder/Packages/foo.sbpack"];
+    _package.dirPath = [self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"];
 
     self.packageSettings = [[SBPackageSettings alloc] initWithPackage:_package];
     _packageSettings.publishToCustomOutputDirectory = NO;
@@ -66,7 +66,7 @@
     iosSettings.resolution_tablethd = YES;
     iosSettings.resolution_phone = YES;
 
-    [self createFolders:@[@"baa.cocosbuilder/Packages/foo.sbpack"]];
+    [self createFolders:@[@"baa.ccbuilder/Packages/foo.ccbpack"]];
 
     _publisherController.packageSettings = @[_packageSettings];
 }
@@ -75,14 +75,14 @@
 {
     [self configureSinglePackagePublishSettingCase];
 
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/plane.png" width:10 height:2];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/plane.png" width:10 height:2];
 
     [_publisherController startAsync:NO];
 
     [self assertFileDoesNotExist:@"Published-Packages/foo-iOS-tablethd"];
     [self assertFileDoesNotExist:@"Published-Packages/foo-iOS-phone"];
 
-    [self assertFilesExistRelativeToDirectory:[@"baa.cocosbuilder" stringByAppendingPathComponent:DEFAULT_OUTPUTDIR_PUBLISHED_PACKAGES] filesPaths:@[
+    [self assertFilesExistRelativeToDirectory:[@"baa.ccbuilder" stringByAppendingPathComponent:DEFAULT_OUTPUTDIR_PUBLISHED_PACKAGES] filesPaths:@[
             @"foo-iOS-tablethd.zip",
             @"foo-iOS-phone.zip"
     ]];
@@ -97,14 +97,14 @@
     _packageSettings.publishToZip = NO;
     _packageSettings.publishToMainProject = YES;
 
-    [self createPNGAtPath:@"baa.cocosbuilder/OldResourcePath/resources-auto/sun.png" width:4 height:4];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.cocosbuilder/OldResourcePath"] error:nil];
+    [self createPNGAtPath:@"baa.ccbuilder/OldResourcePath/resources-auto/sun.png" width:4 height:4];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/OldResourcePath"] error:nil];
 
     RMDirectory *oldResourcePath = [[RMDirectory alloc] init];
-    oldResourcePath.dirPath = [self fullPathForFile:@"baa.cocosbuilder/OldResourcePath"];
+    oldResourcePath.dirPath = [self fullPathForFile:@"baa.ccbuilder/OldResourcePath"];
     _publisherController.oldResourcePaths = @[oldResourcePath];
 
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/plane.png" width:10 height:2];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/plane.png" width:10 height:2];
 
 
     [_publisherController startAsync:NO];
@@ -114,7 +114,7 @@
 {
     [self configureSinglePackagePublishSettingCase];
 
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/foo.sbpack/resources-auto/plane.png" width:10 height:2];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/resources-auto/plane.png" width:10 height:2];
 
     _packageSettings.publishToCustomOutputDirectory = YES;
     _packageSettings.customOutputDirectory = @"../custom";
@@ -132,24 +132,24 @@
 
 - (void)testPublishMainProjectWithSomePackagesNotIncluded
 {
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/Menus.sbpack/resources-auto/button.png" width:4 height:4];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/Characters.sbpack/resources-auto/hero.png" width:4 height:4];
-    [self createPNGAtPath:@"baa.cocosbuilder/Packages/Backgrounds.sbpack/resources-auto/desert.png" width:4 height:4];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/Menus.ccbpack/resources-auto/button.png" width:4 height:4];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/Characters.ccbpack/resources-auto/hero.png" width:4 height:4];
+    [self createPNGAtPath:@"baa.ccbuilder/Packages/Backgrounds.ccbpack/resources-auto/desert.png" width:4 height:4];
 
-    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.cocosbuilder/Packages/Menus.sbpack"] error:nil];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.cocosbuilder/Packages/Characters.sbpack"] error:nil];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.cocosbuilder/Packages/Backgrounds.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/Menus.ccbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/Characters.ccbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/Backgrounds.ccbpack"] error:nil];
     _projectSettings.publishEnabledIOS = YES;
 
-    SBPackageSettings *packageSettingsMenus = [self createSettingsWithPath:@"baa.cocosbuilder/Packages/Menus.sbpack"];
+    SBPackageSettings *packageSettingsMenus = [self createSettingsWithPath:@"baa.ccbuilder/Packages/Menus.ccbpack"];
     packageSettingsMenus.publishToMainProject = NO;
     packageSettingsMenus.publishToZip = NO;
 
-    SBPackageSettings *packageSettingsCharacters = [self createSettingsWithPath:@"baa.cocosbuilder/Packages/Characters.sbpack"];
+    SBPackageSettings *packageSettingsCharacters = [self createSettingsWithPath:@"baa.ccbuilder/Packages/Characters.ccbpack"];
     packageSettingsCharacters.publishToMainProject = YES;
     packageSettingsCharacters.publishToZip = NO;
 
-    SBPackageSettings *packageSettingsBackgrounds = [self createSettingsWithPath:@"baa.cocosbuilder/Packages/Backgrounds.sbpack"];
+    SBPackageSettings *packageSettingsBackgrounds = [self createSettingsWithPath:@"baa.ccbuilder/Packages/Backgrounds.ccbpack"];
     packageSettingsBackgrounds.publishToMainProject = YES;
     packageSettingsBackgrounds.publishToZip = NO;
 

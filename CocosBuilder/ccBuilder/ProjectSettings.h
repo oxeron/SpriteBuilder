@@ -56,10 +56,10 @@ typedef NS_ENUM(int8_t, CCBProgrammingLanguage)
 
 @interface ProjectSettings : NSObject
 
-// Full path to the project file, e.g. /foo/baa.cocosbuilder/baa.ccbproj
+// Full path to the project file, e.g. /foo/baa.ccbuilder/baa.ccbproj
 @property (nonatomic, copy) NSString* projectPath;
 
-// Full path to the project's root folder, according to -projectPath example: /foo/baa.cocosbuilder/
+// Full path to the project's root folder, according to -projectPath example: /foo/baa.ccbuilder/
 @property (nonatomic, readonly) NSString* projectPathDir;
 
 @property (nonatomic, strong, readonly) NSArray *allResourcesRelativePaths;
@@ -173,8 +173,8 @@ typedef NS_ENUM(int8_t, CCBProgrammingLanguage)
 - (NSDictionary *)getVersionDictionary;
 
 // Tries to find the relative path among all packages for a given absolute path
-// Example: "/foo/Packages/baa.sbpack" as available packages and absolutePath given is
-// "/foo/Packages/baa.sbpack/level1/sprites/fighter.png" will result in "level1/sprites/fighter.png"
+// Example: "/foo/Packages/baa.ccbpack" as available packages and absolutePath given is
+// "/foo/Packages/baa.ccbpack/level1/sprites/fighter.png" will result in "level1/sprites/fighter.png"
 // If no package include the given absolutePath nil is returned
 - (NSString *)findRelativePathInPackagesForAbsolutePath:(NSString *)absolutePath;
 

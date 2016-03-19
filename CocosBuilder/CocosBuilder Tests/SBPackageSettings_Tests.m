@@ -30,11 +30,11 @@
     [super setUp];
 
     self.package = [[RMPackage alloc] init];
-    _package.dirPath = [self fullPathForFile:@"/foo/project.cocosbuilder/Packages/mypackage.sbpack"];
+    _package.dirPath = [self fullPathForFile:@"/foo/project.cocosbuilder/Packages/mypackage.ccbpack"];
 
     self.packagePublishSettings = [[SBPackageSettings alloc] initWithPackage:_package];
 
-    [self createFolders:@[@"/foo/project.cocosbuilder/Packages/mypackage.sbpack"]];
+    [self createFolders:@[@"/foo/project.cocosbuilder/Packages/mypackage.ccbpack"]];
 }
 
 - (void)testInitialValuesAndKVCPaths
@@ -66,7 +66,7 @@
 
     [_packagePublishSettings store];
 
-    [self assertFileExists:@"/foo/project.cocosbuilder/Packages/mypackage.sbpack/Package.plist"];
+    [self assertFileExists:@"/foo/project.cocosbuilder/Packages/mypackage.ccbpack/Package.plist"];
 
 
     SBPackageSettings *settingsLoaded = [[SBPackageSettings alloc] initWithPackage:_package];
@@ -95,7 +95,7 @@
             @"publishToZip" : @NO
     };
 
-    [values writeToFile:[self fullPathForFile:@"/foo/project.cocosbuilder/Packages/mypackage.sbpack/Package.plist"] atomically:YES];
+    [values writeToFile:[self fullPathForFile:@"/foo/project.cocosbuilder/Packages/mypackage.ccbpack/Package.plist"] atomically:YES];
 
     [_packagePublishSettings load];
 

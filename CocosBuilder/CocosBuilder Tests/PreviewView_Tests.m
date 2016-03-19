@@ -41,13 +41,13 @@
 
     self.projectSettings = [[ProjectSettings alloc] init];
     _projectSettings.projectPath = [self fullPathForFile:@"project.cocosbuilder/abc.ccbproj"];
-    [_projectSettings addResourcePath:[self fullPathForFile:@"project.cocosbuilder/Packages/foo.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"project.cocosbuilder/Packages/foo.ccbpack"] error:nil];
     [_projectSettings clearAllDirtyMarkers];
 
     self.resourceManager = [ResourceManager sharedManager];
-    [_resourceManager setActiveDirectoriesWithFullReset:@[[self fullPathForFile:@"project.cocosbuilder/Packages/foo.sbpack"]]];
+    [_resourceManager setActiveDirectoriesWithFullReset:@[[self fullPathForFile:@"project.cocosbuilder/Packages/foo.ccbpack"]]];
 
-    self.resource = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project.cocosbuilder/Packages/foo.sbpack/background.png"]];
+    self.resource = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"project.cocosbuilder/Packages/foo.ccbpack/background.png"]];
     
     self.previewImageViewController = [[PreviewImageViewController alloc] initWithNibName:@"PreviewImageView" bundle:nil];
     self.previewAudioViewController = [[PreviewAudioViewController alloc] initWithNibName:@"PreviewAudioView" bundle:nil];

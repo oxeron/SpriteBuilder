@@ -7,7 +7,7 @@
 		<string>en</string>
 	</array>
 	<key>fileType</key>
-	<string>SpriteBuilderTranslations</string>
+	<string>CocosBuilderTranslations</string>
 	<key>fileVersion</key>
 	<integer>1</integer>
 	<key>translations</key>

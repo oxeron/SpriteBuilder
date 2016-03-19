@@ -32,22 +32,22 @@
     self.projectSettings = [[ProjectSettings alloc] init];
 
     self.directory = [[RMDirectory alloc] init];
-    _directory.dirPath = [self fullPathForFile:@"foo.cocosbuilder/packages/baa.sbpack/folder"];
+    _directory.dirPath = [self fullPathForFile:@"foo.ccbuilder/packages/baa.ccbpack/folder"];
     _directory.projectSettings = _projectSettings;
 
     self.resourceManager = [ResourceManager sharedManager];
     [_resourceManager setActiveDirectoriesWithFullReset:@[
-            [self fullPathForFile:@"foo.cocosbuilder/packages/baa.sbpack"],
+            [self fullPathForFile:@"foo.ccbuilder/packages/baa.ccbpack"],
     ]];
 }
 
 - (void)testIsDynamicSpriteSheet
 {
-    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"foo.cocosbuilder/packages/baa.sbpack/folder"]];
+    RMResource *spriteSheet = [[RMResource alloc] initWithFilePath:[self fullPathForFile:@"foo.ccbuilder/packages/baa.ccbpack/folder"]];
     spriteSheet.type = kCCBResTypeDirectory;
     spriteSheet.data = _directory;
 
-    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.cocosbuilder/packages/baa.sbpack"] error:nil];
+    [_projectSettings addResourcePath:[self fullPathForFile:@"foo.ccbuilder/packages/baa.ccbpack"] error:nil];
     [_projectSettings makeSmartSpriteSheet:spriteSheet];
 
     XCTAssertTrue([_directory isDynamicSpriteSheet]);

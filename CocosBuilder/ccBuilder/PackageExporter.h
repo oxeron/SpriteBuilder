@@ -8,12 +8,12 @@
 @property (nonatomic, weak) NSFileManager *fileManager;
 
 // Returns the full path for an export of a package to a directory path
-// Example: package.name is SuperPackage toPath is /foo/baa the export will be at /foo/baa/SuperPackage.sbpack
+// Example: package.name is SuperPackage toPath is /foo/baa the export will be at /foo/baa/SuperPackage.ccbpack
 - (NSString *)exportPathForPackage:(RMPackage *)package toDirectoryPath:(NSString *)toDirectoryPath;
 
 // Copies the package to a given path, the path exclude the packages name+extension.
 // Returns NO if an error occured, check error object.
-// Example: package.name is SuperPackage toDirectoryPath is /foo/baa the export will be at /foo/baa/SuperPackage.sbpack
+// Example: package.name is SuperPackage toDirectoryPath is /foo/baa the export will be at /foo/baa/SuperPackage.ccbpack
 - (BOOL)exportPackage:(RMPackage *)package toDirectoryPath:(NSString *)toDirectoryPath error:(NSError **)error;
 
 @end

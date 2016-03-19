@@ -108,7 +108,7 @@
 {
     [self createEmptyFiles:@[@"sprites/asset.png"]];
 
-    [self createEmptyFiles:@[@"Packages/sprites.sbpack/smiley.png"]];
+    [self createEmptyFiles:@[@"Packages/sprites.ccbpack/smiley.png"]];
 
     [self setProjectsResourcePaths:@[@"sprites"]];
 

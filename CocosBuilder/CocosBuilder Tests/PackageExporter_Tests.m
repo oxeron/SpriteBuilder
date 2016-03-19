@@ -60,7 +60,7 @@
 
     NSString *toPath = @"/foo";
     RMPackage *package = [[RMPackage alloc] init];
-    package.dirPath = @"/baa/superpackage.sbpack";
+    package.dirPath = @"/baa/superpackage.ccbpack";
     NSString *expectedCopyToPath = [@"/foo/superpackage" stringByAppendingPackageSuffix];
 
     [[[mockFileManager expect] andReturnValue:@(NO)] fileExistsAtPath:expectedCopyToPath];
@@ -94,9 +94,9 @@
 - (void)testExportPath
 {
     RMPackage *package = [[RMPackage alloc] init];
-    package.dirPath = @"/baa/superpackage.sbpack";
+    package.dirPath = @"/baa/superpackage.ccbpack";
 
-    SBAssertStringsEqual([_packageExporter exportPathForPackage:package toDirectoryPath:@"/foo/exporthere"], @"/foo/exporthere/superpackage.sbpack");
+    SBAssertStringsEqual([_packageExporter exportPathForPackage:package toDirectoryPath:@"/foo/exporthere"], @"/foo/exporthere/superpackage.ccbpack");
 }
 
 @end

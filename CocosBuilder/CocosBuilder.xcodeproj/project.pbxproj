@@ -25,8 +25,6 @@
 		5BA3DC36192110BA0055DD96 /* GuideGridSizeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3DC31192108AB0055DD96 /* GuideGridSizeWindow.xib */; };
 		5BB9A3551A038C59008184AE /* ResourceDuplicateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A3541A038C59008184AE /* ResourceDuplicateCommand.m */; };
 		5BBEC3601A011D8D00FBA08B /* InspectorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBEC35F1A011D8D00FBA08B /* InspectorTextView.m */; };
-		77055FB513D0E5CA009DD63A /* logo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77055FB313D0E5CA009DD63A /* logo-icon.png */; };
-		77055FB613D0E5CA009DD63A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 77055FB413D0E5CA009DD63A /* logo.png */; };
 		77156DB1137F0351005EF746 /* CCBSpriteSheetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 77156DB0137F0351005EF746 /* CCBSpriteSheetParser.m */; };
 		771B2B321353818200B260BA /* NewDocWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B2B311353818000B260BA /* NewDocWindowController.m */; };
 		7729F03A1390215400CAA44F /* frame-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7729F0391390215400CAA44F /* frame-iphone.png */; };
@@ -61,7 +59,6 @@
 		776C68451385D37E00153214 /* CCBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 776C68441385D37D00153214 /* CCBTableView.m */; };
 		776C68911388107400153214 /* missing-font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 776C688F1388107400153214 /* missing-font.fnt */; };
 		776C68921388107400153214 /* missing-font.png in Resources */ = {isa = PBXBuildFile; fileRef = 776C68901388107400153214 /* missing-font.png */; };
-		776C6896138874C200153214 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 776C6895138874C200153214 /* dsa_pub.pem */; };
 		7789ABC3133AA82000CEFCC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789ABC2133AA82000CEFCC7 /* Cocoa.framework */; };
 		7789ABCD133AA82000CEFCC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7789ABCB133AA82000CEFCC7 /* InfoPlist.strings */; };
 		7789ABD0133AA82000CEFCC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7789ABCF133AA82000CEFCC7 /* main.m */; };
@@ -153,7 +150,6 @@
 		83DC65EA18D898D50028EF72 /* SBUserDefaultsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DC65E918D898D50028EF72 /* SBUserDefaultsKeys.m */; };
 		83EDACF5193DB70200327B86 /* ProjectSettings_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83993DA81935D6EC001C228B /* ProjectSettings_Tests.m */; };
 		83EDACF9193DC99100327B86 /* Features.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EDACF8193DC99100327B86 /* Features.plist */; };
-		83F3C9621A4229DB003D8659 /* OpenPaths.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 83F3C9611A4229DB003D8659 /* OpenPaths.scpt */; };
 		83F3C9721A422C0E003D8659 /* notes-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F3C96F1A422C0E003D8659 /* notes-bg@2x.png */; };
 		83F3C9731A422C0E003D8659 /* notes-close-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F3C9701A422C0E003D8659 /* notes-close-down@2x.png */; };
 		83F3C9741A422C0E003D8659 /* notes-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F3C9711A422C0E003D8659 /* notes-close@2x.png */; };
@@ -1052,13 +1048,6 @@
 		FF9398A51C8CCFD400D424C7 /* test_ccbreader_slider.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A01C8CCFD400D424C7 /* test_ccbreader_slider.ccb */; };
 		FF9398A61C8CCFD400D424C7 /* test_ccbreader_subfile.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398A11C8CCFD400D424C7 /* test_ccbreader_subfile.ccb */; };
 		FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */; };
-		FF9398D21C8D5FA700D424C7 /* Version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D11C8D5FA700D424C7 /* Version.xcconfig */; };
-		FF9398D51C8D606100D424C7 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D41C8D606100D424C7 /* Rakefile */; };
-		FF9398D91C8D607C00D424C7 /* circle.yml in Resources */ = {isa = PBXBuildFile; fileRef = FF9398D81C8D607C00D424C7 /* circle.yml */; };
-		FF9DA9C31C8D79900034F4C6 /* build_distribution.py in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */; };
-		FF9DA9C41C8D79900034F4C6 /* CodeSign-local.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */; };
-		FF9DA9C51C8D79900034F4C6 /* CodeSign-pkg.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */; };
-		FF9DA9C61C8D79900034F4C6 /* CodeSign.sh in Resources */ = {isa = PBXBuildFile; fileRef = FF9DA9C21C8D79900034F4C6 /* CodeSign.sh */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689BF1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689BE1C8B7E6D009B3F5B /* SecurityScopedBookmarksStore.m */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
@@ -1341,8 +1330,6 @@
 		5BB9A3541A038C59008184AE /* ResourceDuplicateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDuplicateCommand.m; sourceTree = "<group>"; };
 		5BBEC35E1A011D8D00FBA08B /* InspectorTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorTextView.h; sourceTree = "<group>"; };
 		5BBEC35F1A011D8D00FBA08B /* InspectorTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectorTextView.m; sourceTree = "<group>"; };
-		77055FB313D0E5CA009DD63A /* logo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-icon.png"; sourceTree = "<group>"; };
-		77055FB413D0E5CA009DD63A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		77156DAF137F0351005EF746 /* CCBSpriteSheetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSpriteSheetParser.h; sourceTree = "<group>"; };
 		77156DB0137F0351005EF746 /* CCBSpriteSheetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBSpriteSheetParser.m; sourceTree = "<group>"; };
 		771B2B301353818000B260BA /* NewDocWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDocWindowController.h; sourceTree = "<group>"; };
@@ -1388,7 +1375,6 @@
 		776C68441385D37D00153214 /* CCBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBTableView.m; sourceTree = "<group>"; };
 		776C688F1388107400153214 /* missing-font.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "missing-font.fnt"; sourceTree = "<group>"; };
 		776C68901388107400153214 /* missing-font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missing-font.png"; sourceTree = "<group>"; };
-		776C6895138874C200153214 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		7789ABBE133AA82000CEFCC7 /* CocosBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocosBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7789ABC2133AA82000CEFCC7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7789ABC5133AA82000CEFCC7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1676,12 +1662,12 @@
 		92053DB3197F096000AA93AD /* EffectBloomControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EffectBloomControl.m; path = ccBuilder/EffectBloomControl.m; sourceTree = "<group>"; };
 		92053DB7197F097F00AA93AD /* effect-bloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "effect-bloom.png"; path = "Resources/effect-bloom.png"; sourceTree = "<group>"; };
 		920994BA19870EC40006F38D /* CCBReader_EffectsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader_EffectsTest.m; sourceTree = "<group>"; };
-		920994BD19870EF90006F38D /* EffectTest1.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EffectTest1.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/EffectTest1.ccb"; sourceTree = "<group>"; };
-		920994BE19870EF90006F38D /* cartoon_house.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cartoon_house.jpg; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/ccbResources/resources-auto/cartoon_house.jpg"; sourceTree = "<group>"; };
-		920994BF19870EF90006F38D /* ShinyBallColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShinyBallColor.png; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/ccbResources/resources-auto/ShinyBallColor.png"; sourceTree = "<group>"; };
-		920994C019870EF90006F38D /* ShinyBallNormals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShinyBallNormals.png; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/ccbResources/resources-auto/ShinyBallNormals.png"; sourceTree = "<group>"; };
-		920994C519870F3D0006F38D /* Cocos2dTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cocos2dTestHelpers.h; path = CocosBuilderTestProject.cocosbuilder/Cocos2dTestHelpers.h; sourceTree = "<group>"; };
-		920994C619870F3D0006F38D /* Cocos2dTestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cocos2dTestHelpers.m; path = CocosBuilderTestProject.cocosbuilder/Cocos2dTestHelpers.m; sourceTree = "<group>"; };
+		920994BD19870EF90006F38D /* EffectTest1.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EffectTest1.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/EffectTest1.ccb"; sourceTree = "<group>"; };
+		920994BE19870EF90006F38D /* cartoon_house.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cartoon_house.jpg; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/ccbResources/resources-auto/cartoon_house.jpg"; sourceTree = "<group>"; };
+		920994BF19870EF90006F38D /* ShinyBallColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShinyBallColor.png; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/ccbResources/resources-auto/ShinyBallColor.png"; sourceTree = "<group>"; };
+		920994C019870EF90006F38D /* ShinyBallNormals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShinyBallNormals.png; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/ccbResources/resources-auto/ShinyBallNormals.png"; sourceTree = "<group>"; };
+		920994C519870F3D0006F38D /* Cocos2dTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cocos2dTestHelpers.h; path = CocosBuilderTestProject.ccbuilder/Cocos2dTestHelpers.h; sourceTree = "<group>"; };
+		920994C619870F3D0006F38D /* Cocos2dTestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cocos2dTestHelpers.m; path = CocosBuilderTestProject.ccbuilder/Cocos2dTestHelpers.m; sourceTree = "<group>"; };
 		920994CA198717910006F38D /* CCBPEffectGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBPEffectGlass.h; path = ccBuilder/CCBPEffectGlass.h; sourceTree = "<group>"; };
 		920994CB198717910006F38D /* CCBPEffectGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CCBPEffectGlass.m; path = ccBuilder/CCBPEffectGlass.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		920994CD198717D20006F38D /* EffectGlassControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EffectGlassControl.h; path = ccBuilder/EffectGlassControl.h; sourceTree = "<group>"; };
@@ -1742,8 +1728,8 @@
 		921EEADF18A5884300D864C2 /* SequencerJoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerJoints.m; sourceTree = "<group>"; };
 		921EEB2218ADB7EA00D864C2 /* GeometryUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryUtil.h; sourceTree = "<group>"; };
 		921EEB2318ADB7EA00D864C2 /* GeometryUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryUtil.m; sourceTree = "<group>"; };
-		922CC395194676B600B34854 /* AnimationTest1.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest1.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/AnimationTest1.ccb"; sourceTree = "<group>"; };
-		922CC3971946873A00B34854 /* AnimationTest2.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest2.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/AnimationTest2.ccb"; sourceTree = "<group>"; };
+		922CC395194676B600B34854 /* AnimationTest1.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest1.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/AnimationTest1.ccb"; sourceTree = "<group>"; };
+		922CC3971946873A00B34854 /* AnimationTest2.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest2.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/AnimationTest2.ccb"; sourceTree = "<group>"; };
 		922E8EFC18C13666008E1764 /* OutletDrawWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutletDrawWindow.h; path = ccBuilder/OutletDrawWindow.h; sourceTree = SOURCE_ROOT; };
 		922E8EFD18C13666008E1764 /* OutletDrawWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutletDrawWindow.m; path = ccBuilder/OutletDrawWindow.m; sourceTree = SOURCE_ROOT; };
 		922EAC451958F41E006F2D75 /* CCBPEffectBrightness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBPEffectBrightness.h; path = ccBuilder/CCBPEffectBrightness.h; sourceTree = "<group>"; };
@@ -1879,9 +1865,9 @@
 		92F0961318F8855A00D47A94 /* inspector-body-goto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inspector-body-goto.png"; sourceTree = "<group>"; };
 		92F0961418F8855A00D47A94 /* inspector-body-goto-hi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inspector-body-goto-hi@2x.png"; sourceTree = "<group>"; };
 		92F0961518F8855A00D47A94 /* inspector-body-goto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inspector-body-goto@2x.png"; sourceTree = "<group>"; };
-		92F85F33194F6AD80076B343 /* AnimationTest3.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest3.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/AnimationTest3.ccb"; sourceTree = "<group>"; };
-		92F85F36194F70CA0076B343 /* AnimationTest4.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest4.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/AnimationTest4.ccb"; sourceTree = "<group>"; };
-		92F85F3B194F8A4A0076B343 /* AnimationTest5.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest5.ccb; path = "CocosBuilderTestProject.cocosbuilder/CocosBuilder Resources/AnimationTest5.ccb"; sourceTree = "<group>"; };
+		92F85F33194F6AD80076B343 /* AnimationTest3.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest3.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/AnimationTest3.ccb"; sourceTree = "<group>"; };
+		92F85F36194F70CA0076B343 /* AnimationTest4.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest4.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/AnimationTest4.ccb"; sourceTree = "<group>"; };
+		92F85F3B194F8A4A0076B343 /* AnimationTest5.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnimationTest5.ccb; path = "CocosBuilderTestProject.ccbuilder/CocosBuilder Resources/AnimationTest5.ccb"; sourceTree = "<group>"; };
 		98C3964FFF8C4E1070E390F8 /* NSKeyboardForwardingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSKeyboardForwardingView.h; sourceTree = "<group>"; };
 		98C39A979A6BFC23DB610BDE /* NSKeyboardForwardingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSKeyboardForwardingView.m; sourceTree = "<group>"; };
 		A09AB6F614E993AA009C8B91 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = "libs/cocos2d-iphone/Resources/Fonts/fps_images.png"; sourceTree = SOURCE_ROOT; };
@@ -2822,8 +2808,8 @@
 		FF9398A71C8CDD4B00D424C7 /* CCBDictionaryKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBDictionaryKeys.h; sourceTree = "<group>"; };
 		FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryKeys.m; sourceTree = "<group>"; };
 		FF9398D11C8D5FA700D424C7 /* Version.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
-		FF9398D41C8D606100D424C7 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../../Rakefile; sourceTree = "<group>"; };
-		FF9398D81C8D607C00D424C7 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = circle.yml; path = ../../circle.yml; sourceTree = "<group>"; };
+		FF9398D41C8D606100D424C7 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../../scripts/Rakefile; sourceTree = "<group>"; };
+		FF9398D81C8D607C00D424C7 /* circle.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = circle.yml; path = ../../scripts/circle.yml; sourceTree = "<group>"; };
 		FF9DA9BF1C8D79900034F4C6 /* build_distribution.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = build_distribution.py; path = ../../scripts/build_distribution.py; sourceTree = "<group>"; };
 		FF9DA9C01C8D79900034F4C6 /* CodeSign-local.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-local.sh"; path = "../../scripts/CodeSign-local.sh"; sourceTree = "<group>"; };
 		FF9DA9C11C8D79900034F4C6 /* CodeSign-pkg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "CodeSign-pkg.sh"; path = "../../scripts/CodeSign-pkg.sh"; sourceTree = "<group>"; };
@@ -2840,7 +2826,7 @@
 		FFA68A151C8C7CBF009B3F5B /* CCBDictionaryReaderRenamedProps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBDictionaryReaderRenamedProps.plist; sourceTree = "<group>"; };
 		FFFCC6E21C9BCC2800643941 /* CocosBuilder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CocosBuilder.icns; sourceTree = "<group>"; };
 		FFFCC6E41C9BCD8200643941 /* ccbi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ccbi.icns; sourceTree = "<group>"; };
-		FFFCC6E61C9BCFA100643941 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		FFFCC6E61C9BCFA100643941 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TODO; path = ../TODO; sourceTree = "<group>"; };
 		FFFCC6E81C9BD63500643941 /* CocosBuilder-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CocosBuilder-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3224,18 +3210,8 @@
 				830F4E9A192F5263002B832D /* Package.icns */,
 				B78B8B0F185FF982006ADBBE /* Folder.icns */,
 				B73788F61804D8200076A88C /* ccbproj.icns */,
-				77055FB313D0E5CA009DD63A /* logo-icon.png */,
-				77055FB413D0E5CA009DD63A /* logo.png */,
 			);
 			name = "Icons & Logos";
-			sourceTree = "<group>";
-		};
-		776041E71498F7DE0078095D /* Sparkle (for updates) */ = {
-			isa = PBXGroup;
-			children = (
-				776C6895138874C200153214 /* dsa_pub.pem */,
-			);
-			name = "Sparkle (for updates)";
 			sourceTree = "<group>";
 		};
 		776041EA1498FB600078095D /* Dialogs */ = {
@@ -3830,7 +3806,6 @@
 				E390C780170A371E003E9E92 /* Generated */,
 				E3AF6CE015F0CFAE0048DB2A /* Documentation */,
 				E35DBBDD14F3D1830070A6E4 /* Configurations */,
-				776041E71498F7DE0078095D /* Sparkle (for updates) */,
 				776041E41498F6AF0078095D /* Images */,
 				E525F5A4A89A3C9ABF48EA61 /* Scripts */,
 			);
@@ -6520,7 +6495,6 @@
 				772BE57C134398EE0009B5B9 /* NewDocWindow.xib in Resources */,
 				774F95C613638D74005D43EB /* missing-particle-texture.png in Resources */,
 				774E4EC2136D98AB0025D0A8 /* select-bl.png in Resources */,
-				FF9398D51C8D606100D424C7 /* Rakefile in Resources */,
 				9218DF3C1919B04D0033851E /* joint-pivot-mode-bg@2x.png in Resources */,
 				774E4EC3136D98AB0025D0A8 /* select-br.png in Resources */,
 				83F3CA1B1A422CD6003D8659 /* ruler-guide.png in Resources */,
@@ -6572,12 +6546,10 @@
 				776C68911388107400153214 /* missing-font.fnt in Resources */,
 				D2E0168B18D789E800927430 /* CocosBuilder.sdef in Resources */,
 				B71706D1184ECD660081720A /* select-scale@2x.png in Resources */,
-				FF9398D91C8D607C00D424C7 /* circle.yml in Resources */,
 				776C68921388107400153214 /* missing-font.png in Resources */,
 				9266EE2E195A1695006CBE81 /* effect-pixelate.png in Resources */,
 				B7096E26180CD98E00164A8A /* doc-layer.png in Resources */,
 				83F3C9F61A422CA4003D8659 /* seq-scrub-handle@2x.png in Resources */,
-				776C6896138874C200153214 /* dsa_pub.pem in Resources */,
 				77D33EAD138EFBD800012A88 /* StageSizeWindow.xib in Resources */,
 				B7E6BB5A19F868F000619A58 /* seq-timedisplay-bg@2x.png in Resources */,
 				7729F03A1390215400CAA44F /* frame-iphone.png in Resources */,
@@ -6586,7 +6558,6 @@
 				776A370B139544A200960E94 /* TB_actualSize.png in Resources */,
 				776A370C139544A200960E94 /* TB_grab.png in Resources */,
 				B747E60A19CB3BF700F692A2 /* effect-hue.png in Resources */,
-				FF9DA9C51C8D79900034F4C6 /* CodeSign-pkg.sh in Resources */,
 				9218DF3A1919B04D0033851E /* joint-pivot-mode-l-off@2x.png in Resources */,
 				92F0960718F8851300D47A94 /* inspector-body-remove-dis.png in Resources */,
 				776A370D139544A200960E94 /* TB_select.png in Resources */,
@@ -6598,10 +6569,8 @@
 				83F3CA281A422CD6003D8659 /* ruler-xy@2x.png in Resources */,
 				776A370F139544A200960E94 /* TB_zoomOut.png in Resources */,
 				776A37B8139BCE3600960E94 /* TB_imageAssets.png in Resources */,
-				77055FB513D0E5CA009DD63A /* logo-icon.png in Resources */,
 				83F3CAA71A423BC2003D8659 /* EffectColorChannelOffsetControl.xib in Resources */,
 				83F3C9E51A422CA4003D8659 /* seq-keyframe-x4.png in Resources */,
-				77055FB613D0E5CA009DD63A /* logo.png in Resources */,
 				92F0960F18F8851300D47A94 /* inspector-body-disconnected@2x.png in Resources */,
 				92154AC718A5531800BD215C /* CCBPProperties.plist in Resources */,
 				B71706D2184ECD660081720A /* select-skew@2x.png in Resources */,
@@ -6685,7 +6654,6 @@
 				83F3CA901A4239A0003D8659 /* btn-dropdown@2x.png in Resources */,
 				E3E8B49D15793AF800373983 /* seq-btn-stepforward.png in Resources */,
 				E3E8B4A4157CD5DB00373983 /* seq-scrub-handle.png in Resources */,
-				FF9DA9C61C8D79900034F4C6 /* CodeSign.sh in Resources */,
 				926D13C518B5778300582959 /* joint-distance-sel@2x.png in Resources */,
 				E3E8B4A5157CD5DB00373983 /* seq-scrub-line.png in Resources */,
 				B7C3533817FA0FEF005697C1 /* inspector-physics@2x.png in Resources */,
@@ -6757,7 +6725,6 @@
 				9218DF421919B04D0033851E /* joint-pivot-motor@2x.png in Resources */,
 				58FA2034162D73F3006B8856 /* TB_bottomPanel.png in Resources */,
 				58FA2035162D73F3006B8856 /* TB_leftPanel.png in Resources */,
-				FF9398D21C8D5FA700D424C7 /* Version.xcconfig in Resources */,
 				58FA2036162D73F3006B8856 /* TB_rightPanel.png in Resources */,
 				83F3CA251A422CD6003D8659 /* ruler-numbers@2x.fnt in Resources */,
 				83F3C9F81A422CA4003D8659 /* seq-scrub-line@2x.png in Resources */,
@@ -6848,13 +6815,11 @@
 				B7AC69B417A1A2040041B8BD /* header-bg2-crop.png in Resources */,
 				B72D1DC0186125E80091252F /* Requirements.plist in Resources */,
 				B7AC69C917A70A4B0041B8BD /* inspector-codeconnections.png in Resources */,
-				83F3C9621A4229DB003D8659 /* OpenPaths.scpt in Resources */,
 				92CD1C221965D824002BF2DE /* EffectBrightnessControl.xib in Resources */,
 				92D9D48318F8AB3800F167C1 /* joint-connection-disconnected@2x.png in Resources */,
 				926D13C918B5778300582959 /* joint-distance-slide@2x.png in Resources */,
 				926D13CB18B5778300582959 /* joint-distance@2x.png in Resources */,
 				B7AC69CA17A70A4B0041B8BD /* inspector-codeconnections@2x.png in Resources */,
-				FF9DA9C41C8D79900034F4C6 /* CodeSign-local.sh in Resources */,
 				9218DF331919B04D0033851E /* joint-pivot-mode-s-on.png in Resources */,
 				B7AC69CB17A70A4B0041B8BD /* inspector-props.png in Resources */,
 				83F3CA621A4232C4003D8659 /* InspectorTokenArray.xib in Resources */,
@@ -6869,7 +6834,6 @@
 				B7083DF317B1C363006628C7 /* LocalizationEditorWindow.xib in Resources */,
 				B7083DFB17B2CC65006628C7 /* LocalizationEditorLanguageList.plist in Resources */,
 				92B1B9D6192429A400DB91F5 /* joint-pivot-range@2x.png in Resources */,
-				FF9DA9C31C8D79900034F4C6 /* build_distribution.py in Resources */,
 				9218DF361919B04D0033851E /* joint-pivot-mode-r-on@2x.png in Resources */,
 				B7F02D4817D12DB1008A2E2D /* about-bg.png in Resources */,
 				B7F02D4917D12DB1008A2E2D /* about-bg@2x.png in Resources */,
@@ -7258,7 +7222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n# This script updates the generated Xcode projects...\n# Uncomment the lines as needed. Avoid committing comment changes.\n\n# Updates Cocos2D Project ....\n#\"$SRCROOT/../scripts/GenerateTemplateProject.sh\" PROJECTNAME\n\n#!/bin/bash\n\n#regenerate templates if any changes have occurred\nrake build:generated";
+			shellScript = "#!/bin/bash\n# This script updates the generated Xcode projects...\n# Uncomment the lines as needed. Avoid committing comment changes.\n\n# Updates Cocos2D Project ....\n#\"$SRCROOT/../scripts/GenerateTemplateProject.sh\" PROJECTNAME\n\n#!/bin/bash\n\n#regenerate templates if any changes have occurred\n#!/bin/bash\ncd $SRCROOT\ncd ../scripts\nrake build:generated";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -8251,7 +8215,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
-				COCOSBUILDER_VERSION = 1.5.0;
+				COCOSBUILDER_VERSION = 3.5.0;
 				CODE_SIGN_ENTITLEMENTS = CocosBuilder.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
@@ -8298,7 +8262,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
-				COCOSBUILDER_VERSION = 1.5.0;
+				COCOSBUILDER_VERSION = 3.5.0;
 				CODE_SIGN_ENTITLEMENTS = CocosBuilder.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
@@ -8457,7 +8421,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
-				COCOSBUILDER_VERSION = 1.5.0;
+				COCOSBUILDER_VERSION = 3.5.0;
 				CODE_SIGN_ENTITLEMENTS = NonSandboxed.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;

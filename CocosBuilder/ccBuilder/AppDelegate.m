@@ -1679,7 +1679,7 @@ typedef enum
     
     //Find .ccbproj file
     NSArray *projectContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:projectPath error:nil];
-    NSPredicate *ccbprojExtension = [NSPredicate predicateWithFormat:@"SELF ENDSWITH '.ccbproj'"];
+    NSPredicate *ccbprojExtension = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELF ENDSWITH '.%@'", PROJECT_NAME_SUFFIX]];
     NSString *ccbprojFileName = (NSString*)[[projectContents filteredArrayUsingPredicate:ccbprojExtension] firstObject];
     
     projectPath = [projectPath stringByAppendingPathComponent:ccbprojFileName];
@@ -1770,13 +1770,13 @@ typedef enum
 }
 - (void)openProject:(NSString *)fileName
 {
-    if (![fileName hasSuffix:@".cocosbuilder"]
-        && ![fileName hasSuffix:@".ccbproj"])
+    if (![fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]]
+        && ![fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
         return;
     }
     
-    if ([fileName hasSuffix:@".ccbproj"])
+    if ([fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
         NSURL *projectPathURL = [NSURL fileURLWithPath:[fileName stringByDeletingLastPathComponent] isDirectory:YES];
         NSURL *projectPathURLResolved = [SecurityScopedBookmarksStore resolveBookmarkForURL:projectPathURL];
@@ -2032,7 +2032,7 @@ typedef enum
     NSArray* files = [fm contentsOfDirectoryAtPath:path error:NULL];
     for( NSString* file in files )
     {
-        if( [file hasSuffix:@".ccbproj"] )
+        if( [file hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]] )
         {
             projectFile = [path stringByAppendingPathComponent:file];
             break;
@@ -3005,7 +3005,7 @@ typedef enum
 
 - (IBAction)menuOpenProjectInXCode:(id)sender
 {
-    NSString *xcodePrjPath = [projectSettings.projectPath stringByReplacingOccurrencesOfString:@".ccbproj" withString:@".xcodeproj"];
+    NSString *xcodePrjPath = [projectSettings.projectPath stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX] withString:@".xcodeproj"];
     
     [[NSWorkspace sharedWorkspace] openFile:xcodePrjPath withApplication:@"Xcode"];
 }
@@ -3043,8 +3043,8 @@ typedef enum
     [openDlg setCanChooseFiles:YES];
     
     NSArray *allowedFileTypes = currentDocument
-    ? @[@"cocosbuilder", PACKAGE_NAME_SUFFIX]
-    : @[@"cocosbuilder"];
+    ? @[FOLDER_NAME_SUFFIX, PACKAGE_NAME_SUFFIX]
+    : @[FOLDER_NAME_SUFFIX, PROJECT_NAME_SUFFIX];
     [openDlg setAllowedFileTypes:allowedFileTypes];
     
     [openDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result)
@@ -3105,7 +3105,7 @@ typedef enum
 {
     // Accepted create document, prompt for place for file
     NSSavePanel* saveDlg = [NSSavePanel savePanel];
-    [saveDlg setAllowedFileTypes:[NSArray arrayWithObject:@"cocosbuilder"]];
+    [saveDlg setAllowedFileTypes:[NSArray arrayWithObject:FOLDER_NAME_SUFFIX]];
     //saveDlg.message = @"Save your project file in the same directory as your projects resources.";
     
     // Configure the accessory view
@@ -3142,14 +3142,14 @@ typedef enum
                 
                 // Create project file
                 NSString* projectName = [fileNameRaw lastPathComponent];
-                fileName = [[fileName stringByAppendingPathComponent:projectName] stringByAppendingPathExtension:@"ccbproj"];
+                fileName = [[fileName stringByAppendingPathComponent:projectName] stringByAppendingPathExtension:PROJECT_NAME_SUFFIX];
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
                                dispatch_get_main_queue(), ^{
                                    CCBProjectCreator * creator = [[CCBProjectCreator alloc] init];
                                    if ([creator createDefaultProjectAtPath:fileName engine:engine programmingLanguage:saveDlgLanguagePopup.selectedItem.tag])
                                    {
-                                       [self openProject:[fileNameRaw stringByAppendingPathExtension:@"cocosbuilder"]];
+                                       [self openProject:[fileNameRaw stringByAppendingPathExtension:FOLDER_NAME_SUFFIX]];
                                    }
                                    else
                                    {
