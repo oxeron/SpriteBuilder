@@ -13,3 +13,8 @@ rechercher Apportable
 remplacer tous les headers avec copyright à jour
 faire des templates pour les nouveaux fichiers
 
+
+
+Changing version number:
+- change VERSION file
+- also in target CocosBuilder COCOSBUILDER_VERSION
