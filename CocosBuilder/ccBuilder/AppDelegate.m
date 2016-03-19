@@ -3128,7 +3128,7 @@ typedef enum
             
             // Check validity of file name
             NSMutableCharacterSet* validChars = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
-            [validChars addCharactersInString:@"_"];
+            [validChars addCharactersInString:@"_-."];
             NSCharacterSet* invalidChars = [validChars invertedSet];
             
             if ([[fileNameRaw lastPathComponent] rangeOfCharacterFromSet:invalidChars].location == NSNotFound)
