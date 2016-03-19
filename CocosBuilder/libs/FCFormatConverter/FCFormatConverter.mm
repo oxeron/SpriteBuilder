@@ -12,7 +12,7 @@
 
 static FCFormatConverter* gDefaultConverter = NULL;
 
-static NSString * kErrorDomain = @"com.apportable.CocosBuilder";
+static NSString * kErrorDomain = @"com.cocos2d.CocosBuilder";
 
 @interface FCFormatConverter ()
 
