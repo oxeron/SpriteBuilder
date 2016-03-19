@@ -181,7 +181,7 @@ class BuildDistribution:
         if not os.path.exists('Generated'):
             os.makedirs('Generated')
         
-        os.chdir('{rootfolder}/Support/{project_name}.cocosbuilder/'.format(project_name=project_name,rootfolder=self.rootfolder))
+        os.chdir('{rootfolder}/Support/{project_name}.ccbuilder/'.format(project_name=project_name,rootfolder=self.rootfolder))
 
         # Generate template project
         print 'Generating:', project_name

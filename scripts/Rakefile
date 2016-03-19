@@ -62,14 +62,13 @@ end
 #
 ### Build Constants
 #
-
-PROJECT_ROOT=__FILE__.pathmap("%d")
+PROJECT_ROOT=File.dirname(File.realdirpath(__FILE__)).pathmap("%d")
 TEMPLATE_FILENAME="PROJECTNAME"
-TEMPLATE_PROJECT = File.join PROJECT_ROOT, "Support", "#{TEMPLATE_FILENAME}.cocosbuilder"
+TEMPLATE_PROJECT = File.join PROJECT_ROOT, "Support", "#{TEMPLATE_FILENAME}.ccbuilder"
 TEMPLATE_FILES = get_template_files()
 ABSOLUTE_TEMPLATE_FILES = TEMPLATE_FILES.map { |f| File.expand_path(File.join(TEMPLATE_PROJECT,f)) }
 DERIVED_DATA_LOCATION="~/Library/Developer/Xcode/DerivedData"
-DEFAULT_SB_VERSION=`cat VERSION`.chomp
+DEFAULT_SB_VERSION=`cat ../VERSION`.chomp
 DEFAULT_PRODUCT_NAME="CocosBuilder"
 
 BUILD_DIR=File.join PROJECT_ROOT, "Output"
@@ -78,6 +77,7 @@ BUILD_DIR=File.join PROJECT_ROOT, "Output"
 ### Rake tasks
 #
 
+Dir.chdir('../')
 directory "Generated"
 directory BUILD_DIR
 
