@@ -1026,6 +1026,8 @@
 		FA98CFDB154E8D16006E58C5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98CFDA154E8D16006E58C5 /* CoreServices.framework */; };
 		FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */; };
 		FF0C33DF1C9962700032B324 /* frame-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0C33DE1C9962700032B324 /* frame-iphone6.png */; };
+		FF2E7CC71C9DDA7300E7DBA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */; };
+		FF2E7CCD1C9DFD7A00E7DBA6 /* ccblang.icns in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
 		FF9296681C9A146100A6F6B2 /* frame-iphone6Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
@@ -2785,6 +2787,8 @@
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeTag_Tests.m; sourceTree = "<group>"; };
 		FF0C33DE1C9962700032B324 /* frame-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6.png"; sourceTree = "<group>"; };
+		FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ccblang.icns; sourceTree = "<group>"; };
 		FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6Plus.png"; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
@@ -3206,6 +3210,7 @@
 			children = (
 				B73788F81804D8690076A88C /* ccb.icns */,
 				FFFCC6E41C9BCD8200643941 /* ccbi.icns */,
+				FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */,
 				FFFCC6E21C9BCC2800643941 /* CocosBuilder.icns */,
 				830F4E9A192F5263002B832D /* Package.icns */,
 				B78B8B0F185FF982006ADBBE /* Folder.icns */,
@@ -3756,6 +3761,7 @@
 				7789ABC9133AA82000CEFCC7 /* Supporting Files */,
 				E3B7BC9D15E3B97900CF95EF /* Toolbar */,
 				776041E21498F5A70078095D /* Util */,
+				FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */,
 			);
 			name = CocosBuilder;
 			path = ccBuilder;
@@ -6599,6 +6605,7 @@
 				B7096E28180CD98E00164A8A /* doc-node.png in Resources */,
 				D28546661A3C424600569C56 /* EffectOutlineControl.xib in Resources */,
 				E385080B150AB232007E162A /* segmctrl-bg.png in Resources */,
+				FF2E7CCD1C9DFD7A00E7DBA6 /* ccblang.icns in Resources */,
 				B7E6BB5619F868F000619A58 /* select-pt@2x.png in Resources */,
 				92F0960518F8851300D47A94 /* inspector-body-connected.png in Resources */,
 				E34E5D6A153585EC000201FB /* ruler-bg-horizontal.png in Resources */,
@@ -6706,6 +6713,7 @@
 				83F3CA181A422CD6003D8659 /* ruler-bg-horizontal@2x.png in Resources */,
 				83F3CA201A422CD6003D8659 /* ruler-mark-minor@2x.png in Resources */,
 				B759E4B91880B60B00E8166C /* logo-white@2x.png in Resources */,
+				FF2E7CC71C9DDA7300E7DBA6 /* Images.xcassets in Resources */,
 				E3B7BC9C15E3B7F100CF95EF /* NodePlugInsList.plist in Resources */,
 				83F3CA1E1A422CD6003D8659 /* ruler-mark-major@2x.png in Resources */,
 				E3B7BCBE15E505CC00CF95EF /* TB_plugins.png in Resources */,
@@ -8212,6 +8220,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
@@ -8259,6 +8268,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
@@ -8418,6 +8428,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";

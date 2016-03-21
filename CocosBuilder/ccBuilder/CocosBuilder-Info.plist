@@ -20,12 +20,14 @@
 				<string>????</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>None</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.packages</string>
+				<string>com.cocosbuilder.ccbpack</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
@@ -49,9 +51,11 @@
 			<string>None</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.document</string>
+				<string>com.cocosbuilder.ccb</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string></string>
@@ -69,9 +73,11 @@
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.project</string>
+				<string>com.cocosbuilder.ccbproj</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>AppDelegate</string>
@@ -89,16 +95,34 @@
 			<string>None</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.publish</string>
+				<string>com.cocosbuilder.ccbi</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ccblang</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>ccblang.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>CocosBuilder Lang File</string>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.cocosbuilder.ccblang</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>${PRODUCT_NAME}.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -131,5 +155,125 @@
 	<string>CocosBuilder.sdef</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCB</string>
+			<key>UTTypeIconFile</key>
+			<string>ccb.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccb</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccb</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCB Project File</string>
+			<key>UTTypeIconFile</key>
+			<string>ccbproj.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccbproj</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccbproj</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCBi</string>
+			<key>UTTypeIconFile</key>
+			<string>ccbi.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccbi</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccbi</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.package</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCB Package</string>
+			<key>UTTypeIconFile</key>
+			<string>Package.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccbpack</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccbpack</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCB Lang file</string>
+			<key>UTTypeIconFile</key>
+			<string>ccblang.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccblang</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccblang</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>CCB Project File</string>
+			<key>UTTypeIconFile</key>
+			<string>ccbproj.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.cocosbuilder.ccbproj</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ccbproj</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
