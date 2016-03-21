@@ -1,6 +1,9 @@
 {
   "images" : [
-
+    {
+      "idiom" : "tv",
+      "scale" : "1x"
+    }
   ],
   "info" : {
     "version" : 1,
