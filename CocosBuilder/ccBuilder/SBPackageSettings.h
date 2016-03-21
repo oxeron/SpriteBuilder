@@ -26,6 +26,8 @@ extern NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING;
 
 @property (nonatomic, strong, readonly) NSDictionary *osSettings;
 
+@property (nonatomic) BOOL showPackageContentInFinder;
+
 - (instancetype)initWithPackage:(RMPackage *)package;
 
 - (PublishOSSettings *)settingsForOsType:(CCBPublisherOSType)type;
@@ -34,5 +36,8 @@ extern NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING;
 
 - (BOOL)load;
 - (BOOL)store;
+
+// show or hide content of package in Finder
++(void)showPackageContentInFinder:(BOOL)showPackageInFinder withPackagePath:(NSString*)packagePath;
 
 @end

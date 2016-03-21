@@ -216,9 +216,7 @@
 		</dict>
 		<dict>
 			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.apple.package</string>
-			</array>
+			<array/>
 			<key>UTTypeDescription</key>
 			<string>CCB Package</string>
 			<key>UTTypeIconFile</key>

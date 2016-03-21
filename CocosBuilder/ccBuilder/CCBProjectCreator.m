@@ -9,6 +9,7 @@
 #import "CCBProjectCreator.h"
 #import "AppDelegate.h"
 #import "CCBFileUtil.h"
+#import "SBPackageSettings.h"
 
 @implementation NSString (IdentifierSanitizer)
 
@@ -155,6 +156,9 @@
 	// perform cleanup to remove unnecessary files which only bloat the project
 	[CCBFileUtil cleanupCocosBuilderProjectAtPath:fileName];
 	
+    // hide package content by default
+    [SBPackageSettings showPackageContentInFinder:NO withPackagePath:[parentPath stringByAppendingPathComponent:@"Packages/CocosBuilder Resources.ccbpack"]];
+    
     return [fm fileExistsAtPath:fileName];
 }
 

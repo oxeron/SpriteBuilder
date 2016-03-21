@@ -6,6 +6,7 @@
 NSString *const KEY_PUBLISH_TO_CUSTOM_DIRECTORY = @"publishToCustomDirectory";
 NSString *const KEY_PUBLISH_TO_ZIP = @"publishToZip";
 NSString *const KEY_PUBLISH_TO_MAINPROJECT = @"publishToMainProject";
+NSString *const KEY_SHOW_CONTENT_IN_FINDER = @"showContentInFinder";
 NSString *const KEY_OS_SETTINGS = @"osSettings";
 NSString *const KEY_OUTPUTDIR = @"outputDir";
 NSString *const KEY_PUBLISH_ENV = @"publishEnv";
@@ -38,6 +39,7 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
     {
         self.publishToZip = NO;
         self.publishToMainProject = YES;
+        self.showPackageContentInFinder = NO;
         self.publishToCustomOutputDirectory = NO;
         self.resourceAutoScaleFactor = DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING;
 
@@ -94,6 +96,7 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
 
     self.publishToCustomOutputDirectory = [dict[KEY_PUBLISH_TO_CUSTOM_DIRECTORY] boolValue];
     self.publishToZip = [dict[KEY_PUBLISH_TO_ZIP] boolValue];
+    self.showPackageContentInFinder = [dict[KEY_SHOW_CONTENT_IN_FINDER] boolValue];
     self.publishToMainProject = [dict[KEY_PUBLISH_TO_MAINPROJECT] boolValue];
     self.customOutputDirectory = dict[KEY_OUTPUTDIR];
     self.publishEnvironment = (CCBPublishEnvironment) [dict[KEY_PUBLISH_ENV] integerValue];
@@ -128,6 +131,7 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
 
     result[KEY_PUBLISH_TO_CUSTOM_DIRECTORY] = @(_publishToCustomOutputDirectory);
     result[KEY_PUBLISH_TO_ZIP] = @(_publishToZip);
+    result[KEY_SHOW_CONTENT_IN_FINDER] = @(_showPackageContentInFinder);
     result[KEY_PUBLISH_TO_MAINPROJECT] = @(_publishToMainProject);
     result[KEY_PUBLISH_ENV] = @(_publishEnvironment);
     result[KEY_OUTPUTDIR] = _customOutputDirectory
@@ -154,6 +158,40 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
            && ([[_customOutputDirectory stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0)
         ? _customOutputDirectory
         : DEFAULT_OUTPUTDIR_PUBLISHED_PACKAGES;
+}
+
++(void)showPackageContentInFinder:(BOOL)showPackageInFinder withPackagePath:(NSString*)packagePath
+{
+    const char* pathFSR = [packagePath fileSystemRepresentation];
+    FSRef ref;
+    OSStatus err = FSPathMakeRef((const UInt8*)pathFSR, &ref, /*isDirectory*/ NULL);
+    if (err == noErr)
+    {
+        struct FSCatalogInfo catInfo;
+        
+        if (err == noErr)
+        {
+            struct FSCatalogInfo catInfo;
+            err = FSGetCatalogInfo(&ref,
+                                   kFSCatInfoFinderInfo,
+                                   &catInfo,
+                                   /*outName*/ NULL,
+                                   /*FSSpec*/ NULL,
+                                   /*parentRef*/ NULL);
+            
+            if (err == noErr)
+            {
+                if (!showPackageInFinder)
+                    ((FolderInfo*)&catInfo.finderInfo)->finderFlags |=  kHasBundle;
+                else
+                    ((FolderInfo*)&catInfo.finderInfo)->finderFlags &= ~kHasBundle;
+                
+                FSSetCatalogInfo(&ref,
+                                 kFSCatInfoFinderInfo,
+                                 &catInfo);
+            }
+        }
+    }
 }
 
 @end

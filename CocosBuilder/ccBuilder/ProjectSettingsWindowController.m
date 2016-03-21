@@ -158,6 +158,8 @@ typedef void (^DirectorySetterBlock)(NSString *directoryPath);
     for (SettingsListEntry *listEntry in _settingsList)
     {
         [listEntry.packagePublishSettings store];
+        // show or hide package content in finder
+        [SBPackageSettings showPackageContentInFinder:listEntry.packagePublishSettings.showPackageContentInFinder withPackagePath:listEntry.packagePublishSettings.package.dirPath];
     }
     [_projectSettings store];
 }
