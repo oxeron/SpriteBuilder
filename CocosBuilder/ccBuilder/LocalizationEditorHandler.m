@@ -29,7 +29,7 @@
     if (!self) return NULL;
     
     // Load supported languages
-    NSArray* isoCodes = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LocaliztaionEditorLanguageList" ofType:@"plist"]];
+    NSArray* isoCodes = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"LocalizationEditorLanguageList" ofType:@"plist"]];
     
     languages = [[NSMutableArray alloc] init];
     for (NSString* isoCode in isoCodes)

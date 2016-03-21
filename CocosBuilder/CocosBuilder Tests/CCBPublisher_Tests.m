@@ -68,7 +68,7 @@
 - (void)testPublishingProject
 {
     // Language files are just copied
-    [self createEmptyFiles:@[@"baa.ccbuilder/Packages/foo.ccbpack/Strings.ccbLang"]];
+    [self createEmptyFiles:@[@"baa.ccbuilder/Packages/foo.ccbpack/Strings.ccblang"]];
     [self createEmptyFiles:@[@"baa.ccbuilder/Packages/foo.ccbpack/Package.plist"]];
 
     [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/ccbResources/resources-auto/ccbButtonHighlighted.png"
@@ -88,7 +88,7 @@
     [_publisher addPublishingTarget:_targetIOS];
     [_publisher start];
 
-    [self assertFileExists:@"Published-iOS/Strings.ccbLang"];
+    [self assertFileExists:@"Published-iOS/Strings.ccblang"];
 
     [self assertFileExists:@"Published-iOS/ccbResources/resources-tablet/ccbButtonHighlighted.png"];
     [self assertFileExists:@"Published-iOS/ccbResources/resources-tablet/ccbButtonHighlighted2.png"];

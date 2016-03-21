@@ -1724,7 +1724,7 @@ typedef enum
     [migrator migrate];
     
     // Load or create language file
-    NSString* langFile = [[ResourceManager sharedManager].mainActiveDirectoryPath stringByAppendingPathComponent:@"Strings.ccbLang"];
+    NSString* langFile = [[ResourceManager sharedManager].mainActiveDirectoryPath stringByAppendingPathComponent:@"Strings.ccblang"];
     localizationEditorHandler.managedFile = langFile;
     
     // Update the title of the main window
