@@ -137,7 +137,6 @@
 #import "SBOpenPathsController.h"
 #import "LightingHandler.h"
 #import "NSAlert+Convenience.h"
-#import "SecurityScopedBookmarksStore.h"
 
 // default resolution menu is iPhone 6
 #define kDefaultResolution 2
@@ -1779,58 +1778,13 @@ typedef enum
     if ([fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
         NSURL *projectPathURL = [NSURL fileURLWithPath:[fileName stringByDeletingLastPathComponent] isDirectory:YES];
-        NSURL *projectPathURLResolved = [SecurityScopedBookmarksStore resolveBookmarkForURL:projectPathURL];
-        
-        if (projectPathURLResolved)
-        {
-            if ([projectPathURLResolved startAccessingSecurityScopedResource])
-            {
-                self.securityScopedProjectFolderResource = projectPathURLResolved;
-                [self openProjectWithProjectPath:projectPathURLResolved.path];
-            }
-            else
-            {
-                [self openProjectFileByAskingForUsersConsentWithProjectPath:projectPathURLResolved];
-            }
-        }
-        else
-        {
-            [self openProjectFileByAskingForUsersConsentWithProjectPath:projectPathURL];
-        }
+        self.securityScopedProjectFolderResource = projectPathURL;
+        [self openProjectWithProjectPath:projectPathURL.path];
     }
     else
     {
         [self openProjectWithProjectPath:fileName];
     }
-}
-
-- (void)openProjectFileByAskingForUsersConsentWithProjectPath:(NSURL *)projectPathURL
-{
-    NSOpenPanel*openPanel = [NSOpenPanel openPanel];
-    [openPanel setMessage:@"CocosBuilder is running in a sandbox and needs access to all files within the project folder. Please click Open to grant access."];
-    [openPanel setAllowsMultipleSelection:NO];
-    [openPanel setPrompt:@"Open"];
-    [openPanel setDirectoryURL:projectPathURL];
-    [openPanel setCanChooseFiles:NO];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel beginSheetModalForWindow:window completionHandler:^(NSInteger result)
-     {
-         if (result == NSFileHandlingPanelCancelButton)
-         {
-             return;
-         }
-         
-         if (result == NSOKButton && [[openPanel URL] isEqualTo:projectPathURL])
-         {
-             [SecurityScopedBookmarksStore createAndStoreBookmarkForURL:projectPathURL];
-             [self openProjectWithProjectPath:projectPathURL.path];
-         }
-         else
-         {
-             [NSAlert showModalDialogWithTitle:@"Error"
-                                       message:@"The chosen folder is not the project folder of the selected project file."];
-         }
-     }];
 }
 
 - (void) openFile:(NSString*)filePath

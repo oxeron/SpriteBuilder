@@ -255,8 +255,7 @@ typedef enum
 
     if (!_userScriptInstalled)
     {
-        [self askForUserIntentToCopyScriptToUserScripts];
-        return;
+        [self installScript];
     }
 
     [self openPath:path withApplication:[sender representedObject][KEY_APP]];
@@ -280,77 +279,26 @@ typedef enum
     return [fileManager fileExistsAtPath:[self openPathsScriptURL].path];
 }
 
-- (void)askForUserIntentToCopyScriptToUserScripts
+- (void)installScript
 {
-    [self installScriptAlert];
-
-    NSURL *directoryURL = [self applicationScriptDirectoryURL];
-
-    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-
-    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-    [openPanel setDirectoryURL:directoryURL];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel setCanChooseFiles:NO];
-    [openPanel setPrompt:@"Select Script Folder"];
-    [openPanel setMessage:[NSString stringWithFormat:@"Please select the User > Library > Application Scripts > %@ folder", bundleIdentifier]];
-    [openPanel beginWithCompletionHandler:^(NSInteger result)
+    NSURL *destinationURL = [self openPathsScriptURL];
+     
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *sourceURL = [[NSBundle mainBundle] URLForResource:OPENPATHS_SCRIPT_NAME withExtension:nil];
+    NSError *error2;
+    BOOL success = [fileManager copyItemAtURL:sourceURL toURL:destinationURL error:&error2];
+    if (success)
     {
-        if (result == NSFileHandlingPanelOKButton)
-        {
-            NSURL *selectedURL = [openPanel URL];
-            if ([selectedURL isEqual:directoryURL])
-            {
-                NSURL *destinationURL = [self openPathsScriptURL];
-
-                NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSURL *sourceURL = [[NSBundle mainBundle] URLForResource:OPENPATHS_SCRIPT_NAME withExtension:nil];
-                NSError *error2;
-                BOOL success = [fileManager copyItemAtURL:sourceURL toURL:destinationURL error:&error2];
-                if (success)
-                {
-                    NSAlert *alert = [NSAlert alertWithMessageText:@"Script Installed"
-                                                     defaultButton:@"OK"
-                                                   alternateButton:nil
-                                                       otherButton:nil
-                                         informativeTextWithFormat:@"The script was installed succcessfully."];
-
-                    self.userScriptInstalled = YES;
-                    [alert runModal];
-                }
-                else
-                {
-                    [NSAlert showModalDialogWithTitle:@"Error" message:[NSString stringWithFormat:@"An error occured installing the script. Trying again. Error: %@", error2]];
-                    if ([error2 code] != NSFileWriteFileExistsError)
-                    {
-                        [self performSelector:@selector(askForUserIntentToCopyScriptToUserScripts) withObject:nil afterDelay:0.0];
-                    }
-                }
-            }
-            else
-            {
-                // try again because the user changed the folder path
-                [self performSelector:@selector(askForUserIntentToCopyScriptToUserScripts) withObject:nil afterDelay:0.0];
-            }
-        }
-    }];
-}
-
-- (void)installScriptAlert
-{
-    NSString *body =
-        @"To open paths in another application CocosBuilder needs to install a script to the Application Scripts directory. <br/><br/>"
-        @"Sandboxed apps are not allowed to send events to other applications without the users consent. "
-        @"To give your consent please click on <b>Select Script Folder</b> in the following dialogue to install the script. <br/><br/>"
-        @"<a href=\"http://www.maclife.com/article/blogs/what_sandboxing\">More info on sandboxing</a>. <br/><br/>"
-        @"After installing the script you can review the script, just open <p style='font-family: monospace;'>%PATHPLACEHOLDER%</p> in your favourite editor.<b> <br/><br/>"
-        @"The script won't be executed after installation.</b> <br/><br/>"
-        @"To open the desired path in another application please redo the previous action. "
-        @"You can delete the script anytime but the feature will stop to work and will ask you again to install the script.";
-
-    body = [body stringByReplacingOccurrencesOfString:@"%PATHPLACEHOLDER%" withString:[self applicationScriptDirectoryURL].path];
-
-    [NSAlert showModalDialogWithTitle:@"Installation of script needed" htmlBodyText:body];
+         self.userScriptInstalled = YES;
+    }
+    else
+    {
+         [NSAlert showModalDialogWithTitle:@"Error" message:[NSString stringWithFormat:@"An error occured installing the script. Trying again. Error: %@", error2]];
+         if ([error2 code] != NSFileWriteFileExistsError)
+         {
+             [self performSelector:@selector(installScript) withObject:nil afterDelay:0.0];
+         }
+    }
 }
 
 - (void)openPath:(NSString *)path withApplication:(NSString *)applicationName
@@ -412,10 +360,10 @@ typedef enum
             if (![self isUserScriptInstalled])
             {
                 self.userScriptInstalled = NO;
-                [self askForUserIntentToCopyScriptToUserScripts];
+                [self installScript];
                 return nil;
             }
-
+          
             [NSAlert showModalDialogWithTitle:@"Error" message:@"The path could not be opened. Make sure the script has not been altered."];
         }
     }
