@@ -14,7 +14,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>0</integer>
+	<integer>2</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>docDimensionsType</key>
@@ -231,7 +231,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>SpriteBuilder</string>
+							<string>Welcome to
+CocosBuilder</string>
 							<false/>
 						</array>
 					</dict>
@@ -324,7 +325,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
+							<real>2</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -338,7 +339,7 @@
 							<real>0.0</real>
 							<real>0.0</real>
 							<real>0.0</real>
-							<real>0.0</real>
+							<real>0.86000001430511475</real>
 						</array>
 					</dict>
 					<dict>
@@ -348,7 +349,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -359,8 +360,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>2</real>
+							<real>-2</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -456,25 +457,11 @@
 			<key>height</key>
 			<integer>320</integer>
 			<key>name</key>
-			<string>Phone Landscape</string>
+			<string>iPhone 4 Landscape</string>
 			<key>scale</key>
 			<real>1</real>
 			<key>width</key>
-			<integer>568</integer>
-		</dict>
-		<dict>
-			<key>centeredOrigin</key>
-			<false/>
-			<key>ext</key>
-			<string>tablet phonehd</string>
-			<key>height</key>
-			<integer>384</integer>
-			<key>name</key>
-			<string>Tablet Landscape</string>
-			<key>scale</key>
-			<real>2</real>
-			<key>width</key>
-			<integer>512</integer>
+			<integer>480</integer>
 		</dict>
 		<dict>
 			<key>centeredOrigin</key>
@@ -484,11 +471,53 @@
 			<key>height</key>
 			<integer>320</integer>
 			<key>name</key>
-			<string>Phone Landscape (short)</string>
+			<string>iPhone 5 Landscape</string>
 			<key>scale</key>
 			<real>1</real>
 			<key>width</key>
-			<integer>480</integer>
+			<integer>568</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string>phone</string>
+			<key>height</key>
+			<integer>375</integer>
+			<key>name</key>
+			<string>iPhone 6 Landscape</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>667</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string>phone</string>
+			<key>height</key>
+			<integer>414</integer>
+			<key>name</key>
+			<string>iPhone 6 Plus Landscape</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>736</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
+			<string>tablet phonehd</string>
+			<key>height</key>
+			<integer>384</integer>
+			<key>name</key>
+			<string>iPad Landscape</string>
+			<key>scale</key>
+			<real>2</real>
+			<key>width</key>
+			<integer>512</integer>
 		</dict>
 	</array>
 	<key>sequences</key>
