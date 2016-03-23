@@ -101,7 +101,9 @@
     else if (programmingLanguage == CCBProgrammingLanguageSwift)
     {
         [self removeLinesMatching:@".*MainScene[.][hm].*" inFile:pbxprojFile];
-        filesToRemove = @[@"Source/MainScene.h", @"Source/MainScene.m"];
+        [self removeLinesMatching:@".* AppDelegate[.][hm].*" inFile:pbxprojFile];
+        [self removeLinesMatching:@".*main[.][m].*" inFile:pbxprojFile];
+        filesToRemove = @[@"Source/MainScene.h", @"Source/MainScene.m", @"Source/Platforms/iOS/AppDelegate.h", @"Source/Platforms/iOS/AppDelegate.m", @"Source/Platforms/iOS/main.m", @"Source/Platforms/Mac/AppDelegate.h", @"Source/Platforms/Mac/AppDelegate.m", @"Source/Platforms/Mac/main.m"];
     }
 
     for (NSString *file in filesToRemove)
