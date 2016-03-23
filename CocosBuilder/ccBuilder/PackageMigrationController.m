@@ -77,7 +77,7 @@ typedef enum
 
 - (MigrationAction)showPreMigrationDialog
 {
-    NSString *LINK_FORUM_PACKAGE_INSTRUCTIONS = @"http://cocosbuilder.com";
+    NSString *LINK_FORUM_PACKAGE_INSTRUCTIONS = @"http://cocosbuilder.org";
 
     NSString *htmlText = [NSString stringWithFormat:@
             "To introduce a newer feature called <b>packages</b> we'd like to migrate your project to a newer format. "

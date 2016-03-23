@@ -139,7 +139,7 @@ static NSString *urlEncode(id object) {
 	NSString * params = [mutableData urlEncodedString];
 
     // Create URL
-    NSString* urlStr = [NSString stringWithFormat:@"http://app.cocosbuilder.com/cocosbuilder/track?event=%@&%@", evt,params];
+    NSString* urlStr = [NSString stringWithFormat:@"http://app.cocosbuilder.org/cocosbuilder/track?event=%@&%@", evt,params];
 
     NSURL* url = [NSURL URLWithString:urlStr];
     

@@ -55,8 +55,6 @@ typedef enum
         self.installedApps = [NSMutableDictionary dictionary];
         self.userScriptInstalled = [self isUserScriptInstalled];
 
-        NSLog(@"%@", [self openPathsScriptURL].path);
-
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMenuItemsForPackages) name:RESOURCE_PATHS_CHANGED object:nil];
     }
 

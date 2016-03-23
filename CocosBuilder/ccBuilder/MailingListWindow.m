@@ -70,7 +70,7 @@
 
 - (IBAction) pressedPrivacyPolicy:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://cocosbuilder.com/privacy"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://cocosbuilder.org/privacy"]];
 }
 
 - (BOOL) isValidEmail

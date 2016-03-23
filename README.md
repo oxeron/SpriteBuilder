@@ -1,6 +1,6 @@
 # CocosBuilder
 
-CocosBuilder is the first game development suite for rapidly building native iOS games with Objective-C and Xcode. CocosBuilder is free and open source (MIT licensed) and available for download in the [Mac App Store](https://itunes.apple.com/us/app/cocosbuilder/id784912885?mt=12).
+CocosBuilder is the first game development suite for rapidly building native iOS games with Objective-C and Xcode. CocosBuilder is free and open source (MIT licensed) and available on github.
 
 Core Features:
 
@@ -11,7 +11,7 @@ Core Features:
 * Asset management & sprite sheet generation
 * Tools for localization
 
-For more info, please visit [http://forum.cocosbuilder.com](http://forum.cocosbuilder.com).
+For more info, please visit [http://forum.cocos2d-objc.com](http://forum.cocos2d-objc.org).
 
 ## Getting started with the source
 
@@ -48,4 +48,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-CocosBuilder Support: http://forum.cocosbuilder.com
+CocosBuilder Support: http://www.cocosbuilder.org

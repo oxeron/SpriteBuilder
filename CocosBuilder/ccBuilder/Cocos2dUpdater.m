@@ -47,7 +47,7 @@ typedef enum {
 
 static NSString *const REL_DEFAULT_COCOS2D_FOLDER_PATH = @"Source/libs/cocos2d-objc/";
 static NSString *const BASE_COCOS2D_BACKUP_NAME = @"cocos2d-objc.backup";
-static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilder.com/update/";
+static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilder.org/update/";
 
 
 @interface Cocos2dUpdater ()
@@ -215,7 +215,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
             LocalLog(@"[COCO2D-UPDATER] [INFO] Success!");
             _projectSettings.canUpdateCocos2D = NO;
             [_projectSettings.cocos2dUpdateIgnoredVersions removeObject:self.CocosBuildersCocos2dVersion];
-            [self openBrowserWithCocos2dUpdateInformation];
+            //[self openBrowserWithCocos2dUpdateInformation];
             [self showUpdateSuccessDialog];
         }
         else
@@ -427,7 +427,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 - (void)showUpdateSuccessDialog
 {
     [NSAlert showModalDialogWithTitle:@"Cocos2D Update Complete"
-                              message:@"Your project has been updated to use the latest version of Cocos2D.\n\nPlease test your Xcode project. If you encounter any issues check cocosbuilder.com for more information."];
+                              message:@"Your project has been updated to use the latest version of Cocos2D.\n\nPlease test your Xcode project. If you encounter any issues check cocosbuilder.org for more information."];
 }
 
 + (NSString *)readCocosBuildersCocos2dVersionFile

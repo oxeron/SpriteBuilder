@@ -1,5 +1,5 @@
 /*
- * CocosBuilder: http://www.cocosbuilder.com
+ * CocosBuilder: http://www.cocosbuilder.org
  *
  * Copyright (c) 2011 Viktor Lidholt
  * Copyright (c) 2012 Zynga Inc.
@@ -4241,7 +4241,7 @@ typedef enum
 
 - (NSString *)feedURLStringForUpdater:(id)updater
 {
-    return @"http://update.cocosbuilder.com";
+    return @"http://update.cocosbuilder.org";
 }
 
 #pragma mark Extras / Snap
@@ -4444,7 +4444,7 @@ typedef enum
 
 - (IBAction)visitCommunity:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://forum.cocosbuilder.com"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://forum.cocos2d-objc.org"]];
 }
 
 #pragma mark Debug
