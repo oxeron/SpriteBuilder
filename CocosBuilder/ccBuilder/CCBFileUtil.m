@@ -181,8 +181,8 @@
 							 @"external/SSZipArchive/Tests",
 							 ];
 	
-	// removing extranous cocos2d-iphone files if existing
-	const NSString* const cocosPath = @"Source/libs/cocos2d-iphone";
+	// removing extranous cocos2d-objc files if existing
+	const NSString* const cocosPath = @"Source/libs/cocos2d-objc";
 	NSFileManager* fm = [NSFileManager defaultManager];
 	NSString* parentPath = [path stringByDeletingLastPathComponent];
 	NSError* error;

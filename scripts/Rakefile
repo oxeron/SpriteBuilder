@@ -20,7 +20,7 @@ def get_template_files
     excluded_folders = ["xcuserdata", "build","tests","cocos2d-tests-android", "cocos2d-ui-tests", "UnitTests"]
 
     Dir.chdir TEMPLATE_PROJECT do
-        list = Rake::FileList.new("./**/*", "./Source/libs/cocos2d-iphone/**/*") do |fl|
+        list = Rake::FileList.new("./**/*", "./Source/libs/cocos2d-objc/**/*") do |fl|
             fl.exclude "*.git*"
             fl.exclude "*.idea*"
             fl.exclude "*.DS_Store"
@@ -107,10 +107,10 @@ file "Generated/Version.txt" => "Generated" do |task|
     f.close
 end
 
-file "Generated/cocos2d_version.txt" => 'CocosBuilder/libs/cocos2d-iphone/VERSION' do |task|
+file "Generated/cocos2d_version.txt" => 'CocosBuilder/libs/cocos2d-objc/VERSION' do |task|
     puts "Generating #{task.name()}..."
 
-    `cp CocosBuilder/libs/cocos2d-iphone/VERSION #{task.name()}`
+    `cp CocosBuilder/libs/cocos2d-objc/VERSION #{task.name()}`
 end
 
 def write_xcconfig

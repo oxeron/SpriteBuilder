@@ -45,8 +45,8 @@ typedef enum {
    UpdateActionIgnoreVersion,
 } UpdateActions;
 
-static NSString *const REL_DEFAULT_COCOS2D_FOLDER_PATH = @"Source/libs/cocos2d-iphone/";
-static NSString *const BASE_COCOS2D_BACKUP_NAME = @"cocos2d-iphone.backup";
+static NSString *const REL_DEFAULT_COCOS2D_FOLDER_PATH = @"Source/libs/cocos2d-objc/";
+static NSString *const BASE_COCOS2D_BACKUP_NAME = @"cocos2d-objc.backup";
 static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilder.com/update/";
 
 
@@ -104,7 +104,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
     if ([self isCoco2dAGitSubmodule])
     {
-        LocalLog(@"[COCO2D-UPDATER] [INFO] cocos2d-iphone git submodule found, skipping.");
+        LocalLog(@"[COCO2D-UPDATER] [INFO] cocos2d-objc git submodule found, skipping.");
         return;
     }
 
@@ -693,10 +693,10 @@ static int copyFileCallback(int currentState, int stage, copyfile_state_t state,
                                                            encoding:NSUTF8StringEncoding
                                                               error:&error];
 
-    NSRange cocos2dTextPosition = [submodulesContent rangeOfString:@"cocos2d-iphone.git" options:NSCaseInsensitiveSearch];
+    NSRange cocos2dTextPosition = [submodulesContent rangeOfString:@"cocos2d-objc.git" options:NSCaseInsensitiveSearch];
     BOOL result = cocos2dTextPosition.location != NSNotFound;
 
-    LocalLog(@"[COCO2D-UPDATER] [INFO] .gitmodules file found, contains cocos2d-iphone.git? %d", result);
+    LocalLog(@"[COCO2D-UPDATER] [INFO] .gitmodules file found, contains cocos2d-objc.git? %d", result);
 
     return result;
 }

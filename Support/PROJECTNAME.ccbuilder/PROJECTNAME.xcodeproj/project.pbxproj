@@ -133,9 +133,9 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
-		FF15108D1C8FF70200649B06 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "Source/libs/cocos2d-iphone/cocos2d.xcodeproj"; sourceTree = "<group>"; };
+		FF15108D1C8FF70200649B06 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "Source/libs/cocos2d-objc/cocos2d.xcodeproj"; sourceTree = "<group>"; };
 		FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZipArchive.framework; path = "../../Library/Developer/Xcode/DerivedData/aa-dxrrrnetirdfueavvxmoaoumjfoe/Build/Products/Debug-iphoneos/ZipArchive.framework"; sourceTree = SOURCE_ROOT; };
-		FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "Source/libs/cocos2d-iphone/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
+		FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "Source/libs/cocos2d-objc/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,7 +578,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/ruby;
-			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-iphone/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
+			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-objc/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
 		};
 		D2E0167A18D782EC00927430 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -606,7 +606,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/ruby;
-			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-iphone/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
+			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-objc/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -665,12 +665,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -705,12 +705,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/tvOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -756,12 +756,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -802,12 +802,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -903,12 +903,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -941,12 +941,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/ObjectAL/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/objectivec/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/external/Chipmunk/Chipmunk/chipmunk/include",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ui/**",
-					"$(SRCROOT)/Source/libs/cocos2d-iphone/cocos2d-ext/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/ObjectAL/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/objectivec/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/external/Chipmunk/Chipmunk/chipmunk/include",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ui/**",
+					"$(SRCROOT)/Source/libs/cocos2d-objc/cocos2d-ext/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

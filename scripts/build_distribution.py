@@ -170,7 +170,7 @@ class BuildDistribution:
         json.dump(version_info, open("Generated/Version.txt",'w'),sort_keys=True, indent=4)
     
         #Copy cocos version file.
-        shutil.copyfile('CocosBuilder/libs/cocos2d-iphone/VERSION','Generated/cocos2d_version.txt')
+        shutil.copyfile('CocosBuilder/libs/cocos2d-objc/VERSION','Generated/cocos2d_version.txt')
 
         self.generate_template_project('PROJECTNAME',sku_folder=sku)
 
