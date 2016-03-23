@@ -3091,7 +3091,7 @@ typedef enum
                 [[NSFileManager defaultManager] createDirectoryAtPath:fileName withIntermediateDirectories:NO attributes:NULL error:NULL];
                 
                 // Set icon of created directory
-                NSImage* folderIcon = [NSImage imageNamed:@"CocosBuilder.icns"];
+                NSImage* folderIcon = [NSImage imageNamed:@"Folder.icns"];
                 [[NSWorkspace sharedWorkspace] setIcon:folderIcon forFile:fileName options:0];
                 
                 // Create project file
