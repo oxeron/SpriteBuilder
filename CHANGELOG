@@ -1,11 +1,3 @@
-version 1.5.0
-. [FIX] Updated to use and produce cocos2d-objc 3.4.9 projects
-. [FIX] Unit tests are working
-. [FIX] Menu "Select Behind" is no more crashing the application
-. [REMOVED] Removed all java, android and SpriteKit references
-. [REMOVED] Removed tracking request to cocosbuilder.com website
-. [REMOVED] Removed registration window at startup
-
 version 3.0-alpha4 1-May-2013
 . [NEW] Publish and run in browser
 . [NEW] Improved autocomplete in text editor
