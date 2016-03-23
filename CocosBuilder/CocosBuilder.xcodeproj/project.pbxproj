@@ -8440,7 +8440,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(SB_DEBUG_PREPROCESSOR_DEFINES)",
 					"TESTING=1",
-					"SPRITEBUILDER_PRO=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"libs/cocos2d-iphone/cocos2d/**",
