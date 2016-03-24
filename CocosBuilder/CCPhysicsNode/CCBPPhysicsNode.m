@@ -16,6 +16,8 @@
     if (!self) return NULL;
     
     _sleepTimeThreshold = 0.5f;
+    _iterations = 10;
+    _debugDraw = NO;
     
     //self.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitNormalized);
     //self.contentSize     = CGSizeMake(1,1);

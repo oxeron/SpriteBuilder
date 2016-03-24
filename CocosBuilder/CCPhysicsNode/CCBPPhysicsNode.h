@@ -12,5 +12,7 @@
 
 @property (nonatomic,assign) CGPoint gravity;
 @property (nonatomic,assign) float sleepTimeThreshold;
+@property (nonatomic,assign) int iterations;
+@property (nonatomic,assign) BOOL debugDraw;
 
 @end

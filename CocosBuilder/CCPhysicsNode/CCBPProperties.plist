@@ -49,6 +49,26 @@
 			<key>displayName</key>
 			<string>Sleep time threshold</string>
 		</dict>
+        <dict>
+            <key>type</key>
+            <string>Integer</string>
+            <key>name</key>
+            <string>iterations</string>
+            <key>displayName</key>
+            <string>Solver iterations</string>
+            <key>default</key>
+            <integer>10</integer>
+        </dict>
+        <dict>
+            <key>type</key>
+            <string>Check</string>
+            <key>name</key>
+            <string>debugDraw</string>
+            <key>displayName</key>
+            <string>Draws debug overlay</string>
+            <key>default</key>
+            <integer>0</integer>
+        </dict>
 	</array>
 	<key>editorClassName</key>
 	<string>CCBPPhysicsNode</string>
