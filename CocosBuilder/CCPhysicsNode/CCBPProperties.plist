@@ -28,7 +28,17 @@
 			<key>name</key>
 			<string>CCPhysicsNode</string>
 		</dict>
-		<dict>
+        <dict>
+            <key>type</key>
+            <string>Check</string>
+            <key>name</key>
+            <string>debugDraw</string>
+            <key>displayName</key>
+            <string>Draws debug overlay</string>
+            <key>default</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
 			<key>default</key>
 			<array>
 				<integer>0</integer>
@@ -58,16 +68,6 @@
             <string>Solver iterations</string>
             <key>default</key>
             <integer>10</integer>
-        </dict>
-        <dict>
-            <key>type</key>
-            <string>Check</string>
-            <key>name</key>
-            <string>debugDraw</string>
-            <key>displayName</key>
-            <string>Draws debug overlay</string>
-            <key>default</key>
-            <integer>0</integer>
         </dict>
 	</array>
 	<key>editorClassName</key>
