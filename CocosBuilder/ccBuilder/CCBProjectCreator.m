@@ -41,7 +41,7 @@
 
 @implementation CCBProjectCreator
 
--(BOOL) createDefaultProjectAtPath:(NSString*)fileName engine:(CCBTargetEngine)engine programmingLanguage:(CCBProgrammingLanguage)programmingLanguage
+-(BOOL) createDefaultProjectAtPath:(NSString*)fileName engine:(CCBTargetEngine)engine programmingLanguage:(CCBProgrammingLanguage)programmingLanguage orientation:(CCBOrientation)orientation
 {
     NSError *error = nil;
     NSFileManager* fm = [NSFileManager defaultManager];
@@ -142,6 +142,14 @@
         NSString* plistFileName = [parentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"Source/Resources/Platforms/%@/Info.plist", platform]];
         [self setName:identifier inFile:plistFileName search:substitutableProjectIdentifier];
         [self setName:projName inFile:plistFileName search:substitutableProjectName];
+        if (orientation == kCCBOrientationLandscape)
+        {
+            [self setName:@"UIInterfaceOrientationLandscapeLeft" inFile:plistFileName search:@"ORIENTATION"];
+        }
+        else if (orientation == kCCBOrientationPortrait)
+        {
+            [self setName:@"UIInterfaceOrientationPortrait" inFile:plistFileName search:@"ORIENTATION"];
+        }
     }
 
     // Rename Xcode project file
@@ -162,6 +170,35 @@
 	
     // hide package content by default
     [SBPackageSettings showPackageContentInFinder:NO withPackagePath:[parentPath stringByAppendingPathComponent:@"Packages/CocosBuilder Resources.ccbpack"]];
+    
+    // change orientation in cocos2d config file
+    NSString* plistFileName = [parentPath stringByAppendingPathComponent:@"Source/Resources/Published-iOS/configCocos2d.plist"];
+    if (orientation == kCCBOrientationLandscape)
+    {
+        [self setName:@"CCScreenOrientationLandscape" inFile:plistFileName search:@"ORIENTATION"];
+    }
+    else if (orientation == kCCBOrientationPortrait)
+    {
+        [self setName:@"CCScreenOrientationPortrait" inFile:plistFileName search:@"ORIENTATION"];
+    }
+    else
+    {
+        return NO;
+    }
+    
+    // change orientation in cbbproj file
+    NSMutableDictionary* projectDict = [NSMutableDictionary dictionaryWithContentsOfFile:fileName];
+    if (!projectDict)
+    {
+        return NO;
+    }
+    projectDict[@"deviceOrientationLandscapeLeft"] = @((orientation == kCCBOrientationLandscape));
+    projectDict[@"deviceOrientationLandscapeRight"] = @((orientation == kCCBOrientationLandscape));
+    projectDict[@"deviceOrientationPortrait"] = @((orientation == kCCBOrientationPortrait));
+    projectDict[@"deviceOrientationUpsideDown"] = @((orientation == kCCBOrientationPortrait));
+    projectDict[@"defaultOrientation"] = @(orientation);
+    
+    [projectDict writeToFile:fileName atomically:YES];
     
     return [fm fileExistsAtPath:fileName];
 }

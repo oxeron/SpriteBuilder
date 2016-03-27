@@ -190,6 +190,7 @@ __attribute__((visibility("default")))
     IBOutlet NSView *__weak saveDlgAccessoryView;
     IBOutlet NSPopUpButton *__weak saveDlgLanguagePopup;
     IBOutlet NSTextFieldCell *__weak saveDlgLanguageHint;
+    IBOutlet NSPopUpButton *__weak saveDlgOrientationPopup;
 
     // TODO: not needed any more when PACKAGE feature is released
     IBOutlet NSMenuItem* menuPlusButtonNewPackage;

@@ -251,7 +251,7 @@ CocosBuilder</string>
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>50</real>
+							<real>40</real>
 							<integer>0</integer>
 						</array>
 					</dict>

@@ -2959,6 +2959,11 @@ typedef enum
 
 - (IBAction)menuOpenProjectInXCode:(id)sender
 {
+    // publish files before opening XCode
+    // this is necessary for generating template ccbi files if user
+    // chose another orientation than landscape when creating project
+    [self checkForDirtyDocumentAndPublishAsync:YES];
+    
     NSString *xcodePrjPath = [projectSettings.projectPath stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX] withString:@".xcodeproj"];
     
     [[NSWorkspace sharedWorkspace] openFile:xcodePrjPath withApplication:@"Xcode"];
@@ -3064,6 +3069,7 @@ typedef enum
     
     // Configure the accessory view
     [saveDlg setAccessoryView:saveDlgAccessoryView];
+    // Language
     [saveDlgLanguagePopup removeAllItems];
     [saveDlgLanguagePopup addItemsWithTitles:@[@"Objective-C", @"Swift"]];
     ((NSMenuItem*)saveDlgLanguagePopup.itemArray.firstObject).tag = CCBProgrammingLanguageObjectiveC;
@@ -3071,6 +3077,11 @@ typedef enum
     saveDlgLanguagePopup.target = self;
     saveDlgLanguagePopup.action = @selector(updateLanguageHint);
     [self updateLanguageHint];
+    // Orientation
+    [saveDlgOrientationPopup removeAllItems];
+    [saveDlgOrientationPopup addItemsWithTitles:@[@"Landscape", @"Portrait"]];
+    ((NSMenuItem*)saveDlgOrientationPopup.itemArray.firstObject).tag = kCCBOrientationLandscape;
+    ((NSMenuItem*)saveDlgOrientationPopup.itemArray.lastObject).tag = kCCBOrientationPortrait;
     
     [saveDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result){
         if (result == NSOKButton)
@@ -3096,14 +3107,17 @@ typedef enum
                 
                 // Create project file
                 NSString* projectName = [fileNameRaw lastPathComponent];
-                fileName = [[fileName stringByAppendingPathComponent:projectName] stringByAppendingPathExtension:PROJECT_NAME_SUFFIX];
+                NSString* projectFileName = [[fileName stringByAppendingPathComponent:projectName] stringByAppendingPathExtension:PROJECT_NAME_SUFFIX];
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
                                dispatch_get_main_queue(), ^{
                                    CCBProjectCreator * creator = [[CCBProjectCreator alloc] init];
-                                   if ([creator createDefaultProjectAtPath:fileName engine:engine programmingLanguage:saveDlgLanguagePopup.selectedItem.tag])
+                                   if ([creator createDefaultProjectAtPath:projectFileName engine:engine programmingLanguage:saveDlgLanguagePopup.selectedItem.tag orientation:saveDlgOrientationPopup.selectedItem.tag])
                                    {
                                        [self openProject:[fileNameRaw stringByAppendingPathExtension:FOLDER_NAME_SUFFIX]];
+                                       // regenerate thumbnail for MainScene.ccb depending on chosen orientation at project creation
+                                       NSString* mainSceneCCBFileName = [fileName stringByAppendingPathComponent:@"/Packages/CocosBuilder Resources.ccbpack/MainScene.ccb"];
+                                       [self saveFile:mainSceneCCBFileName];
                                    }
                                    else
                                    {
