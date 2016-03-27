@@ -60,6 +60,9 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		FF0888A31CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
+		FF0888A41CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
+		FF0888A51CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
 		FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510961C8FF70200649B06 /* libcocos2d.a */; };
 		FF1511171C900DFE00649B06 /* libcocos2d-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */; };
 		FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510981C8FF70200649B06 /* libcocos2d-mac.a */; };
@@ -133,6 +136,7 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
+		FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF15108D1C8FF70200649B06 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "Source/libs/cocos2d-objc/cocos2d.xcodeproj"; sourceTree = "<group>"; };
 		FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZipArchive.framework; path = "../../Library/Developer/Xcode/DerivedData/aa-dxrrrnetirdfueavvxmoaoumjfoe/Build/Products/Debug-iphoneos/ZipArchive.framework"; sourceTree = SOURCE_ROOT; };
 		FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "Source/libs/cocos2d-objc/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				08BA20921C7865E600263AF8 /* Images.xcassets */,
+				FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				B737893A180761570076A88C /* Published-iOS */,
 			);
@@ -525,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF0888A51CA81BB4004086B8 /* Launch Screen.storyboard in Resources */,
 				08BA20951C7865E600263AF8 /* Images.xcassets in Resources */,
 				08BA20861C7860D600263AF8 /* Published-iOS in Resources */,
 			);
@@ -536,6 +542,7 @@
 			files = (
 				7A59498B19E38E4A00F65F90 /* MainMenu.xib in Resources */,
 				08A4EB651C7A49D000A08923 /* Images.xcassets in Resources */,
+				FF0888A41CA81BB4004086B8 /* Launch Screen.storyboard in Resources */,
 				7A4036F619DE3FFC007B6E8F /* Published-iOS in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +551,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF0888A31CA81BB4004086B8 /* Launch Screen.storyboard in Resources */,
 				08BA20931C7865E600263AF8 /* Images.xcassets in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 			);
