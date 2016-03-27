@@ -86,10 +86,12 @@
     NSArray *filesToRemove;
     if (programmingLanguage == CCBProgrammingLanguageObjectiveC)
     {
+        // keep ios7 as minimum deployment target
+        /*
         [self setName:@"IPHONEOS_DEPLOYMENT_TARGET = 8.0"
                inFile:pbxprojFile
                search:@"IPHONEOS_DEPLOYMENT_TARGET = 7.0"];
-        
+        */
         [self setName:@"MACOSX_DEPLOYMENT_TARGET = 10.10"
                inFile:pbxprojFile
                search:@"MACOSX_DEPLOYMENT_TARGET = 10.11"];
