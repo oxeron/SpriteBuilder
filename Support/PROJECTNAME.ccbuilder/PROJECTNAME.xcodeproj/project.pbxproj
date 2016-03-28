@@ -62,7 +62,6 @@
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		FF0888A31CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
 		FF0888A41CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
-		FF0888A51CA81BB4004086B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */; };
 		FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510961C8FF70200649B06 /* libcocos2d.a */; };
 		FF1511171C900DFE00649B06 /* libcocos2d-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */; };
 		FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510981C8FF70200649B06 /* libcocos2d-mac.a */; };
@@ -530,7 +529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF0888A51CA81BB4004086B8 /* Launch Screen.storyboard in Resources */,
 				08BA20951C7865E600263AF8 /* Images.xcassets in Resources */,
 				08BA20861C7860D600263AF8 /* Published-iOS in Resources */,
 			);
