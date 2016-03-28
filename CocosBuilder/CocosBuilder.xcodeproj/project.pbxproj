@@ -8247,7 +8247,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cocos2d.cocosbuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2d.cocosbuilder;
 				PRODUCT_NAME = CocosBuilder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -8293,7 +8293,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cocos2d.cocosbuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2d.cocosbuilder;
 				PRODUCT_NAME = CocosBuilder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -8454,7 +8454,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cocos2d.cocosbuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2d.cocosbuilder;
 				PRODUCT_NAME = CocosBuilder;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
