@@ -1,6 +1,9 @@
 CocosBuilder - Authors
 
 Lead developer:
+    Olivier PIERRE (http://www.cocosbuilder.org/ - @cocosbuilder)
+
+First developer:
     Viktor Lidholt (http://www.cocosbuilder.com/)
 
 People/companies who were/are contributing code to CocosBuilder (alphabetically ordered):
@@ -53,5 +56,5 @@ People/companies who were/are contributing code to CocosBuilder (alphabetically 
     Added support for delegating interpolation frame drawing to the node-plugin
 
 * Olivier PIERRE (http://www.oxeron.com/ - http://www.cocosbuilder.org/)
-    Building CocosBuilder 1.5 with cocod2d 3.4.9
-    Building CocosBuilder 1.5 with cocod2d 3.5
+    Building SpriteBuilder 1.5 with cocod2d 3.4.9
+    Building CocosBuilder 3.5 with cocod2d 3.5
