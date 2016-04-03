@@ -1027,8 +1027,12 @@
 		FF09BCA61CA1C27900B4644C /* OpenPaths.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 83F3C9611A4229DB003D8659 /* OpenPaths.scpt */; };
 		FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */; };
 		FF0C33DF1C9962700032B324 /* frame-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0C33DE1C9962700032B324 /* frame-iphone6.png */; };
+		FF0DE8731CAC4C1B000E6EF6 /* CCBRoundedCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0DE8721CAC4C1B000E6EF6 /* CCBRoundedCornerView.m */; };
 		FF2E7CC71C9DDA7300E7DBA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */; };
 		FF2E7CCD1C9DFD7A00E7DBA6 /* ccblang.icns in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */; };
+		FF5633021CAAC1D2002213D1 /* Welcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5633011CAAC1D2002213D1 /* Welcome.xib */; };
+		FF5633091CAAC23A002213D1 /* Welcome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5633081CAAC23A002213D1 /* Welcome.m */; };
+		FF56330C1CAAD419002213D1 /* WelcomeProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56330B1CAAD419002213D1 /* WelcomeProjectCell.m */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
 		FF9296681C9A146100A6F6B2 /* frame-iphone6Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
@@ -2787,8 +2791,15 @@
 		FA98CFDA154E8D16006E58C5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeTag_Tests.m; sourceTree = "<group>"; };
 		FF0C33DE1C9962700032B324 /* frame-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6.png"; sourceTree = "<group>"; };
+		FF0DE8711CAC4C1B000E6EF6 /* CCBRoundedCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBRoundedCornerView.h; sourceTree = "<group>"; };
+		FF0DE8721CAC4C1B000E6EF6 /* CCBRoundedCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBRoundedCornerView.m; sourceTree = "<group>"; };
 		FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ccblang.icns; sourceTree = "<group>"; };
+		FF5633011CAAC1D2002213D1 /* Welcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Welcome.xib; sourceTree = "<group>"; };
+		FF5633071CAAC23A002213D1 /* Welcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome.h; sourceTree = "<group>"; };
+		FF5633081CAAC23A002213D1 /* Welcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome.m; sourceTree = "<group>"; };
+		FF56330A1CAAD419002213D1 /* WelcomeProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeProjectCell.h; sourceTree = "<group>"; };
+		FF56330B1CAAD419002213D1 /* WelcomeProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeProjectCell.m; sourceTree = "<group>"; };
 		FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6Plus.png"; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
@@ -3164,6 +3175,11 @@
 				7789ABD7133AA82000CEFCC7 /* MainMenu.xib */,
 				E335CAFE1576702300A612EE /* MainWindow.h */,
 				E335CAFF1576702300A612EE /* MainWindow.m */,
+				FF5633011CAAC1D2002213D1 /* Welcome.xib */,
+				FF5633071CAAC23A002213D1 /* Welcome.h */,
+				FF5633081CAAC23A002213D1 /* Welcome.m */,
+				FF56330A1CAAD419002213D1 /* WelcomeProjectCell.h */,
+				FF56330B1CAAD419002213D1 /* WelcomeProjectCell.m */,
 			);
 			name = "AppDelegate & Cocos2D Scene";
 			sourceTree = "<group>";
@@ -3243,6 +3259,8 @@
 				E3B9AF4A153C150D00489438 /* CCBTransparentWindow.m */,
 				E3B9AF4C153C48E300489438 /* CCBTransparentView.h */,
 				E3B9AF4D153C48E300489438 /* CCBTransparentView.m */,
+				FF0DE8711CAC4C1B000E6EF6 /* CCBRoundedCornerView.h */,
+				FF0DE8721CAC4C1B000E6EF6 /* CCBRoundedCornerView.m */,
 				776C683C1385C02000153214 /* CCBOutlineView.h */,
 				776C683D1385C02000153214 /* CCBOutlineView.m */,
 				776C68401385C4F100153214 /* CCBTextFieldCell.h */,
@@ -6454,6 +6472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5633021CAAC1D2002213D1 /* Welcome.xib in Resources */,
 				FF09BCA61CA1C27900B4644C /* OpenPaths.scpt in Resources */,
 				921EEADD18A5760700D864C2 /* joint-pivot@2x.png in Resources */,
 				92F12E4E18847BC800AB8F32 /* seq-keyframe-x4-sel.png in Resources */,
@@ -7313,6 +7332,7 @@
 				E3C5C1C91508F35E000CF6F3 /* CCBAnimationParser.m in Sources */,
 				E3850809150AA9AE007E162A /* ImageAndTextCell.m in Sources */,
 				E33BC1B81510E4B6009AE29A /* NodeGraphPropertySetter.m in Sources */,
+				FF5633091CAAC23A002213D1 /* Welcome.m in Sources */,
 				92053DB6197F096000AA93AD /* EffectBloomControl.m in Sources */,
 				E36F3C3D152C756D00AAD805 /* NSString+RelativePath.m in Sources */,
 				5BB9A3551A038C59008184AE /* ResourceDuplicateCommand.m in Sources */,
@@ -7357,6 +7377,7 @@
 				E36ECCE5158648EE003C177E /* SequencerNodeProperty.m in Sources */,
 				E36ECD0D15868F57003C177E /* SequencerKeyframe.m in Sources */,
 				E3A0ED5A159119E7000BDF4B /* SequencerSettingsWindow.m in Sources */,
+				FF56330C1CAAD419002213D1 /* WelcomeProjectCell.m in Sources */,
 				E3F73DB61593908A00D74084 /* SequencerDurationWindow.m in Sources */,
 				E3E05578159B2322001066C5 /* NSString+AppendToFile.m in Sources */,
 				E3926188159C69D20034FF1D /* SequencerKeyframeEasing.m in Sources */,
@@ -7567,6 +7588,7 @@
 				E525F30359F75816D1F178F1 /* PublishUtil.m in Sources */,
 				E525F6B824415CA3D1C215EA /* NSString+Misc.m in Sources */,
 				98C392F0FA6E4C385A9B7BDA /* NSKeyboardForwardingView.m in Sources */,
+				FF0DE8731CAC4C1B000E6EF6 /* CCBRoundedCornerView.m in Sources */,
 				E525FB0F3B78CEE08D44752B /* MailingListWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

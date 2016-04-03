@@ -32,6 +32,7 @@
 #import "CCNode+NodeInfo.h"
 #import "PublishingFinishedDelegate.h"
 #import "TaskStatusWindow.h"
+#import "Welcome.h"
 
 #define kCCBNumCanvasDevices 14
 
@@ -294,6 +295,7 @@ __attribute__((visibility("default")))
     
     CGFloat _baseContentScaleFactor;
     
+    Welcome *welcome;
 }
 
 
@@ -463,4 +465,10 @@ __attribute__((visibility("default")))
 
 - (void)renamedResourcePathFrom:(NSString *)fromPath toPath:(NSString *)toPath;
 
+// crerate new project from Welcome window
+- (IBAction) menuNewProject:(id)sender;
+- (void) closeWelcomeModal:(id)sender;
+- (void) closeWelcomeModalAndDisplayEditor:(id)sender;
+- (void) openProject:(NSString *)fileName;
+- (void) createProjectFromPath:(NSString*)projectFullPath withOrientation:(CCBOrientation)orientation andLanguage:(CCBProgrammingLanguage)language;
 @end

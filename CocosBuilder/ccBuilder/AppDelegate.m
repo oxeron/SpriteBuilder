@@ -248,9 +248,14 @@ void ApplyCustomNodeVisitSwizzle()
     
     NSAssert( [NSThread currentThread] == [[CCDirector sharedDirector] runningThread],
              @"cocos2d should run on the Main Thread. Compile CocosBuilder with CC_DIRECTOR_MAC_THREAD=2");
+    
+    // stopAnimation to prevent error messages when splash screen is displayed :
+    // OpenGL error GL_INVALID_FRAMEBUFFER_OPERATION detected at CCRenderStateGLTransition 300
+    [director stopAnimation];
 }
 
-- (void) updateDerivedViewScaleFactor {
+- (void) updateDerivedViewScaleFactor
+{
     CCDirectorMac *director     = (CCDirectorMac*) [CCDirector sharedDirector];
     self.derivedViewScaleFactor = director.contentScaleFactor / director.deviceContentScaleFactor;
 }
@@ -507,10 +512,67 @@ typedef enum
     [window addChildWindow:guiWindow ordered:NSWindowAbove];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+- (void) closeWelcomeModal:(id)sender
 {
+    [welcome.window orderOut:sender];
+    [[NSApplication sharedApplication] abortModal];
+}
+
+-(void) windowDidBecomeKey:(NSNotification *)notification
+{
+    CCDirectorMac *director = (CCDirectorMac*) [CCDirector sharedDirector];
+    [director startAnimation];
+}
+
+- (void) closeWelcomeModalAndDisplayEditor:(id)sender
+{
+    [self.window makeKeyAndOrderFront:sender];
+    [self closeWelcomeModal:sender];
+}
+
+// must add this now that MainMenu.xib window is hidden at launch
++ (NSArray<NSString *> *)readableTypes
+{
+    return [NSArray arrayWithObjects:@"ccbproj",@"ccbuilder",nil];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{   
     [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"ApplePersistenceIgnoreState"];
+
+    sharedAppDelegate = self;
     
+#ifdef TESTING
+    return;
+#endif
+    
+    // Check for first run
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"completedFirstRun"] boolValue])
+    {
+        //[self showHelp:self];
+        
+        // First run completed
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"completedFirstRun"];
+    }
+    
+    [_openPathsController populateOpenPathsMenuItems];
+    
+    [self openWelcomeModal];
+}
+
+/**
+ *  Open modal window for welcome splash screen
+ */
+-(void) openWelcomeModal
+{
+    [self.window orderOut:self];
+    welcome = [[Welcome alloc] initWithWindowNibName:@"Welcome"];
+    [welcome.window makeKeyAndOrderFront:self];
+    [[NSApplication sharedApplication] runModalForWindow:welcome.window];
+}
+
+- (void) finishSetup
+{
     [self registerUserDefaults];
     
     [self registerNotificationObservers];
@@ -524,8 +586,6 @@ typedef enum
     
     selectedNodes = [[NSMutableArray alloc] init];
     loadedSelectedNodes = [[NSMutableArray alloc] init];
-    
-    sharedAppDelegate = self;
     
     [[NSExceptionHandler defaultExceptionHandler] setExceptionHandlingMask: NSLogUncaughtExceptionMask | NSLogUncaughtSystemExceptionMask | NSLogUncaughtRuntimeErrorMask];
     
@@ -574,9 +634,10 @@ typedef enum
     [self setupExtras];
     [self setupResourceCommandController];
     
-    [window restorePreviousOpenedPanels];
+    // replaced by welcome splash screen
+    //[window restorePreviousOpenedPanels];
     
-    [self.window makeKeyWindow];
+    //[self.window makeKeyWindow];
     
     // Install default templates
     [_propertyInspectorTemplateHandler installDefaultTemplatesReplace:NO];
@@ -592,12 +653,6 @@ typedef enum
     {
         [loopButton setBezelStyle:NSTexturedRoundedBezelStyle];
     }
-    
-    
-#ifdef TESTING
-    return;
-#endif
-    
     
     // Open registration window
     /*
@@ -617,22 +672,11 @@ typedef enum
     else
     {
 #ifndef TESTING
-        [self openLastOpenProject];
+        //[self openLastOpenProject];
 #endif
     }
     
-    // Check for first run
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"completedFirstRun"] boolValue])
-    {
-        //[self showHelp:self];
-        
-        // First run completed
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"completedFirstRun"];
-    }
-    
     [self toggleFeatures];
-    
-    [_openPathsController populateOpenPathsMenuItems];
 }
 
 - (void)setupInspectorController
@@ -1767,13 +1811,23 @@ typedef enum
     
     return YES;
 }
+
 - (void)openProject:(NSString *)fileName
 {
+    // finish setup if we open project from welcome splash screen
+    if (!_applicationLaunchComplete)
+        [self finishSetup];
+    
     if (![fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]]
         && ![fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
         return;
     }
+    
+    // remove trailing .ccbuilder
+    NSString* projectName = [[fileName lastPathComponent] stringByDeletingPathExtension];
+    
+    [self saveUserDefaultsProject:projectName withPath:fileName];
     
     if ([fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
@@ -3058,6 +3112,81 @@ typedef enum
             saveDlgLanguageHint.title = @"";  // NOTREACHED
             break;
     }
+}
+
+-(void)saveUserDefaultsProject:(NSString*)projectName withPath:(NSString*)projectPath
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *recentProjectsArray = [defaults valueForKey:RECENT_PROJECTS];
+    NSMutableArray *recentProjects;
+    if (recentProjectsArray)
+    {
+        recentProjects = [recentProjectsArray mutableCopy];
+    }
+    else
+    {
+        recentProjects = [[NSMutableArray alloc] init];
+    }
+    
+    // only add to the array if not already inside
+    NSArray *newProjectData=@[projectName, projectPath, @"ccbproj"];
+    if (![recentProjects containsObject: newProjectData])
+    {
+        [recentProjects addObject:newProjectData];
+        [defaults setObject:recentProjects forKey:RECENT_PROJECTS];
+    }
+}
+
+-(void) createProjectFromPath:(NSString*)projectFullPath withOrientation:(CCBOrientation)orientation andLanguage:(CCBProgrammingLanguage)language
+{
+    NSString *engine = CCBTargetEngineCocos2d;
+    NSString* fileName = projectFullPath;
+    NSString* fileNameRaw = [fileName stringByDeletingPathExtension];
+    
+    [[UsageManager sharedManager] sendEvent:[NSString stringWithFormat:@"project_new_%@",saveDlgLanguagePopup.selectedItem.title]];
+    
+    // Check validity of file name
+    NSMutableCharacterSet* validChars = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
+    [validChars addCharactersInString:@"_-."];
+    NSCharacterSet* invalidChars = [validChars invertedSet];
+    
+    if ([[fileNameRaw lastPathComponent] rangeOfCharacterFromSet:invalidChars].location == NSNotFound)
+    {
+        // Create directory
+        [[NSFileManager defaultManager] createDirectoryAtPath:fileName withIntermediateDirectories:NO attributes:NULL error:NULL];
+        
+        // Set icon of created directory
+        NSImage* folderIcon = [NSImage imageNamed:@"Folder.icns"];
+        [[NSWorkspace sharedWorkspace] setIcon:folderIcon forFile:fileName options:0];
+        
+        // Create project file
+        NSString* projectName = [fileNameRaw lastPathComponent];
+        NSString* projectFileName = [[fileName stringByAppendingPathComponent:projectName] stringByAppendingPathExtension:PROJECT_NAME_SUFFIX];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
+                       dispatch_get_main_queue(), ^{
+                           CCBProjectCreator * creator = [[CCBProjectCreator alloc] init];
+                           if ([creator createDefaultProjectAtPath:projectFileName engine:engine programmingLanguage:language orientation:orientation])
+                           {
+                               [self openProject:[fileNameRaw stringByAppendingPathExtension:FOLDER_NAME_SUFFIX]];
+                               // regenerate thumbnail for MainScene.ccb depending on chosen orientation at project creation
+                               NSString* mainSceneCCBFileName = [fileName stringByAppendingPathComponent:@"/Packages/CocosBuilder Resources.ccbpack/MainScene.ccb"];
+                               [self saveFile:mainSceneCCBFileName];
+                               
+                               // close modal screen and display main window
+                               [self closeWelcomeModalAndDisplayEditor:nil];
+                           }
+                           else
+                           {
+                               [self modalDialogTitle:@"Failed to Create Project" message:@"Failed to create the project, make sure you are saving it to a writable directory."];
+                           }
+                       });
+    }
+    else
+    {
+        [self modalDialogTitle:@"Failed to Create Project" message:@"Failed to create the project, make sure to only use letters and numbers for the file name (no spaces allowed)."];
+    }
+    
 }
 
 -(void) createNewProjectTargetting:(CCBTargetEngine)engine
