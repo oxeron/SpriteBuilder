@@ -31,14 +31,14 @@
     self = [super init];
     if (!self) return NULL;
     
-    NSLog(@"created controller: %@", self);
+    //NSLog(@"created controller: %@", self);
     
     return self;
 }
 
 - (void)noteNewRecentDocument:(NSDocument *)document
 {
-    NSLog(@"noteNewRecentDocument: %@", document);
+    //NSLog(@"noteNewRecentDocument: %@", document);
 }
 
 @end
