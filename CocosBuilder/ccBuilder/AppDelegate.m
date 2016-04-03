@@ -1246,7 +1246,8 @@ typedef enum
     
     [loadedSelectedNodes removeAllObjects];
     
-    BOOL centered = [[doc objectForKey:@"centeredOrigin"] boolValue];
+    //BOOL centered = [[doc objectForKey:@"centeredOrigin"] boolValue];
+    BOOL centered;
     
     // Check for jsControlled
     jsControlled = [[doc objectForKey:@"jsControlled"] boolValue];
