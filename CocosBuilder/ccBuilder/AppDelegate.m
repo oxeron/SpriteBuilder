@@ -571,6 +571,21 @@ typedef enum
     [[NSApplication sharedApplication] runModalForWindow:welcome.window];
 }
 
+/**
+ *  Open modal window for welcome splash screen ans withc to new project view
+ */
+-(void) openWelcomeModalWithNewCocosBuilderProject
+{
+    [self.window orderOut:self];
+    welcome = [[Welcome alloc] initWithWindowNibName:@"Welcome"];
+    [welcome.window makeKeyAndOrderFront:self];
+    [welcome newCocosBuilderProject:self];
+    [[NSApplication sharedApplication] runModalForWindow:welcome.window];
+}
+
+/**
+ *  Finishes loading visual editor view after welcome splash screen is closed
+ */
 - (void) finishSetup
 {
     [self registerUserDefaults];
@@ -3264,7 +3279,7 @@ typedef enum
 
 - (IBAction) menuNewProject:(id)sender
 {
-    [self createNewProjectTargetting:CCBTargetEngineCocos2d];
+    [self openWelcomeModalWithNewCocosBuilderProject];
 }
 
 - (IBAction) menuNewPackage:(id)sender
