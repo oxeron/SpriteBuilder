@@ -3143,13 +3143,15 @@ typedef enum
         recentProjects = [[NSMutableArray alloc] init];
     }
     
-    // only add to the array if not already inside
     NSArray *newProjectData=@[projectName, projectPath, @"ccbproj"];
-    if (![recentProjects containsObject: newProjectData])
+    // removes object if in the middle of the array
+    if ([recentProjects containsObject: newProjectData])
     {
-        [recentProjects addObject:newProjectData];
-        [defaults setObject:recentProjects forKey:RECENT_PROJECTS];
+        [recentProjects removeObject: newProjectData];
     }
+    // and push it on top
+    [recentProjects addObject:newProjectData];
+    [defaults setObject:recentProjects forKey:RECENT_PROJECTS];
 }
 
 -(void) createProjectFromPath:(NSString*)projectFullPath withOrientation:(CCBOrientation)orientation andLanguage:(CCBProgrammingLanguage)language
