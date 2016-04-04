@@ -137,6 +137,7 @@
 #import "SBOpenPathsController.h"
 #import "LightingHandler.h"
 #import "NSAlert+Convenience.h"
+#import "PFMoveApplication.h"
 
 // default resolution menu is iPhone 6
 #define kDefaultResolution 2
@@ -536,6 +537,16 @@ typedef enum
     return [NSArray arrayWithObjects:@"ccbproj",@"ccbuilder",nil];
 }
 
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+#if !DEBUG
+    // Offer to the move the Application if necessary.
+    // Note that if the user chooses to move the application,
+    // this call will never return. Therefore you can suppress
+    // any first run UI by putting it after this call.
+    PFMoveToApplicationsFolderIfNecessary();
+#endif
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {   
     [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"ApplePersistenceIgnoreState"];
@@ -626,7 +637,6 @@ typedef enum
     [window setDelegate:self];
     
     [self setupTabBar];
-    
     
     [self setupCocos2d];
     [self setupSequenceHandler];
