@@ -275,7 +275,7 @@
     // Find application support directory for CocosBuilder
     NSError *error;
     NSURL *appSupportDir = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
-    appSupportDir = [appSupportDir URLByAppendingPathComponent:@"com.cocosbuilder"];
+    appSupportDir = [appSupportDir URLByAppendingPathComponent:@"org.cocosbuilder"];
     
     // Create directory for templates if it doesn't exist
     NSURL* templDir = [appSupportDir URLByAppendingPathComponent:@"templates"];

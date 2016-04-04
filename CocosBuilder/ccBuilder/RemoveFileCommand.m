@@ -27,7 +27,7 @@
 - (BOOL)execute:(NSError **)error
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *tmpDir = [NSTemporaryDirectory() stringByAppendingPathComponent:@"com.cocosbuilder/migration"];
+    NSString *tmpDir = [NSTemporaryDirectory() stringByAppendingPathComponent:@"org.cocosbuilder/migration"];
 
     if (![fileManager createDirectoryAtPath:tmpDir withIntermediateDirectories:YES attributes:nil error:error])
     {
