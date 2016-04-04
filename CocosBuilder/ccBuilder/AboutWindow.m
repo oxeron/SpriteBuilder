@@ -24,7 +24,7 @@
 
 #import "AboutWindow.h"
 #import "AppDelegate.h"
-#import "Cocos2dUpdater.h"
+#import "cocos2d.h"
 
 @interface AboutWindow ()
 
@@ -66,9 +66,7 @@
 	NSString * aboutInfo = @"";
 	aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"CocosBuilder Version: %@\n", versionDictionary[@"version"]]];
 	aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"CocosBuilder Revision: %@\n", versionDictionary[@"revision"]]];
-    // add cocos2d version
-    NSString *cocos2dVersion = [Cocos2dUpdater readCocosBuildersCocos2dVersionFile];
-    aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"Cocos2d Version: %@\n", cocos2dVersion]];
+    aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"%s", [cocos2dVersion() UTF8String]]];
 	return aboutInfo;
 }
 

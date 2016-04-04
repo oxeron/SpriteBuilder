@@ -15,8 +15,6 @@
 @property (nonatomic, weak, readonly) ProjectSettings *projectSettings;
 
 - (instancetype)initWithAppDelegate:(AppDelegate *)appDelegate projectSettings:(ProjectSettings *)projectSettings;
-
-+ (NSString *)readCocosBuildersCocos2dVersionFile;
 - (void)updateAndBypassIgnore:(BOOL)bypassIgnore;
 
 @end

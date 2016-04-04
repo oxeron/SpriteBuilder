@@ -7,7 +7,6 @@
 //
 
 #import "Cocos2dUpdater.h"
-
 #import "AppDelegate.h"
 #import "ProjectSettings.h"
 #import "copyfile.h"
@@ -18,9 +17,9 @@
 #import "CCBFileUtil.h"
 
 // Debug option: Some verbosity on the console, 1 to enable 0 to turn off
-#define Cocos2UpdateLogging 0
+#define Cocos2UpdateLogging 1
 
-#ifdef DEBUG
+#ifdef Cocos2UpdateLogging
 	#define LocalLog( s, ... ) NSLog( @"<%@:%d> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__,  [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #else
 	#define LocalLog( s, ... )
@@ -51,6 +50,10 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 
 @interface Cocos2dUpdater ()
+{
+    Cocos2dVersionComparisonResult compareResult;
+    BOOL isCoco2dAGitSubmodule;
+}
 
 @property (nonatomic, weak, readwrite) AppDelegate *appDelegate;
 @property (nonatomic, weak, readwrite) ProjectSettings *projectSettings;
@@ -86,6 +89,10 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
         self.CocosBuildersCocos2dVersion = [Cocos2dUpdater readCocosBuildersCocos2dVersionFile];
         self.projectsCocos2dVersion = [self readProjectsCocos2dVersionFile];
+        
+        // this is moved in the init so it's not called multiple times in different methods of this class
+        compareResult = [self compareProjectsCocos2dVersionWithCocosBuildersVersion];
+        isCoco2dAGitSubmodule = [self isCoco2dAGitSubmodule];
     }
     return self;
 }
@@ -102,7 +109,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
         return;
     }
 
-    if ([self isCoco2dAGitSubmodule])
+    if (isCoco2dAGitSubmodule)
     {
         LocalLog(@"[COCO2D-UPDATER] [INFO] cocos2d-objc git submodule found, skipping.");
         return;
@@ -128,25 +135,19 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 - (void)updateProjectSettingsIfUserCanUpdate
 {
-    Cocos2dVersionComparisonResult compareResult = [self compareProjectsCocos2dVersionWithCocosBuildersVersion];
-
-   _projectSettings.canUpdateCocos2D = ![self isCoco2dAGitSubmodule]
+   _projectSettings.canUpdateCocos2D = !isCoco2dAGitSubmodule
                && ((compareResult == Cocos2dVersionIncompatible)
                || [self doesProjectsCocos2dFolderExistAndHasNoVersionfile]);;
 }
 
 - (BOOL)doesProjectsCocos2dFolderExistAndHasNoVersionfile
 {
-    Cocos2dVersionComparisonResult compareResult = [self compareProjectsCocos2dVersionWithCocosBuildersVersion];
-
     return compareResult == Cocos2dVersionProjectVersionUnknown
                  && [self defaultProjectsCocos2dFolderExists];
 }
 
 - (UpdateActions)updateAction
 {
-    Cocos2dVersionComparisonResult compareResult = [self compareProjectsCocos2dVersionWithCocosBuildersVersion];
-
     if (compareResult == Cocos2dVersionUpToDate)
     {
         return UpdateActionNothingToDo;
@@ -325,7 +326,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
     if (![fileManager createDirectoryAtPath:tmpDir withIntermediateDirectories:NO attributes:nil error:error])
     {
-        LocalLog(@"[COCO2D-UPDATER] [ERROR] could not create directory at path \"%@\" with error %@", tmpDir, error);
+        LocalLog(@"[COCO2D-UPDATER] [ERROR] could not create directory at path \"%@\" with error %@", tmpDir, (*error).localizedDescription);
         return NO;
     }
 
@@ -432,25 +433,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 + (NSString *)readCocosBuildersCocos2dVersionFile
 {
-    NSString *versionFilePath = [[NSBundle mainBundle] pathForResource:@"cocos2d_version" ofType:@"txt" inDirectory:@"Generated"];
-
-    if (versionFilePath == nil)
-    {
-        LocalLog(@"[COCO2D-UPDATER] [ERROR] Generated/cocos2d_version.txt could not be found! Version cannot be determined. If developing, rerun scripts/BuildDistribution.sh and try again.");
-        return nil;
-    }
-
-    NSError *error;
-    NSString *result = [NSString stringWithContentsOfFile:versionFilePath encoding:NSUTF8StringEncoding error:&error];
-    result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (!result)
-    {
-        LocalLog(@"[COCO2D-UPDATER] [ERROR] reading SB's cocos2d version file: %@", error);
-    }
-
-    LocalLog(@"[COCO2D-UPDATER] [INFO] CocosBuilder's cocos2d version: %@", result);
-
-    return result;
+    return [NSString stringWithUTF8String:[cocos2dNumericVersion() UTF8String]];
 }
 
 static int copyFileCallback(int currentState, int stage, copyfile_state_t state, const char *fromPath, const char *toPath, void *context)
@@ -624,7 +607,7 @@ static int copyFileCallback(int currentState, int stage, copyfile_state_t state,
 
     if (self.projectsCocos2dVersion)
     {
-        [informativeText appendFormat:@"\n\nUpdate from version %@ to %@?", self.projectsCocos2dVersion, self.CocosBuildersCocos2dVersion];
+        [informativeText appendFormat:@"\n\nUpdate from version %@ to %@ ?", self.projectsCocos2dVersion, self.CocosBuildersCocos2dVersion];
     }
     else
     {
@@ -703,23 +686,51 @@ static int copyFileCallback(int currentState, int stage, copyfile_state_t state,
 
 - (NSString *)readProjectsCocos2dVersionFile
 {
+    /* must read this line in cocos2d.h
+        #define COCOS2D_VERSION 0x00030500
+    */
+    
     NSString *versionFilePath = [self defaultProjectsCocos2DFolderPath];
-    versionFilePath = [versionFilePath stringByAppendingPathComponent:@"VERSION"];
-
-    __block NSString *version;
-    NSString *fileContent = [NSString stringWithContentsOfFile:versionFilePath encoding:NSUTF8StringEncoding error:nil];
-    [fileContent enumerateLinesUsingBlock:^(NSString *line, BOOL *stop)
+    versionFilePath = [versionFilePath stringByAppendingPathComponent:@"/cocos2d/cocos2d.h"];
+    
+    NSError *error;
+    NSString *fileContent = [NSString stringWithContentsOfFile:versionFilePath encoding:NSUTF8StringEncoding error:&error];
+    
+    if (error)
     {
-        version = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        *stop = YES;
-    }];
-
-    if (version)
-    {
-        LocalLog(@"[COCO2D-UPDATER] [INFO] Version file found in Project: %@", fileContent);
-        return version;
+        LocalLog(@"[COCO2D-UPDATER] [WARNING] Error reading %@ : %@",versionFilePath,error.localizedDescription);
+        return nil;
     }
-    return nil;
+    
+    __block NSString *version;
+    [fileContent enumerateLinesUsingBlock:^(NSString *line, BOOL *stop)
+     {
+         NSString* string = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+         if ([string rangeOfString:@"#define COCOS2D_VERSION "].location != NSNotFound)
+         {
+             // found version
+             version = [string stringByReplacingOccurrencesOfString:@"#define COCOS2D_VERSION " withString:@""];
+              *stop = YES;
+         }
+     }];
+    
+    if (version == nil)
+    {
+        LocalLog(@"[COCO2D-UPDATER] [WARNING] Unable to read cocos2d version in cocos2d.h from project");
+        return nil;
+    }
+    
+    unsigned versionInt = 0;
+    [[NSScanner scannerWithString:version] scanHexInt:&versionInt];
+    
+    int major   = (versionInt >> 16) & 0x0000FF;
+    int minor   = (versionInt >>  8) & 0x0000FF;
+    int rev     = (versionInt >>  0) & 0x0000FF;
+    
+    NSString *versionString = [NSString stringWithFormat:@"%d.%d.%d", major, minor, rev];
+    LocalLog(@"[COCO2D-UPDATER] [INFO] Version found in project: %@", versionString);
+    
+    return versionString;
 }
 
 - (NSString *)defaultProjectsCocos2DFolderPath

@@ -90,7 +90,11 @@
 -(void)splitViewWillResizeSubviews:(NSNotification *)notification
 {
     MainWindow *win = (MainWindow*)self.window;
-    [win disableUpdatesUntilFlush];
+    // fix to prevent
+    // <Warning>: void CGSUpdateManager::log() const: conn 0x58933 legacy 1
+    // -[MainWindow disableUpdatesUntilFlush] + 42
+    if ([win isVisible])
+        [win disableUpdatesUntilFlush];
 }
 
 - (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview
