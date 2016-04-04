@@ -542,6 +542,9 @@ typedef enum
 
     sharedAppDelegate = self;
     
+    // Load plug-ins
+    [[PlugInManager sharedManager] loadPlugIns];
+    
 #ifdef TESTING
     return;
 #endif
@@ -636,8 +639,6 @@ typedef enum
     [self updateCanvasBorderMenu];
     //[self updateJSControlledMenu];
     //[self updateDefaultBrowser];
-    // Load plug-ins
-    [[PlugInManager sharedManager] loadPlugIns];
     
     [self setupPlugInNodeView];
     [self setupProjectViewTabBar];
