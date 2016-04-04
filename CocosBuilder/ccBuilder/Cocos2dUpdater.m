@@ -432,25 +432,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 + (NSString *)readCocosBuildersCocos2dVersionFile
 {
-    NSString *versionFilePath = [[NSBundle mainBundle] pathForResource:@"cocos2d_version" ofType:@"txt" inDirectory:@"Generated"];
-
-    if (versionFilePath == nil)
-    {
-        LocalLog(@"[COCO2D-UPDATER] [ERROR] Generated/cocos2d_version.txt could not be found! Version cannot be determined. If developing, rerun scripts/BuildDistribution.sh and try again.");
-        return nil;
-    }
-
-    NSError *error;
-    NSString *result = [NSString stringWithContentsOfFile:versionFilePath encoding:NSUTF8StringEncoding error:&error];
-    result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (!result)
-    {
-        LocalLog(@"[COCO2D-UPDATER] [ERROR] reading SB's cocos2d version file: %@", error);
-    }
-
-    LocalLog(@"[COCO2D-UPDATER] [INFO] CocosBuilder's cocos2d version: %@", result);
-
-    return result;
+    return [NSString stringWithUTF8String:[cocos2dNumericVersion() UTF8String]];
 }
 
 static int copyFileCallback(int currentState, int stage, copyfile_state_t state, const char *fromPath, const char *toPath, void *context)

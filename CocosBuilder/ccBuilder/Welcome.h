@@ -28,6 +28,9 @@
 
 @property (assign) IBOutlet NSTableView *tableView;
 @property (assign) IBOutlet NSSearchField *searchField;
+@property (strong) IBOutlet NSTextField *CCBVersion;
+@property (strong) IBOutlet NSTextField *CC2dVersion;
+
 @property (assign) IBOutlet NSView *roundedCornerView;
 @property (assign) IBOutlet NSView *fixedSubview;
 // strong to keep them in memory when switching

@@ -106,6 +106,18 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
     [closeButton setTarget:[AppDelegate appDelegate]];
     [closeButton setAction:@selector(closeWelcomeModal:)];
     [self.roundedCornerView addSubview:closeButton];
+    
+    [self.CCBVersion setStringValue:[self versionInfo]];
+    [self.CC2dVersion setStringValue:[NSString stringWithFormat:@"%s", [cocos2dVersion() UTF8String]]];
+}
+
+-(NSString*)versionInfo
+{
+    ProjectSettings* projectSettings = [[ProjectSettings alloc] init];
+    NSDictionary * versionDictionary = [projectSettings getVersionDictionary];
+    NSString * aboutInfo = @"";
+    aboutInfo = [aboutInfo stringByAppendingString:[NSString stringWithFormat:@"%@ (%@)\n", versionDictionary[@"version"],versionDictionary[@"revision"]]];
+    return aboutInfo;
 }
 
 -(void) reloadProjectList
