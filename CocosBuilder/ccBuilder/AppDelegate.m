@@ -538,8 +538,9 @@ typedef enum
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
-#if !DEBUG
+#if !(DEBUG||TESTING)
     // Offer to the move the Application if necessary.
+    // Only for production version
     // Note that if the user chooses to move the application,
     // this call will never return. Therefore you can suppress
     // any first run UI by putting it after this call.
