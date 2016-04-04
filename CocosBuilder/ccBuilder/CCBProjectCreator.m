@@ -144,7 +144,7 @@
         [self setName:projName inFile:plistFileName search:substitutableProjectName];
         if (orientation == kCCBOrientationLandscape)
         {
-            [self setName:@"UIInterfaceOrientationLandscapeLeft" inFile:plistFileName search:@"ORIENTATION"];
+            [self setName:@"UIInterfaceOrientationLandscapeLeft</string>\n<string>UIInterfaceOrientationLandscapeRight" inFile:plistFileName search:@"ORIENTATION"];
         }
         else if (orientation == kCCBOrientationPortrait)
         {
