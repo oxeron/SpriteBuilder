@@ -691,7 +691,7 @@ static SequencerHandler* sharedSequencerHandler;
 
 - (BOOL)dropContainsMultipleTypes:(NSPasteboard *)pasteboard
 {
-	// There is always one extra type added: com.cocosbuilder.RMResource
+	// There is always one extra type added: org.cocosbuilder.RMResource
 	return [[pasteboard types] count] > 2;
 }
 

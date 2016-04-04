@@ -3,7 +3,7 @@
 #import "ProjectSettings.h"
 
 
-NSString *const TEST_PATH = @"com.cocosbuilder.tests";
+NSString *const TEST_PATH = @"org.cocosbuilder.tests";
 
 
 @interface FileSystemTestCase()

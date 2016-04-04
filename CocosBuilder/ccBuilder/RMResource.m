@@ -120,23 +120,23 @@
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
-    if ([pbType isEqualToString:@"com.cocosbuilder.RMResource"])
+    if ([pbType isEqualToString:@"org.cocosbuilder.RMResource"])
     {
         dict[@"type"] = @(_type);
         dict[@"filePath"] = _filePath;
         return dict;
     }
-    else if ([pbType isEqualToString:@"com.cocosbuilder.texture"])
+    else if ([pbType isEqualToString:@"org.cocosbuilder.texture"])
     {
         dict[@"spriteFile"] = self.relativePath;
         return dict;
     }
-    else if ([pbType isEqualToString:@"com.cocosbuilder.ccb"])
+    else if ([pbType isEqualToString:@"org.cocosbuilder.ccb"])
     {
         dict[@"ccbFile"] = self.relativePath;
         return dict;
     }
-    else if ([pbType isEqualToString:@"com.cocosbuilder.wav"])
+    else if ([pbType isEqualToString:@"org.cocosbuilder.wav"])
     {
         dict[@"wavFile"] = self.relativePath;
         return dict;
@@ -146,18 +146,18 @@
 
 - (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard
 {
-    NSMutableArray* pbTypes = [@[@"com.cocosbuilder.RMResource"] mutableCopy];
+    NSMutableArray* pbTypes = [@[@"org.cocosbuilder.RMResource"] mutableCopy];
     if (_type == kCCBResTypeImage)
     {
-        [pbTypes addObject:@"com.cocosbuilder.texture"];
+        [pbTypes addObject:@"org.cocosbuilder.texture"];
     }
     else if (_type == kCCBResTypeCCBFile)
     {
-        [pbTypes addObject:@"com.cocosbuilder.ccb"];
+        [pbTypes addObject:@"org.cocosbuilder.ccb"];
     }
     else if(_type == kCCBResTypeAudio)
     {
-        [pbTypes addObject:@"com.cocosbuilder.wav"];
+        [pbTypes addObject:@"org.cocosbuilder.wav"];
     }
     
     return pbTypes;
@@ -165,19 +165,19 @@
 
 - (NSPasteboardWritingOptions)writingOptionsForType:(NSString *)pbType pasteboard:(NSPasteboard *)pasteboard
 {
-    if ([pbType isEqualToString:@"com.cocosbuilder.RMResource"])
+    if ([pbType isEqualToString:@"org.cocosbuilder.RMResource"])
     {
         return NSPasteboardWritingPromised;
     }
-    if ([pbType isEqualToString:@"com.cocosbuilder.texture"] && _type == kCCBResTypeImage)
+    if ([pbType isEqualToString:@"org.cocosbuilder.texture"] && _type == kCCBResTypeImage)
     {
         return NSPasteboardWritingPromised;
     }
-    if ([pbType isEqualToString:@"com.cocosbuilder.ccb"] && _type == kCCBResTypeCCBFile)
+    if ([pbType isEqualToString:@"org.cocosbuilder.ccb"] && _type == kCCBResTypeCCBFile)
     {
         return NSPasteboardWritingPromised;
     }
-    if ([pbType isEqualToString:@"com.cocosbuilder.wav"] && _type == kCCBResTypeAudio)
+    if ([pbType isEqualToString:@"org.cocosbuilder.wav"] && _type == kCCBResTypeAudio)
     {
         return NSPasteboardWritingPromised;
     }

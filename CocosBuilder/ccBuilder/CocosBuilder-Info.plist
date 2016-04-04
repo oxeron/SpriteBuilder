@@ -27,7 +27,7 @@
 			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.ccbpack</string>
+				<string>org.cocosbuilder.ccbpack</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
@@ -55,7 +55,7 @@
 			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.ccb</string>
+				<string>org.cocosbuilder.ccb</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string></string>
@@ -77,7 +77,7 @@
 			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.ccbproj</string>
+				<string>org.cocosbuilder.ccbproj</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>AppDelegate</string>
@@ -99,7 +99,7 @@
 			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.ccbi</string>
+				<string>org.cocosbuilder.ccbi</string>
 			</array>
 		</dict>
 		<dict>
@@ -117,7 +117,7 @@
 			<true/>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.cocosbuilder.ccblang</string>
+				<string>org.cocosbuilder.ccblang</string>
 			</array>
 		</dict>
 	</array>
@@ -167,7 +167,7 @@
 			<key>UTTypeIconFile</key>
 			<string>ccb.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccb</string>
+			<string>org.cocosbuilder.ccb</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -186,7 +186,7 @@
 			<key>UTTypeIconFile</key>
 			<string>ccbproj.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccbproj</string>
+			<string>org.cocosbuilder.ccbproj</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -205,7 +205,7 @@
 			<key>UTTypeIconFile</key>
 			<string>ccbi.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccbi</string>
+			<string>org.cocosbuilder.ccbi</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -222,7 +222,7 @@
 			<key>UTTypeIconFile</key>
 			<string>Package.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccbpack</string>
+			<string>org.cocosbuilder.ccbpack</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -241,7 +241,7 @@
 			<key>UTTypeIconFile</key>
 			<string>ccblang.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccblang</string>
+			<string>org.cocosbuilder.ccblang</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -263,7 +263,7 @@
 			<key>UTTypeIconFile</key>
 			<string>ccbproj.icns</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.cocosbuilder.ccbproj</string>
+			<string>org.cocosbuilder.ccbproj</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

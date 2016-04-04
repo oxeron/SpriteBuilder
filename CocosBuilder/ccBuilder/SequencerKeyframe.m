@@ -26,8 +26,8 @@
 #import "SequencerNodeProperty.h"
 #import "SequencerKeyframeEasing.h"
 
-NSString * kClipboardKeyFrames          = @"com.cocosbuilder.keyframes";
-NSString * kClipboardChannelKeyframes   = @"com.cocosbuilder.channelkeyframes";
+NSString * kClipboardKeyFrames          = @"org.cocosbuilder.keyframes";
+NSString * kClipboardChannelKeyframes   = @"org.cocosbuilder.channelkeyframes";
 
 @implementation SequencerKeyframe
 

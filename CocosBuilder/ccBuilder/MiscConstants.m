@@ -12,7 +12,7 @@ NSString *const PNG_PREVIEW_IMAGE_SUFFIX = @"ppng";
 
 NSString *const INTERMEDIATE_FILE_LOOKUP_NAME = @"intermediateFileLookup.plist";
 
-NSString *const PUBLISHER_CACHE_DIRECTORY_NAME = @"com.cocosbuilder.CocosBuilder";
+NSString *const PUBLISHER_CACHE_DIRECTORY_NAME = @"org.cocosbuilder.CocosBuilder";
 
 NSUInteger const PUBLISHING_PACKAGES_ZIP_DEBUG_COMPRESSION = 0;
 NSUInteger const PUBLISHING_PACKAGES_ZIP_RELEASE_COMPRESSION = 9;

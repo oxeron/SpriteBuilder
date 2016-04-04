@@ -76,7 +76,7 @@
         [resourceList setTarget:self];
         [resourceList setDoubleAction:@selector(doubleClicked:)];
 
-        [outlineView registerForDraggedTypes:@[@"com.cocosbuilder.RMResource", NSFilenamesPboardType]];
+        [outlineView registerForDraggedTypes:@[@"org.cocosbuilder.RMResource", NSFilenamesPboardType]];
     }
     return self;
 }
@@ -403,7 +403,7 @@
     BOOL movedOrImportedFiles = NO;
     
     // Move files
-    NSArray* pbRes = [pasteboard propertyListsForType:@"com.cocosbuilder.RMResource"];
+    NSArray* pbRes = [pasteboard propertyListsForType:@"org.cocosbuilder.RMResource"];
     for (NSDictionary* dict in pbRes)
     {
         NSString* srcPath = dict[@"filePath"];

@@ -403,7 +403,7 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 - (NSString *)tempFolderPathForUnzipping
 {
-    return [NSTemporaryDirectory() stringByAppendingPathComponent:@"com.cocosbuilder.updatecocos2d"];
+    return [NSTemporaryDirectory() stringByAppendingPathComponent:@"org.cocosbuilder.updatecocos2d"];
 }
 
 - (BOOL)tidyUpTempFolder:(NSError **)error

@@ -1011,7 +1011,7 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     
     // Textures
 	
-	NSArray* pbSprites = [pb propertyListsForType:@"com.cocosbuilder.effectSprite"];
+	NSArray* pbSprites = [pb propertyListsForType:@"org.cocosbuilder.effectSprite"];
 
 	if(pbSprites.count > 0)
 	{

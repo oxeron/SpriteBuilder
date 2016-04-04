@@ -2496,8 +2496,8 @@ typedef enum
     NSData* clipData = [NSKeyedArchiver archivedDataWithRootObject:clipDict];
     NSPasteboard* cb = [NSPasteboard generalPasteboard];
     
-    [cb declareTypes:[NSArray arrayWithObjects:@"com.cocosbuilder.node", nil] owner:self];
-    [cb setData:clipData forType:@"com.cocosbuilder.node"];
+    [cb declareTypes:[NSArray arrayWithObjects:@"org.cocosbuilder.node", nil] owner:self];
+    [cb setData:clipData forType:@"org.cocosbuilder.node"];
 }
 
 -(void)updateUUIDs:(CCNode*)node
@@ -2513,7 +2513,7 @@ typedef enum
 - (void) doPasteAsChild:(BOOL)asChild
 {
     NSPasteboard* cb = [NSPasteboard generalPasteboard];
-    NSString* type = [cb availableTypeFromArray:[NSArray arrayWithObjects:@"com.cocosbuilder.node", nil]];
+    NSString* type = [cb availableTypeFromArray:[NSArray arrayWithObjects:@"org.cocosbuilder.node", nil]];
     
     if (type)
     {

@@ -64,7 +64,7 @@
 
 - (id) pasteboardPropertyListForType:(NSString *)type
 {
-    if ([type isEqualToString:@"com.cocosbuilder.LocalizationEditorTranslation"])
+    if ([type isEqualToString:@"org.cocosbuilder.LocalizationEditorTranslation"])
     {
         return [self serialization];
     }
@@ -73,12 +73,12 @@
 
 - (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard
 {
-    return [NSArray arrayWithObject:@"com.cocosbuilder.LocalizationEditorTranslation"];
+    return [NSArray arrayWithObject:@"org.cocosbuilder.LocalizationEditorTranslation"];
 }
 
 - (NSPasteboardWritingOptions)writingOptionsForType:(NSString *)type pasteboard:(NSPasteboard *)pasteboard
 {
-    if ([type isEqualToString:@"com.cocosbuilder.LocalizationEditorTranslation"])
+    if ([type isEqualToString:@"org.cocosbuilder.LocalizationEditorTranslation"])
     {
         return NSPasteboardWritingPromised;
     }

@@ -299,14 +299,14 @@
 - (NSString*) displayCacheDirectory
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return [[[paths[0] stringByAppendingPathComponent:@"com.cocosbuilder.CocosBuilder"] stringByAppendingPathComponent:@"display"]stringByAppendingPathComponent:self.projectPathHashed];
+    return [[[paths[0] stringByAppendingPathComponent:@"org.cocosbuilder.CocosBuilder"] stringByAppendingPathComponent:@"display"]stringByAppendingPathComponent:self.projectPathHashed];
 }
 
 @dynamic tempSpriteSheetCacheDirectory;
 - (NSString*) tempSpriteSheetCacheDirectory
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return [[paths[0] stringByAppendingPathComponent:@"com.cocosbuilder.CocosBuilder"] stringByAppendingPathComponent:@"spritesheet"];
+    return [[paths[0] stringByAppendingPathComponent:@"org.cocosbuilder.CocosBuilder"] stringByAppendingPathComponent:@"spritesheet"];
 }
 
 - (void) _storeDelayed

@@ -72,7 +72,7 @@
 #if CCB_BUILDING_COMMANDLINE
     // This shouldn't be hardcoded.
     NSURL* appURL = nil;
-    OSStatus error = LSFindApplicationForInfo(kLSUnknownCreator, (CFStringRef)@"com.cocosbuilder.CocosBuilder", NULL, NULL, (CFURLRef *)&appURL);
+    OSStatus error = LSFindApplicationForInfo(kLSUnknownCreator, (CFStringRef)@"org.cocosbuilder.CocosBuilder", NULL, NULL, (CFURLRef *)&appURL);
     NSBundle *appBundle = nil;
     
     if (error == noErr)
@@ -81,7 +81,7 @@
         [appURL release]; // LS documents that the URL returned must be released.
     }
     else
-        appBundle = [NSBundle bundleWithIdentifier:@"com.cocosbuilder.CocosBuilder"]; // last-ditch effort
+        appBundle = [NSBundle bundleWithIdentifier:@"org.cocosbuilder.CocosBuilder"]; // last-ditch effort
     
     if (!appBundle)
         return;

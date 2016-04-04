@@ -354,7 +354,7 @@ NSString *  dependantProperties[kNumProperties] = {@"skewX", @"skewY", @"positio
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
-    if ([pbType isEqualToString:@"com.cocosbuilder.jointBody"])
+    if ([pbType isEqualToString:@"org.cocosbuilder.jointBody"])
     {
         [dict setObject:@(self.UUID) forKey:@"jointUUID"];
         return dict;
@@ -364,7 +364,7 @@ NSString *  dependantProperties[kNumProperties] = {@"skewX", @"skewY", @"positio
 
 - (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard
 {
-    NSMutableArray* pbTypes = [NSMutableArray arrayWithObject: @"com.cocosbuilder.jointBody"];
+    NSMutableArray* pbTypes = [NSMutableArray arrayWithObject: @"org.cocosbuilder.jointBody"];
     return pbTypes;
 }
 
