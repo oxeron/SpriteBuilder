@@ -269,10 +269,10 @@ Gw
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C93-th-BMz">
-                                <rect key="frame" x="82" y="2" width="229" height="19"/>
-                                <buttonCell key="cell" type="roundRect" title="Open another project ..." bezelStyle="roundedRect" image="AB93869A-101E-45A2-BC30-5EFEFC81A714" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="N4e-KG-K7x">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                <rect key="frame" x="13" y="2" width="166" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="Open another project ..." bezelStyle="recessed" image="6C8F4498-7402-4D9E-804F-A1972965667E" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="N4e-KG-K7x">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openAnotherCocosBuilderProject:" target="-2" id="CoP-fQ-8Vz"/>
@@ -362,7 +362,7 @@ Gw
         </segmentedControl>
     </objects>
     <resources>
-        <image name="AB93869A-101E-45A2-BC30-5EFEFC81A714" width="1" height="1">
+        <image name="6C8F4498-7402-4D9E-804F-A1972965667E" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
