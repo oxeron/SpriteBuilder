@@ -376,7 +376,7 @@ __attribute__((visibility("default")))
 - (void) gotoAutoplaySequence;
 - (void) switchToDocument:(CCBDocument*) document;
 - (void) closeLastDocument;
-- (void) openFile:(NSString*)filePath;
+- (void) openCCBFile:(NSString*)filePath;
 
 - (void)newFile:(NSString *)fileName type:(int)type resolutions:(NSMutableArray *)resolutions;
 

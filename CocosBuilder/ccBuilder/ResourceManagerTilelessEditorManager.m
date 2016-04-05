@@ -199,7 +199,7 @@
     RMResource* res = [imageResources objectAtIndex:index];
     if (res.type == kCCBResTypeCCBFile)
     {
-        [[AppDelegate appDelegate] openFile:res.filePath];
+        [[AppDelegate appDelegate] openCCBFile:res.filePath];
         return;
     }
     //[super imageBrowser:aBrowser cellWasDoubleClickedAtIndex:index];

@@ -1827,7 +1827,7 @@ typedef enum
         if (numCCBFiles == 1)
         {
             // Open the ccb file
-            [self openFile:[resPath stringByAppendingPathComponent:ccbFile]];
+            [self openCCBFile:[resPath stringByAppendingPathComponent:ccbFile]];
         }
     }
     
@@ -1871,7 +1871,7 @@ typedef enum
     }
 }
 
-- (void) openFile:(NSString*)filePath
+- (void) openCCBFile:(NSString*)filePath
 {
     [(CCGLView*)[[CCDirector sharedDirector] view] lockOpenGLContext];
     
@@ -2842,7 +2842,7 @@ typedef enum
                                [tabView removeTabViewItem:[self tabViewItemFromDoc:currentDocument]];
                                
                                // Open newly created document
-                               [self openFile:filename];
+                               [self openCCBFile:filename];
                                
                                [(CCGLView*)[[CCDirector sharedDirector] view] unlockOpenGLContext];
                            });
@@ -3029,7 +3029,7 @@ typedef enum
                                        if ([file hasSuffix:@".ccb"])
                                        {
                                            NSString* absPath = [dirName stringByAppendingPathComponent:file];
-                                           [self openFile:absPath];
+                                           [self openCCBFile:absPath];
                                            [self saveFile:absPath];
                                            //[self publishDocument:NULL];
                                            [self performClose:sender];
