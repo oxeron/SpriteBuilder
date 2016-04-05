@@ -62,6 +62,7 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
     [super windowDidLoad];
 
     [self.window makeKeyAndOrderFront:self];
+    [self.window setPreventsApplicationTerminationWhenModal:NO];
     
     // Languages
     [self.saveDlgLanguagePopup removeAllItems];
