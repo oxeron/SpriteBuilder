@@ -537,7 +537,8 @@ typedef enum
     return [NSArray arrayWithObjects:@"ccbproj",@"ccbuilder",nil];
 }
 
-- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification
+{
 #if !(DEBUG||TESTING)
     // Offer to the move the Application if necessary.
     // Only for production version
@@ -665,6 +666,7 @@ typedef enum
     //[window restorePreviousOpenedPanels];
     
     //[self.window makeKeyWindow];
+    [self.window makeKeyAndOrderFront:nil];
     
     // Install default templates
     [_propertyInspectorTemplateHandler installDefaultTemplatesReplace:NO];
@@ -2090,8 +2092,10 @@ typedef enum
     // must wait for resource manager & rest of app to have completed the launch process before opening file(s)
     if (_applicationLaunchComplete == NO)
     {
+        [self finishSetup];
         NSAssert(delayOpenFiles == NULL, @"This shouldn't be set to anything since this value will only get applied once.");
         delayOpenFiles = [[NSMutableArray alloc] initWithArray:filenames];
+        [self openFiles:filenames];
     }
     else
     {
