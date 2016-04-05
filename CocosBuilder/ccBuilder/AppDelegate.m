@@ -573,7 +573,18 @@ typedef enum
     
     [_openPathsController populateOpenPathsMenuItems];
     
-    [self openWelcomeModal];
+    if (delayOpenFile)
+    {
+        [self openProject:delayOpenFile];
+        delayOpenFile = nil;
+    }
+    else
+    {
+#ifndef TESTING
+        [self openWelcomeModal];
+        //[self openLastOpenProject];
+#endif
+    }
 }
 
 /**
@@ -665,6 +676,9 @@ typedef enum
     // replaced by welcome splash screen
     //[window restorePreviousOpenedPanels];
     
+    // close modal in case cocos2d must be updated
+    [self closeWelcomeModal:nil];
+    
     //[self.window makeKeyWindow];
     [self.window makeKeyAndOrderFront:nil];
     
@@ -692,18 +706,6 @@ typedef enum
      [[NSApplication sharedApplication] terminate:self];
      }
      */
-    
-    if (delayOpenFiles)
-    {
-        [self openFiles:delayOpenFiles];
-        delayOpenFiles = nil;
-    }
-    else
-    {
-#ifndef TESTING
-        //[self openLastOpenProject];
-#endif
-    }
     
     [self toggleFeatures];
 }
@@ -2079,28 +2081,24 @@ typedef enum
     return projectFile;
 }
 
-- (void)openFiles:(NSArray*)filenames
-{
-    for( NSString* filename in filenames )
-    {
-        [self openProject:filename];
-    }
-}
-
-- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
+/**
+ *  Open project from Finder
+ *
+ *  @param sender    NSApplication
+ *  @param filenames ccbproj files to open
+ */
+- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;
 {
     // must wait for resource manager & rest of app to have completed the launch process before opening file(s)
     if (_applicationLaunchComplete == NO)
     {
-        [self finishSetup];
-        NSAssert(delayOpenFiles == NULL, @"This shouldn't be set to anything since this value will only get applied once.");
-        delayOpenFiles = [[NSMutableArray alloc] initWithArray:filenames];
-        [self openFiles:filenames];
+        delayOpenFile = filename;
     }
     else
     {
-        [self openFiles:filenames];
+        [self openProject:filename];
     }
+    return YES;
 }
 
 - (IBAction)menuResetCocosBuilder:(id)sender

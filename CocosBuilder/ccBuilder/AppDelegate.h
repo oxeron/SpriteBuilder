@@ -240,7 +240,7 @@ __attribute__((visibility("default")))
     WarningTableViewHandler * warningHandler;
     
     // Documents
-    NSMutableArray* delayOpenFiles;
+    NSString* delayOpenFile;
     CCBDocument* currentDocument;
     BOOL hasOpenedDocument;
     
