@@ -75,8 +75,8 @@
 			<array>
 				<string>org.cocosbuilder.ccbproj</string>
 			</array>
-            <!--<key>NSDocumentClass</key>
-			<string>AppDelegate</string>-->
+			<key>NSDocumentClass</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -156,7 +156,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.item</string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>CCB</string>
@@ -175,7 +175,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.item</string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>CCB Project File</string>
@@ -194,7 +194,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.item</string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>CCBi</string>
@@ -216,7 +216,7 @@
 			<key>UTTypeDescription</key>
 			<string>CCB Package</string>
 			<key>UTTypeIconFile</key>
-			<string>Package.icns</string>
+			<string>Package</string>
 			<key>UTTypeIdentifier</key>
 			<string>org.cocosbuilder.ccbpack</string>
 			<key>UTTypeTagSpecification</key>
@@ -230,7 +230,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.item</string>
+				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>CCB Lang file</string>
@@ -243,28 +243,6 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>ccblang</string>
-				</array>
-			</dict>
-		</dict>
-	</array>
-	<key>UTImportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.item</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>CCB Project File</string>
-			<key>UTTypeIconFile</key>
-			<string>ccbproj.icns</string>
-			<key>UTTypeIdentifier</key>
-			<string>org.cocosbuilder.ccbproj</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>ccbproj</string>
 				</array>
 			</dict>
 		</dict>

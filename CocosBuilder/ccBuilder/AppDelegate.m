@@ -531,12 +531,6 @@ typedef enum
     [self closeWelcomeModal:sender];
 }
 
-// must add this now that MainMenu.xib window is hidden at launch
-+ (NSArray<NSString *> *)readableTypes
-{
-    return [NSArray arrayWithObjects:@"ccbproj",@"ccbuilder",nil];
-}
-
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
 #if !(DEBUG||TESTING)
@@ -1856,13 +1850,16 @@ typedef enum
         return;
     }
     
-    // remove trailing .ccbuilder
+    // remove trailing .ccbuilder/ccbproj
     NSString* projectName = [[fileName lastPathComponent] stringByDeletingPathExtension];
     
-    [self saveUserDefaultsProject:projectName withPath:fileName];
+    if ([fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]])
+        [self saveUserDefaultsProject:projectName withPath:fileName];
     
+    // remove project.ccbproj if ccbproj
     if ([fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {
+        [self saveUserDefaultsProject:projectName withPath:[fileName stringByDeletingLastPathComponent]];
         NSURL *projectPathURL = [NSURL fileURLWithPath:[fileName stringByDeletingLastPathComponent] isDirectory:YES];
         self.securityScopedProjectFolderResource = projectPathURL;
         [self openProjectWithProjectPath:projectPathURL.path];
