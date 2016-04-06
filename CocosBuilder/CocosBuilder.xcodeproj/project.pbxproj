@@ -1057,7 +1057,6 @@
 		FF9398AA1C8CDD5200D424C7 /* CCBDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398A81C8CDD4B00D424C7 /* CCBDictionaryKeys.m */; };
 		FF9ABEE41CB30A5D00DEF405 /* MoveApplication.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF9ABEBA1CB30A5D00DEF405 /* MoveApplication.strings */; };
 		FF9ABEEB1CB30A5D00DEF405 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9ABED71CB30A5D00DEF405 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FF9ABEEC1CB30A5D00DEF405 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FF9ABEDB1CB30A5D00DEF405 /* README.md */; };
 		FFA689BC1C8B79C2009B3F5B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */; };
 		FFA689E41C8C0FD0009B3F5B /* CCBDictionaryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E11C8C0FD0009B3F5B /* CCBDictionaryReader.m */; };
 		FFA689E51C8C0FD0009B3F5B /* CCBDictionaryWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA689E31C8C0FD0009B3F5B /* CCBDictionaryWriter.m */; };
@@ -7382,7 +7381,6 @@
 				B747E60819CB3A0E00F692A2 /* CCBPEffectHue.m in Sources */,
 				5BA3DC35192110B90055DD96 /* GuideGridSizeWindow.m in Sources */,
 				83F3CA9E1A423B8A003D8659 /* EffectLightingControl.m in Sources */,
-				FF9ABEEC1CB30A5D00DEF405 /* README.md in Sources */,
 				E3B4223214E5CF97004547D6 /* NodeInfo.m in Sources */,
 				83DC65EA18D898D50028EF72 /* SBUserDefaultsKeys.m in Sources */,
 				E3C3660114EA0507007CD5FF /* TexturePropertySetter.m in Sources */,
