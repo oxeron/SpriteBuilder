@@ -60,7 +60,7 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
 /**
  *  IBAction called when user changes state of self.showAtLaunch button
  *
- *  @param sender <#sender description#>
+ *  @param sender
  */
 -(IBAction)changeShowAtLaunch:(id)sender
 {
@@ -73,6 +73,9 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
 
     [self.window makeKeyAndOrderFront:self];
     [self.window setPreventsApplicationTerminationWhenModal:NO];
+    
+    // shownWelcomeAtLaunch checkbox value
+    self.showAtLaunch.state = [[[NSUserDefaults standardUserDefaults] objectForKey:@"shownWelcomeAtLaunch"] intValue];
     
     // Languages
     [self.saveDlgLanguagePopup removeAllItems];
