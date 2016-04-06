@@ -781,6 +781,11 @@ typedef enum
     {
         [self openProject:filePath];
     }
+    else
+    {
+        NSLog(@"Can't open last project %@",filePath);
+        [self openWelcomeModal];
+    }
 }
 
 #pragma mark Notifications to user
@@ -1773,6 +1778,7 @@ typedef enum
     if (!projectDict)
     {
         [self modalDialogTitle:@"Invalid Project File" message:@"Failed to open the project. File may be missing or invalid."];
+        [self openWelcomeModal];
         return NO;
     }
     
@@ -1780,6 +1786,7 @@ typedef enum
     if (!prjctSettings)
     {
         [self modalDialogTitle:@"Invalid Project File" message:@"Failed to open the project. File is invalid or is created with a newer version of CocosBuilder."];
+        [self openWelcomeModal];
         return NO;
     }
     prjctSettings.projectPath = projectPath;
