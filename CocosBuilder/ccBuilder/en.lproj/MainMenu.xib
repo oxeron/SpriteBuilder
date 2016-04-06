@@ -1072,6 +1072,12 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Welcome to CocosBuilder" id="6f3-6j-vfU">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="menuOpenWelcomeWindow:" target="494" id="fm1-lQ-feg"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Language Editor" keyEquivalent="" id="2094">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>

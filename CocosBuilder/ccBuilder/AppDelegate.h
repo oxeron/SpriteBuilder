@@ -467,6 +467,7 @@ __attribute__((visibility("default")))
 
 // crerate new project from Welcome window
 - (IBAction) menuNewProject:(id)sender;
+- (IBAction) menuOpenWelcomeWindow:(id)sender;
 - (void) closeWelcomeModal:(id)sender;
 - (void) closeWelcomeModalAndDisplayEditor:(id)sender;
 - (void) openProject:(NSString *)fileName;

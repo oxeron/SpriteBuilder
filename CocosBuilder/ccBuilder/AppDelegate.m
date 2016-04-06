@@ -138,6 +138,7 @@
 #import "LightingHandler.h"
 #import "NSAlert+Convenience.h"
 #import "PFMoveApplication.h"
+#import "LocalizationEditorWindow.h"
 
 // default resolution menu is iPhone 6
 #define kDefaultResolution 2
@@ -3309,6 +3310,28 @@ typedef enum
 - (IBAction) menuNewProject:(id)sender
 {
     [self openWelcomeModalWithNewCocosBuilderProject];
+}
+
+/**
+ *  Open welcome screen and dismiss other modal window first
+ *
+ *  @param sender
+ */
+- (IBAction) menuOpenWelcomeWindow:(id)sender
+{
+    if (aboutWindow)
+        [[aboutWindow window] orderOut:sender];
+    
+    if (localizationEditorHandler.windowController)
+        [localizationEditorHandler.windowController.window orderOut:sender];
+    
+    if (registrationWindow)
+        [[registrationWindow window] orderOut:sender];
+    
+    // close current project to save changes
+    [self closeProject];
+    
+    [self openWelcomeModal];
 }
 
 - (IBAction) menuNewPackage:(id)sender
