@@ -35,7 +35,7 @@
                                     <action selector="menuResetCocosBuilder:" target="494" id="2093"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Register..." id="4nS-3I-W6J">
+                            <menuItem title="Register..." hidden="YES" id="4nS-3I-W6J">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openRegistrationWindow:" target="494" id="Cga-Fu-5Rw"/>
@@ -1164,7 +1164,7 @@ CA
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" autosaveColumns="NO" rowHeight="20" indentationPerLevel="14" outlineTableColumn="1502" id="1499" customClass="ResourceManagerOutlineView">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="250" height="639"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                                                                 <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
