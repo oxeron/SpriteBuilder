@@ -575,8 +575,22 @@ typedef enum
     else
     {
 #ifndef TESTING
-        [self openWelcomeModal];
-        //[self openLastOpenProject];
+        
+        // set first run value for shownWelcomeAtLaunch if key does not exists
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"shownWelcomeAtLaunch"]  == nil)
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"shownWelcomeAtLaunch"];
+        }
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"shownWelcomeAtLaunch"] boolValue] == NO)
+        {
+            // open last project
+            [self openLastOpenProject];
+        }
+        else
+        {            
+            [self openWelcomeModal];
+        }
 #endif
     }
 }

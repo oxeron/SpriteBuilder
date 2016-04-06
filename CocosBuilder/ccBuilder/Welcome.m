@@ -57,6 +57,16 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
     [self reloadProjectList];
 }
 
+/**
+ *  IBAction called when user changes state of self.showAtLaunch button
+ *
+ *  @param sender <#sender description#>
+ */
+-(IBAction)changeShowAtLaunch:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.showAtLaunch state]] forKey:@"shownWelcomeAtLaunch"];
+}
+
 -(void)windowDidLoad
 {
     [super windowDidLoad];

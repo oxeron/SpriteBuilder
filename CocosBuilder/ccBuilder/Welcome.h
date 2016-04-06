@@ -42,6 +42,7 @@
 @property (assign) IBOutlet NSPopUpButton *saveDlgOrientationPopup;
 @property (assign) IBOutlet NSTextFieldCell *saveDlgProjectName;
 @property (assign) IBOutlet NSButton *saveDlgCreateProjectButton;
+@property (assign) IBOutlet NSButton *showAtLaunch;
 
 // progress
 @property (assign) IBOutlet NSProgressIndicator *progressIndicatorImg;
@@ -52,6 +53,7 @@
 -(IBAction)openAnotherCocosBuilderProject:(id)sender;
 -(IBAction)cancel:(id)sender;
 -(IBAction)chooseProjectPath:(id)sender;
+-(IBAction)changeShowAtLaunch:(id)sender;
 
 @end
 
