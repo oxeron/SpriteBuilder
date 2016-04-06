@@ -2114,7 +2114,7 @@ typedef enum
 
 - (IBAction)menuResetCocosBuilder:(id)sender
 {
-    NSAlert* alert = [NSAlert alertWithMessageText:@"Reset CocosBuilder" defaultButton:@"Cancel" alternateButton:@"Reset CocosBuilder" otherButton:NULL informativeTextWithFormat:@"Are you sure you want to reset CocosBuilder? This action will remove all your custom template and settings and cannot be undone."];
+    NSAlert* alert = [NSAlert alertWithMessageText:@"Reset CocosBuilder" defaultButton:@"Cancel" alternateButton:@"Reset CocosBuilder" otherButton:NULL informativeTextWithFormat:@"Are you sure you want to reset CocosBuilder? This action will remove all your custom template, settings and personal interface preferences and cannot be undone."];
     [alert setAlertStyle:NSWarningAlertStyle];
     NSInteger result = [alert runModal];
     if (result == NSAlertDefaultReturn) return;
@@ -2125,6 +2125,7 @@ typedef enum
     [_propertyInspectorTemplateHandler loadTemplateLibrary];
     
     [NSUserDefaults resetStandardUserDefaults];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
 }
 
 #pragma mark Undo
