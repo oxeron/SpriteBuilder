@@ -607,7 +607,7 @@ typedef enum
 }
 
 /**
- *  Open modal window for welcome splash screen ans withc to new project view
+ *  Open modal window for welcome splash screen and switch to new project view
  */
 -(void) openWelcomeModalWithNewCocosBuilderProject
 {
