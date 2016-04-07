@@ -243,7 +243,6 @@
 - (NSImage*) smallIconForFile:(NSString*)file
 {
     NSImage* icon = [[NSWorkspace sharedWorkspace] iconForFile:file];
-    [icon setScalesWhenResized:YES];
     icon.size = NSMakeSize(16, 16);
     return icon;
 }
@@ -251,7 +250,6 @@
 - (NSImage*) smallIconForFileType:(NSString*)type
 {
     NSImage* icon = [[NSWorkspace sharedWorkspace] iconForFileType:type];
-    [icon setScalesWhenResized:YES];
     icon.size = NSMakeSize(16, 16);
     return icon;
 }

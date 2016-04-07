@@ -59,7 +59,6 @@
 - (void)initializeIcon
 {
     NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFileType:@"wav"];
-    [icon setScalesWhenResized:YES];
     icon.size = NSMakeSize(128, 128);
     [_iconImage setImage:icon];
 }
