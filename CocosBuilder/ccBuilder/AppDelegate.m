@@ -792,7 +792,10 @@ typedef enum
 
 - (void) modalDialogTitle: (NSString*)title message:(NSString*)msg
 {
-    NSAlert* alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"%@",msg];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:title];
+    [alert setInformativeText:msg];
+    [alert addButtonWithTitle:@"OK"];
     [alert runModal];
 }
 
@@ -803,8 +806,10 @@ typedef enum
         return;
     }
     
-    NSAlert* alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"%@",msg];
-    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:title];
+    [alert setInformativeText:msg];
+    [alert addButtonWithTitle:@"OK"];
     [alert setShowsSuppressionButton:YES];
     [alert runModal];
     
@@ -898,19 +903,24 @@ typedef enum
     
     if (doc.isDirty)
     {
-        NSAlert* alert = [NSAlert alertWithMessageText:[NSString stringWithFormat: @"Do you want to save the changes you made in the document “%@”?", [doc.filePath lastPathComponent]] defaultButton:@"Save" alternateButton:@"Cancel" otherButton:@"Don’t Save" informativeTextWithFormat:@"Your changes will be lost if you don’t save them."];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:[NSString stringWithFormat: @"Do you want to save the changes you made in the document “%@”?", [doc.filePath lastPathComponent]]];
+        [alert setInformativeText:@"Your changes will be lost if you don’t save them."];
+        [alert addButtonWithTitle:@"Save"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert addButtonWithTitle:@"Don’t Save"];
         NSInteger result = [alert runModal];
         
-        if (result == NSAlertDefaultReturn)
+        if (result == NSAlertFirstButtonReturn)
         {
             [self saveDocument:self];
             return YES;
         }
-        else if (result == NSAlertAlternateReturn)
+        else if (result == NSAlertSecondButtonReturn)
         {
             return NO;
         }
-        else if (result == NSAlertOtherReturn)
+        else if (result == NSAlertThirdButtonReturn)
         {
             return YES;
         }
@@ -2122,10 +2132,15 @@ typedef enum
 
 - (IBAction)menuResetCocosBuilder:(id)sender
 {
-    NSAlert* alert = [NSAlert alertWithMessageText:@"Reset CocosBuilder" defaultButton:@"Cancel" alternateButton:@"Reset CocosBuilder" otherButton:NULL informativeTextWithFormat:@"Are you sure you want to reset CocosBuilder? This action will remove all your custom template, settings and personal interface preferences and cannot be undone."];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Reset CocosBuilder"];
+    [alert setInformativeText:@"Are you sure you want to reset CocosBuilder? This action will remove all your custom template, settings and personal interface preferences and cannot be undone."];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"Reset CocosBuilder"];
     [alert setAlertStyle:NSWarningAlertStyle];
     NSInteger result = [alert runModal];
-    if (result == NSAlertDefaultReturn) return;
+    
+    if (result == NSAlertFirstButtonReturn) return;
     
     [self setSelectedNodes:NULL];
     [self menuCleanCacheDirectories:sender];
@@ -2931,19 +2946,24 @@ typedef enum
     // Check if there are unsaved documents
     if ([self hasDirtyDocument])
     {
-        NSInteger result = NSAlertDefaultReturn;
+        NSInteger result = NSAlertFirstButtonReturn;
         if(async)
         {
-            NSAlert* alert = [NSAlert alertWithMessageText:@"Publish Project" defaultButton:@"Save All" alternateButton:@"Cancel" otherButton:@"Don't Save" informativeTextWithFormat:@"There are unsaved documents. Do you want to save before publishing?"];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Publish Project"];
+            [alert setInformativeText:@"There are unsaved documents. Do you want to save before publishing?"];
+            [alert addButtonWithTitle:@"Save All"];
+            [alert addButtonWithTitle:@"Cancel"];
+            [alert addButtonWithTitle:@"Don't Save"];
             [alert setAlertStyle:NSWarningAlertStyle];
             result = [alert runModal];
         }
         
         switch (result) {
-            case NSAlertDefaultReturn:
+            case NSAlertFirstButtonReturn:
                 [self saveAllDocuments:nil];
                 // Falling through to publish
-            case NSAlertOtherReturn:
+            case NSAlertThirdButtonReturn:
                 // Open progress window and publish
                 [self publishStartAsync:async];
                 break;
@@ -4542,22 +4562,23 @@ typedef enum
 {
     if ([self hasDirtyDocument])
     {
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Quit CocosBuilder"
-                                         defaultButton:@"Cancel"
-                                       alternateButton:@"Quit"
-                                           otherButton:@"Save All & Quit"
-                             informativeTextWithFormat:@"There are unsaved documents. If you quit now you will lose any changes you have made."];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Quit CocosBuilder"];
+        [alert setInformativeText:@"There are unsaved documents. If you quit now you will lose any changes you have made."];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert addButtonWithTitle:@"Quit"];
+        [alert addButtonWithTitle:@"Save All & Quit"];
         
         [alert setAlertStyle:NSWarningAlertStyle];
         NSInteger result = [alert runModal];
         
-        if (result == NSAlertOtherReturn)
+        if (result == NSAlertThirdButtonReturn)
         {
             [self saveAllDocuments:nil];
             return YES;
         }
         
-        if (result == NSAlertDefaultReturn)
+        if (result == NSAlertFirstButtonReturn)
         {
             return NO;
         }

@@ -36,11 +36,10 @@
 
 - (void)showCannotCreatePackageWarningWithError:(NSError *)error
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Error"
-                                     defaultButton:@"Ok"
-                                   alternateButton:nil
-                                       otherButton:nil
-                         informativeTextWithFormat:@"%@", error.localizedDescription];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Error"];
+    [alert setInformativeText:error.localizedDescription];
+    [alert addButtonWithTitle:@"OK"];
 
     [alert runModal];
 }

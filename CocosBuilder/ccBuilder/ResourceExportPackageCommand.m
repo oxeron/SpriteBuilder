@@ -72,26 +72,25 @@
 
 - (void)showAlertWithError:(NSError *)error
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Error"
-                                         defaultButton:@"OK"
-                                       alternateButton:nil
-                                           otherButton:nil
-                             informativeTextWithFormat:@"%@", error.localizedDescription];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Error"];
+    [alert setInformativeText:error.localizedDescription];
+    [alert addButtonWithTitle:@"OK"];
     [alert runModal];
 }
 
 - (BOOL)askUserToOverwritePackageIfExistAtPath:(NSString *)fullPath
 {
 
-    NSAlert *overwriteAlert = [NSAlert alertWithMessageText:@"Package Export"
-                                              defaultButton:@"No"
-                                            alternateButton:@"Yes"
-                                                otherButton:nil
-                                  informativeTextWithFormat:@"Package already exists at path, overwrite?"];
+    NSAlert *overwriteAlert = [[NSAlert alloc] init];
+    [overwriteAlert setMessageText:@"Package Export"];
+    [overwriteAlert setInformativeText:@"Package already exists at path, overwrite?"];
+    [overwriteAlert addButtonWithTitle:@"No"];
+    [overwriteAlert addButtonWithTitle:@"Yes"];
 
     NSInteger result = [overwriteAlert runModal];
 
-    return result == NSAlertAlternateReturn;
+    return result == NSAlertSecondButtonReturn;
 }
 
 - (NSOpenPanel *)exportPanel

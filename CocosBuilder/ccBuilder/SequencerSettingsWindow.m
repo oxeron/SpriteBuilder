@@ -49,8 +49,11 @@
     if ([self.sequences count] == 0)
     {
          // Display warning!
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Missing Timeline" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"You need to have at least one timeline in your document."];
-        [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Missing Timeline"];
+        [alert setInformativeText:@"You need to have at least one timeline in your document."];
+        [alert addButtonWithTitle:@"OK"];
+        [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
         
         return NO;
     }
@@ -61,8 +64,11 @@
     }])
     {
         // Display warning!
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Missing Autoplay" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"You need to have at least one timeline in your document marked as AutoPlay."];
-        [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Missing Autoplay"];
+        [alert setInformativeText:@"You need to have at least one timeline in your document marked as AutoPlay."];
+        [alert addButtonWithTitle:@"OK"];
+        [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
         
         return NO;
 

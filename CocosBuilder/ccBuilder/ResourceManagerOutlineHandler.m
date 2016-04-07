@@ -482,11 +482,10 @@
 
     if (errorMessage.length > 0)
     {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Error"
-                                         defaultButton:@"OK"
-                                       alternateButton:nil
-                                           otherButton:nil
-                             informativeTextWithFormat:@"%@", errorMessage];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Error"];
+        [alert setInformativeText:errorMessage];
+        [alert addButtonWithTitle:@"OK"];
         [alert runModal];
     }
 }
@@ -538,11 +537,11 @@
         NSError *error;
         if (![packageRenamer canRenamePackage:item toName:fieldEditor.string error:&error])
         {
-            [[NSAlert alertWithMessageText:@"Error"
-                             defaultButton:@"OK"
-                           alternateButton:nil
-                               otherButton:nil
-                 informativeTextWithFormat:@"%@", error.localizedDescription] runModal];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Error"];
+            [alert setInformativeText:error.localizedDescription];
+            [alert addButtonWithTitle:@"OK"];
+            [alert runModal];
             return NO;
         }
     }
@@ -585,11 +584,11 @@
         NSError *error;
         if (![packageRenamer renamePackage:item toName:newName error:&error])
         {
-            [[NSAlert alertWithMessageText:@"Error"
-                             defaultButton:@"OK"
-                           alternateButton:nil
-                               otherButton:nil
-                 informativeTextWithFormat:@"%@", error.localizedDescription] runModal];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Error"];
+            [alert setInformativeText:error.localizedDescription];
+            [alert addButtonWithTitle:@"OK"];
+            [alert runModal];
         }
     }
 

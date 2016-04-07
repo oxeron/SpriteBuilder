@@ -25,10 +25,14 @@
         }
         
         // Confirm remove of items
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Are you sure you want to delete the selected languages?" defaultButton:@"Cancel" alternateButton:@"Delete" otherButton:NULL informativeTextWithFormat:@"You cannot undo this operation, and translations may be lost."];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Are you sure you want to delete the selected languages?"];
+        [alert setInformativeText:@"You cannot undo this operation, and translations may be lost."];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert addButtonWithTitle:@"Delete"];
         NSInteger result = [alert runModal];
         
-        if (result == NSAlertDefaultReturn)
+        if (result == NSAlertFirstButtonReturn)
         {
             return;
         }

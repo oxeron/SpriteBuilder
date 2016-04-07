@@ -99,15 +99,15 @@
 
 - (BOOL)askUserForConfirmation
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Are you sure you want to delete the selected files?"
-                                     defaultButton:@"Cancel"
-                                   alternateButton:@"Delete"
-                                       otherButton:NULL
-                         informativeTextWithFormat:@"You cannot undo this operation."];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Are you sure you want to delete the selected files?"];
+    [alert setInformativeText:@"You cannot undo this operation."];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"Delete"];
 
     NSInteger result = [alert runModal];
 
-    return result != NSAlertDefaultReturn;
+    return result != NSAlertFirstButtonReturn;
 }
 
 

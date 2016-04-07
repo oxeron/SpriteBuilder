@@ -242,13 +242,14 @@ typedef void (^DirectorySetterBlock)(NSString *directoryPath);
 
     if (risk == PublishDirectoryDeletionRiskNonEmptyDirectory)
     {
-        NSInteger warningResult = [[NSAlert alertWithMessageText:@"Warning"
-                                                   defaultButton:@"Yes"
-                                                 alternateButton:@"No"
-                                                     otherButton:nil
-                                       informativeTextWithFormat:@"%@", @"The chosen directory is not empty, its contents will be deleted upon publishing. Are you sure?"] runModal];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Warning"];
+        [alert setInformativeText:@"The chosen directory is not empty, its contents will be deleted upon publishing. Are you sure?"];
+        [alert addButtonWithTitle:@"Yes"];
+        [alert addButtonWithTitle:@"No"];
+        NSInteger warningResult = [alert runModal];
 
-        return warningResult == NSAlertDefaultReturn;
+        return warningResult == NSAlertFirstButtonReturn;
     }
     return YES;
 }

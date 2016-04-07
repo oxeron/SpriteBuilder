@@ -74,16 +74,22 @@
         // Make sure all properties have names
         if (!setting.name || [setting.name isEqualToString:@""])
         {
-            NSAlert* alert = [NSAlert alertWithMessageText:@"Invalid Property Name" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"All custom properties need to have a valid name. Please add names to your properties."];
-            [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Invalid Property Name"];
+            [alert setInformativeText:@"All custom properties need to have a valid name. Please add names to your properties."];
+            [alert addButtonWithTitle:@"OK"];
+            [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
             return NO;
         }
         
         // Check that names are not duplicates of existing props
         if ([propNames containsObject:setting.name])
         {
-            NSAlert* alert = [NSAlert alertWithMessageText:@"Duplicate Property Name" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"The %@ property has the same name as a predefined property. Please find another name.", setting.name];
-            [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Duplicate Property Name"];
+            [alert setInformativeText:[NSString stringWithFormat:@"The %@ property has the same name as a predefined property. Please find another name.", setting.name]];
+            [alert addButtonWithTitle:@"OK"];
+            [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
             return NO;
         }
     }
@@ -93,8 +99,10 @@
         // Custom props cannot have same names
         if ([propNames containsObject:setting.name])
         {
-            NSAlert* alert = [NSAlert alertWithMessageText:@"Duplicate Property Name" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"The %@ property has the same name as another custom property. Please find another name.", setting.name];
-            [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"Duplicate Property Name"];
+            [alert setInformativeText:[NSString stringWithFormat:@"The %@ property has the same name as a predefined property. Please find another name.", setting.name]];
+            [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
             return NO;
         }
         [propNames addObject:setting.name];

@@ -80,8 +80,11 @@
     else
     {
         // Display warning!
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Missing Resolution" defaultButton:@"OK" alternateButton:NULL otherButton:NULL informativeTextWithFormat:@"You need to have at least one valid resolution setting."];
-        [alert beginSheetModalForWindow:[self window] modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Missing Resolution"];
+        [alert setInformativeText:@"You need to have at least one valid resolution setting."];
+        [alert addButtonWithTitle:@"OK"];
+        [alert beginSheetModalForWindow:[self window] completionHandler:NULL];
         
         return NO;
     }

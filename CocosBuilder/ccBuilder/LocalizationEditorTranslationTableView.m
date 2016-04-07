@@ -25,10 +25,14 @@
         }
         
         // Confirm remove of items
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Are you sure you want to delete the selected translation?" defaultButton:@"Cancel" alternateButton:@"Delete" otherButton:NULL informativeTextWithFormat:@"If it is used in interface files translations may be broken."];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Are you sure you want to delete the selected translation?"];
+        [alert setInformativeText:@"If it is used in interface files translations may be broken."];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert addButtonWithTitle:@"Delete"];
         NSInteger result = [alert runModal];
         
-        if (result == NSAlertDefaultReturn)
+        if (result == NSAlertFirstButtonReturn)
         {
             return;
         }

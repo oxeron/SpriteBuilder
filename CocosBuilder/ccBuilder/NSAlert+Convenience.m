@@ -4,12 +4,10 @@
 
 + (void)showModalDialogWithTitle:(NSString *)title message:(NSString *)msg
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:title
-                                     defaultButton:@"OK"
-                                   alternateButton:NULL
-                                       otherButton:NULL
-                         informativeTextWithFormat:@"%@", msg];
-
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:title];
+    [alert setInformativeText:msg];
+    [alert addButtonWithTitle:@"OK"];
     [alert runModal];
 }
 
