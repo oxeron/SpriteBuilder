@@ -213,7 +213,7 @@ typedef void (^DirectorySetterBlock)(NSString *directoryPath);
 
     [openDlg beginSheetModalForWindow:self.window completionHandler:^(NSInteger result)
     {
-        if (result == NSOKButton)
+        if (result == NSModalResponseOK)
         {
             NSArray *files = [openDlg URLs];
             for (NSUInteger i = 0; i < [files count]; i++)

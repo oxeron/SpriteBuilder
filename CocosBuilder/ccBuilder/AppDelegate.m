@@ -2861,7 +2861,7 @@ typedef enum
     __block SavePanelLimiter* limiter = [[SavePanelLimiter alloc] initWithPanel:saveDlg];
     
     [saveDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result){
-        if (result == NSOKButton)
+        if (result == NSModalResponseOK)
         {
             NSString *filename = [[saveDlg URL] path];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0),
@@ -3049,7 +3049,7 @@ typedef enum
     [openDlg setCanChooseDirectories:YES];
     
     [openDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result){
-        if (result == NSOKButton)
+        if (result == NSModalResponseOK)
         {
             NSArray* files = [openDlg URLs];
             
@@ -3132,7 +3132,7 @@ typedef enum
     
     [openDlg beginSheetModalForWindow:window completionHandler:^(NSInteger result)
      {
-         if (result == NSOKButton)
+         if (result == NSModalResponseOK)
          {
              NSArray* files = [openDlg URLs];
              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^
