@@ -143,6 +143,9 @@ static NSString *const BASE_SPRITEBUILDER_BACKUP_NAME = @"cocosbuilderBackup";
         {
             NSString* newLangFile = [newPath stringByAppendingPathComponent:@"Strings.ccblang"];
             [self moveFileAtPath:oldLangFile toPath:newLangFile error:&error];
+            
+            // replace SpriteBuilderTranslations with CocosBuilderTranslations in Strings.ccblang
+            [self setName:@"CocosBuilderTranslations" inFile:newLangFile search:@"SpriteBuilderTranslations"];
         }
     }
     [_projectSettings store];
