@@ -1034,6 +1034,7 @@
 		FF5633091CAAC23A002213D1 /* Welcome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5633081CAAC23A002213D1 /* Welcome.m */; };
 		FF56330C1CAAD419002213D1 /* WelcomeProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56330B1CAAD419002213D1 /* WelcomeProjectCell.m */; };
 		FF62F7341C88E71E004302E1 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836E2D5C19EE5BCC00CD5B66 /* libcocos2d-mac.a */; };
+		FF68C1DE1CB686040037AEB9 /* SpriteBuilderMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68C1DD1CB686040037AEB9 /* SpriteBuilderMigrator.m */; };
 		FF9296681C9A146100A6F6B2 /* frame-iphone6Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */; };
 		FF9398651C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */; };
 		FF9398681C8CB49300D424C7 /* test_ccbreader_node.ccb in Resources */ = {isa = PBXBuildFile; fileRef = FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */; };
@@ -2802,6 +2803,8 @@
 		FF5633081CAAC23A002213D1 /* Welcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome.m; sourceTree = "<group>"; };
 		FF56330A1CAAD419002213D1 /* WelcomeProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeProjectCell.h; sourceTree = "<group>"; };
 		FF56330B1CAAD419002213D1 /* WelcomeProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeProjectCell.m; sourceTree = "<group>"; };
+		FF68C1DC1CB686040037AEB9 /* SpriteBuilderMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBuilderMigrator.h; sourceTree = "<group>"; };
+		FF68C1DD1CB686040037AEB9 /* SpriteBuilderMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteBuilderMigrator.m; sourceTree = "<group>"; };
 		FF9296671C9A146100A6F6B2 /* frame-iphone6Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6Plus.png"; sourceTree = "<group>"; };
 		FF9398641C8CAD5B00D424C7 /* CCBDictionaryReader_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBDictionaryReader_Tests.m; sourceTree = "<group>"; };
 		FF9398671C8CB49300D424C7 /* test_ccbreader_node.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_ccbreader_node.ccb; path = "Testing Resources/test_ccbreader_node.ccb"; sourceTree = "<group>"; };
@@ -5582,15 +5585,17 @@
 		E525F2B7F0804D971A7E55E9 /* Migration */ = {
 			isa = PBXGroup;
 			children = (
+				E525F10E3DAD50C019D1ABB9 /* FileCommands */,
 				E525F9C63E463EE451384EBB /* ProjectMigrator.m */,
 				E525F6BD9A7979086156B659 /* ProjectMigrator.h */,
 				E525F6ECDF843A612C330560 /* PackageMigrator.m */,
 				E525F89DF8C03EEC4800D11A /* PackageMigrator.h */,
-				E525F10E3DAD50C019D1ABB9 /* FileCommands */,
 				E525F7254C3A84AA7585A1F8 /* PackageMigrationController.m */,
 				E525F2BA53C07A15A1BD7384 /* PackageMigrationController.h */,
 				E525F76017FD450D7F946CEA /* ResourcePropertiesMigrator.m */,
 				E525FCF3390A837BDC5BF47E /* ResourcePropertiesMigrator.h */,
+				FF68C1DC1CB686040037AEB9 /* SpriteBuilderMigrator.h */,
+				FF68C1DD1CB686040037AEB9 /* SpriteBuilderMigrator.m */,
 			);
 			name = Migration;
 			sourceTree = "<group>";
@@ -7478,6 +7483,7 @@
 				E334741C169DC5A7000737CC /* APIDocsWindow.m in Sources */,
 				E3D6BA1E16C46E11006AFE0A /* SequencerSoundChannel.m in Sources */,
 				D2E0168118D7838F00927430 /* CocosBuilderCommand.m in Sources */,
+				FF68C1DE1CB686040037AEB9 /* SpriteBuilderMigrator.m in Sources */,
 				83F3CAA21A423BBA003D8659 /* CCBPEffectColorChannelOffset.m in Sources */,
 				920994CC198717910006F38D /* CCBPEffectGlass.m in Sources */,
 				E3D6BA2316C46E41006AFE0A /* SequencerCallbackChannel.m in Sources */,

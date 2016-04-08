@@ -97,6 +97,7 @@ typedef NS_ENUM(int8_t, CCBProgrammingLanguage)
 
 @property (nonatomic, strong) NSMutableArray *cocos2dUpdateIgnoredVersions;
 @property (nonatomic) BOOL excludedFromPackageMigration;
+@property (nonatomic) BOOL excludedFromSpriteBuilderMigration;
 
 @property (nonatomic, copy) NSString* versionStr;
 @property (nonatomic, assign) BOOL needRepublish;

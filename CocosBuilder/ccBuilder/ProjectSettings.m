@@ -169,7 +169,12 @@
     {
         self.excludedFromPackageMigration = NO;
     }
-
+    self.excludedFromSpriteBuilderMigration = [[dict objectForKey:@"excludedFromSpriteBuilderMigration"] boolValue];
+    if (!self.excludedFromSpriteBuilderMigration)
+    {
+        self.excludedFromSpriteBuilderMigration = NO;
+    }
+    
     [self initializeVersionStringWithProjectDict:dict];
 
     return self;
@@ -241,6 +246,7 @@
     dict[@"publishEnvironment"] = @(_publishEnvironment);
 
     dict[@"excludedFromPackageMigration"] = @(_excludedFromPackageMigration);
+    dict[@"excludedFromSpriteBuilderMigration"] = @(_excludedFromSpriteBuilderMigration);
 
     if (_resourceProperties)
     {

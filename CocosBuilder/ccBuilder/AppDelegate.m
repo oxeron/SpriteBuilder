@@ -1822,7 +1822,19 @@ typedef enum
     }
     
     ProjectMigrator *migrator = [[ProjectMigrator alloc] initWithProjectSettings:projectSettings];
-    [migrator migrate];
+    if (![migrator migrate])
+    {
+        // reload project, especially if we just converted a SpriteBuilder project
+        NSString *newProjectFile =[[[projectSettings.projectPathDir stringByDeletingPathExtension] stringByAppendingPathExtension:@"ccbuilder"]
+                                                        stringByAppendingPathComponent:[projectSettings.projectPath lastPathComponent]];
+        
+        [self openProject:newProjectFile];
+        return NO;
+    }
+    
+    // finish setup if we open project from welcome splash screen
+    if (!_applicationLaunchComplete)
+        [self finishSetup];
     
     // Load or create language file
     NSString* langFile = [[ResourceManager sharedManager].mainActiveDirectoryPath stringByAppendingPathComponent:@"Strings.ccblang"];
@@ -1872,10 +1884,6 @@ typedef enum
 
 - (void)openProject:(NSString *)fileName
 {
-    // finish setup if we open project from welcome splash screen
-    if (!_applicationLaunchComplete)
-        [self finishSetup];
-    
     if (![fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]]
         && ![fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
     {

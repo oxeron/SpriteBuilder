@@ -111,8 +111,9 @@ NSString *const PACKAGES_LOG_HASHTAG = @"#packagemigration";
     for (NSMutableDictionary *dict in _projectSettings.resourcePaths)
     {
         NSString *fullPath = [_projectSettings fullPathForResourcePathDict:dict];
-
-        if (![fullPath hasPackageSuffix]
+        
+        // prevent CCB from asking to migrate if package folder contains a ssbpack
+        if (!([fullPath hasPackageSuffix] || [fullPath hasSpriteBuilderPackageSuffix])
             || ![_projectSettings isPathInPackagesFolder:fullPath])
         {
             return YES;
