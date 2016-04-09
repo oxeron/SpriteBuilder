@@ -56,7 +56,7 @@
     }
     else if (_previewedResource.type == kCCBResTypeCCBFile)
     {
-        [self showCCBPreivew];
+        [self showCCBPreview];
     }
     else
     {
@@ -64,7 +64,7 @@
     }
 }
 
-- (void)showCCBPreivew
+- (void)showCCBPreview
 {
     [self resetView];
 
