@@ -3692,7 +3692,6 @@
 		7789ABB3133AA82000CEFCC7 = {
 			isa = PBXGroup;
 			children = (
-				FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */,
 				E3D08A321524581100E55891 /* README.md */,
 				E3D59118150F50D1004180CA /* AUTHORS */,
 				E395DC7D1511FDF70075979E /* CHANGELOG */,
@@ -3747,6 +3746,7 @@
 		7789ABC1133AA82000CEFCC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */,
 				FFA689BB1C8B79C2009B3F5B /* QuickLook.framework */,
 				830F4EB019347032002B832D /* OCMock.framework */,
 				D35E589D18E391DA008571EC /* GLKit.framework */,
