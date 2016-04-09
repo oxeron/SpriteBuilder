@@ -1155,22 +1155,22 @@ CA
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <customView id="1957">
-                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="199"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </customView>
                                                         <customView id="1958">
-                                                            <rect key="frame" x="0.0" y="1" width="250" height="639"/>
+                                                            <rect key="frame" x="0.0" y="200" width="250" height="440"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="1498">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="639"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="440"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <clipView key="contentView" copiesOnScroll="NO" id="xfY-vc-3Nd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="639"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="440"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" autosaveColumns="NO" rowHeight="20" indentationPerLevel="14" outlineTableColumn="1502" id="1499" customClass="ResourceManagerOutlineView">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="250" height="440"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                                                                 <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
