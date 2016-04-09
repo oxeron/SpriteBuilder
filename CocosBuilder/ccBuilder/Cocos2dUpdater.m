@@ -15,6 +15,7 @@
 #import "NSAlert+Convenience.h"
 #import "SemanticVersioning.h"
 #import "CCBFileUtil.h"
+@import GoogleAnalyticsTracker;
 
 // Debug option: Some verbosity on the console, 1 to enable 0 to turn off
 #define Cocos2UpdateLogging 1
@@ -168,6 +169,9 @@ static NSString *const URL_COCOS2D_UPDATE_INFORMATION = @"http://www.cocosbuilde
 
 - (void)doUpdate
 {
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Method call" action:@"doUpdate"
+                                             label:@"Cocos2dUpdater" value:@0];
+    
     LocalLog(@"[COCO2D-UPDATER] [INFO] updating...");
 
     __block NSError *error;

@@ -1028,6 +1028,8 @@
 		FF0C33A71C988C650032B324 /* CCNodeTag_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0C33A61C988C650032B324 /* CCNodeTag_Tests.m */; };
 		FF0C33DF1C9962700032B324 /* frame-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0C33DE1C9962700032B324 /* frame-iphone6.png */; };
 		FF0DE8731CAC4C1B000E6EF6 /* CCBRoundedCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0DE8721CAC4C1B000E6EF6 /* CCBRoundedCornerView.m */; };
+		FF25D9EB1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */; };
+		FF25D9EC1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF2E7CC71C9DDA7300E7DBA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */; };
 		FF2E7CCD1C9DFD7A00E7DBA6 /* ccblang.icns in Resources */ = {isa = PBXBuildFile; fileRef = FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */; };
 		FF5633021CAAC1D2002213D1 /* Welcome.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5633011CAAC1D2002213D1 /* Welcome.xib */; };
@@ -1308,6 +1310,17 @@
 				E3B7AED514E31E6C00DFD402 /* CCNode.ccbPlugNode in Copy PlugIns */,
 			);
 			name = "Copy PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF25D9F11CB8F58D0031B4E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF25D9EC1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2796,6 +2809,7 @@
 		FF0C33DE1C9962700032B324 /* frame-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-iphone6.png"; sourceTree = "<group>"; };
 		FF0DE8711CAC4C1B000E6EF6 /* CCBRoundedCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBRoundedCornerView.h; sourceTree = "<group>"; };
 		FF0DE8721CAC4C1B000E6EF6 /* CCBRoundedCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBRoundedCornerView.m; sourceTree = "<group>"; };
+		FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAnalyticsTracker.framework; path = libs/GoogleAnalyticsTracker.framework; sourceTree = "<group>"; };
 		FF2E7CC61C9DDA7300E7DBA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		FF2E7CCC1C9DFD7A00E7DBA6 /* ccblang.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ccblang.icns; sourceTree = "<group>"; };
 		FF5633011CAAC1D2002213D1 /* Welcome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Welcome.xib; sourceTree = "<group>"; };
@@ -2895,6 +2909,7 @@
 				776A37161395925D00960E94 /* Quartz.framework in Frameworks */,
 				77D33E95138E714700012A88 /* ExceptionHandling.framework in Frameworks */,
 				7789ABEE133AB12F00CEFCC7 /* libz.dylib in Frameworks */,
+				FF25D9EB1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework in Frameworks */,
 				7789ABEC133AB12000CEFCC7 /* OpenGL.framework in Frameworks */,
 				7789ABEA133AB10E00CEFCC7 /* QuartzCore.framework in Frameworks */,
 				7789ABE8133AB10500CEFCC7 /* ApplicationServices.framework in Frameworks */,
@@ -3677,6 +3692,7 @@
 		7789ABB3133AA82000CEFCC7 = {
 			isa = PBXGroup;
 			children = (
+				FF25D9EA1CB8F58D0031B4E5 /* GoogleAnalyticsTracker.framework */,
 				E3D08A321524581100E55891 /* README.md */,
 				E3D59118150F50D1004180CA /* AUTHORS */,
 				E395DC7D1511FDF70075979E /* CHANGELOG */,
@@ -5971,6 +5987,7 @@
 				7789ABBC133AA82000CEFCC7 /* Resources */,
 				E3B7AED414E31E5D00DFD402 /* Copy PlugIns */,
 				83957E671A432C8600134002 /* Code Signing */,
+				FF25D9F11CB8F58D0031B4E5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -8340,6 +8357,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
@@ -8347,7 +8365,10 @@
 				CODE_SIGN_ENTITLEMENTS = CocosBuilder.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/libs",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -8389,6 +8410,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
@@ -8397,7 +8419,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/libs",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ccBuilder/CocosBuilder-Prefix.pch";
@@ -8547,6 +8572,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COCOSBUILDER_DEBUG_PREPROCESSOR_DEFINES = "$(SB_SHARED_DEBUG_PREPROCESSOR_DEFINES) ";
 				COCOSBUILDER_RELEASE_PREPROCESSOR_DEFINES = "$(SB_SHARED_RELEASE_PREPROCESSOR_DEFINES)";
@@ -8554,7 +8580,10 @@
 				CODE_SIGN_ENTITLEMENTS = NonSandboxed.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/libs",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -15,6 +15,7 @@
 #import "CocosScene.h"
 #import "StringPropertySetter.h"
 #import "InspectorController.h"
+@import GoogleAnalyticsTracker;
 
 @implementation LocalizationEditorHandler
 
@@ -288,6 +289,8 @@
     }
     [windowController.window makeKeyAndOrderFront:sender];
     windowController.hasOpenFile = (managedFile != NULL);
+    
+    [MPGoogleAnalyticsTracker trackScreen:@"LocalizationEditor"];
 }
 
 - (NSString*) translationForKey:(NSString*)key

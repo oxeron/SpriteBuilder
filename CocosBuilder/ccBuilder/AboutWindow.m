@@ -25,6 +25,7 @@
 #import "AboutWindow.h"
 #import "AppDelegate.h"
 #import "cocos2d.h"
+@import GoogleAnalyticsTracker;
 
 @interface AboutWindow ()
 
@@ -56,6 +57,8 @@
     [closeButton setFrameOrigin:NSMakePoint(21, 317)];
     NSView* contentView = self.window.contentView;
     [contentView addSubview:closeButton];
+    
+    [MPGoogleAnalyticsTracker trackScreen:@"About"];
 }
 
 -(NSString*)versionAboutInfo

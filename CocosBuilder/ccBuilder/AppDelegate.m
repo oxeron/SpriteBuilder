@@ -139,6 +139,7 @@
 #import "NSAlert+Convenience.h"
 #import "PFMoveApplication.h"
 #import "LocalizationEditorWindow.h"
+@import GoogleAnalyticsTracker;
 
 // default resolution menu is iPhone 6
 #define kDefaultResolution 2
@@ -542,6 +543,9 @@ typedef enum
     // any first run UI by putting it after this call.
     PFMoveToApplicationsFolderIfNecessary();
 #endif
+    
+    MPAnalyticsConfiguration *configuration = [[MPAnalyticsConfiguration alloc] initWithAnalyticsIdentifier:@"UA-76156779-1"];
+    [MPGoogleAnalyticsTracker activateConfiguration:configuration];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -3041,6 +3045,9 @@ typedef enum
 
 - (IBAction) menuPublishProject:(id)sender
 {
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Interaction" action:@"Button Click"
+                                             label:@"Publish Project" value:@0];
+    
     [self checkForDirtyDocumentAndPublishAsync:YES];
 }
 
@@ -3099,6 +3106,9 @@ typedef enum
     NSString *xcodePrjPath = [projectSettings.projectPath stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX] withString:@".xcodeproj"];
     
     [[NSWorkspace sharedWorkspace] openFile:xcodePrjPath withApplication:@"Xcode"];
+    
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Interaction" action:@"Button Click"
+                                             label:@"Open Project in XCode" value:@0];
 }
 
 - (IBAction)menuProjectSettings:(id)sender

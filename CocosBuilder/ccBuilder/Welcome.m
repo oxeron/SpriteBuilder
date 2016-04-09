@@ -29,6 +29,7 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MiscConstants.h"
+@import GoogleAnalyticsTracker;
 
 static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)";
 
@@ -69,6 +70,8 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
 
 -(void)windowDidLoad
 {
+    [MPGoogleAnalyticsTracker trackScreen:@"Welcome"];
+    
     [super windowDidLoad];
 
     [self.window makeKeyAndOrderFront:self];
@@ -231,6 +234,9 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
 
 -(IBAction)newCocosBuilderProject:(id)sender
 {
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Interaction" action:@"Button Click"
+                                             label:@"New CocosBuilder Project" value:@0];
+    
     [self switchView:self.secondView direction:kCATransitionFromRight];
 }
 
@@ -259,6 +265,9 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
 
 -(IBAction)openAnotherCocosBuilderProject:(id)sender
 {
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Interaction" action:@"Button Click"
+                                             label:@"Open Another CocosBuilder Project" value:@0];
+    
     // Create the File Open Dialog
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
     [openDlg setCanChooseFiles:YES];

@@ -4,6 +4,7 @@
 #import "NSString+Packages.h"
 #import "NSAlert+Convenience.h"
 #import "MoveFileCommand.h"
+@import GoogleAnalyticsTracker;
 
 typedef enum
 {
@@ -40,6 +41,9 @@ static NSString *const BASE_SPRITEBUILDER_BACKUP_NAME = @"cocosbuilderBackup";
 
 - (BOOL)migrate
 {
+    [MPGoogleAnalyticsTracker trackEventOfCategory:@"Method call" action:@"migrate"
+                                             label:@"SpriteBuilderMigration" value:@0];
+    
     if (_projectSettings.excludedFromSpriteBuilderMigration
         || [self needsMigration])
     {
