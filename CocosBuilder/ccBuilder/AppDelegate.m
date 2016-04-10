@@ -1813,12 +1813,6 @@ typedef enum
     [ResourceManager sharedManager].projectSettings = projectSettings;
     _openPathsController.projectSettings = projectSettings;
     
-    // Update resource paths
-    [self updateResourcePathsFromProjectSettings];
-    
-    // Update Node Plugins list
-    [plugInNodeViewHandler showNodePluginsForEngine:prjctSettings.engine];
-    
     BOOL success = [self checkForTooManyDirectoriesInCurrentProject];
     if (!success)
     {
@@ -1839,6 +1833,12 @@ typedef enum
     // finish setup if we open project from welcome splash screen
     if (!_applicationLaunchComplete)
         [self finishSetup];
+
+    // Update resource paths
+    [self updateResourcePathsFromProjectSettings];
+    
+    // Update Node Plugins list
+    [plugInNodeViewHandler showNodePluginsForEngine:prjctSettings.engine];
     
     // Load or create language file
     NSString* langFile = [[ResourceManager sharedManager].mainActiveDirectoryPath stringByAppendingPathComponent:@"Strings.ccblang"];
