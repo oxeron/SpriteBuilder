@@ -3434,14 +3434,22 @@ typedef enum
 
 - (void) setResolution:(int)r
 {
-    // check if r is a key of the available resolutions
-    if (!currentDocument.resolutions[r]) {
-        r = kDefaultResolution;
+    // after importing old SB project, resolutions do not contains iphone6/6+, so kDefaultResolution default (2) is not available
+    // fallback to 0 (first element of the resolutions array)
+    if (r < [currentDocument.resolutions count])
+    {
+        // check if r is a key of the available resolutions
+        if (!currentDocument.resolutions[r]) {
+            r = kDefaultResolution;
+        }
+        if (!currentDocument.resolutions[r]) {
+            r = 0;
+        }
     }
-    if (!currentDocument.resolutions[r]) {
+    else
+    {
         r = 0;
     }
-    
     //NSAssert(currentDocument.resolutions[r],@"Requested resolution %i is not in list of available resolutions",r);
 
     currentDocument.currentResolution = r;
