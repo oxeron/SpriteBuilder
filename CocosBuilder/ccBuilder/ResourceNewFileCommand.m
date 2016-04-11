@@ -45,7 +45,7 @@
 
         if (![self isValidFilename:newFileWindowController.documentName])
         {
-            [NSAlert showModalDialogWithTitle:@"Invalid File Name" message:@"Failed to create file, name was either invalid or missing."];
+            [NSAlert showModalDialogWithTitle:@"Invalid File Name" message:[NSString stringWithFormat:@"Failed to create file, name was either invalid (%lu caracters minimum) or missing.",(unsigned long)MINIMUM_FILENAME_LENGTH]];
         }
         else if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
         {
@@ -66,6 +66,13 @@
 
                         id parentResource = [_resourceManager resourceForPath:dirPath];
                         [_outlineView expandItem:parentResource];
+                        
+                        // open the document in a new tab
+                        [[AppDelegate appDelegate] openCCBFile:filePath];
+                        
+                        // select the resource in the _outlineView
+                        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[_outlineView rowForItem:[_resourceManager resourceForPath:filePath]]];
+                        [_outlineView selectRowIndexes:indexSet byExtendingSelection:NO];
                     });
         }
     }

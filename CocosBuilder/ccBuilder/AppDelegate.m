@@ -1872,6 +1872,10 @@ typedef enum
         {
             // Open the ccb file
             [self openCCBFile:[resPath stringByAppendingPathComponent:ccbFile]];
+            
+            // select the resource in the resourcemanager
+            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[outlineProject rowForItem:[[ResourceManager sharedManager] resourceForPath:[resPath stringByAppendingPathComponent:ccbFile]]]];
+            [outlineProject selectRowIndexes:indexSet byExtendingSelection:NO];
         }
     }
     
