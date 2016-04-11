@@ -152,12 +152,12 @@
 
 + (NSArray*) resIndependentExts
 {
-    return @[@"@2x", @"-phone", @"-tablet", @"-tablethd", @"-phonehd", @"-html5", @"-auto"];
+    return @[@"@2x", @"-phone", @"-tablet", @"-tablethd", @"-phonehd", @"-auto"];
 }
 
 + (NSArray*) resIndependentDirs
 {
-    return @[@"resources-phone", @"resources-phonehd", @"resources-tablet", @"resources-tablethd", @"resources-html5", @"resources-auto"];
+    return @[@"resources-phone", @"resources-phonehd", @"resources-tablet", @"resources-tablethd", @"resources-auto"];
 }
 
 + (BOOL) isResolutionDependentFile: (NSString*) file
