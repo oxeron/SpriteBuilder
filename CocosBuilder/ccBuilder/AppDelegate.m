@@ -1808,10 +1808,6 @@ typedef enum
     
     // inject new project settings
     self.projectSettings = prjctSettings;
-    _resourceCommandController.projectSettings = projectSettings;
-    projectOutlineHandler.projectSettings = projectSettings;
-    [ResourceManager sharedManager].projectSettings = projectSettings;
-    _openPathsController.projectSettings = projectSettings;
     
     BOOL success = [self checkForTooManyDirectoriesInCurrentProject];
     if (!success)
@@ -1834,6 +1830,11 @@ typedef enum
     if (!_applicationLaunchComplete)
         [self finishSetup];
 
+    _resourceCommandController.projectSettings = projectSettings;
+    projectOutlineHandler.projectSettings = projectSettings;
+    [ResourceManager sharedManager].projectSettings = projectSettings;
+    _openPathsController.projectSettings = projectSettings;
+    
     // Update resource paths
     [self updateResourcePathsFromProjectSettings];
     
