@@ -680,7 +680,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Resolution" id="1264"/>
                             </menuItem>
-                            <menuItem title="Edit Resolutions..." id="GZF-BV-yvh">
+                            <menuItem title="Edit Resolutions..." hidden="YES" id="GZF-BV-yvh">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="menuEditResolutionSettings:" target="494" id="BMH-uz-oHG"/>
@@ -1176,7 +1176,7 @@ CA
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" autosaveColumns="NO" rowHeight="20" indentationPerLevel="14" outlineTableColumn="1502" id="1499" customClass="ResourceManagerOutlineView">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="250" height="639"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                                                                 <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
