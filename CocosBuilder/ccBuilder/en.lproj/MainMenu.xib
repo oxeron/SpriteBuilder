@@ -686,7 +686,7 @@ CA
                                     <action selector="menuEditResolutionSettings:" target="494" id="BMH-uz-oHG"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Edit Stage Size..." id="1471">
+                            <menuItem title="Edit Stage Size..." hidden="YES" id="1471">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="menuEditStageSize:" target="494" id="tWR-1R-VRy"/>
