@@ -317,6 +317,8 @@ __attribute__((visibility("default")))
 @property (nonatomic,assign) BOOL defaultCanvasSize;
 @property (nonatomic,assign) BOOL canEditCustomClass;
 @property (nonatomic,assign) BOOL canEditStageSize;
+@property (nonatomic,assign) BOOL canEditResolutions;
+
 @property (nonatomic,assign) CGFloat derivedViewScaleFactor;
 
 @property (weak, nonatomic,readonly) CCNode* selectedNode;

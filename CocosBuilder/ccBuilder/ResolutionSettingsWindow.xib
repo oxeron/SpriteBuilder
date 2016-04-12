@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ResolutionSettingsWindow">
@@ -13,28 +13,27 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" wantsToBeColor="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="538" height="215"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <rect key="contentRect" x="196" y="240" width="538" height="216"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="538" height="215"/>
+                <rect key="frame" x="0.0" y="0.0" width="538" height="216"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="9">
-                        <rect key="frame" x="20" y="60" width="498" height="135"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                        <rect key="frame" x="20" y="61" width="498" height="135"/>
                         <clipView key="contentView" id="fiE-1g-lx8">
                             <rect key="frame" x="1" y="17" width="496" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="15" id="17" customClass="CCBTableView">
-                                    <rect key="frame" x="0.0" y="0.0" width="496" height="117"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="496" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="216" minWidth="40" maxWidth="1000" id="19">
@@ -60,13 +59,9 @@
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="480x320" id="26" customClass="CCBTextFieldCell">
-                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0" negativeFormat="#0" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="0" currencySymbol="¤" internationalCurrencySymbol="¤¤" nilSymbol="BuGGaLo" id="27">
-                                                    <real key="roundingIncrement" value="0.0"/>
+                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0" negativeFormat="#0" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" decimalSeparator="." groupingSeparator="," currencySymbol="¤" internationalCurrencySymbol="¤¤" currencyDecimalSeparator="." plusSign="+" minusSign="-" nilSymbol="BuGGaLo" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="27">
                                                     <real key="minimum" value="0.0"/>
                                                     <real key="maximum" value="1000000"/>
-                                                    <metadata>
-                                                        <bool key="localizesFormat" value="YES"/>
-                                                    </metadata>
                                                 </numberFormatter>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -84,13 +79,9 @@
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="480x320" id="33" customClass="CCBTextFieldCell">
-                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0" negativeFormat="#0" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="0" currencySymbol="¤" internationalCurrencySymbol="¤¤" nilSymbol="BuGGaLo" id="34">
-                                                    <real key="roundingIncrement" value="0.0"/>
+                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0" negativeFormat="#0" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" decimalSeparator="." groupingSeparator="," currencySymbol="¤" internationalCurrencySymbol="¤¤" currencyDecimalSeparator="." plusSign="+" minusSign="-" nilSymbol="BuGGaLo" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="34">
                                                     <real key="minimum" value="0.0"/>
                                                     <real key="maximum" value="1000000"/>
-                                                    <metadata>
-                                                        <bool key="localizesFormat" value="YES"/>
-                                                    </metadata>
                                                 </numberFormatter>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -107,12 +98,12 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
-                                            <popUpButtonCell key="dataCell" type="bevel" title="phone" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="bezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="50">
+                                            <popUpButtonCell key="dataCell" type="bevel" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="bezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="50">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <menu key="menu" title="OtherViews" id="51">
                                                     <items>
-                                                        <menuItem title="phone" state="on" id="52">
+                                                        <menuItem title="phone" id="52">
                                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                                         </menuItem>
                                                         <menuItem title="tablet phonehd" id="53">
@@ -126,20 +117,16 @@
                                                 <binding destination="4" name="selectedValue" keyPath="arrangedObjects.ext" id="56"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn width="65" minWidth="50" maxWidth="1000" id="20">
+                                        <tableColumn width="50" minWidth="50" maxWidth="1000" id="20">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Scale">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="480x320" id="30" customClass="CCBTextFieldCell">
-                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.00" negativeFormat="#0.00" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" nilSymbol="BuGGaLo" id="31">
-                                                    <real key="roundingIncrement" value="0.0"/>
+                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.00" negativeFormat="#0.00" numberStyle="decimal" usesGroupingSeparator="NO" paddingCharacter="*" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" nilSymbol="BuGGaLo" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="31">
                                                     <real key="minimum" value="0.0"/>
                                                     <real key="maximum" value="10"/>
-                                                    <metadata>
-                                                        <bool key="localizesFormat" value="YES"/>
-                                                    </metadata>
                                                 </numberFormatter>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -155,6 +142,9 @@
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="9" secondAttribute="height" multiplier="166:45" id="eLc-0P-9ku"/>
+                        </constraints>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="16">
                             <rect key="frame" x="-100" y="-100" width="496" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
@@ -168,9 +158,8 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <button id="10">
-                        <rect key="frame" x="20" y="34" width="21" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                        <rect key="frame" x="20" y="35" width="21" height="21"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="13">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -179,9 +168,8 @@
                             <action selector="add:" target="4" id="35"/>
                         </connections>
                     </button>
-                    <button id="11">
-                        <rect key="frame" x="45" y="34" width="21" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11">
+                        <rect key="frame" x="45" y="35" width="21" height="21"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="12">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -190,9 +178,8 @@
                             <action selector="remove:" target="4" id="36"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="37">
-                        <rect key="frame" x="442" y="12" width="82" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37">
+                        <rect key="frame" x="442" y="13" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="38">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -204,9 +191,8 @@ DQ
                             <action selector="acceptSheet:" target="-2" id="41"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="39">
-                        <rect key="frame" x="360" y="12" width="82" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39">
+                        <rect key="frame" x="360" y="13" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="40">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -218,12 +204,14 @@ Gw
                             <action selector="cancelSheet:" target="-2" id="42"/>
                         </connections>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" id="57">
-                        <rect key="frame" x="71" y="31" width="204" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="57">
+                        <rect key="frame" x="71" y="32" width="204" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="198" id="agu-8g-Z8y"/>
+                        </constraints>
                         <popUpButtonCell key="cell" type="push" title="Add Predefined Resolution" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="60" id="58">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="59">
                                 <items>
                                     <menuItem title="Add Predefined Resolution" state="on" hidden="YES" id="60"/>
@@ -232,7 +220,26 @@ Gw
                         </popUpButtonCell>
                     </popUpButton>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9" secondAttribute="trailing" constant="20" id="431-Eu-gcS"/>
+                    <constraint firstItem="57" firstAttribute="bottom" secondItem="10" secondAttribute="bottom" id="4m9-mn-SPg"/>
+                    <constraint firstAttribute="trailing" secondItem="9" secondAttribute="trailing" constant="20" symbolic="YES" id="4rX-d8-kSH"/>
+                    <constraint firstItem="39" firstAttribute="leading" secondItem="57" secondAttribute="trailing" constant="94" id="9Os-sU-Oey"/>
+                    <constraint firstItem="57" firstAttribute="top" secondItem="11" secondAttribute="top" id="CFx-g5-03G"/>
+                    <constraint firstItem="9" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="Ec1-6f-L7C"/>
+                    <constraint firstItem="57" firstAttribute="top" secondItem="10" secondAttribute="top" id="G0u-sf-v2r"/>
+                    <constraint firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="RYC-xp-khZ"/>
+                    <constraint firstItem="57" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="74" id="TzK-ee-y6Q"/>
+                    <constraint firstItem="37" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="20" symbolic="YES" id="Vs4-6c-vTh"/>
+                    <constraint firstItem="57" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="5" id="Z7d-dw-N8V"/>
+                    <constraint firstItem="57" firstAttribute="bottom" secondItem="11" secondAttribute="bottom" id="aql-fx-8ie"/>
+                    <constraint firstItem="39" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="20" symbolic="YES" id="hI9-qR-L4u"/>
+                    <constraint firstItem="57" firstAttribute="leading" secondItem="11" secondAttribute="trailing" constant="8" symbolic="YES" id="mUH-gg-hEm"/>
+                    <constraint firstItem="9" firstAttribute="leading" secondItem="10" secondAttribute="leading" id="mXM-Lg-HYi"/>
+                    <constraint firstItem="9" firstAttribute="trailing" secondItem="37" secondAttribute="trailing" id="wh1-wt-t7H"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="369" y="578"/>
         </window>
         <arrayController objectClassName="ResolutionSetting" id="4">
             <declaredKeys>
@@ -249,7 +256,7 @@ Gw
         <userDefaultsController representsSharedInstance="YES" id="5"/>
     </objects>
     <resources>
-        <image name="NSAddTemplate" width="8" height="8"/>
-        <image name="NSRemoveTemplate" width="8" height="8"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

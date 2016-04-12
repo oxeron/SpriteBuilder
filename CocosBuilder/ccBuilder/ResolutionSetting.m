@@ -214,7 +214,8 @@
     setting.name = @"iPhone6";
     setting.width = 0;
     setting.height = 0;
-    setting.ext = @"tablethd tablet phonehd phone";
+    setting.ext = @"phone";
+    setting.scale = 1;
     
     return setting;
 }

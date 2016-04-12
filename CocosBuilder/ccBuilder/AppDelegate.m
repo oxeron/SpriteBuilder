@@ -38,7 +38,7 @@
 #import "CCBUtil.h"
 #import "StageSizeWindow.h"
 #import "GuideGridSizeWindow.h"
-//#import "ResolutionSettingsWindow.h"
+#import "ResolutionSettingsWindow.h"
 #import "PlugInManager.h"
 #import "InspectorPosition.h"
 #import "NodeInfo.h"
@@ -1361,6 +1361,11 @@ typedef enum
     
     if (docDimType == kCCBDocDimensionsTypeLayer) self.canEditStageSize = YES;
     else self.canEditStageSize = NO;
+    
+    if (docDimType == kCCBDocDimensionsTypeFullScreen)
+        self.canEditResolutions = YES;
+    else
+        self.canEditResolutions = NO;
     
     // Setup stage & resolutions
     NSMutableArray* serializedResolutions = [doc objectForKey:@"resolutions"];
@@ -3471,7 +3476,7 @@ typedef enum
     //[PositionPropertySetter refreshAllPositions];
 }
 
-- (IBAction) menuEditResolutionSettings:(id)sender
+- (IBAction) menuEditStageSize:(id)sender
 {
     if (!currentDocument) return;
     
@@ -3491,7 +3496,28 @@ typedef enum
         
         currentDocument.resolutions = [self updateResolutions:currentDocument.resolutions forDocDimensionType:kCCBDocDimensionsTypeLayer];
         [self updateResolutionMenu];
-        [self setResolution:kDefaultResolution];
+        [self setResolution:0];
+    }
+}
+
+- (IBAction) menuEditResolutionSettings:(id)sender
+{
+    if (!currentDocument) return;
+    
+    ResolutionSettingsWindow* wc = [[ResolutionSettingsWindow alloc] initWithWindowNibName:@"ResolutionSettingsWindow"];
+    [wc copyResolutions: currentDocument.resolutions];
+    
+    int success = [wc runModalSheetForWindow:window];
+    if (success)
+    {
+        currentDocument.resolutions = wc.resolutions;
+        [self updateResolutionMenu];
+        if(currentDocument.currentResolution<[currentDocument.resolutions count])
+            [self setResolution:currentDocument.currentResolution];
+        else
+            [self setResolution:0];
+        [self updateCanvasBorderMenu];
+        currentDocument.isDirty = YES;
     }
 }
 
