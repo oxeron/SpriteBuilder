@@ -303,7 +303,7 @@
 {
     ResolutionSetting* setting = [[ResolutionSetting alloc] init];
     
-    setting.name = @"appleTV";
+    setting.name = @"AppleTV";
     setting.width = 1920;
     setting.height = 1080;
     setting.ext = @"tablethd";
