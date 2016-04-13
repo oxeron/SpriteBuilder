@@ -59,6 +59,7 @@
     for (SBPackageSettings *packageSetting in _packageSettings)
     {
         [self addPublishingTargetsForPackageSetting:packageSetting osType:kCCBPublisherOSTypeIOS];
+        [self addPublishingTargetsForPackageSetting:packageSetting osType:kCCBPublisherOSTypeTVOS];
     }
 }
 
@@ -140,6 +141,8 @@
     {
         case
             kCCBPublisherOSTypeIOS : return @"iOS";
+        case
+            kCCBPublisherOSTypeTVOS : return @"tvOS";
         default:
             return @"";
     }
@@ -150,6 +153,10 @@
     if (_projectSettings.publishEnabledIOS)
     {
         [self addMainProjectPublishingTargetToPublisherForOSType:kCCBPublisherOSTypeIOS];
+    }
+    if (_projectSettings.publishEnabledTVOS)
+    {
+        [self addMainProjectPublishingTargetToPublisherForOSType:kCCBPublisherOSTypeTVOS];
     }
 }
 

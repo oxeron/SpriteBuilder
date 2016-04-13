@@ -34,6 +34,8 @@
     
     IBOutlet NSButton *iosDither;
     IBOutlet NSButton *iosCompress;
+    IBOutlet NSButton *tvosDither;
+    IBOutlet NSButton *tvosCompress;
     IBOutlet NSButton *HTML5Dither;
     
     BOOL iOSEnabled;
@@ -47,10 +49,12 @@
 @property (nonatomic,assign) int textureFileFormatHTML5;
 @property (nonatomic,assign) BOOL ditherHTML5;
 @property (nonatomic,assign) BOOL iOSEnabled;
+@property (nonatomic,assign) BOOL tvOSEnabled;
 @property (nonatomic,assign) BOOL HTML5Enabled;
 
 
 - (IBAction)updateIOSSettings:(NSPopUpButton *)sender;
+- (IBAction)updateTVOSSettings:(NSPopUpButton *)sender;
 - (IBAction)updateHTML5Settings:(NSPopUpButton *)sender;
 
 @end

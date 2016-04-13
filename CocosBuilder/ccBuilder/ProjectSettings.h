@@ -68,8 +68,10 @@ typedef NS_ENUM(int8_t, CCBProgrammingLanguage)
 @property (nonatomic, strong) NSMutableArray* resourcePaths;
 
 @property (nonatomic,assign) BOOL publishEnabledIOS;
+@property (nonatomic,assign) BOOL publishEnabledTVOS;
 
 @property (nonatomic, copy) NSString* publishDirectory;
+@property (nonatomic, copy) NSString* publishDirectoryAppleTV;
 
 @property (nonatomic,assign) BOOL publishResolution_ios_phone;
 @property (nonatomic,assign) BOOL publishResolution_ios_phonehd;
@@ -77,6 +79,12 @@ typedef NS_ENUM(int8_t, CCBProgrammingLanguage)
 @property (nonatomic,assign) BOOL publishResolution_ios_tablethd;
 
 @property (nonatomic,assign) int publishAudioQuality_ios;
+
+@property (nonatomic,assign) BOOL publishResolution_tvos_phone;
+@property (nonatomic,assign) BOOL publishResolution_tvos_phonehd;
+@property (nonatomic,assign) BOOL publishResolution_tvos_tablet;
+@property (nonatomic,assign) BOOL publishResolution_tvos_tablethd;
+@property (nonatomic,assign) int publishAudioQuality_tvos;
 
 @property (nonatomic, assign) BOOL publishToZipFile;
 @property (nonatomic, assign) BOOL onlyPublishCCBs;

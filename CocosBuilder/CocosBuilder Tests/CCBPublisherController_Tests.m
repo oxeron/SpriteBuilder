@@ -35,7 +35,8 @@
     self.projectSettings = [[ProjectSettings alloc] init];
     _projectSettings.projectPath = [self fullPathForFile:@"baa.ccbuilder/publishtest.ccbproj"];
     _projectSettings.publishDirectory = @"../Published-iOS";
-
+    _projectSettings.publishDirectoryAppleTV = @"../Published-tvOS";
+    
     self.publisherController = [[CCBPublisherController alloc] init];
     _publisherController.projectSettings = _projectSettings;
 }
@@ -66,6 +67,10 @@
     iosSettings.resolution_tablethd = YES;
     iosSettings.resolution_phone = YES;
 
+    PublishOSSettings *tvosSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeTVOS];
+    tvosSettings.resolution_tablethd = YES;
+    tvosSettings.resolution_phone = NO;
+    
     [self createFolders:@[@"baa.ccbuilder/Packages/foo.ccbpack"]];
 
     _publisherController.packageSettings = @[_packageSettings];
@@ -93,7 +98,7 @@
     [self configureSinglePackagePublishSettingCase];
 
     _projectSettings.publishEnabledIOS = NO;
-
+    _projectSettings.publishEnabledTVOS = NO;
     _packageSettings.publishToZip = NO;
     _packageSettings.publishToMainProject = YES;
 
@@ -122,6 +127,9 @@
     PublishOSSettings *iosSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeIOS];
     iosSettings.resolutions = @[];
 
+    PublishOSSettings *tvosSettings = [_packageSettings settingsForOsType:kCCBPublisherOSTypeTVOS];
+    tvosSettings.resolutions = @[];
+    
     [_publisherController startAsync:NO];
     /*
     [self assertFilesExistRelativeToDirectory:@"custom" filesPaths:@[
@@ -140,7 +148,8 @@
     [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/Characters.ccbpack"] error:nil];
     [_projectSettings addResourcePath:[self fullPathForFile:@"baa.ccbuilder/Packages/Backgrounds.ccbpack"] error:nil];
     _projectSettings.publishEnabledIOS = YES;
-
+    _projectSettings.publishEnabledTVOS = YES;
+    
     SBPackageSettings *packageSettingsMenus = [self createSettingsWithPath:@"baa.ccbuilder/Packages/Menus.ccbpack"];
     packageSettingsMenus.publishToMainProject = NO;
     packageSettingsMenus.publishToZip = NO;

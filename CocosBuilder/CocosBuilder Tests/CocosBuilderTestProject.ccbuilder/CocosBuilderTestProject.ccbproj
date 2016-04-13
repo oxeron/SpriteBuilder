@@ -34,7 +34,11 @@
 	<integer>4</integer>
 	<key>publishDirectory</key>
 	<string>Source/Resources/Published-iOS</string>
+	<key>publishDirectoryAppleTV</key>
+	<string>Source/Resources/Published-tvOS</string>
 	<key>publishEnablediPhone</key>
+	<true/>
+	<key>publishEnabledappleTV</key>
 	<true/>
 	<key>publishEnvironment</key>
 	<integer>0</integer>
@@ -45,6 +49,14 @@
 	<key>publishResolution_ios_tablet</key>
 	<true/>
 	<key>publishResolution_ios_tablethd</key>
+	<true/>
+	<key>publishResolution_tvos_phone</key>
+	<true/>
+	<key>publishResolution_tvos_phonehd</key>
+	<true/>
+	<key>publishResolution_tvos_tablet</key>
+	<true/>
+	<key>publishResolution_tvos_tablethd</key>
 	<true/>
 	<key>publishToZipFile</key>
 	<false/>

@@ -23,6 +23,7 @@
 @property (nonatomic, strong) IBOutlet NSView *detailView;
 
 - (IBAction)selectPublishDirectoryIOS:(id)sender;
+- (IBAction)selectPublishDirectoryTVOS:(id)sender;
 - (IBAction)selectPackagePublishingCustomDirectory:(id)sender;
 
 @end

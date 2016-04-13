@@ -64,6 +64,8 @@
     self.resourcePaths = [[NSMutableArray alloc] init];
     self.publishDirectory = @"Published-iOS";
 
+    self.publishDirectoryAppleTV = @"Published-tvOS";
+    
     self.onlyPublishCCBs = NO;
     self.publishToZipFile = NO;
 
@@ -77,10 +79,18 @@
     self.publishResolution_ios_phonehd = YES;
     self.publishResolution_ios_tablet = YES;
     self.publishResolution_ios_tablethd = YES;
+
+    self.publishEnabledTVOS = YES;
+    
+    self.publishResolution_tvos_phone = YES;
+    self.publishResolution_tvos_phonehd = YES;
+    self.publishResolution_tvos_tablet = YES;
+    self.publishResolution_tvos_tablethd = YES;
     
     self.publishEnvironment = kCCBPublishEnvironmentDevelop;
 
     self.publishAudioQuality_ios = DEFAULT_AUDIO_QUALITY;
+    self.publishAudioQuality_tvos = DEFAULT_AUDIO_QUALITY;
     
     self.tabletPositionScaleFactor = 2.0f;
 
@@ -125,6 +135,12 @@
         self.publishDirectory = @"";
     }
 
+    self.publishDirectoryAppleTV = [dict objectForKey:@"publishDirectoryAppleTV"];
+    if (!_publishDirectoryAppleTV)
+    {
+        self.publishDirectoryAppleTV = @"";
+    }
+    
     self.publishEnabledIOS = [[dict objectForKey:@"publishEnablediPhone"] boolValue];
 
     self.publishResolution_ios_phone = [[dict objectForKey:@"publishResolution_ios_phone"] boolValue];
@@ -138,6 +154,19 @@
         self.publishAudioQuality_ios = DEFAULT_AUDIO_QUALITY;
     }
 
+    self.publishEnabledTVOS = [[dict objectForKey:@"publishEnabledappleTV"] boolValue];
+    
+    self.publishResolution_tvos_phone = [[dict objectForKey:@"publishResolution_tvos_phone"] boolValue];
+    self.publishResolution_tvos_phonehd = [[dict objectForKey:@"publishResolution_tvos_phonehd"] boolValue];
+    self.publishResolution_tvos_tablet = [[dict objectForKey:@"publishResolution_tvos_tablet"] boolValue];
+    self.publishResolution_tvos_tablethd = [[dict objectForKey:@"publishResolution_tvos_tablethd"] boolValue];
+    
+    self.publishAudioQuality_tvos = [[dict objectForKey:@"publishAudioQuality_tvos"]intValue];
+    if (!self.publishAudioQuality_tvos)
+    {
+        self.publishAudioQuality_tvos = DEFAULT_AUDIO_QUALITY;
+    }
+    
     self.publishToZipFile = [[dict objectForKey:@"publishToZipFile"] boolValue];
     self.onlyPublishCCBs = [[dict objectForKey:@"onlyPublishCCBs"] boolValue];
     self.exporter = [dict objectForKey:@"exporter"];
@@ -218,6 +247,7 @@
     
     dict[@"publishDirectory"] = _publishDirectory;
 
+    dict[@"publishDirectoryAppleTV"] = _publishDirectoryAppleTV;
     dict[@"publishEnablediPhone"] = @(_publishEnabledIOS);
 
     dict[@"publishResolution_ios_phone"] = @(_publishResolution_ios_phone);
@@ -227,6 +257,15 @@
     
     dict[@"publishAudioQuality_ios"] = @(_publishAudioQuality_ios);
 
+    dict[@"publishEnabledappleTV"] = @(_publishEnabledTVOS);
+    
+    dict[@"publishResolution_tvos_phone"] = @(_publishResolution_tvos_phone);
+    dict[@"publishResolution_tvos_phonehd"] = @(_publishResolution_tvos_phonehd);
+    dict[@"publishResolution_tvos_tablet"] = @(_publishResolution_tvos_tablet);
+    dict[@"publishResolution_tvos_tablethd"] = @(_publishResolution_tvos_tablethd);
+    
+    dict[@"publishAudioQuality_tvos"] = @(_publishAudioQuality_tvos);
+    
     dict[@"publishToZipFile"] = @(_publishToZipFile);
     dict[@"onlyPublishCCBs"] = @(_onlyPublishCCBs);
     dict[@"exporter"] = self.exporter;
@@ -667,6 +706,11 @@
 -(void) setPublishResolution_ios_phone:(BOOL)publishResolution
 {
     _publishResolution_ios_phone = publishResolution;
+}
+
+-(void) setPublishResolution_tvos_phone:(BOOL)publishResolution
+{
+    _publishResolution_tvos_phone = publishResolution;
 }
 
 - (void)flagFilesDirtyWithWarnings:(CCBWarnings *)warnings

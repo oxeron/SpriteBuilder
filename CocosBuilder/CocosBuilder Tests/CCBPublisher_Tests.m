@@ -30,6 +30,7 @@
 @property (nonatomic, strong) CCBWarnings *warnings;
 @property (nonatomic, strong) CCBPublisher *publisher;
 @property (nonatomic, strong) CCBPublishingTarget *targetIOS;
+@property (nonatomic, strong) CCBPublishingTarget *targetTVOS;
 
 @end
 
@@ -44,6 +45,8 @@
     _projectSettings.projectPath = [self fullPathForFile:@"baa.ccbuilder/publishtest.ccbproj"];
     _projectSettings.publishEnabledIOS = YES;
 
+    _projectSettings.publishEnabledTVOS = YES;
+    
     RMPackage *package = [[RMPackage alloc] init];
     package.dirPath = [self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"];
     [_projectSettings addResourcePath:package.dirPath error:nil];
@@ -61,8 +64,15 @@
     _targetIOS.inputDirectories = @[[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"]];
     _targetIOS.outputDirectory = [self fullPathForFile:@"Published-iOS"];
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
-
+    
+    self.targetTVOS = [[CCBPublishingTarget alloc] init];
+    _targetTVOS.osType = kCCBPublisherOSTypeTVOS;
+    _targetTVOS.inputDirectories = @[[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack"]];
+    _targetTVOS.outputDirectory = [self fullPathForFile:@"Published-tvOS"];
+    _targetTVOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeTVOS];
+    
     [self createFolders:@[@"Published-iOS", @"baa.ccbuilder/Packages/foo.ccbpack"]];
+    [self createFolders:@[@"Published-tvOS", @"baa.ccbuilder/Packages/foo.ccbpack"]];
 }
 
 - (void)testPublishingProject
@@ -86,8 +96,11 @@
     _projectSettings.resourceAutoScaleFactor = 4;
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
+    // iOS
+    
     [self assertFileExists:@"Published-iOS/Strings.ccblang"];
 
     [self assertFileExists:@"Published-iOS/ccbResources/resources-tablet/ccbButtonHighlighted.png"];
@@ -128,6 +141,49 @@
     [self assertPNGAtPath:@"Published-iOS/ccbResources/resources-tablethd/ccbButtonHighlighted2.png" hasWidth:20 hasHeight:8];
 
     [self assertFileDoesNotExist:@"Published-iOS/Package.plist"];
+    
+    // tvOS
+    
+    [self assertFileExists:@"Published-tvOS/Strings.ccblang"];
+    
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-tablet/ccbButtonHighlighted.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-tablet/ccbButtonHighlighted2.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-tablethd/ccbButtonHighlighted.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-tablethd/ccbButtonHighlighted2.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-phone/ccbButtonHighlighted.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-phone/ccbButtonHighlighted2.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-phonehd/ccbButtonHighlighted.png"];
+    [self assertFileExists:@"Published-tvOS/ccbResources/resources-phonehd/ccbButtonHighlighted2.png"];
+    [self assertFileExists:@"Published-tvOS/resources-tablet/photoshop.png"];
+    [self assertFileExists:@"Published-tvOS/resources-tablethd/photoshop.png"];
+    [self assertFileExists:@"Published-tvOS/resources-phone/photoshop.png"];
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/photoshop.png"];
+    
+    [self assertFileExists:@"Published-tvOS/blank.caf"];
+    [self assertFileExists:@"Published-tvOS/configCocos2d.plist"];
+    [self assertFileExists:@"Published-tvOS/fileLookup.plist"];
+    [self assertFileExists:@"Published-tvOS/spriteFrameFileList.plist"];
+    
+    [self assertConfigCocos2d:@"Published-tvOS/configCocos2d.plist" isEqualToDictionary:
+     @{
+       @"CCSetupScreenMode": @"CCScreenModeFixed",
+       @"CCSetupScreenOrientation": @"CCScreenOrientationPortrait",
+       @"CCSetupTabletScale2X": @(YES)
+       }];
+    
+    [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"blank.wav" renamedName:@"blank.caf"];
+    [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"photoshop.psd" renamedName:@"photoshop.png"];
+    
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-phone/ccbButtonHighlighted.png" hasWidth:1 hasHeight:3];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-phone/ccbButtonHighlighted2.png" hasWidth:5 hasHeight:2];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-phonehd/ccbButtonHighlighted.png" hasWidth:2 hasHeight:6];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-phonehd/ccbButtonHighlighted2.png" hasWidth:10 hasHeight:4];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-tablet/ccbButtonHighlighted.png" hasWidth:2 hasHeight:6];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-tablet/ccbButtonHighlighted2.png" hasWidth:10 hasHeight:4];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-tablethd/ccbButtonHighlighted.png" hasWidth:4 hasHeight:12];
+    [self assertPNGAtPath:@"Published-tvOS/ccbResources/resources-tablethd/ccbButtonHighlighted2.png" hasWidth:20 hasHeight:8];
+    
+    [self assertFileDoesNotExist:@"Published-tvOS/Package.plist"];
 }
 
 - (void)testPublishingOfResolutions
@@ -140,14 +196,29 @@
     _projectSettings.publishResolution_ios_phone = NO;
     _projectSettings.publishResolution_ios_phonehd = YES;
 
+    _projectSettings.publishEnabledTVOS = YES;
+    _projectSettings.publishResolution_tvos_tablet = YES;
+    _projectSettings.publishResolution_tvos_tablethd = NO;
+    _projectSettings.publishResolution_tvos_phone = NO;
+    _projectSettings.publishResolution_tvos_phonehd = YES;
+    
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
     [_publisher addPublishingTarget:_targetIOS];
+    
+    _targetTVOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeTVOS];
+    [_publisher addPublishingTarget:_targetTVOS];
+    
     [_publisher start];
 
     [self assertFileExists:@"Published-iOS/resources-phonehd/picture.png"];
     [self assertFileExists:@"Published-iOS/resources-tablet/picture.png"];
     [self assertFileDoesNotExist:@"Published-iOS/resources-phone/picture.png"];
     [self assertFileDoesNotExist:@"Published-iOS/resources-tablethd/picture.png"];
+    
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/picture.png"];
+    [self assertFileExists:@"Published-tvOS/resources-tablet/picture.png"];
+    [self assertFileDoesNotExist:@"Published-tvOS/resources-phone/picture.png"];
+    [self assertFileDoesNotExist:@"Published-tvOS/resources-tablethd/picture.png"];
 }
 
 - (void)testPublishBMFont
@@ -164,9 +235,20 @@
     ]];
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     [self assertFilesExistRelativeToDirectory:@"Published-iOS/test.bmfont" filesPaths:@[
+            @"resources-phone/din.fnt",
+            @"resources-phone/din.png",
+            @"resources-phonehd/din.fnt",
+            @"resources-phonehd/din.png",
+            @"resources-tablet/din.fnt",
+            @"resources-tablet/din.png",
+            @"resources-tablethd/din.fnt",
+            @"resources-tablethd/din.png",
+    ]];
+    [self assertFilesExistRelativeToDirectory:@"Published-tvOS/test.bmfont" filesPaths:@[
             @"resources-phone/din.fnt",
             @"resources-phone/din.png",
             @"resources-phonehd/din.fnt",
@@ -194,6 +276,7 @@
     [doc writeToFile:[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack/mainScene.ccb"] atomically:YES];
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     [self assertFileExists:@"Published-iOS/mainScene.ccbi"];
@@ -210,14 +293,19 @@
     [_projectSettings setProperty:@1 forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_IMAGE_SCALE_FROM];
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     // The overridden case
     [self assertPNGAtPath:@"Published-iOS/resources-tablethd/rocket.png" hasWidth:3 hasHeight:17];
-
     [self assertPNGAtPath:@"Published-iOS/resources-tablet/rocket.png" hasWidth:8 hasHeight:40];
     [self assertPNGAtPath:@"Published-iOS/resources-phone/rocket.png" hasWidth:4 hasHeight:20];
     [self assertPNGAtPath:@"Published-iOS/resources-phonehd/rocket.png" hasWidth:8 hasHeight:40];
+ 
+    [self assertPNGAtPath:@"Published-tvOS/resources-tablethd/rocket.png" hasWidth:3 hasHeight:17];
+    [self assertPNGAtPath:@"Published-tvOS/resources-tablet/rocket.png" hasWidth:8 hasHeight:40];
+    [self assertPNGAtPath:@"Published-tvOS/resources-phone/rocket.png" hasWidth:4 hasHeight:20];
+    [self assertPNGAtPath:@"Published-tvOS/resources-phonehd/rocket.png" hasWidth:8 hasHeight:40];
 }
 
 - (void)testDifferentOutputFormatsForIOS
@@ -229,25 +317,42 @@
 
     [_projectSettings setProperty:@(kFCImageFormatJPG_High) forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT];
     [_projectSettings setProperty:@(kFCSoundFormatMP4) forRelPath:@"blank.wav" andKey:RESOURCE_PROPERTY_IOS_SOUND];
-
     [_publisher addPublishingTarget:_targetIOS];
+    
+    [_projectSettings setProperty:@(kFCImageFormatJPG_High) forRelPath:@"rocket.png" andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT];
+    [_projectSettings setProperty:@(kFCSoundFormatMP4) forRelPath:@"blank.wav" andKey:RESOURCE_PROPERTY_TVOS_SOUND];
+    [_publisher addPublishingTarget:_targetTVOS];
+    
     [_publisher start];
 
     [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"rocket.png" renamedName:@"rocket.jpg"];
     [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"blank.wav" renamedName:@"blank.m4a"];
 
+    [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"rocket.png" renamedName:@"rocket.jpg"];
+    [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"blank.wav" renamedName:@"blank.m4a"];
+    
     [self assertJPGAtPath:@"Published-iOS/resources-tablet/rocket.jpg" hasWidth:2 hasHeight:10];
     [self assertJPGAtPath:@"Published-iOS/resources-tablethd/rocket.jpg" hasWidth:4 hasHeight:20];
     [self assertJPGAtPath:@"Published-iOS/resources-phone/rocket.jpg" hasWidth:1 hasHeight:5];
     [self assertJPGAtPath:@"Published-iOS/resources-phonehd/rocket.jpg" hasWidth:2 hasHeight:10];
 
+    [self assertJPGAtPath:@"Published-tvOS/resources-tablet/rocket.jpg" hasWidth:2 hasHeight:10];
+    [self assertJPGAtPath:@"Published-tvOS/resources-tablethd/rocket.jpg" hasWidth:4 hasHeight:20];
+    [self assertJPGAtPath:@"Published-tvOS/resources-phone/rocket.jpg" hasWidth:1 hasHeight:5];
+    [self assertJPGAtPath:@"Published-tvOS/resources-phonehd/rocket.jpg" hasWidth:2 hasHeight:10];
+    
     [self assertFileExists:@"Published-iOS/blank.m4a"];
-
+    [self assertFileExists:@"Published-tvOS/blank.m4a"];
+    
     NSData *wavData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"baa.ccbuilder/Packages/foo.ccbpack/blank.wav"]];
     NSData *m4aData = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"Published-iOS/blank.m4a"]];
     XCTAssertNotNil(wavData, @"wav data must not be nil");
     XCTAssertNotNil(m4aData, @"m4a data must not be nil");
     XCTAssertTrue(![m4aData isEqualToData:wavData], @"m4a data must be different than wav data");
+
+    NSData *m4aDataTVOS = [[NSFileManager defaultManager] contentsAtPath:[self fullPathForFile:@"Published-tvOS/blank.m4a"]];
+    XCTAssertNotNil(m4aDataTVOS, @"m4a data must not be nil");
+    XCTAssertTrue(![m4aDataTVOS isEqualToData:wavData], @"m4a data must be different than wav data");
 }
 
 - (void)testSpriteSheets
@@ -262,6 +367,7 @@
     [_projectSettings setProperty:@(YES) forRelPath:@"sheet" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     // The resolutions tests may be a bit too much here, but there are no
@@ -275,11 +381,23 @@
     [self assertFileExists:@"Published-iOS/resources-phonehd/sheet.plist"];
     [self assertPNGAtPath:@"Published-iOS/resources-phonehd/sheet.png" hasWidth:16 hasHeight:16];
 
+    [self assertFileExists:@"Published-tvOS/resources-tablet/sheet.plist"];
+    [self assertPNGAtPath:@"Published-tvOS/resources-tablet/sheet.png" hasWidth:16 hasHeight:16];
+    [self assertFileExists:@"Published-tvOS/resources-tablethd/sheet.plist"];
+    [self assertPNGAtPath:@"Published-tvOS/resources-tablethd/sheet.png" hasWidth:32 hasHeight:16];
+    [self assertFileExists:@"Published-tvOS/resources-phone/sheet.plist"];
+    [self assertPNGAtPath:@"Published-tvOS/resources-phone/sheet.png" hasWidth:16 hasHeight:8];
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/sheet.plist"];
+    [self assertPNGAtPath:@"Published-tvOS/resources-phonehd/sheet.png" hasWidth:16 hasHeight:16];
+    
     // Previews are generated in texture packer
     [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/sheet.ppng"];
 
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
+    
+    [self assertFileExists:@"Published-tvOS/spriteFrameFileList.plist"];
+    [self assertSpriteFrameFileList:@"Published-tvOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
 }
 
 - (void)testSpriteSheetsFileLookup
@@ -293,10 +411,17 @@
     _projectSettings.publishResolution_ios_tablethd = NO;
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
     
+    _projectSettings.publishResolution_tvos_phone = YES;
+    _projectSettings.publishResolution_tvos_phonehd = NO;
+    _projectSettings.publishResolution_tvos_tablet = NO;
+    _projectSettings.publishResolution_tvos_tablethd = YES;
+    _targetTVOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeTVOS];
+    
     [_projectSettings setProperty:@(YES) forRelPath:@"sub1/sheet1" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
     [_projectSettings setProperty:@(YES) forRelPath:@"sub2/sheet2" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     void (^test)() = ^void()
@@ -312,6 +437,15 @@
 
         [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"sub1/sheet1/rock.psd" renamedName:@"sub1/sheet1/rock.png"];
         [self assertRenamingRuleInfFileLookup:@"Published-iOS/fileLookup.plist" originalName:@"sub2/sheet2/scissors.psd" renamedName:@"sub2/sheet2/scissors.png"];
+        
+        // tvOS
+        [self assertFileExists:@"Published-tvOS/sub1/resources-phone/sheet1.plist"];
+        [self assertFileExists:@"Published-tvOS/sub1/resources-phone/sheet1.png"];
+        [self assertFileExists:@"Published-tvOS/sub2/resources-phone/sheet2.plist"];
+        [self assertFileExists:@"Published-tvOS/sub2/resources-phone/sheet2.png"];
+        [self assertFileExists:@"Published-tvOS/fileLookup.plist"];
+        [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"sub1/sheet1/rock.psd" renamedName:@"sub1/sheet1/rock.png"];
+        [self assertRenamingRuleInfFileLookup:@"Published-tvOS/fileLookup.plist" originalName:@"sub2/sheet2/scissors.psd" renamedName:@"sub2/sheet2/scissors.png"];
     };
 
     test();
@@ -331,33 +465,55 @@
     [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/pvrtc/resources-auto/scissor.png" width:8 height:4 color:[NSColor greenColor]];
 
     _projectSettings.resourceAutoScaleFactor = 4;
+    
     _projectSettings.publishResolution_ios_phonehd = YES;
     _projectSettings.publishResolution_ios_phone = NO;
     _projectSettings.publishResolution_ios_tablet = NO;
     _projectSettings.publishResolution_ios_tablethd = NO;
 
+    _projectSettings.publishResolution_tvos_phonehd = YES;
+    _projectSettings.publishResolution_tvos_phone = NO;
+    _projectSettings.publishResolution_tvos_tablet = NO;
+    _projectSettings.publishResolution_tvos_tablethd = NO;
+    
     [_projectSettings setProperty:@(YES) forRelPath:@"pvr" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
-    [_projectSettings setProperty:@(kFCImageFormatPVR_RGBA8888) forRelPath:@"pvr" andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT];
-
     [_projectSettings setProperty:@(YES) forRelPath:@"pvrtc" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
+    
+    [_projectSettings setProperty:@(kFCImageFormatPVR_RGBA8888) forRelPath:@"pvr" andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT];
     [_projectSettings setProperty:@(kFCImageFormatPVRTC_4BPP) forRelPath:@"pvrtc" andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT];
 
+    [_projectSettings setProperty:@(kFCImageFormatPVR_RGBA8888) forRelPath:@"pvr" andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT];
+    [_projectSettings setProperty:@(kFCImageFormatPVRTC_4BPP) forRelPath:@"pvrtc" andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT];
+    
     _targetIOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeIOS];
     [_publisher addPublishingTarget:_targetIOS];
-    [_publisher start];
 
+    _targetTVOS.resolutions = [_projectSettings publishingResolutionsForOSType:kCCBPublisherOSTypeTVOS];
+    [_publisher addPublishingTarget:_targetTVOS];
+    
+    [_publisher start];
+    
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvr.plist"];
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvr.pvr"];
+    
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/pvr.plist"];
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/pvr.pvr"]; // does not work
     // Previews are generated in texture packer
     [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/pvr.ppng"];
 
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvrtc.plist"];
     [self assertFileExists:@"Published-iOS/resources-phonehd/pvrtc.pvr"];
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/pvrtc.plist"];
+    [self assertFileExists:@"Published-tvOS/resources-phonehd/pvrtc.pvr"]; // does not work
     [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/pvrtc.ppng"];
 
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"pvr.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"pvrtc.plist"];
+    
+    [self assertFileExists:@"Published-tvOS/spriteFrameFileList.plist"];
+    [self assertSpriteFrameFileList:@"Published-tvOS/spriteFrameFileList.plist" containsEntry:@"pvr.plist"];
+    [self assertSpriteFrameFileList:@"Published-tvOS/spriteFrameFileList.plist" containsEntry:@"pvrtc.plist"];
 }
 
 - (void)testRepublishingWithoutCleaningCache
@@ -365,8 +521,10 @@
     [self createPNGAtPath:@"baa.ccbuilder/Packages/foo.ccbpack/sheet/resources-auto/rock.png" width:4 height:4 color:[NSColor redColor]];
     [_projectSettings setProperty:@(YES) forRelPath:@"sheet" andKey:RESOURCE_PROPERTY_IS_SMARTSHEET];
     _targetIOS.resolutions = @[RESOLUTION_TABLET];
-
+    _targetTVOS.resolutions = @[RESOLUTION_TABLET];
+    
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     // Yes that's correct, publishing twice
     [_publisher start];
     [_publisher start];
@@ -375,10 +533,17 @@
             @"sheet.plist",
             @"sheet.png"
     ]];
-
+    [self assertFilesExistRelativeToDirectory:@"Published-tvOS/resources-tablet" filesPaths:@[
+            @"sheet.plist",
+            @"sheet.png"
+    ]];
     [self assertFileExists:@"baa.ccbuilder/Packages/foo.ccbpack/sheet.ppng"];
+    
     [self assertFileExists:@"Published-iOS/spriteFrameFileList.plist"];
     [self assertSpriteFrameFileList:@"Published-iOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
+    
+    [self assertFileExists:@"Published-tvOS/spriteFrameFileList.plist"];
+    [self assertSpriteFrameFileList:@"Published-tvOS/spriteFrameFileList.plist" containsEntry:@"sheet.plist"];
 }
 
 - (void)testGreyscaleImagePublishing
@@ -391,24 +556,34 @@
     _projectSettings.resourceAutoScaleFactor = 4;
 
     [_publisher addPublishingTarget:_targetIOS];
+    [_publisher addPublishingTarget:_targetTVOS];
     [_publisher start];
 
     [self assertFileExists:@"Published-iOS/images/resources-tablet/greyscale.png"];
     [self assertFileExists:@"Published-iOS/images/resources-tablethd/greyscale.png"];
     [self assertFileExists:@"Published-iOS/images/resources-phone/greyscale.png"];
     [self assertFileExists:@"Published-iOS/images/resources-phonehd/greyscale.png"];
+
+    [self assertFileExists:@"Published-tvOS/images/resources-tablet/greyscale.png"];
+    [self assertFileExists:@"Published-tvOS/images/resources-tablethd/greyscale.png"];
+    [self assertFileExists:@"Published-tvOS/images/resources-phone/greyscale.png"];
+    [self assertFileExists:@"Published-tvOS/images/resources-phonehd/greyscale.png"];
 }
 
 - (void)testEnums
 {
     XCTAssertEqual(kCCBPublisherOSTypeHTML5, 0, @"Enum value kCCBPublisherOSTypeHTML5  must not change");
     XCTAssertEqual(kCCBPublisherOSTypeIOS, 1, @"Enum value kCCBPublisherOSTypeIOS  must not change");
-
+    XCTAssertEqual(kCCBPublisherOSTypeTVOS, 2, @"Enum value kCCBPublisherOSTypeTVOS  must not change");
+    
     XCTAssertEqual(kCCBPublishEnvironmentDevelop, 0, @"Enum value kCCBPublishEnvironmentDevelop  must not change");
     XCTAssertEqual(kCCBPublishEnvironmentRelease, 1, @"Enum value kCCBPublishEnvironmentRelease  must not change");
 
     XCTAssertEqual(kCCBPublishFormatSound_ios_caf, 0, @"Enum value kCCBPublishFormatSound_ios_caf  must not change");
     XCTAssertEqual(kCCBPublishFormatSound_ios_mp4, 1, @"Enum value kCCBPublishFormatSound_ios_mp4  must not change");
+    
+    XCTAssertEqual(kCCBPublishFormatSound_tvos_caf, 0, @"Enum value kCCBPublishFormatSound_tvos_caf  must not change");
+    XCTAssertEqual(kCCBPublishFormatSound_tvos_mp4, 1, @"Enum value kCCBPublishFormatSound_tvos_mp4  must not change");
 }
 
 #pragma mark - assert helpers

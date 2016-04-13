@@ -230,6 +230,12 @@
             self.dither = [[_projectSettings propertyForRelPath:relPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_DITHER] boolValue];
             self.compress = [[_projectSettings propertyForRelPath:relPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS] boolValue];
         }
+        if (_osType == kCCBPublisherOSTypeTVOS)
+        {
+            self.format = [[_projectSettings propertyForRelPath:relPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT] intValue];
+            self.dither = [[_projectSettings propertyForRelPath:relPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_DITHER] boolValue];
+            self.compress = [[_projectSettings propertyForRelPath:relPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_COMPRESS] boolValue];
+        }
     }
 }
 

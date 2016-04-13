@@ -172,6 +172,14 @@ typedef void (^DirectorySetterBlock)(NSString *directoryPath);
     }];
 }
 
+- (IBAction)selectPublishDirectoryTVOS:(id)sender
+{
+    [self selectPublishCurrentPath:_projectSettings.publishDirectoryAppleTV
+                    dirSetterBlock:^(NSString *directoryPath) {
+                        _projectSettings.publishDirectoryAppleTV = directoryPath;
+                    }];
+}
+
 - (IBAction)selectPackagePublishingCustomDirectory:(id)sender;
 {
     SettingsListEntry *listEntry = _settingsList[(NSUInteger) _tableView.selectedRow];

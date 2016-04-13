@@ -36,6 +36,7 @@
 @synthesize dither;
 @synthesize textureFileFormatHTML5;
 @synthesize iOSEnabled;
+@synthesize tvOSEnabled;
 @synthesize HTML5Enabled;
 @synthesize ditherHTML5;
 
@@ -64,6 +65,19 @@
     [iosDither setEnabled:ditherEnabled];
     if(!ditherEnabled){
         [iosDither setState:NSOffState];
+    }
+}
+
+- (IBAction)updateTVOSSettings:(NSPopUpButton *)sender {
+    BOOL compressEnabled = [self isCompressable:textureFileFormat] && tvOSEnabled;
+    [tvosCompress setEnabled:compressEnabled];
+    if(!compressEnabled){
+        [tvosCompress setState:NSOffState];
+    }
+    BOOL ditherEnabled = [self isDitherable:textureFileFormat] && tvOSEnabled;
+    [tvosDither setEnabled:ditherEnabled];
+    if(!ditherEnabled){
+        [tvosDither setState:NSOffState];
     }
 }
 

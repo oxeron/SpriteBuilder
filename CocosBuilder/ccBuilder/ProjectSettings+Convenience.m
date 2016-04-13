@@ -22,7 +22,7 @@
 {
     NSString *key = osType == kCCBPublisherOSTypeIOS
         ? RESOURCE_PROPERTY_IOS_SOUND_QUALITY
-        : RESOURCE_PROPERTY_IOS_SOUND_QUALITY;
+        : RESOURCE_PROPERTY_TVOS_SOUND_QUALITY;
 
     int result = [[self propertyForRelPath:relPath andKey:key] intValue];
     if (!result)
@@ -39,6 +39,12 @@
     if (osType == kCCBPublisherOSTypeIOS)
     {
         key = RESOURCE_PROPERTY_IOS_SOUND;
+        map = @{@(0):@(kFCSoundFormatCAF),
+                @(1):@(kFCSoundFormatMP4)};
+    }
+    else if (osType == kCCBPublisherOSTypeTVOS)
+    {
+        key = RESOURCE_PROPERTY_TVOS_SOUND;
         map = @{@(0):@(kFCSoundFormatCAF),
                 @(1):@(kFCSoundFormatMP4)};
     }
@@ -62,7 +68,10 @@
     {
         return [self publishingResolutionsForIOS];
     }
-
+    if (osType == kCCBPublisherOSTypeTVOS)
+    {
+        return [self publishingResolutionsForTVOS];
+    }
     return nil;
 }
 
@@ -89,6 +98,29 @@
     return result;
 }
 
+- (NSArray *)publishingResolutionsForTVOS
+{
+    NSMutableArray *result = [NSMutableArray array];
+    
+    if (self.publishResolution_tvos_phone)
+    {
+        [result addObject:RESOLUTION_PHONE];
+    }
+    if (self.publishResolution_tvos_phonehd)
+    {
+        [result addObject:RESOLUTION_PHONE_HD];
+    }
+    if (self.publishResolution_tvos_tablet)
+    {
+        [result addObject:RESOLUTION_TABLET];
+    }
+    if (self.publishResolution_tvos_tablethd)
+    {
+        [result addObject:RESOLUTION_TABLET_HD];
+    }
+    return result;
+}
+
 - (NSString *)publishDirForOSType:(CCBPublisherOSType)osType
 {
     NSString *result;
@@ -97,7 +129,10 @@
     {
         result = [self publishDirectory];
     }
-
+    if (osType == kCCBPublisherOSTypeTVOS)
+    {
+        result = [self publishDirectoryAppleTV];
+    }
     if (!result)
     {
         NSLog(@"Error: unknown target type: %d", osType);
@@ -113,7 +148,10 @@
     {
         return self.publishEnabledIOS;
     }
-
+    if (osType == kCCBPublisherOSTypeTVOS)
+    {
+        return self.publishEnabledTVOS;
+    }
     return NO;
 }
 
@@ -124,7 +162,10 @@
     {
         return self.publishAudioQuality_ios;
     }
-
+    if (osType == kCCBPublisherOSTypeTVOS)
+    {
+        return self.publishAudioQuality_tvos;
+    }
     return DEFAULT_AUDIO_QUALITY;
 }
 

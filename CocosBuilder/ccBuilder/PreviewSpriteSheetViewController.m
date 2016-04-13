@@ -37,6 +37,12 @@
         weakSelf.format_ios_dither_enabled = [ImageFormatAndPropertiesHelper supportsDither:(kFCImageFormat) weakSelf.format_ios osType:kCCBPublisherOSTypeIOS];
         weakSelf.format_ios_compress_enabled = [ImageFormatAndPropertiesHelper supportsCompress:(kFCImageFormat) weakSelf.format_ios osType:kCCBPublisherOSTypeIOS];
 
+        weakSelf.format_tvos = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT] intValue];
+        weakSelf.format_tvos_dither = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_TVOS_IMAGE_DITHER] boolValue];
+        weakSelf.format_tvos_compress = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_TVOS_IMAGE_COMPRESS] boolValue];
+        weakSelf.format_tvos_dither_enabled = [ImageFormatAndPropertiesHelper supportsDither:(kFCImageFormat) weakSelf.format_tvos osType:kCCBPublisherOSTypeTVOS];
+        weakSelf.format_tvos_compress_enabled = [ImageFormatAndPropertiesHelper supportsCompress:(kFCImageFormat) weakSelf.format_tvos osType:kCCBPublisherOSTypeTVOS];
+        
         weakSelf.trimSprites = [[weakSelf.projectSettings propertyForResource:weakSelf.previewedResource andKey:RESOURCE_PROPERTY_TRIM_SPRITES] boolValue];
     }];
 
@@ -69,6 +75,27 @@
 {
    _format_ios_compress = format_ios_compress;
    [self setValue:@(format_ios_compress) withName:RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS isAudio:NO];
+}
+
+- (void) setFormat_tvos:(int)format_tvos
+{
+    _format_tvos = format_tvos;
+    [self setValue:@(format_tvos) withName:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT isAudio:NO];
+    
+    self.format_tvos_dither_enabled = [ImageFormatAndPropertiesHelper supportsDither:(kFCImageFormat)_format_tvos osType:kCCBPublisherOSTypeTVOS];
+    self.format_tvos_compress_enabled = [ImageFormatAndPropertiesHelper supportsCompress:(kFCImageFormat)_format_tvos osType:kCCBPublisherOSTypeTVOS];
+}
+
+- (void) setFormat_tvos_dither:(BOOL)format_tvos_dither
+{
+    _format_tvos_dither = format_tvos_dither;
+    [self setValue:@(format_tvos_dither) withName:RESOURCE_PROPERTY_TVOS_IMAGE_DITHER isAudio:NO];
+}
+
+- (void) setFormat_tvos_compress:(BOOL)format_tvos_compress
+{
+    _format_tvos_compress = format_tvos_compress;
+    [self setValue:@(format_tvos_compress) withName:RESOURCE_PROPERTY_TVOS_IMAGE_COMPRESS isAudio:NO];
 }
 
 - (void) setTrimSprites:(BOOL) trimSprites

@@ -46,6 +46,9 @@
     PublishOSSettings *osSettingsIOS = [_packagePublishSettings settingsForOsType:kCCBPublisherOSTypeIOS];
     XCTAssertNotNil(osSettingsIOS);
 
+    PublishOSSettings *osSettingsTVOS = [_packagePublishSettings settingsForOsType:kCCBPublisherOSTypeTVOS];
+    XCTAssertNotNil(osSettingsTVOS);
+    
     PublishOSSettings *osSettingsIOSKVC = [_packagePublishSettings valueForKeyPath:@"osSettings.ios"];
     XCTAssertNotNil(osSettingsIOSKVC);
 }
@@ -64,6 +67,11 @@
     osSettingsIOS.resolutions = @[@"phone"];
     [_packagePublishSettings setOSSettings:osSettingsIOS forOsType:kCCBPublisherOSTypeIOS];
 
+    PublishOSSettings *osSettingsTVOS = [_packagePublishSettings settingsForOsType:kCCBPublisherOSTypeTVOS];
+    osSettingsTVOS.audio_quality = 8;
+    osSettingsTVOS.resolutions = @[@"phone"];
+    [_packagePublishSettings setOSSettings:osSettingsTVOS forOsType:kCCBPublisherOSTypeTVOS];
+    
     [_packagePublishSettings store];
 
     [self assertFileExists:@"/foo/project.cocosbuilder/Packages/mypackage.ccbpack/Package.plist"];
@@ -83,6 +91,11 @@
     XCTAssertEqual(osSettingsIOSLoaded.audio_quality, osSettingsIOS.audio_quality);
     XCTAssertTrue([osSettingsIOSLoaded.resolutions containsObject:RESOLUTION_PHONE]);
     XCTAssertFalse([osSettingsIOSLoaded.resolutions containsObject:RESOLUTION_TABLET_HD]);
+ 
+    PublishOSSettings *osSettingsTVOSLoaded = [settingsLoaded settingsForOsType:kCCBPublisherOSTypeTVOS];
+    XCTAssertEqual(osSettingsTVOSLoaded.audio_quality, osSettingsTVOS.audio_quality);
+    XCTAssertTrue([osSettingsTVOSLoaded.resolutions containsObject:RESOLUTION_PHONE]);
+    XCTAssertFalse([osSettingsTVOSLoaded.resolutions containsObject:RESOLUTION_TABLET_HD]);
 }
 
 - (void)testMigrationDefaultScale

@@ -2952,7 +2952,7 @@ typedef enum
 
 - (void)checkForDirtyDocumentAndPublishAsync:(BOOL)async
 {
-    if (!projectSettings.publishEnabledIOS)
+    if (!projectSettings.publishEnabledIOS && !projectSettings.publishEnabledTVOS)
     {
         if(async)
             [self modalDialogTitle:@"Published Failed" message:@"There are no configured publish target platforms. Please check your Publish Settings."];

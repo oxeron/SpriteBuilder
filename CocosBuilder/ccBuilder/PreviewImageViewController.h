@@ -33,4 +33,10 @@
 @property (nonatomic) BOOL format_ios_dither_enabled;
 @property (nonatomic) BOOL format_ios_compress_enabled;
 
+@property (nonatomic) int  format_tvos;
+@property (nonatomic) BOOL format_tvos_dither;
+@property (nonatomic) BOOL format_tvos_compress;
+@property (nonatomic) BOOL format_tvos_dither_enabled;
+@property (nonatomic) BOOL format_tvos_compress_enabled;
+
 @end

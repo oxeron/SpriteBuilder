@@ -15,6 +15,9 @@
 @property (nonatomic) int format_ios;
 @property (nonatomic) BOOL format_ios_dither;
 @property (nonatomic) BOOL format_ios_compress;
+@property (nonatomic) int format_tvos;
+@property (nonatomic) BOOL format_tvos_dither;
+@property (nonatomic) BOOL format_tvos_compress;
 @property (nonatomic) BOOL trim;
 
 @end
@@ -141,6 +144,12 @@ static NSMutableSet *__spriteSheetPreviewsGenerated;
         _packer.compress = self.format_ios_compress;
         _packer.dither = self.format_ios_dither;
     }
+    if (_osType == kCCBPublisherOSTypeTVOS)
+    {
+        _packer.imageFormat = self.format_tvos;
+        _packer.compress = self.format_tvos_compress;
+        _packer.dither = self.format_tvos_dither;
+    }
 }
 
 - (void)setTextureMaxSize
@@ -168,6 +177,9 @@ static NSMutableSet *__spriteSheetPreviewsGenerated;
     self.format_ios = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_FORMAT] intValue];
     self.format_ios_dither = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_DITHER] boolValue];
     self.format_ios_compress = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_IOS_IMAGE_COMPRESS] boolValue];
+    self.format_tvos = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_FORMAT] intValue];
+    self.format_tvos_dither = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_DITHER] boolValue];
+    self.format_tvos_compress = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_TVOS_IMAGE_COMPRESS] boolValue];
     self.trim = [[_projectSettings propertyForRelPath:_subPath andKey:RESOURCE_PROPERTY_TRIM_SPRITES] boolValue];
 }
 

@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08A4EB651C7A49D000A08923 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BA20921C7865E600263AF8 /* Images.xcassets */; };
-		08BA205A1C7860D600263AF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B73789851807631A0076A88C /* main.m */; };
 		08BA20601C7860D600263AF8 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		08BA20721C7860D600263AF8 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
-		08BA20751C7860D600263AF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		08BA20781C7860D600263AF8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		08BA20791C7860D600263AF8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3117B978D7009739AE /* QuartzCore.framework */; };
 		08BA207A1C7860D600263AF8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3317B978D7009739AE /* OpenGLES.framework */; };
@@ -22,11 +20,9 @@
 		08BA207F1C7860D600263AF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		08BA20801C7860D600263AF8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		08BA20811C7860D600263AF8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
-		08BA20861C7860D600263AF8 /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
 		08BA20931C7865E600263AF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BA20921C7865E600263AF8 /* Images.xcassets */; };
 		08BA20951C7865E600263AF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BA20921C7865E600263AF8 /* Images.xcassets */; };
 		08BA20971C78718E00263AF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA20961C78718E00263AF8 /* AppDelegate.swift */; };
-		08BA20981C78718E00263AF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA20961C78718E00263AF8 /* AppDelegate.swift */; };
 		08BA209A1C7873EC00263AF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA20991C7873EC00263AF8 /* AppDelegate.swift */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
@@ -64,6 +60,10 @@
 		FF1510CD1C90031C00649B06 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510961C8FF70200649B06 /* libcocos2d.a */; };
 		FF1511171C900DFE00649B06 /* libcocos2d-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */; };
 		FF1511391C90129800649B06 /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1510981C8FF70200649B06 /* libcocos2d-mac.a */; };
+		FFAA18891CBE1CA000D09E01 /* Published-tvOS in Resources */ = {isa = PBXBuildFile; fileRef = FFAA18881CBE1CA000D09E01 /* Published-tvOS */; };
+		FFAA18A11CBE256700D09E01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAA189E1CBE256700D09E01 /* AppDelegate.m */; };
+		FFAA18A21CBE256700D09E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA189F1CBE256700D09E01 /* AppDelegate.swift */; };
+		FFAA18A31CBE256700D09E01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAA18A01CBE256700D09E01 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +138,11 @@
 		FF15108D1C8FF70200649B06 /* cocos2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d.xcodeproj; path = "Source/libs/cocos2d-objc/cocos2d.xcodeproj"; sourceTree = "<group>"; };
 		FF3D625F1C95A2280076AEB7 /* ZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZipArchive.framework; path = "../../Library/Developer/Xcode/DerivedData/aa-dxrrrnetirdfueavvxmoaoumjfoe/Build/Products/Debug-iphoneos/ZipArchive.framework"; sourceTree = SOURCE_ROOT; };
 		FF3D62631C95A38D0076AEB7 /* ObjectAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAL.framework; path = "Source/libs/cocos2d-objc/external/ObjectAL/ObjectAL/build/Debug/ObjectAL.framework"; sourceTree = "<group>"; };
+		FFAA18881CBE1CA000D09E01 /* Published-tvOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Published-tvOS"; sourceTree = "<group>"; };
+		FFAA189D1CBE256700D09E01 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FFAA189E1CBE256700D09E01 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FFAA189F1CBE256700D09E01 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FFAA18A01CBE256700D09E01 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/tvOS/main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +216,7 @@
 		7A40362019DDEF0D007B6E8F /* Platforms */ = {
 			isa = PBXGroup;
 			children = (
+				FFAA189C1CBE256700D09E01 /* tvOS */,
 				7A40362119DDF08C007B6E8F /* iOS */,
 				7A9791C019E6FAC5001FFC4D /* Mac */,
 			);
@@ -230,6 +236,7 @@
 		7A40365D19DDF896007B6E8F /* Platforms */ = {
 			isa = PBXGroup;
 			children = (
+				FFAA18B31CBE266800D09E01 /* tvOS */,
 				7A40366019DDF8A6007B6E8F /* iOS */,
 				7A40365F19DDF89C007B6E8F /* Mac */,
 			);
@@ -360,6 +367,7 @@
 				FF0888A21CA81BB4004086B8 /* Launch Screen.storyboard */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				B737893A180761570076A88C /* Published-iOS */,
+				FFAA18881CBE1CA000D09E01 /* Published-tvOS */,
 			);
 			name = Resources;
 			path = Source/Resources;
@@ -384,6 +392,25 @@
 				FF15109C1C8FF70200649B06 /* libcocos2d-tvos.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FFAA189C1CBE256700D09E01 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				FFAA189D1CBE256700D09E01 /* AppDelegate.h */,
+				FFAA189E1CBE256700D09E01 /* AppDelegate.m */,
+				FFAA189F1CBE256700D09E01 /* AppDelegate.swift */,
+			);
+			name = tvOS;
+			path = Source/Platforms/tvOS;
+			sourceTree = "<group>";
+		};
+		FFAA18B31CBE266800D09E01 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				FFAA18A01CBE256700D09E01 /* main.m */,
+			);
+			name = tvOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08BA20951C7865E600263AF8 /* Images.xcassets in Resources */,
-				08BA20861C7860D600263AF8 /* Published-iOS in Resources */,
+				FFAA18891CBE1CA000D09E01 /* Published-tvOS in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,11 +646,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08BA20981C78718E00263AF8 /* AppDelegate.swift in Sources */,
-				08BA205A1C7860D600263AF8 /* main.m in Sources */,
+				FFAA18A11CBE256700D09E01 /* AppDelegate.m in Sources */,
 				08BA20601C7860D600263AF8 /* MainScene.m in Sources */,
+				FFAA18A21CBE256700D09E01 /* AppDelegate.swift in Sources */,
 				08BA20721C7860D600263AF8 /* MainScene.swift in Sources */,
-				08BA20751C7860D600263AF8 /* AppDelegate.m in Sources */,
+				FFAA18A31CBE256700D09E01 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

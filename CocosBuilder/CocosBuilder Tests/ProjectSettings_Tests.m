@@ -158,6 +158,7 @@
    @{
       @"deviceOrientationPortrait":@(NO),
       @"publishDirectory":@"Source/Resources/Published-iOS",
+      @"publishDirectoryAppleTV":@"Source/Resources/Published-tvOS",
       @"resourceAutoScaleFactor":@(0),
       @"resourceProperties":@{
          @"":@{
@@ -215,6 +216,8 @@
       @"defaultOrientation":@(0),
       @"publishResolution_ios_phonehd":@(YES),
       @"publishResolution_ios_tablet":@(YES),
+      @"publishResolution_tvos_phonehd":@(YES),
+      @"publishResolution_tvos_tablet":@(YES),
       @"fileType":@"CocosBuilderProject",
       @"resourcePaths":@[
          @{
@@ -223,13 +226,17 @@
       ],
       @"deviceOrientationLandscapeLeft":@(YES),
       @"publishAudioQuality_ios":@(4),
+      @"publishAudioQuality_tvos":@(4),
       @"publishEnvironment":@(0),
       @"publishEnablediPhone":@(YES),
+      @"publishEnabledappleTV":@(YES),
       @"publishToZipFile":@(NO),
       @"exporter":@"ccbi",
       @"versionStr":@"Version: 1.x\n-n GitHub: \nfcec170fc2\n",
       @"publishResolution_ios_phone":@(YES),
       @"publishResolution_ios_tablethd":@(YES),
+      @"publishResolution_tvos_phone":@(YES),
+      @"publishResolution_tvos_tablethd":@(YES),
       @"deviceOrientationUpsideDown":@(NO),
       @"deviceOrientationLandscapeRight":@(YES),
       @"onlyPublishCCBs":@(NO),
@@ -250,7 +257,8 @@
     // This a convention, if it's read as 0 has to become 4
     XCTAssertEqual(project.resourceAutoScaleFactor, 4);
     SBAssertStringsEqual(project.publishDirectory, @"Source/Resources/Published-iOS");
-
+    SBAssertStringsEqual(project.publishDirectoryAppleTV, @"Source/Resources/Published-tvOS");
+    
     XCTAssertEqual(project.defaultOrientation, 0);
 
     XCTAssertTrue(project.publishEnabledIOS);
@@ -259,10 +267,17 @@
     XCTAssertTrue(project.publishResolution_ios_tablet);
     XCTAssertTrue(project.publishResolution_ios_tablethd);
 
+    XCTAssertTrue(project.publishEnabledTVOS);
+    XCTAssertTrue(project.publishResolution_tvos_phone);
+    XCTAssertTrue(project.publishResolution_tvos_phonehd);
+    XCTAssertTrue(project.publishResolution_tvos_tablet);
+    XCTAssertTrue(project.publishResolution_tvos_tablethd);
+    
     [self assertResourcePaths:@[@"packages/CocosBuilder Resources.ccbpack"] inProject:project];
 
     XCTAssertEqual(project.publishAudioQuality_ios, 4);
-
+    XCTAssertEqual(project.publishAudioQuality_tvos, 4);
+    
     XCTAssertFalse(project.onlyPublishCCBs);
     XCTAssertEqual(project.deviceScaling, 0);
     XCTAssertEqual(project.designTarget, 0);
@@ -300,7 +315,9 @@
     ProjectSettings *project = [[ProjectSettings alloc] initWithSerialization:projectDict];
     XCTAssertNotNil(project);
     XCTAssertEqual(project.publishAudioQuality_ios, DEFAULT_AUDIO_QUALITY);
+    XCTAssertEqual(project.publishAudioQuality_tvos, DEFAULT_AUDIO_QUALITY);
     SBAssertStringsEqual(project.publishDirectory, @"");
+    SBAssertStringsEqual(project.publishDirectoryAppleTV, @"");
     XCTAssertFalse(project.excludedFromPackageMigration);
 }
 
@@ -322,7 +339,8 @@
     XCTAssertEqual(projectSettings.resourcePaths.count, 0);
     XCTAssertEqual(projectSettings.engine, CCBTargetEngineCocos2d);
     SBAssertStringsEqual(projectSettings.publishDirectory, @"Published-iOS");
-
+    SBAssertStringsEqual(projectSettings.publishDirectoryAppleTV, @"Published-tvOS");
+    
     XCTAssertFalse(projectSettings.onlyPublishCCBs);
     XCTAssertFalse(projectSettings.publishToZipFile);
 
@@ -330,16 +348,23 @@
     XCTAssertTrue(projectSettings.deviceOrientationLandscapeRight);
 
     XCTAssertEqual(projectSettings.resourceAutoScaleFactor, 4);
+    
     XCTAssertTrue(projectSettings.publishEnabledIOS);
-
     XCTAssertTrue(projectSettings.publishResolution_ios_phone);
     XCTAssertTrue(projectSettings.publishResolution_ios_phonehd);
     XCTAssertTrue(projectSettings.publishResolution_ios_tablet);
     XCTAssertTrue(projectSettings.publishResolution_ios_tablethd);
-
+    
+    XCTAssertTrue(projectSettings.publishEnabledTVOS);
+    XCTAssertTrue(projectSettings.publishResolution_tvos_phone);
+    XCTAssertTrue(projectSettings.publishResolution_tvos_phonehd);
+    XCTAssertTrue(projectSettings.publishResolution_tvos_tablet);
+    XCTAssertTrue(projectSettings.publishResolution_tvos_tablethd);
+    
     XCTAssertEqual(projectSettings.publishEnvironment, kCCBPublishEnvironmentDevelop);
     XCTAssertEqual(projectSettings.publishAudioQuality_ios, 4);
-
+    XCTAssertEqual(projectSettings.publishAudioQuality_tvos, 4);
+    
     XCTAssertEqual(projectSettings.tabletPositionScaleFactor, 2.0f);
 
     XCTAssertFalse(projectSettings.excludedFromPackageMigration);
@@ -432,6 +457,10 @@
     _projectSettings.publishAudioQuality_ios = 6;
 
     XCTAssertEqual([_projectSettings audioQualityForOsType:kCCBPublisherOSTypeIOS], 6);
+
+    _projectSettings.publishAudioQuality_tvos = 6;
+    
+    XCTAssertEqual([_projectSettings audioQualityForOsType:kCCBPublisherOSTypeTVOS], 6);
 }
 
 - (void)testMarkAsDirty

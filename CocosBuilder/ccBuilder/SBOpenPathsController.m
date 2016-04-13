@@ -27,6 +27,7 @@ typedef enum
 {
     SBOpenPathTypeProject = 0,
     SBOpenPathTypePublishIOS,
+    SBOpenPathTypePublishTVOS,
     SBOpenPathTypePublishPackage
 } SBOpenPathType;
 
@@ -222,6 +223,9 @@ typedef enum
         case SBOpenPathTypePublishIOS:
             return [_projectSettings.projectPathDir stringByAppendingPathComponent:_projectSettings.publishDirectory];
 
+        case SBOpenPathTypePublishTVOS:
+            return [_projectSettings.projectPathDir stringByAppendingPathComponent:_projectSettings.publishDirectoryAppleTV];
+            
         case SBOpenPathTypePublishPackage:
         {
             RMPackage *package = representedObject[KEY_PACKAGE];

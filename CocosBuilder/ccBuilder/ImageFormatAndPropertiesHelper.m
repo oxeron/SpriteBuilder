@@ -13,7 +13,7 @@
 {
     NSArray *formatsSupportingComress;
 
-    if (osType ==  kCCBPublisherOSTypeIOS)
+    if (osType ==  kCCBPublisherOSTypeIOS || osType ==  kCCBPublisherOSTypeTVOS)
     {
         formatsSupportingComress = @[
                 @(kFCImageFormatPVR_RGBA8888),
@@ -31,7 +31,7 @@
 {
     NSArray *formatsSupportingDither;
 
-    if (osType ==  kCCBPublisherOSTypeIOS)
+    if (osType ==  kCCBPublisherOSTypeIOS || osType ==  kCCBPublisherOSTypeTVOS)
     {
         formatsSupportingDither = @[
                 @(kFCImageFormatPNG_8BIT),

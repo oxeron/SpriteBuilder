@@ -7,6 +7,7 @@ typedef void (^PublisherFinishBlock)(CCBPublisher *publisher, CCBWarnings *warni
 typedef enum {
     kCCBPublisherOSTypeHTML5 = 0,
     kCCBPublisherOSTypeIOS = 1,
+    kCCBPublisherOSTypeTVOS = 2,
     kCCBPublisherOSTypeNone = 1000,
 } CCBPublisherOSType;
 
@@ -21,3 +22,8 @@ enum {
     kCCBPublishFormatSound_ios_mp4 = 1,
 } typedef CCBPublishFormatSound_ios;
 
+
+enum {
+    kCCBPublishFormatSound_tvos_caf = 0,
+    kCCBPublishFormatSound_tvos_mp4 = 1
+} typedef CCBPublishFormatSound_tvos;
