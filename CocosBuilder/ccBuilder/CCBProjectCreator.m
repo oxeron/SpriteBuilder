@@ -98,14 +98,14 @@
         
         [self removeLinesMatching:@".*MainScene[.]swift.*" inFile:pbxprojFile];
         [self removeLinesMatching:@".*AppDelegate[.]swift.*" inFile:pbxprojFile];
-        filesToRemove = @[@"Source/MainScene.swift", @"Source/Platforms/iOS/AppDelegate.swift", @"Source/Platforms/Mac/AppDelegate.swift"];
+        filesToRemove = @[@"Source/MainScene.swift", @"Source/Platforms/iOS/AppDelegate.swift", @"Source/Platforms/tvOS/AppDelegate.swift", @"Source/Platforms/Mac/AppDelegate.swift"];
     }
     else if (programmingLanguage == CCBProgrammingLanguageSwift)
     {
         [self removeLinesMatching:@".*MainScene[.][hm].*" inFile:pbxprojFile];
         [self removeLinesMatching:@".* AppDelegate[.][hm].*" inFile:pbxprojFile];
         [self removeLinesMatching:@".*main[.][m].*" inFile:pbxprojFile];
-        filesToRemove = @[@"Source/MainScene.h", @"Source/MainScene.m", @"Source/Platforms/iOS/AppDelegate.h", @"Source/Platforms/iOS/AppDelegate.m", @"Source/Platforms/iOS/main.m", @"Source/Platforms/Mac/AppDelegate.h", @"Source/Platforms/Mac/AppDelegate.m", @"Source/Platforms/Mac/main.m"];
+        filesToRemove = @[@"Source/MainScene.h", @"Source/MainScene.m", @"Source/Platforms/iOS/AppDelegate.h", @"Source/Platforms/iOS/AppDelegate.m", @"Source/Platforms/iOS/main.m", @"Source/Platforms/tvOS/AppDelegate.h", @"Source/Platforms/tvOS/AppDelegate.m", @"Source/Platforms/tvOS/main.m", @"Source/Platforms/Mac/AppDelegate.h", @"Source/Platforms/Mac/AppDelegate.m", @"Source/Platforms/Mac/main.m"];
     }
 
     for (NSString *file in filesToRemove)
@@ -173,6 +173,19 @@
     
     // change orientation in cocos2d config file
     NSString* plistFileName = [parentPath stringByAppendingPathComponent:@"Source/Resources/Published-iOS/configCocos2d.plist"];
+    if (orientation == kCCBOrientationLandscape)
+    {
+        [self setName:@"CCScreenOrientationLandscape" inFile:plistFileName search:@"ORIENTATION"];
+    }
+    else if (orientation == kCCBOrientationPortrait)
+    {
+        [self setName:@"CCScreenOrientationPortrait" inFile:plistFileName search:@"ORIENTATION"];
+    }
+    else
+    {
+        return NO;
+    }
+    plistFileName = [parentPath stringByAppendingPathComponent:@"Source/Resources/Published-tvOS/configCocos2d.plist"];
     if (orientation == kCCBOrientationLandscape)
     {
         [self setName:@"CCScreenOrientationLandscape" inFile:plistFileName search:@"ORIENTATION"];

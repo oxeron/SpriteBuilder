@@ -55,9 +55,9 @@
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishEnabledIOS" id="pUB-de-P1Q"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6br-6o-1Hg">
+                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6br-6o-1Hg">
                             <rect key="frame" x="18" y="18" width="56" height="18"/>
-                            <buttonCell key="cell" type="check" title="phone" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="c5S-7x-37b">
+                            <buttonCell key="cell" type="check" title="phone" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="c5S-7x-37b">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
@@ -88,9 +88,9 @@
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishResolution_ios_tablethd" id="145-up-ziH"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-vk-T5Z">
+                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-vk-T5Z">
                             <rect key="frame" x="149" y="18" width="53" height="18"/>
-                            <buttonCell key="cell" type="check" title="tablet" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="gdr-s8-TSz">
+                            <buttonCell key="cell" type="check" title="tablet" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="gdr-s8-TSz">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
@@ -165,8 +165,8 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <binding destination="-2" name="enabled" keyPath="projectSettings.publishEnabledTVOS" id="M7i-1y-2EN"/>
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishDirectoryAppleTV" id="5eQ-tI-Xds"/>
+                                <binding destination="-2" name="enabled" keyPath="projectSettings.publishEnabledTVOS" id="M7i-1y-2EN"/>
                             </connections>
                         </textField>
                         <button identifier=" " verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-Vl-tIQ">
@@ -190,9 +190,9 @@
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishEnabledTVOS" id="tV2-IU-6Io"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fb-0K-iZi">
+                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fb-0K-iZi">
                             <rect key="frame" x="18" y="18" width="56" height="18"/>
-                            <buttonCell key="cell" type="check" title="phone" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="eBV-mG-4KT">
+                            <buttonCell key="cell" type="check" title="phone" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="eBV-mG-4KT">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
@@ -201,9 +201,9 @@
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishResolution_tvos_phone" id="JNj-7N-m20"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-Pt-ZkR">
+                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZr-Pt-ZkR">
                             <rect key="frame" x="76" y="18" width="70" height="18"/>
-                            <buttonCell key="cell" type="check" title="phonehd" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="E0a-Xs-aBk">
+                            <buttonCell key="cell" type="check" title="phonehd" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="E0a-Xs-aBk">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
@@ -223,9 +223,9 @@
                                 <binding destination="-2" name="value" keyPath="projectSettings.publishResolution_tvos_tablethd" id="1oZ-yS-EWq"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnD-zS-l5b">
+                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnD-zS-l5b">
                             <rect key="frame" x="149" y="18" width="53" height="18"/>
-                            <buttonCell key="cell" type="check" title="tablet" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="gM5-Dh-BIM">
+                            <buttonCell key="cell" type="check" title="tablet" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="gM5-Dh-BIM">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                             </buttonCell>
@@ -267,8 +267,8 @@
                                 </menu>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="-2" name="enabled" keyPath="projectSettings.publishEnabledTVOS" id="WZT-Fh-Uqb"/>
                                 <binding destination="-2" name="selectedTag" keyPath="projectSettings.publishAudioQuality_tvos" id="a0x-Tl-wLd"/>
+                                <binding destination="-2" name="enabled" keyPath="projectSettings.publishEnabledTVOS" id="WZT-Fh-Uqb"/>
                             </connections>
                         </popUpButton>
                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWs-01-pj3" customClass="CCBTextFieldLabel">

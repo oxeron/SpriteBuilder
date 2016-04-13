@@ -39,12 +39,26 @@
 	<key>publishEnvironment</key>
 	<integer>0</integer>
 	<key>publishResolution_ios_phone</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_phonehd</key>
 	<true/>
 	<key>publishResolution_ios_tablet</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_tablethd</key>
+	<true/>
+	<key>publishAudioQuality_tvos</key>
+	<integer>4</integer>
+	<key>publishDirectoryAppleTV</key>
+	<string>Source/Resources/Published-tvOS</string>
+	<key>publishEnabledappleTV</key>
+	<true/>
+	<key>publishResolution_tvos_phone</key>
+	<false/>
+	<key>publishResolution_tvos_phonehd</key>
+	<false/>
+	<key>publishResolution_tvos_tablet</key>
+	<false/>
+	<key>publishResolution_tvos_tablethd</key>
 	<true/>
 	<key>publishToZipFile</key>
 	<false/>
