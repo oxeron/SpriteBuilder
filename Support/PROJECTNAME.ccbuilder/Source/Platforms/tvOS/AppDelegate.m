@@ -33,7 +33,7 @@
     NSMutableDictionary* cocos2dSetup;
 
     // Configure Cocos2d with the options set in SpriteBuilder
-    NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-tvOS"]; // TODO: add support for Published-Android support
+    NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-tvOS"];
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
     
     cocos2dSetup = [NSMutableDictionary dictionaryWithContentsOfFile:configPath];
