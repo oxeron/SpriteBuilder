@@ -126,6 +126,9 @@ static NSString *const SEARCH_PREDICATE_FORMAT = @"(projectName contains[cd] %@)
     
     [self.CCBVersion setStringValue:[self versionInfo]];
     [self.CC2dVersion setStringValue:[NSString stringWithFormat:@"%s", [cocos2dVersion() UTF8String]]];
+    
+    // new project view
+    self.saveDlgProjectName.title = @"Untitled";
 }
 
 -(NSString*)versionInfo
