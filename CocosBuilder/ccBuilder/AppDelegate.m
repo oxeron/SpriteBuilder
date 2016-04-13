@@ -1320,6 +1320,7 @@ typedef enum
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6Landscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingAppleTV]];
             }
         }
         else

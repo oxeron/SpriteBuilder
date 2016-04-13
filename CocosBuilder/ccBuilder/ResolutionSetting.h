@@ -62,6 +62,7 @@
 + (ResolutionSetting*) settingIPhone6Portrait;
 + (ResolutionSetting*) settingIPhone6PlusLandscape;
 + (ResolutionSetting*) settingIPhone6PlusPortrait;
++ (ResolutionSetting*) settingAppleTV;
 
 - (id) initWithSerialization:(id)serialization;
 

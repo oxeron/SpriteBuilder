@@ -48,6 +48,7 @@
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone6Portrait]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone6PlusPortrait]];
+    [predefinedResolutions addObject:[ResolutionSetting settingAppleTV]];
     
     int i = 0;
     for (ResolutionSetting* setting in predefinedResolutions)

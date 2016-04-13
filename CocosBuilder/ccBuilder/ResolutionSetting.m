@@ -286,6 +286,19 @@
     return setting;
 }
 
++ (ResolutionSetting*) settingAppleTV
+{
+    ResolutionSetting* setting = [[ResolutionSetting alloc] init];
+    
+    setting.name = @"appleTV";
+    setting.width = 1920;
+    setting.height = 1080;
+    setting.ext = @"tablethd";
+    setting.scale = 1;
+    
+    return setting;
+}
+
 - (NSString *) description
 {
     return [NSString stringWithFormat:@"%@ <0x%x> (%d x %d)", NSStringFromClass([self class]), (unsigned int)self, width, height];
