@@ -38,7 +38,7 @@
                     </connections>
                 </imageView>
                 <imageView id="fG6-ZG-dqn" userLabel="Image View - phonehd" customClass="CCBImageView">
-                    <rect key="frame" x="64" y="13" width="60" height="60"/>
+                    <rect key="frame" x="2" y="13" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="xu2-9e-bNk"/>
                     <connections>
@@ -56,7 +56,7 @@
                     </connections>
                 </imageView>
                 <imageView id="Nkb-7q-HC3" userLabel="Image View - tablethd" customClass="CCBImageView">
-                    <rect key="frame" x="188" y="13" width="60" height="60"/>
+                    <rect key="frame" x="64" y="13" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="i1G-Kv-udq"/>
                     <connections>
@@ -74,7 +74,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="9Cj-93-am9" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="71" y="3" width="47" height="11"/>
+                    <rect key="frame" x="9" y="3" width="47" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="phonehd" id="2ua-wC-ygO">
                         <font key="font" metaFont="miniSystem"/>
@@ -92,7 +92,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="5ab-0j-oJu" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="196" y="3" width="45" height="11"/>
+                    <rect key="frame" x="72" y="3" width="45" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="tablethd" id="It1-c4-TgC">
                         <font key="font" metaFont="miniSystem"/>
@@ -118,7 +118,7 @@
                     </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" id="809-F9-bZA">
-                    <rect key="frame" x="190" y="16" width="57" height="15"/>
+                    <rect key="frame" x="66" y="16" width="57" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Bxv-Oo-9nM">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -219,166 +219,6 @@
                         <binding destination="-2" name="enabled" keyPath="format_ios_compress_enabled" id="RAp-5A-y9t"/>
                     </connections>
                 </button>
-                <button hidden="YES" id="akF-Rg-AFC">
-                    <rect key="frame" x="181" y="-35" width="66" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="check" title="Compress" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" enabled="NO" state="on" inset="2" id="Cjq-qm-9N0">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <textField hidden="YES" verticalHuggingPriority="750" id="azm-5K-4Ce" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="2" y="-32" width="39" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Android" id="MTX-JI-sS5">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <popUpButton hidden="YES" verticalHuggingPriority="750" id="Ma1-P0-f9d">
-                    <rect key="frame" x="41" y="-34" width="94" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="cH8-6q-9Ai">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                        <menu key="menu" title="OtherViews" id="taS-KE-XcY">
-                            <items>
-                                <menuItem title="PNG" id="OyT-Jw-sAm"/>
-                                <menuItem title="PNG 8-bit" tag="1" hidden="YES" id="yto-IJ-yiw"/>
-                                <menuItem isSeparatorItem="YES" id="7te-Lc-00M"/>
-                                <menuItem title="JPG high" tag="8" id="rSe-Ln-OqE">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                                <menuItem title="JPG medium" tag="9" id="OSK-HJ-qdy">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                                <menuItem title="JPG low" tag="10" id="Y7w-H5-Xht">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                                <menuItem isSeparatorItem="YES" id="ObR-JX-COJ"/>
-                                <menuItem title="PVR RGBA8888" tag="2" id="MnD-Kg-bs2"/>
-                                <menuItem title="PVR RGBA4444" tag="3" id="4fL-yI-Dkm">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                                <menuItem title="PVR RGB565" tag="4" id="r8E-sl-8Ed">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                </popUpButton>
-                <button hidden="YES" id="oaK-kn-fhZ">
-                    <rect key="frame" x="135" y="-35" width="49" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="check" title="Dither" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" state="on" inset="2" id="VW4-GM-ljk">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <button hidden="YES" verticalHuggingPriority="750" id="z4o-yg-u46" customClass="CCBButtonUnclickable">
-                    <rect key="frame" x="4" y="15" width="56" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="1x" bezelStyle="rounded" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Inm-5K-coT">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <button verticalHuggingPriority="750" id="BVa-gk-FBJ" customClass="CCBButtonUnclickable">
-                    <rect key="frame" x="66" y="15" width="56" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="2x" bezelStyle="rounded" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dyV-bm-Bs0">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewPhonehd.image" id="jkB-lb-qGq">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </button>
-                <popUpButton verticalHuggingPriority="750" id="ytl-XP-7nm">
-                    <rect key="frame" x="181" y="118" width="62" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="GHO-wU-Fjv">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                        <menu key="menu" title="OtherViews" id="gSf-1O-Svf">
-                            <items>
-                                <menuItem title="Default" id="8Ho-OL-Ktk"/>
-                                <menuItem title="1x" tag="1" id="9V4-jY-lPg"/>
-                                <menuItem title="2x" tag="2" id="e6C-gW-Zo6"/>
-                                <menuItem title="4x" tag="4" id="8ll-KM-LXg">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                    <connections>
-                        <binding destination="-2" name="selectedTag" keyPath="scaleFrom" id="AnW-Pg-U50"/>
-                    </connections>
-                </popUpButton>
-                <textField verticalHuggingPriority="750" id="0ie-fp-IcK" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="131" y="120" width="50" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Scale from" id="0la-bJ-Mrr">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField hidden="YES" verticalHuggingPriority="750" id="Bc9-Yb-Xpc" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="13" y="41" width="38" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="zOx-qB-etb">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" id="A3J-re-knc" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="75" y="41" width="38" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="Lgc-G2-rhg">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewPhonehd.image" id="iW6-gt-Myy">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </textField>
-                <textField hidden="YES" verticalHuggingPriority="750" id="SFo-LZ-Hou" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="137" y="41" width="38" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="xBv-Xa-GYp">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" id="URO-NG-2Mt" customClass="CCBTextFieldLabel">
-                    <rect key="frame" x="199" y="41" width="38" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="cUc-HO-ewO">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewTablethd.image" id="Fjd-ho-zkL">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </textField>
                 <textField verticalHuggingPriority="750" id="mM9-Nv-hfv" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="2" y="78" width="38" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -459,6 +299,166 @@
                         <binding destination="-2" name="value" keyPath="format_tvos_compress" id="JhJ-eI-3KT"/>
                     </connections>
                 </button>
+                <button hidden="YES" id="akF-Rg-AFC">
+                    <rect key="frame" x="181" y="-35" width="66" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="check" title="Compress" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" enabled="NO" state="on" inset="2" id="Cjq-qm-9N0">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                </button>
+                <textField hidden="YES" verticalHuggingPriority="750" id="azm-5K-4Ce" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="2" y="-32" width="39" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Android" id="MTX-JI-sS5">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton hidden="YES" verticalHuggingPriority="750" id="Ma1-P0-f9d">
+                    <rect key="frame" x="41" y="-34" width="94" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="cH8-6q-9Ai">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <menu key="menu" title="OtherViews" id="taS-KE-XcY">
+                            <items>
+                                <menuItem title="PNG" id="OyT-Jw-sAm"/>
+                                <menuItem title="PNG 8-bit" tag="1" hidden="YES" id="yto-IJ-yiw"/>
+                                <menuItem isSeparatorItem="YES" id="7te-Lc-00M"/>
+                                <menuItem title="JPG high" tag="8" id="rSe-Ln-OqE">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="JPG medium" tag="9" id="OSK-HJ-qdy">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="JPG low" tag="10" id="Y7w-H5-Xht">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="ObR-JX-COJ"/>
+                                <menuItem title="PVR RGBA8888" tag="2" id="MnD-Kg-bs2"/>
+                                <menuItem title="PVR RGBA4444" tag="3" id="4fL-yI-Dkm">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="PVR RGB565" tag="4" id="r8E-sl-8Ed">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <button hidden="YES" id="oaK-kn-fhZ">
+                    <rect key="frame" x="135" y="-35" width="49" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="check" title="Dither" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" state="on" inset="2" id="VW4-GM-ljk">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                </button>
+                <button hidden="YES" verticalHuggingPriority="750" id="z4o-yg-u46" customClass="CCBButtonUnclickable">
+                    <rect key="frame" x="4" y="15" width="56" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="1x" bezelStyle="rounded" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Inm-5K-coT">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" id="BVa-gk-FBJ" customClass="CCBButtonUnclickable">
+                    <rect key="frame" x="4" y="15" width="56" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="2x" bezelStyle="rounded" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dyV-bm-Bs0">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="previewPhonehd.image" id="jkB-lb-qGq">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNotNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
+                <textField hidden="YES" verticalHuggingPriority="750" id="Bc9-Yb-Xpc" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="13" y="41" width="38" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="zOx-qB-etb">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="A3J-re-knc" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="13" y="41" width="38" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="Lgc-G2-rhg">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="previewPhonehd.image" id="iW6-gt-Myy">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNotNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <textField hidden="YES" verticalHuggingPriority="750" id="SFo-LZ-Hou" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="137" y="41" width="38" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="xBv-Xa-GYp">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="URO-NG-2Mt" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="75" y="41" width="38" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="cUc-HO-ewO">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="previewTablethd.image" id="Fjd-ho-zkL">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNotNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="ytl-XP-7nm">
+                    <rect key="frame" x="177" y="55" width="70" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="GHO-wU-Fjv">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <menu key="menu" title="OtherViews" id="gSf-1O-Svf">
+                            <items>
+                                <menuItem title="Default" id="8Ho-OL-Ktk"/>
+                                <menuItem title="1x" tag="1" id="9V4-jY-lPg"/>
+                                <menuItem title="2x" tag="2" id="e6C-gW-Zo6"/>
+                                <menuItem title="4x" tag="4" id="8ll-KM-LXg">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedTag" keyPath="scaleFrom" id="AnW-Pg-U50"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" id="0ie-fp-IcK" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="127" y="57" width="50" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Scale from" id="0la-bJ-Mrr">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
         </customView>
         <menu autoenablesItems="NO" id="YgR-2N-odH" userLabel="Menu - phone">
