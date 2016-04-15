@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreviewImageViewController">
@@ -28,7 +28,7 @@
                         <action selector="droppedFile:" target="-2" id="P46-3h-KbG"/>
                     </connections>
                 </imageView>
-                <imageView id="syt-Jp-bgZ" userLabel="Image View - phone" customClass="CCBImageView">
+                <imageView hidden="YES" id="syt-Jp-bgZ" userLabel="Image View - phone" customClass="CCBImageView">
                     <rect key="frame" x="2" y="13" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="3ej-ZA-FLa"/>
@@ -46,7 +46,7 @@
                         <outlet property="menu" destination="GUb-Xh-VSH" id="JWd-lX-xWC"/>
                     </connections>
                 </imageView>
-                <imageView id="1H6-1v-tZz" userLabel="Image View - tablet" customClass="CCBImageView">
+                <imageView hidden="YES" id="1H6-1v-tZz" userLabel="Image View - tablet" customClass="CCBImageView">
                     <rect key="frame" x="126" y="13" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="zeN-yT-rM7"/>
@@ -64,7 +64,7 @@
                         <outlet property="menu" destination="dzv-iI-1w0" id="jYd-VE-lxS"/>
                     </connections>
                 </imageView>
-                <textField verticalHuggingPriority="750" id="0fc-wh-ZPV" customClass="CCBTextFieldLabel">
+                <textField hidden="YES" verticalHuggingPriority="750" id="0fc-wh-ZPV" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="13" y="3" width="38" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="phone" id="KG1-bm-YDk">
@@ -82,7 +82,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="mH6-J7-zec" customClass="CCBTextFieldLabel">
+                <textField hidden="YES" verticalHuggingPriority="750" id="mH6-J7-zec" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="140" y="3" width="33" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="tablet" id="p6n-Yo-e1T">
@@ -100,7 +100,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <popUpButton verticalHuggingPriority="750" id="riW-cF-mjp">
+                <popUpButton hidden="YES" verticalHuggingPriority="750" id="riW-cF-mjp">
                     <rect key="frame" x="128" y="16" width="57" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="xtW-Iz-WZ7">
@@ -114,11 +114,6 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewTablet.image" id="PZo-tb-e7M">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
                         <binding destination="-2" name="selectedTag" keyPath="tabletScale" id="qYu-S1-Y0A"/>
                     </connections>
                 </popUpButton>
@@ -281,20 +276,13 @@
                         <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
                 </button>
-                <button verticalHuggingPriority="750" id="z4o-yg-u46" customClass="CCBButtonUnclickable">
+                <button hidden="YES" verticalHuggingPriority="750" id="z4o-yg-u46" customClass="CCBButtonUnclickable">
                     <rect key="frame" x="4" y="15" width="56" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="1x" bezelStyle="rounded" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Inm-5K-coT">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewPhone.image" id="SPX-Fg-OvR">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="BVa-gk-FBJ" customClass="CCBButtonUnclickable">
                     <rect key="frame" x="66" y="15" width="56" height="16"/>
@@ -341,7 +329,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="Bc9-Yb-Xpc" customClass="CCBTextFieldLabel">
+                <textField hidden="YES" verticalHuggingPriority="750" id="Bc9-Yb-Xpc" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="13" y="41" width="38" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="zOx-qB-etb">
@@ -349,13 +337,6 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewPhone.image" id="ru0-Nv-5TQ">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" id="A3J-re-knc" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="75" y="41" width="38" height="11"/>
@@ -373,7 +354,7 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField verticalHuggingPriority="750" id="SFo-LZ-Hou" customClass="CCBTextFieldLabel">
+                <textField hidden="YES" verticalHuggingPriority="750" id="SFo-LZ-Hou" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="137" y="41" width="38" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AUTO" id="xBv-Xa-GYp">
@@ -381,13 +362,6 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="hidden" keyPath="previewTablet.image" id="J7W-Q7-dqx">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSIsNotNil</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" id="URO-NG-2Mt" customClass="CCBTextFieldLabel">
                     <rect key="frame" x="199" y="41" width="38" height="11"/>
