@@ -1086,6 +1086,7 @@
                 ProjectSettings* settings = [AppDelegate appDelegate].projectSettings;
                 NSString* relPath = [ResourceManagerUtil relativePathFromAbsolutePath:dstPath];
                 [settings setProperty:@(kCCBPublishFormatSound_ios_mp4) forRelPath:relPath andKey:@"format_ios_sound"];
+                [settings setProperty:@(kCCBPublishFormatSound_tvos_mp4) forRelPath:relPath andKey:@"format_tvos_sound"];
             }
             importedFile = YES;
         
