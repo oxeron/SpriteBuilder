@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <development version="6300" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
-        <plugIn identifier="com.apple.imagekit.ibplugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.imagekit.ibplugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -1346,7 +1346,7 @@ CA
                                             <rect key="frame" x="0.0" y="0.0" width="249" height="640"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="2014">
+                                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="2014">
                                                     <rect key="frame" x="0.0" y="0.0" width="249" height="640"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <clipView key="contentView" copiesOnScroll="NO" id="92y-mP-XwZ">
@@ -1364,11 +1364,11 @@ CA
                                                         </subviews>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2016">
-                                                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2017">
-                                                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                        <rect key="frame" x="-100" y="-100" width="15" height="143"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -1916,11 +1916,11 @@ CA
                                             <rect key="frame" x="0.0" y="0.0" width="298" height="656"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="2045">
+                                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="2045">
                                                     <rect key="frame" x="0.0" y="0.0" width="298" height="657"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <clipView key="contentView" id="vCL-dY-h8s">
-                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="657"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="283" height="642"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <view id="2046">
@@ -1946,11 +1946,11 @@ CA
                                             <rect key="frame" x="0.0" y="0.0" width="298" height="656"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="8V7-YG-C9X">
+                                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="8V7-YG-C9X">
                                                     <rect key="frame" x="0.0" y="0.0" width="298" height="656"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <clipView key="contentView" id="U4Z-Vf-EOq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="656"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="283" height="641"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <view id="VWM-rZ-YR4">
@@ -2303,11 +2303,11 @@ CA
                                                         </subviews>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="H4Q-Vu-Ysx">
-                                                        <rect key="frame" x="0.0" y="640" width="298" height="16"/>
+                                                        <rect key="frame" x="0.0" y="641" width="283" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="cW2-Jx-hii">
-                                                        <rect key="frame" x="282" y="0.0" width="16" height="656"/>
+                                                        <rect key="frame" x="283" y="0.0" width="15" height="641"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -2720,7 +2720,7 @@ CA
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="TB_plugins" id="2024"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" tag="1" id="2025">
-                    <rect key="frame" x="47" y="32" width="191" height="14"/>
+                    <rect key="frame" x="47" y="32" width="187" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PlugIn Name" id="2026">
                         <font key="font" metaFont="smallSystemBold"/>
@@ -2729,7 +2729,7 @@ CA
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="2" id="2027">
-                    <rect key="frame" x="47" y="4" width="196" height="27"/>
+                    <rect key="frame" x="47" y="4" width="187" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Short description about the fuction of this type of node. No longer than two lines" id="2028">
                         <font key="font" metaFont="miniSystem"/>
