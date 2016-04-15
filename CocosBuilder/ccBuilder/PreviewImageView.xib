@@ -379,6 +379,86 @@
                         </binding>
                     </connections>
                 </textField>
+                <textField verticalHuggingPriority="750" id="mM9-Nv-hfv" customClass="CCBTextFieldLabel">
+                    <rect key="frame" x="2" y="78" width="38" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="tvOS" id="NiO-fP-UV1">
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="IpO-ca-8xS">
+                    <rect key="frame" x="41" y="76" width="94" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="PNG" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="J46-hM-GlR">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <menu key="menu" title="OtherViews" id="odo-Tb-EbC">
+                            <items>
+                                <menuItem title="PNG" state="on" id="Xda-Jz-KmN"/>
+                                <menuItem title="PNG 8-bit" tag="1" hidden="YES" id="EZM-yK-94P"/>
+                                <menuItem isSeparatorItem="YES" id="0Hg-B2-zQm"/>
+                                <menuItem title="JPG high" tag="8" id="GfZ-pB-kw4">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="JPG medium" tag="9" id="4Kr-pO-ux4">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="JPG low" tag="10" id="uHs-VH-Z7I">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="ojj-CF-ic4"/>
+                                <menuItem title="PVR RGBA8888" tag="2" id="IRe-e7-y1g"/>
+                                <menuItem title="PVR RGBA4444" tag="3" id="Y5s-wr-40S">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="PVR RGB565" tag="4" id="Ze3-Va-D3u">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="PVRTC 4bpp" tag="5" id="IIV-hD-5P9">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <binding destination="-2" name="enabled" keyPath="format_supportsPVRTC" id="ayg-KM-xmb"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="PVRTC 2bpp" tag="6" id="56a-4V-Xgz">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <binding destination="-2" name="enabled" keyPath="format_supportsPVRTC" id="GCB-6Z-smJ"/>
+                                    </connections>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedTag" keyPath="format_tvos" id="l4I-gH-scd"/>
+                    </connections>
+                </popUpButton>
+                <button id="ZMQ-1g-4Q3">
+                    <rect key="frame" x="135" y="75" width="49" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="check" title="Dither" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" state="on" inset="2" id="IRH-hZ-vr5">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="enabled" keyPath="format_tvos_dither_enabled" id="V7d-zW-5SZ"/>
+                        <binding destination="-2" name="value" keyPath="format_tvos_dither" id="ILA-or-kdW"/>
+                    </connections>
+                </button>
+                <button id="J3i-uL-yvm">
+                    <rect key="frame" x="181" y="75" width="66" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="check" title="Compress" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" state="on" inset="2" id="rlv-QD-MGd">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="enabled" keyPath="format_tvos_compress_enabled" id="55u-1N-Mkc"/>
+                        <binding destination="-2" name="value" keyPath="format_tvos_compress" id="JhJ-eI-3KT"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
         <menu autoenablesItems="NO" id="YgR-2N-odH" userLabel="Menu - phone">
