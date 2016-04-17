@@ -386,8 +386,10 @@ __attribute__((visibility("default")))
 - (void)checkForDirtyDocumentAndPublishAsync:(BOOL)async;
 
 // Menu options
+- (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt parent:(CCNode*)parent index:(NSInteger)index; // index is the position in the hierarchy outline view
 - (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt parent:(CCNode*)parent;
 - (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt;
+- (void) dropAddCCBFileNamed:(NSString*)ccbFile at:(CGPoint)pt parent:(CCNode*)parent index:(NSInteger)index; // index is the position in the hierarchy outline view
 - (void) dropAddCCBFileNamed:(NSString*)ccbFile at:(CGPoint)pt parent:(CCNode*)parent;
 
 - (IBAction)menuTimelineSettings:(id)sender;
@@ -406,6 +408,7 @@ __attribute__((visibility("default")))
 - (BOOL) addCCObject:(CCNode *)obj toParent:(CCNode*)parent;
 - (BOOL) addCCObject:(CCNode*)obj asChild:(BOOL)asChild;
 - (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild;
+- (void) dropAddPlugInNodeNamed:(NSString*) nodeName at:(CGPoint)pt index:(NSInteger)index; // index is the position in the hierarchy outline view
 - (void) dropAddPlugInNodeNamed:(NSString*) nodeName at:(CGPoint)pt;
 - (void) dropAddPlugInNodeNamed:(NSString *)nodeName parent:(CCNode*)node index:(int)idx;
 - (void) deleteNode:(CCNode*)node;

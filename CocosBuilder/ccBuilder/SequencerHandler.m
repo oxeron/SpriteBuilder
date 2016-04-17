@@ -824,7 +824,7 @@ static SequencerHandler* sharedSequencerHandler;
     NSData *clipData = [pasteboard dataForType:PASTEBOARD_TYPE_NODE];
     if (clipData)
     {
-		return [self acceptDropForNodeType:item index:index clipData:clipData];
+		return [self acceptDropForNodeType:item clipData:clipData index:index];
 	}
     
     BOOL addedObject = NO;
@@ -833,13 +833,13 @@ static SequencerHandler* sharedSequencerHandler;
 	// Q: aren't these cases exclusive so a return would be feasible?
     // A: A return will exit the method prematurely, or has to be wrapped with an if clause, a bit of shortened code.
     //    Short circuiting is used but was done in the wrong order.
-	addedObject = addedObject || [self acceptDropForTexture:item pasteboard:pasteboard];
+	addedObject = addedObject || [self acceptDropForTexture:item pasteboard:pasteboard index:index];
 
 	addedObject = addedObject || [self acceptDropForWaveFiles:info pasteboard:pasteboard];
 
-	addedObject = addedObject || [self acceptDropForCCBFiles:item pasteboard:pasteboard];
+	addedObject = addedObject || [self acceptDropForCCBFiles:item pasteboard:pasteboard index:index];
 
-	addedObject = addedObject || [self acceptDropForPluginNodes:item index:index pasteboard:pasteboard];
+	addedObject = addedObject || [self acceptDropForPluginNodes:item pasteboard:pasteboard index:index];
 
 	addedObject = addedObject || [self acceptDropForJointBodies:item pasteboard:pasteboard];
 	
@@ -848,6 +848,9 @@ static SequencerHandler* sharedSequencerHandler;
 	return addedObject;
 }
 
+// this is called when applying effect to a CCSPrite
+// and dragging Refraction env from exemple to a node in the hierarchy
+// so we don't need index in hierarchy for this method
 - (BOOL)acceptDropForEffectSprite:(id)item pasteboard:(NSPasteboard *)pasteboard
 {
     if (![item isKindOfClass:[CCNode class]])
@@ -899,7 +902,7 @@ static SequencerHandler* sharedSequencerHandler;
 	return addedObject;
 }
 
-- (BOOL)acceptDropForPluginNodes:(id)item index:(NSInteger)index pasteboard:(NSPasteboard *)pasteboard
+- (BOOL)acceptDropForPluginNodes:(id)item pasteboard:(NSPasteboard *)pasteboard index:(NSInteger)index
 {
 	BOOL addedObject = NO;;
 	NSArray* pbNodePlugIn = [pasteboard propertyListsForType:PASTEBOARD_TYPE_PLUGINNODE];
@@ -934,13 +937,13 @@ static SequencerHandler* sharedSequencerHandler;
 	return addedObject;
 }
 
-- (BOOL)acceptDropForCCBFiles:(id)item pasteboard:(NSPasteboard *)pasteboard
+- (BOOL)acceptDropForCCBFiles:(id)item pasteboard:(NSPasteboard *)pasteboard index:(NSInteger)index
 {
 	BOOL addedObject = NO;;
 	NSArray* pbCCBs = [pasteboard propertyListsForType:PASTEBOARD_TYPE_CCB];
 	for (NSDictionary* dict in pbCCBs)
     {
-        [appDelegate dropAddCCBFileNamed:dict[@"ccbFile"] at:ccp(0, 0) parent:item];
+        [appDelegate dropAddCCBFileNamed:dict[@"ccbFile"] at:ccp(0, 0) parent:item index:index];
         addedObject = YES;
     }
 	return addedObject;
@@ -966,19 +969,19 @@ static SequencerHandler* sharedSequencerHandler;
 	return addedObject;
 }
 
-- (BOOL)acceptDropForTexture:(id)parent pasteboard:(NSPasteboard *)pasteboard
+- (BOOL)acceptDropForTexture:(id)parent pasteboard:(NSPasteboard *)pasteboard index:(NSInteger)index
 {
 	BOOL addedObject = NO;
 	NSArray* pbTextures = [pasteboard propertyListsForType:PASTEBOARD_TYPE_TEXTURE];
 	for (NSDictionary* dict in pbTextures)
     {
-        [appDelegate dropAddSpriteNamed:dict[@"spriteFile"] inSpriteSheet:dict[@"spriteSheetFile"] at:ccp(0, 0) parent:parent];
+        [appDelegate dropAddSpriteNamed:dict[@"spriteFile"] inSpriteSheet:dict[@"spriteSheetFile"] at:ccp(0, 0) parent:parent index:index];
         addedObject = YES;
     }
 	return addedObject;
 }
 
-- (BOOL)acceptDropForNodeType:(id)item index:(NSInteger)index clipData:(NSData *)clipData
+- (BOOL)acceptDropForNodeType:(id)item clipData:(NSData *)clipData index:(NSInteger)index
 {
 	NSArray *nodes = [self deserializeDraggedObjects:clipData];
 	for (NSDictionary *node in nodes)

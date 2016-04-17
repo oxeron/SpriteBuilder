@@ -2326,7 +2326,7 @@ typedef enum
     return [self addCCObject:obj toParent:parent atIndex:CCNODE_INDEX_LAST];
 }
 
-- (BOOL) addCCObject:(CCNode*)obj asChild:(BOOL)asChild
+- (BOOL) addCCObject:(CCNode*)obj asChild:(BOOL)asChild index:(NSInteger)index
 {
     SceneGraph* g = [SceneGraph instance];
     
@@ -2358,7 +2358,7 @@ typedef enum
     }
     
     
-    BOOL success = [self addCCObject:obj toParent:parent];
+    BOOL success = [self addCCObject:obj toParent:parent atIndex:index];
     
     if (!success && !asChild)
     {
@@ -2369,13 +2369,13 @@ typedef enum
     return success;
 }
 
-- (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild
+- (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild index:(NSInteger)index
 {
     [animationPlaybackManager stop];
     
     self.errorDescription = NULL;
     CCNode* node = [[PlugInManager sharedManager] createDefaultNodeOfType:name];
-    BOOL success = [self addCCObject:node asChild:asChild];
+    BOOL success = [self addCCObject:node asChild:asChild index:index];
     
     if (!success && self.errorDescription)
     {
@@ -2387,6 +2387,12 @@ typedef enum
 }
 
 - (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt parent:(CCNode*)parent
+{
+    [self dropAddSpriteNamed:spriteFile inSpriteSheet:spriteSheetFile at:pt parent:parent index:CCNODE_INDEX_LAST];
+}
+
+// index is the position in the hierarchy 
+- (void) dropAddSpriteNamed:(NSString*)spriteFile inSpriteSheet:(NSString*)spriteSheetFile at:(CGPoint)pt parent:(CCNode*)parent index:(NSInteger)index
 {
     [animationPlaybackManager stop];
     
@@ -2414,7 +2420,7 @@ typedef enum
         [CCBDictionaryReader setProp:prop ofType:@"SpriteFrame" toValue:[NSArray arrayWithObjects:spriteSheetFile, spriteFile, nil] forNode:node parentSize:CGSizeZero withParentGraph:nil];
         // Set it's displayName to the name of the spriteFile
         node.displayName = [[spriteFile lastPathComponent] stringByDeletingPathExtension];
-        [self addCCObject:node toParent:parent];
+        [self addCCObject:node toParent:parent atIndex:index];
     }
 }
 
@@ -2486,6 +2492,11 @@ typedef enum
 
 - (void) dropAddPlugInNodeNamed:(NSString*) nodeName at:(CGPoint)pt
 {
+    [self dropAddPlugInNodeNamed:nodeName at:pt index:CCNODE_INDEX_LAST];
+}
+
+- (void) dropAddPlugInNodeNamed:(NSString*) nodeName at:(CGPoint)pt index:(NSInteger)index
+{
     PlugInNode* pluginDescription = [[PlugInManager sharedManager] plugInNodeNamed:nodeName];
     if(pluginDescription.isJoint)
     {
@@ -2503,7 +2514,7 @@ typedef enum
     }
     
     // New node was dropped in working canvas
-    CCNode* addedNode = [self addPlugInNodeNamed:nodeName asChild:NO];
+    CCNode* addedNode = [self addPlugInNodeNamed:nodeName asChild:NO index:index];
     
     
     // Set position
@@ -2523,6 +2534,11 @@ typedef enum
 
 - (void) dropAddCCBFileNamed:(NSString*)ccbFile at:(CGPoint)pt parent:(CCNode*)parent
 {
+    [self dropAddCCBFileNamed:ccbFile at:pt parent:parent index:CCNODE_INDEX_LAST];
+}
+
+- (void) dropAddCCBFileNamed:(NSString*)ccbFile at:(CGPoint)pt parent:(CCNode*)parent index:(NSInteger)index
+{
     if (!parent)
     {
         if (self.selectedNode != [CocosScene cocosScene].rootNode)
@@ -2537,7 +2553,7 @@ typedef enum
     CCNode* node = [[PlugInManager sharedManager] createDefaultNodeOfType:@"CCBFile"];
     [NodeGraphPropertySetter setNodeGraphForNode:node andProperty:@"ccbFile" withFile:ccbFile parentSize:parent.contentSize];
     [PositionPropertySetter setPosition:NSPointFromCGPoint(pt) type:CCPositionTypePoints forNode:node prop:@"position"];
-    [self addCCObject:node toParent:parent];
+    [self addCCObject:node toParent:parent atIndex:index];
 }
 
 - (IBAction) copy:(id) sender
