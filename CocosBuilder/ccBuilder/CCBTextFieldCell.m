@@ -57,4 +57,9 @@
     return textObj;
 }
 
+- (NSArray *)textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index
+{
+    return nil;
+}
+
 @end
