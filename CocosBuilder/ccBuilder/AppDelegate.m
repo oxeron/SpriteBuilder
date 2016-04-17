@@ -2326,6 +2326,11 @@ typedef enum
     return [self addCCObject:obj toParent:parent atIndex:CCNODE_INDEX_LAST];
 }
 
+- (BOOL) addCCObject:(CCNode*)obj asChild:(BOOL)asChild
+{
+    return [self addCCObject:obj asChild:asChild index:CCNODE_INDEX_LAST];
+}
+
 - (BOOL) addCCObject:(CCNode*)obj asChild:(BOOL)asChild index:(NSInteger)index
 {
     SceneGraph* g = [SceneGraph instance];
@@ -2367,6 +2372,11 @@ typedef enum
     }
     
     return success;
+}
+
+- (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild
+{
+    return [self addPlugInNodeNamed:name asChild:asChild index:CCNODE_INDEX_LAST];
 }
 
 - (CCNode*) addPlugInNodeNamed:(NSString*)name asChild:(BOOL) asChild index:(NSInteger)index
