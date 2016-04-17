@@ -169,9 +169,7 @@ NSInteger const DEFAULT_TAG_VALUE_GLOBAL_DEFAULT_SCALING = -1;
     FSRef ref;
     OSStatus err = FSPathMakeRef((const UInt8*)pathFSR, &ref, /*isDirectory*/ NULL);
     if (err == noErr)
-    {
-        struct FSCatalogInfo catInfo;
-        
+    {       
         if (err == noErr)
         {
             struct FSCatalogInfo catInfo;
