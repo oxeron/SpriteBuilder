@@ -2122,8 +2122,8 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     if (isMouseTransforming || isPanning || currentMouseTransform != kCCBTransformHandleNone) return;
     if (!appDelegate.hasOpenedDocument) return;
     
-    int dx = [theEvent deltaX]*4;
-    int dy = -[theEvent deltaY]*4;
+    int dx = [theEvent deltaX]*8;
+    int dy = -[theEvent deltaY]*8;
     
     scrollOffset.x = scrollOffset.x+dx;
     scrollOffset.y = scrollOffset.y+dy;
