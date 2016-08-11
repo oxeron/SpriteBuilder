@@ -17,11 +17,10 @@ For more info, please visit [http://forum.cocos2d-objc.com](http://forum.cocos2d
 
  Just Build & Run CocosBuilder/CocosBuilder.xcodeproj 
 
-You need to use the BuildDistribution.sh script the first time you build CocosBuilder, after that you can build it from within Xcode.
 
 ## Still having trouble compiling CocosBuilder?
 
-It is most likely still a problem with the submodules. Edit the .git/config file and remove the lines that are referencing submodules. Then change directory into the top directory and run:
+It is most likely still a problem with the submodules(also don't forget to recursively checkout submodules). Edit the .git/config file and remove the lines that are referencing submodules. Then change directory into the top directory and run:
 
     git submodule update --init
 
