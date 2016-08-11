@@ -15,13 +15,7 @@ For more info, please visit [http://forum.cocos2d-objc.com](http://forum.cocos2d
 
 ## Getting started with the source
 
-Change directory into the top (this) directory of CocosBuilder and run:
-
-    git clone https://github.com/oxeron/CocosBuilder
-    cd CocosBuilder
-    git submodule update --init --recursive
-    cd scripts
-    ./build_distribution.py --version 1.5.0
+ Just Build & Run CocosBuilder/CocosBuilder.xcodeproj 
 
 You need to use the BuildDistribution.sh script the first time you build CocosBuilder, after that you can build it from within Xcode.
 
