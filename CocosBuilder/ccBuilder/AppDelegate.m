@@ -141,8 +141,8 @@
 #import "LocalizationEditorWindow.h"
 @import GoogleAnalyticsTracker;
 
-// default resolution menu is iPhone 6
-#define kDefaultResolution 2
+// default resolution menu is iPhone 5
+#define kDefaultResolution 0
 
 static const int CCNODE_INDEX_LAST = -1;
 
@@ -1315,11 +1315,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
-                [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6Landscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusLandscape]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPadLandscape]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
                 [updatedResolutions addObject:[ResolutionSetting settingAppleTV]];
             }
         }
@@ -1332,11 +1332,11 @@ typedef enum
             }
             else if (projectSettings.designTarget == kCCBDesignTargetFlexible)
             {
-                [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone5Portrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6Portrait]];
                 [updatedResolutions addObject:[ResolutionSetting settingIPhone6PlusPortrait]];
-                [updatedResolutions addObject:[ResolutionSetting settingIPadPortrait]];
+                [updatedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
             }
         }
     }
@@ -1899,11 +1899,11 @@ typedef enum
 
 - (void)openProject:(NSString *)fileName
 {
-    if (![fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]]
-        && ![fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
-    {
-        return;
-    }
+//    if (![fileName hasSuffix:[NSString stringWithFormat:@".%@", FOLDER_NAME_SUFFIX]]
+//        && ![fileName hasSuffix:[NSString stringWithFormat:@".%@", PROJECT_NAME_SUFFIX]])
+//    {
+//        return;
+//    }
     
     // remove trailing .ccbuilder/ccbproj
     NSString* projectName = [[fileName lastPathComponent] stringByDeletingPathExtension];

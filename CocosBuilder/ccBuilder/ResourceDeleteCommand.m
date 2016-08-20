@@ -30,11 +30,11 @@
                       foldersToDelete:foldersToDelete
                 packagesPathsToDelete:packagesToDelete];
 
-    if ([self willAllPackagesBeDeleted:packagesToDelete])
-    {
-        [NSAlert showModalDialogWithTitle:@"Error" message:@"At least one package must remain in the project."];
-        return;
-    }
+//    if ([self willAllPackagesBeDeleted:packagesToDelete])
+//    {
+//        [NSAlert showModalDialogWithTitle:@"Error" message:@"At least one package must remain in the project."];
+//        return;
+//    }
 
     [self deleteResourcesInArrays:resourcesToDelete
                   foldersToDelete:foldersToDelete

@@ -246,8 +246,10 @@
 
 - (void)addCustomPropertySettingsCustomProps:(NSArray *)customProps
 {
-    for (CustomPropSetting *setting in customProps)
-    {
+    for (int i=0; i< customProps.count; i++) {
+        CustomPropSetting *setting = [customProps objectAtIndex:i];
+    //for (CustomPropSetting *setting in customProps)
+    //{
         [self addInspectorPropertyOfType:@"Custom"
                                     name:setting.name
                              displayName:setting.name

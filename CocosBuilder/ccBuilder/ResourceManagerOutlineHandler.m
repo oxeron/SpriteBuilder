@@ -42,6 +42,7 @@
 #import "PackageRenamer.h"
 #import "PackageImporter.h"
 #import "PreviewViewControllerProtocol.h"
+#import "ResourceManagerUtil.h"
 
 @interface ResourceManagerOutlineHandler ()
 @property (nonatomic, strong) id <PreviewViewControllerProtocol> previewController;
@@ -86,7 +87,17 @@
     [resourceList reloadData];
 }
 
-
+- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id) item
+{
+    float height = 20;
+    RMResource *res = item;
+    if ([item isKindOfClass:[RMResource class]]) {
+        if (res.type == kCCBResTypeImage) {
+            height = kRMImagePreviewSize + 4;
+        }
+    }
+    return height;
+}
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
@@ -269,7 +280,8 @@
 		// FIXME: Do all images by type
         if (res.type == kCCBResTypeImage)
         {
-            icon = [self smallIconForFileType:@"png"];
+            //icon = [self smallIconForFileType:@"png"];
+            icon = [ResourceManagerUtil thumbnailImageForResource:item];
         }
         else if (res.type == kCCBResTypeBMFont)
         {

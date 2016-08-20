@@ -622,21 +622,21 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
                 }
 				
 				
-                if(!isContentSizeZero && !(overTypeField & kCCBToolAnchor) && currentMouseTransform == kCCBTransformHandleNone)
-                {
-                    if([self isOverAnchor:node withPoint:mousePos])
-                    {
-                        overTypeField |= kCCBToolAnchor;
-                    }
-                }
+//                if(!isContentSizeZero && !(overTypeField & kCCBToolAnchor) && currentMouseTransform == kCCBTransformHandleNone)
+//                {
+//                    if([self isOverAnchor:node withPoint:mousePos])
+//                    {
+//                        overTypeField |= kCCBToolAnchor;
+//                    }
+//                }
 
-                if(!isContentSizeZero && !(overTypeField & kCCBToolSkew) && currentMouseTransform == kCCBTransformHandleNone)
-                {
-                    if([self isOverSkew:node withPoint:mousePos withOrientation:&skewSegmentOrientation alongAxis:&skewSegment])
-                    {
-                        overTypeField |= kCCBToolSkew;
-                    }
-                }
+//                if(!isContentSizeZero && !(overTypeField & kCCBToolSkew) && currentMouseTransform == kCCBTransformHandleNone)
+//                {
+//                    if([self isOverSkew:node withPoint:mousePos withOrientation:&skewSegmentOrientation alongAxis:&skewSegment])
+//                    {
+//                        overTypeField |= kCCBToolSkew;
+//                    }
+//                }
 
                 if(!(overTypeField & kCCBToolRotate) && currentMouseTransform == kCCBTransformHandleNone)
                 {
@@ -646,13 +646,13 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
                     }
                 }
 
-                if(!(overTypeField & kCCBToolScale) && currentMouseTransform == kCCBTransformHandleNone)
-                {
-                   if([self isOverScale:mousePos withPoints:points withCorner:&cornerIndex withOrientation:&cornerOrientation])
-                   {
-                       overTypeField |= kCCBToolScale;
-                   }
-                }
+//                if(!(overTypeField & kCCBToolScale) && currentMouseTransform == kCCBTransformHandleNone)
+//                {
+//                   if([self isOverScale:mousePos withPoints:points withCorner:&cornerIndex withOrientation:&cornerOrientation])
+//                   {
+//                       overTypeField |= kCCBToolScale;
+//                   }
+//                }
                 
                 
                 if(!(overTypeField & kCCBToolTranslate) && currentMouseTransform == kCCBTransformHandleNone)
@@ -878,8 +878,8 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         CGPoint segment2 = ccpSub(p2, p3);
         CGPoint unitSegment2 = ccpNormalize(segment2);
         
-        const float kMinDistanceForRotation = 8.0f;
-        const float kMaxDistanceForRotation = 25.0f;
+        const float kMinDistanceForRotation = 1.0f; //8.0f
+        const float kMaxDistanceForRotation = 15.0f; //also this was 25.0f very annoying for many sprites placed one by ne very closely
        
         
         CGPoint mouseVector = ccpSub(_mousePos, p2);
@@ -1106,9 +1106,9 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         }
         
         //NOTE The following return statements should go in order of the CCBTool enumeration.
-        //kCCBToolAnchor
-        if(!isJoint && !isContentSizeZero && [self isOverAnchor:node withPoint:pt])
-            return kCCBTransformHandleAnchorPoint;
+//        //kCCBToolAnchor
+//        if(!isJoint && !isContentSizeZero && [self isOverAnchor:node withPoint:pt])
+//            return kCCBTransformHandleAnchorPoint;
         
         if([self isOverContentBorders:pt withPoints:points])
             return kCCBTransformHandleDownInside;
@@ -1654,7 +1654,7 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         
         //UpdateTheScaleTool
         cornerOrientation = ccpNormalize(deltaNew);
-        self.currentTool = kCCBToolScale;//force it to update.
+        //self.currentTool = kCCBToolScale;//force it to update.
 
     }
     else if (currentMouseTransform == kCCBTransformHandleRotate)
@@ -2062,13 +2062,13 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     {
         [[NSCursor closedHandCursor] push];
     }
-    else if(currentTool == kCCBToolAnchor)
-    {
-        NSImage * image = [NSImage imageNamed:@"select-crosshair"];
-        CGPoint centerPoint = CGPointMake(image.size.width/2, image.size.height/2);
-        NSCursor * cursor =  [[NSCursor alloc] initWithImage:image hotSpot:centerPoint];
-        [cursor push];
-    }
+//    else if(currentTool == kCCBToolAnchor)
+//    {
+//        NSImage * image = [NSImage imageNamed:@"select-crosshair"];
+//        CGPoint centerPoint = CGPointMake(image.size.width/2, image.size.height/2);
+//        NSCursor * cursor =  [[NSCursor alloc] initWithImage:image hotSpot:centerPoint];
+//        [cursor push];
+//    }
     else if (currentTool == kCCBToolRotate)
     {
         NSImage * image = [NSImage imageNamed:@"select-rotation"];
@@ -2079,32 +2079,32 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
         NSCursor * cursor =  [[NSCursor alloc] initWithImage:img hotSpot:centerPoint];
         [cursor push];
     }
-    else if(currentTool == kCCBToolScale)
-    {
-        NSImage * image = [NSImage imageNamed:@"select-scale"];
-        
-        float rotation = atan2f(cornerOrientation.y, cornerOrientation.x) + M_PI/2.0f;
-        NSImage *img =[self rotateImage:image rotation:rotation];
-        CGPoint centerPoint = CGPointMake(img.size.width/2, img.size.height/2);
-        NSCursor * cursor =  [[NSCursor alloc] initWithImage:img hotSpot:centerPoint];
-        [cursor push];
-        
-    }
-    else if (currentTool == kCCBToolSkew)
-    {
-        float rotation = atan2f(skewSegmentOrientation.y, skewSegmentOrientation.x);
-
-        //Rotate the Skew image.
-        NSImage * image = [NSImage imageNamed:@"select-skew"];
-        
-        NSImage *img =[self rotateImage:image rotation:rotation];
-
-        CGPoint centerPoint = CGPointMake(img.size.width/2, img.size.height/2);
-
-        NSCursor * cursor =  [[NSCursor alloc] initWithImage:img hotSpot:centerPoint];
-        [cursor push];
-        
-    }
+//    else if(currentTool == kCCBToolScale)
+//    {
+//        NSImage * image = [NSImage imageNamed:@"select-scale"];
+//        
+//        float rotation = atan2f(cornerOrientation.y, cornerOrientation.x) + M_PI/2.0f;
+//        NSImage *img =[self rotateImage:image rotation:rotation];
+//        CGPoint centerPoint = CGPointMake(img.size.width/2, img.size.height/2);
+//        NSCursor * cursor =  [[NSCursor alloc] initWithImage:img hotSpot:centerPoint];
+//        [cursor push];
+//        
+//    }
+//    else if (currentTool == kCCBToolSkew)
+//    {
+//        float rotation = atan2f(skewSegmentOrientation.y, skewSegmentOrientation.x);
+//
+//        //Rotate the Skew image.
+//        NSImage * image = [NSImage imageNamed:@"select-skew"];
+//        
+//        NSImage *img =[self rotateImage:image rotation:rotation];
+//
+//        CGPoint centerPoint = CGPointMake(img.size.width/2, img.size.height/2);
+//
+//        NSCursor * cursor =  [[NSCursor alloc] initWithImage:img hotSpot:centerPoint];
+//        [cursor push];
+//        
+//    }
     else if(currentTool == kCCBToolTranslate)
     {
         NSImage * image = [NSImage imageNamed:@"select-move"];
@@ -2122,8 +2122,8 @@ static NSString * kZeroContentSizeImage = @"sel-round.png";
     if (isMouseTransforming || isPanning || currentMouseTransform != kCCBTransformHandleNone) return;
     if (!appDelegate.hasOpenedDocument) return;
     
-    int dx = [theEvent deltaX]*4;
-    int dy = -[theEvent deltaY]*4;
+    int dx = [theEvent deltaX]*8;
+    int dy = -[theEvent deltaY]*8;
     
     scrollOffset.x = scrollOffset.x+dx;
     scrollOffset.y = scrollOffset.y+dy;
